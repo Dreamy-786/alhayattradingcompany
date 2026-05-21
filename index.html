@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,32 +8,36 @@
 
 <title>AL HAYAT TRADING COMPANY</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Montserrat',sans-serif;
 }
 
 body{
 background:#f5f5f5;
 overflow-x:hidden;
+color:#111;
 }
 
 /* HEADER */
 
-.topbar{
+header{
 background:#000;
-padding:18px 30px;
+padding:18px 35px;
 display:flex;
 align-items:center;
 justify-content:space-between;
 gap:20px;
 position:sticky;
 top:0;
-z-index:999;
+z-index:9999;
 }
 
 .logo{
@@ -44,44 +49,50 @@ gap:14px;
 .logo img{
 width:58px;
 height:58px;
-object-fit:cover;
 border-radius:10px;
+object-fit:cover;
 background:white;
 }
 
 .logo h1{
-color:white;
 font-size:28px;
 font-weight:900;
+color:white;
+letter-spacing:1px;
 }
 
-.search-wrapper{
+.search-box{
 flex:1;
-max-width:700px;
+max-width:850px;
 display:flex;
+background:white;
+border-radius:10px;
+overflow:hidden;
 }
 
-.search-wrapper input{
-width:100%;
-padding:16px;
-font-size:16px;
+.search-box input{
+flex:1;
+padding:18px;
 border:none;
 outline:none;
+font-size:16px;
+font-weight:600;
 }
 
-.search-btn{
-background:#f3a847;
+.search-box button{
+width:80px;
 border:none;
-padding:0 28px;
-font-weight:bold;
-font-size:16px;
+background:#ff9900;
+font-size:22px;
 cursor:pointer;
+font-weight:bold;
 }
 
 .contact{
 color:white;
+font-weight:700;
 font-size:15px;
-font-weight:bold;
+white-space:nowrap;
 }
 
 /* HERO */
@@ -89,7 +100,7 @@ font-weight:bold;
 .hero{
 height:420px;
 background:
-linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
 url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop');
 
 background-size:cover;
@@ -101,116 +112,114 @@ text-align:center;
 padding:20px;
 }
 
-.hero h2{
-font-size:60px;
-color:white;
+.hero-content h2{
+font-size:65px;
 font-weight:900;
-margin-bottom:15px;
+color:white;
+margin-bottom:18px;
 }
 
-.hero p{
+.hero-content p{
 font-size:24px;
+font-weight:600;
 color:white;
 }
 
 /* CATEGORY SECTION */
 
 .category-section{
-padding:40px 20px;
+padding:40px 30px;
+}
+
+.category-header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:25px;
 }
 
 .category-title{
 font-size:42px;
 font-weight:900;
-margin-bottom:30px;
-text-transform:uppercase;
 }
 
-/* PRODUCTS ROW */
+.view-all{
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+color:#ff9900;
+}
+
+/* PRODUCTS */
 
 .products-row{
-display:flex;
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
 gap:24px;
-overflow-x:auto;
-padding-bottom:10px;
-scroll-behavior:smooth;
 }
-
-.products-row::-webkit-scrollbar{
-height:8px;
-}
-
-.products-row::-webkit-scrollbar-thumb{
-background:#ccc;
-border-radius:20px;
-}
-
-/* CARD */
 
 .card{
-min-width:320px;
-max-width:320px;
 background:white;
-border-radius:16px;
+border-radius:18px;
 overflow:hidden;
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
-transition:0.3s;
+transition:.25s;
+cursor:pointer;
+box-shadow:0 3px 12px rgba(0,0,0,.08);
 display:flex;
 flex-direction:column;
 }
 
 .card:hover{
-transform:translateY(-6px);
+transform:translateY(-5px);
 }
 
-.card-image{
-height:300px;
-padding:20px;
+.product-image{
+height:320px;
 background:white;
 display:flex;
 align-items:center;
 justify-content:center;
-cursor:pointer;
+padding:25px;
 }
 
-.card-image img{
+.product-image img{
 width:100%;
 height:100%;
 object-fit:contain;
 }
 
-.card-content{
-padding:20px;
+.product-content{
+padding:22px;
 display:flex;
 flex-direction:column;
 height:100%;
 }
 
 .product-title{
-font-size:22px;
-font-weight:900;
-line-height:1.4;
+font-size:20px;
+font-weight:800;
+line-height:1.45;
 margin-bottom:12px;
-min-height:92px;
-cursor:pointer;
+min-height:85px;
 }
 
-.meta{
-font-size:15px;
-font-weight:bold;
-margin-bottom:8px;
-color:#444;
+.product-meta{
+font-size:14px;
+font-weight:700;
+color:#555;
+margin-bottom:6px;
 }
 
-.price{
+.product-price{
 font-size:34px;
 font-weight:900;
-margin:12px 0;
+margin-top:10px;
+margin-bottom:10px;
 }
 
 .stock{
-font-size:16px;
-font-weight:bold;
+font-size:15px;
+font-weight:800;
 margin-bottom:15px;
 }
 
@@ -222,16 +231,17 @@ color:green;
 color:red;
 }
 
-.view-btn{
+.card-btn{
 margin-top:auto;
+width:100%;
 padding:15px;
 border:none;
-background:#000;
-color:white;
-font-size:17px;
-font-weight:bold;
-cursor:pointer;
 border-radius:10px;
+font-size:17px;
+font-weight:800;
+background:#25D366;
+color:white;
+cursor:pointer;
 }
 
 /* MODAL */
@@ -242,19 +252,19 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.8);
+background:rgba(0,0,0,.75);
 display:none;
-justify-content:center;
 align-items:center;
-padding:20px;
-z-index:99999;
+justify-content:center;
+padding:25px;
+z-index:999999;
 }
 
 .modal-box{
 background:white;
 width:100%;
-max-width:1200px;
-border-radius:20px;
+max-width:1250px;
+border-radius:22px;
 overflow:hidden;
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -265,12 +275,12 @@ overflow-y:auto;
 
 .close-modal{
 position:absolute;
-top:15px;
-right:20px;
-font-size:40px;
-font-weight:bold;
+top:18px;
+right:24px;
+font-size:42px;
+font-weight:900;
 cursor:pointer;
-z-index:99;
+z-index:999;
 }
 
 .modal-left{
@@ -281,21 +291,21 @@ padding:30px;
 width:100%;
 height:500px;
 object-fit:contain;
+margin-bottom:20px;
 }
 
-.thumb-row{
+.thumbs{
 display:flex;
-gap:10px;
-margin-top:15px;
+gap:12px;
 flex-wrap:wrap;
 }
 
 .thumb{
-width:90px;
-height:90px;
+width:95px;
+height:95px;
 border:2px solid #ddd;
+border-radius:12px;
 padding:5px;
-border-radius:10px;
 object-fit:contain;
 cursor:pointer;
 }
@@ -305,42 +315,55 @@ padding:35px;
 }
 
 .modal-title{
-font-size:40px;
+font-size:38px;
 font-weight:900;
 line-height:1.4;
-margin-bottom:18px;
-}
-
-.modal-price{
-font-size:48px;
-font-weight:900;
 margin-bottom:15px;
 }
 
+.modal-price{
+font-size:46px;
+font-weight:900;
+margin-bottom:16px;
+}
+
 .modal-detail{
-font-size:18px;
-font-weight:bold;
+font-size:16px;
+font-weight:700;
 margin-bottom:12px;
 }
 
 .flavour-select{
 width:100%;
-padding:16px;
-font-size:16px;
-border:1px solid #ccc;
+padding:15px;
 border-radius:10px;
-margin:20px 0;
+border:1px solid #ccc;
+font-size:16px;
+margin-bottom:20px;
+}
+
+.features{
+margin-top:10px;
+padding-left:18px;
+margin-bottom:25px;
+}
+
+.features li{
+margin-bottom:10px;
+font-size:15px;
+line-height:1.5;
+font-weight:600;
 }
 
 .order-btn{
 width:100%;
 padding:18px;
-background:#25D366;
 border:none;
 border-radius:12px;
-color:white;
+background:#25D366;
 font-size:20px;
-font-weight:bold;
+font-weight:900;
+color:white;
 cursor:pointer;
 }
 
@@ -348,10 +371,10 @@ cursor:pointer;
 
 .float{
 position:fixed;
-right:20px;
-bottom:20px;
-width:70px;
-height:70px;
+right:18px;
+bottom:18px;
+width:72px;
+height:72px;
 background:#25D366;
 border-radius:50%;
 display:flex;
@@ -368,39 +391,62 @@ z-index:999;
 footer{
 background:#000;
 color:white;
-padding:30px;
 text-align:center;
-margin-top:50px;
+padding:35px;
+margin-top:40px;
+font-weight:700;
 }
 
 /* MOBILE */
 
 @media(max-width:900px){
 
-.topbar{
-flex-direction:column;
-align-items:stretch;
-}
-
-.logo{
-justify-content:center;
+header{
+padding:14px;
+flex-wrap:wrap;
 }
 
 .logo h1{
-font-size:20px;
-text-align:center;
+font-size:18px;
+}
+
+.contact{
+display:none;
 }
 
 .hero{
 height:300px;
 }
 
-.hero h2{
+.hero-content h2{
 font-size:34px;
 }
 
-.hero p{
-font-size:18px;
+.hero-content p{
+font-size:16px;
+}
+
+.category-title{
+font-size:28px;
+}
+
+.products-row{
+grid-template-columns:1fr 1fr;
+gap:14px;
+}
+
+.product-image{
+height:220px;
+padding:15px;
+}
+
+.product-title{
+font-size:15px;
+min-height:auto;
+}
+
+.product-price{
+font-size:24px;
 }
 
 .modal-box{
@@ -411,13 +457,20 @@ grid-template-columns:1fr;
 height:320px;
 }
 
-.category-title{
+.modal-title{
 font-size:28px;
 }
 
-.card{
-min-width:280px;
-max-width:280px;
+.modal-price{
+font-size:34px;
+}
+
+}
+
+@media(max-width:600px){
+
+.products-row{
+grid-template-columns:1fr;
 }
 
 }
@@ -428,28 +481,26 @@ max-width:280px;
 
 <body>
 
-<!-- HEADER -->
-
-<header class="topbar">
+<header>
 
 <div class="logo">
 
 <img src="https://i.postimg.cc/ncHVXSW3/LOGO.jpg">
 
-<h1>AL HAYAT TRADING COMPANY</h1>
+<h1>AL HAYAT TRADING</h1>
 
 </div>
 
-<div class="search-wrapper">
+<div class="search-box">
 
 <input
 type="text"
-placeholder="Search Supplements..."
+placeholder="Search supplements..."
 id="searchInput"
 onkeyup="searchProducts()">
 
-<button class="search-btn">
-Search
+<button>
+🔍
 </button>
 
 </div>
@@ -460,27 +511,21 @@ Search
 
 </header>
 
-<!-- HERO -->
-
 <section class="hero">
 
-<div>
+<div class="hero-content">
 
-<h2>
-100% Authentic Imported Supplements
-</h2>
+<h2>100% Authentic Imported Supplements</h2>
 
 <p>
-Protein • Creatine • Pre Workout • Recovery
+Whey Protein • Creatine • Pre Workout • Mass Gainer • Protein Snacks
 </p>
 
 </div>
 
 </section>
 
-<!-- PRODUCTS -->
-
-<div id="mainContainer"></div>
+<div id="allCategories"></div>
 
 <!-- MODAL -->
 
@@ -496,7 +541,7 @@ Protein • Creatine • Pre Workout • Recovery
 
 <img id="mainImage" class="main-image">
 
-<div class="thumb-row" id="thumbRow"></div>
+<div class="thumbs" id="thumbs"></div>
 
 </div>
 
@@ -506,7 +551,7 @@ Protein • Creatine • Pre Workout • Recovery
 
 <div id="modalPrice" class="modal-price"></div>
 
-<div id="modalStock" class="modal-detail"></div>
+<div id="modalStock" class="stock"></div>
 
 <div id="modalSize" class="modal-detail"></div>
 
@@ -514,8 +559,10 @@ Protein • Creatine • Pre Workout • Recovery
 
 <select id="flavourDropdown" class="flavour-select"></select>
 
+<ul id="modalFeatures" class="features"></ul>
+
 <button id="orderBtn" class="order-btn">
-Order on WhatsApp
+Order On WhatsApp
 </button>
 
 </div>
@@ -526,14 +573,14 @@ Order on WhatsApp
 
 <footer>
 
-© 2026 AL HAYAT TRADING COMPANY
+© 2026 AL HAYAT TRADING COMPANY — ALL RIGHTS RESERVED
 
 </footer>
 
 <a
 href="https://wa.me/917710077786"
-target="_blank"
-class="float">
+class="float"
+target="_blank">
 
 💬
 
@@ -548,6 +595,62 @@ const WHATSAPP =
 "917710077786";
 
 let allProducts = [];
+let groupedProducts = [];
+
+function clean(text){
+
+if(!text) return "";
+
+return text.replace(/"/g,"").trim();
+
+}
+
+function getFeatures(product){
+
+const title =
+(product.item || "").toLowerCase();
+
+if(title.includes("whey")){
+
+return [
+"Supports Lean Muscle Recovery",
+"Premium Imported Whey Protein",
+"Fast Mixing & Great Taste",
+"Trusted International Brand"
+];
+
+}
+
+if(title.includes("creatine")){
+
+return [
+"Increases Strength & Performance",
+"Supports Muscle Power",
+"Micronized Formula",
+"Ideal For Daily Training"
+];
+
+}
+
+if(title.includes("pre")){
+
+return [
+"Supports Energy & Focus",
+"Improves Workout Performance",
+"Advanced Pre Workout Formula",
+"Popular Imported Supplement"
+];
+
+}
+
+return [
+"100% Authentic Imported Supplement",
+"Premium International Formula",
+"Trusted Sports Nutrition Brand",
+"Supports Fitness Goals"
+];
+
+}
 
 async function loadProducts(){
 
@@ -571,7 +674,7 @@ row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
 
 if(!cols || cols.length < 12) return;
 
-allProducts.push({
+const product = {
 
 sku: clean(cols[0]),
 brand: clean(cols[1]),
@@ -585,56 +688,53 @@ image1: clean(cols[8]),
 image2: clean(cols[9]),
 image3: clean(cols[10])
 
-});
+};
+
+product.features =
+getFeatures(product);
+
+allProducts.push(product);
 
 });
 
-renderProducts(allProducts);
+renderCategories(allProducts);
 
-}catch(err){
+}catch(error){
 
-document.getElementById("mainContainer").innerHTML =
-"<h2 style='padding:40px'>Unable To Load Products</h2>";
+document.getElementById("allCategories").innerHTML =
+"<h2 style='padding:40px;color:red;'>Unable To Load Products</h2>";
 
-console.log(err);
-
-}
+console.log(error);
 
 }
 
-function clean(text){
-
-if(!text) return "";
-
-return text.replace(/"/g,"").trim();
-
 }
 
-function renderProducts(products){
+function renderCategories(products){
 
 const container =
-document.getElementById("mainContainer");
+document.getElementById("allCategories");
 
 container.innerHTML = "";
 
-const groupedCategories = {};
+const categories = {};
 
 products.forEach(product=>{
 
 const category =
 product.category || "Supplements";
 
-if(!groupedCategories[category]){
+if(!categories[category]){
 
-groupedCategories[category] = [];
+categories[category] = [];
 
 }
 
-groupedCategories[category].push(product);
+categories[category].push(product);
 
 });
 
-Object.keys(groupedCategories).forEach(category=>{
+Object.keys(categories).forEach(category=>{
 
 const section =
 document.createElement("div");
@@ -642,63 +742,61 @@ document.createElement("div");
 section.className =
 "category-section";
 
-section.innerHTML =
+section.innerHTML = `
 
-`
+<div class="category-header">
 
 <div class="category-title">
 ${category}
 </div>
 
+</div>
+
 <div class="products-row">
 
-${groupedCategories[category].map(product => `
+${categories[category].map((product,index)=>`
 
-<div class="card">
+<div class="card" onclick="openModal('${product.sku}')">
 
-<div
-class="card-image"
-onclick='openModal(${JSON.stringify(product)})'>
+<div class="product-image">
 
-<img src="${product.image1}">
+<img src="${product.image1}" loading="lazy">
 
 </div>
 
-<div class="card-content">
+<div class="product-content">
 
-<div
-class="product-title"
-onclick='openModal(${JSON.stringify(product)})'>
-
+<div class="product-title">
 ${product.item}
-
 </div>
 
-<div class="meta">
+<div class="product-meta">
+${product.brand}
+</div>
+
+<div class="product-meta">
 ${product.flavour}
 </div>
 
-<div class="meta">
+<div class="product-meta">
 ${product.size}
 </div>
 
-<div class="price">
+<div class="product-price">
 ₹${product.price}
 </div>
 
-<div class="stock ${product.stock.toLowerCase().includes("out") ? "outstock" : "instock"}">
+<div class="stock ${product.stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}">
 ${product.stock}
 </div>
 
-<button
-class="view-btn"
-onclick='openModal(${JSON.stringify(product)})'>
+<button class="card-btn">
 
-${product.stock.toLowerCase().includes("out")
+${product.stock.toLowerCase().includes('out')
 ?
-"Out Of Stock"
+'Out Of Stock'
 :
-"View Product"}
+'View Product'}
 
 </button>
 
@@ -722,54 +820,72 @@ function searchProducts(){
 
 const text =
 document.getElementById("searchInput")
-.value.toLowerCase();
+.value
+.toLowerCase();
+
+if(text === ""){
+
+renderCategories(allProducts);
+return;
+
+}
 
 const filtered =
 allProducts.filter(product =>
 
-product.item.toLowerCase().includes(text)
-
+(product.item || "").toLowerCase().includes(text)
 ||
-
-product.brand.toLowerCase().includes(text)
-
+(product.brand || "").toLowerCase().includes(text)
 ||
-
-product.category.toLowerCase().includes(text)
+(product.category || "").toLowerCase().includes(text)
 
 );
 
-renderProducts(filtered);
+renderCategories(filtered);
 
 }
 
-function openModal(product){
+function openModal(sku){
 
-document.getElementById("modal")
-.style.display = "flex";
+const group =
+allProducts.filter(p => p.sku === sku);
 
-document.getElementById("mainImage")
-.src = product.image1;
+const product =
+group[0];
 
-document.getElementById("modalTitle")
-.innerText = product.item;
+document.getElementById("modal").style.display =
+"flex";
 
-document.getElementById("modalPrice")
-.innerText = `₹${product.price}`;
+document.getElementById("mainImage").src =
+product.image1;
 
-document.getElementById("modalStock")
-.innerText = `Stock: ${product.stock}`;
+document.getElementById("modalTitle").innerText =
+product.item;
 
-document.getElementById("modalSize")
-.innerText = `Size: ${product.size}`;
+document.getElementById("modalPrice").innerText =
+`₹${product.price}`;
 
-document.getElementById("modalFlavor")
-.innerText = `Flavor: ${product.flavour}`;
+document.getElementById("modalStock").innerText =
+product.stock;
 
-document.getElementById("thumbRow")
-.innerHTML =
+document.getElementById("modalStock").className =
+`stock ${product.stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}`;
 
-`
+document.getElementById("modalSize").innerText =
+`Size: ${product.size}`;
+
+document.getElementById("modalFlavor").innerText =
+`Flavor: ${product.flavour}`;
+
+document.getElementById("modalFeatures").innerHTML =
+
+product.features.map(feature =>
+
+`<li>${feature}</li>`
+
+).join("");
+
+document.getElementById("thumbs").innerHTML = `
 
 <img class="thumb" src="${product.image1}" onclick="changeImage('${product.image1}')">
 
@@ -779,13 +895,7 @@ document.getElementById("thumbRow")
 
 `;
 
-document.getElementById("flavourDropdown")
-.innerHTML =
-
-`<option>${product.flavour}</option>`;
-
-document.getElementById("orderBtn")
-.onclick = function(){
+document.getElementById("orderBtn").onclick = function(){
 
 const message =
 
@@ -799,7 +909,9 @@ Flavor: ${product.flavour}
 
 Size: ${product.size}
 
-Price: ₹${product.price}`;
+Price: ₹${product.price}
+
+Please share payment details.`;
 
 window.open(
 
@@ -815,21 +927,35 @@ window.open(
 
 function changeImage(src){
 
-document.getElementById("mainImage")
-.src = src;
+document.getElementById("mainImage").src =
+src;
 
 }
 
 function closeModal(){
 
-document.getElementById("modal")
-.style.display = "none";
+document.getElementById("modal").style.display =
+"none";
 
 }
+
+window.onclick = function(event){
+
+const modal =
+document.getElementById("modal");
+
+if(event.target === modal){
+
+closeModal();
+
+}
+
+};
 
 loadProducts();
 
 </script>
 
 </body>
+
 </html>
