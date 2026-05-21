@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AL HAYAT TRADING COMPANY | Imported Supplements India</title>
+<title>AL HAYAT TRADING COMPANY</title>
 
 <style>
 
@@ -18,173 +17,77 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#eaeded;
+background:#f5f5f5;
 overflow-x:hidden;
 }
 
 /* HEADER */
 
 .topbar{
-background:#131921;
-padding:12px 18px;
+background:#000;
+padding:18px 30px;
 display:flex;
 align-items:center;
-gap:14px;
+justify-content:space-between;
+gap:20px;
 position:sticky;
 top:0;
 z-index:999;
 }
 
-.menu-btn{
-background:none;
-border:none;
-font-size:28px;
-color:white;
-cursor:pointer;
-}
-
 .logo{
 display:flex;
 align-items:center;
-gap:12px;
-min-width:320px;
+gap:14px;
 }
 
 .logo img{
-width:55px;
-height:55px;
+width:58px;
+height:58px;
 object-fit:cover;
-border-radius:8px;
+border-radius:10px;
 background:white;
 }
 
 .logo h1{
 color:white;
-font-size:24px;
+font-size:28px;
 font-weight:900;
-white-space:nowrap;
 }
 
 .search-wrapper{
 flex:1;
-position:relative;
+max-width:700px;
 display:flex;
 }
 
 .search-wrapper input{
 width:100%;
-padding:15px;
+padding:16px;
 font-size:16px;
 border:none;
 outline:none;
-border-radius:8px 0 0 8px;
 }
 
 .search-btn{
 background:#f3a847;
 border:none;
-padding:0 24px;
+padding:0 28px;
 font-weight:bold;
+font-size:16px;
 cursor:pointer;
-border-radius:0 8px 8px 0;
 }
 
 .contact{
 color:white;
-font-weight:bold;
 font-size:15px;
-white-space:nowrap;
-}
-
-/* SEARCH */
-
-.suggestions{
-position:absolute;
-top:100%;
-left:0;
-width:100%;
-background:white;
-border-radius:0 0 10px 10px;
-overflow:hidden;
-display:none;
-box-shadow:0 4px 10px rgba(0,0,0,0.15);
-z-index:999;
-max-height:350px;
-overflow-y:auto;
-}
-
-.suggestion-item{
-padding:12px;
-cursor:pointer;
-border-bottom:1px solid #eee;
-}
-
-.suggestion-item:hover{
-background:#f5f5f5;
-}
-
-/* SIDEBAR */
-
-.sidebar{
-position:fixed;
-left:-330px;
-top:0;
-width:330px;
-height:100%;
-background:white;
-z-index:99999;
-overflow-y:auto;
-transition:0.3s;
-box-shadow:0 0 20px rgba(0,0,0,0.25);
-}
-
-.sidebar.active{
-left:0;
-}
-
-.sidebar-header{
-background:#131921;
-color:white;
-padding:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-font-size:28px;
-font-weight:900;
-}
-
-.close-sidebar{
-cursor:pointer;
-font-size:38px;
-}
-
-.sidebar-section{
-padding:20px;
-border-bottom:1px solid #eee;
-}
-
-.sidebar-title{
-font-size:24px;
-font-weight:900;
-margin-bottom:18px;
-}
-
-.sidebar-item{
-padding:12px 0;
-font-size:16px;
-cursor:pointer;
-transition:0.2s;
-}
-
-.sidebar-item:hover{
-color:#ff9900;
-padding-left:8px;
+font-weight:bold;
 }
 
 /* HERO */
 
 .hero{
-height:430px;
+height:420px;
 background:
 linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
 url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop');
@@ -198,62 +101,79 @@ text-align:center;
 padding:20px;
 }
 
-.hero-content h2{
+.hero h2{
+font-size:60px;
 color:white;
-font-size:56px;
 font-weight:900;
 margin-bottom:15px;
 }
 
-.hero-content p{
-color:white;
+.hero p{
 font-size:24px;
+color:white;
 }
 
-/* SECTION */
+/* CATEGORY SECTION */
 
-.section-title{
+.category-section{
+padding:40px 20px;
+}
+
+.category-title{
 font-size:42px;
 font-weight:900;
-padding:30px 24px 10px;
+margin-bottom:30px;
+text-transform:uppercase;
 }
 
-/* PRODUCTS */
+/* PRODUCTS ROW */
 
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+.products-row{
+display:flex;
 gap:24px;
-padding:24px;
-max-width:1700px;
-margin:auto;
+overflow-x:auto;
+padding-bottom:10px;
+scroll-behavior:smooth;
 }
+
+.products-row::-webkit-scrollbar{
+height:8px;
+}
+
+.products-row::-webkit-scrollbar-thumb{
+background:#ccc;
+border-radius:20px;
+}
+
+/* CARD */
 
 .card{
+min-width:320px;
+max-width:320px;
 background:white;
-border-radius:18px;
+border-radius:16px;
 overflow:hidden;
-box-shadow:0 4px 14px rgba(0,0,0,0.1);
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
 transition:0.3s;
 display:flex;
 flex-direction:column;
 }
 
 .card:hover{
-transform:translateY(-5px);
+transform:translateY(-6px);
 }
 
-.image-area{
-height:330px;
+.card-image{
+height:300px;
+padding:20px;
 background:white;
 display:flex;
 align-items:center;
 justify-content:center;
-padding:20px;
 cursor:pointer;
 }
 
-.image-area img{
+.card-image img{
 width:100%;
 height:100%;
 object-fit:contain;
@@ -271,26 +191,27 @@ font-size:22px;
 font-weight:900;
 line-height:1.4;
 margin-bottom:12px;
+min-height:92px;
 cursor:pointer;
 }
 
 .meta{
 font-size:15px;
 font-weight:bold;
-margin-bottom:10px;
+margin-bottom:8px;
 color:#444;
 }
 
 .price{
-font-size:36px;
+font-size:34px;
 font-weight:900;
-margin-bottom:10px;
+margin:12px 0;
 }
 
 .stock{
 font-size:16px;
 font-weight:bold;
-margin-bottom:14px;
+margin-bottom:15px;
 }
 
 .instock{
@@ -301,28 +222,16 @@ color:green;
 color:red;
 }
 
-.bullets{
-padding-left:20px;
-margin-bottom:20px;
-}
-
-.bullets li{
-margin-bottom:8px;
-font-size:15px;
-line-height:1.45;
-}
-
-.card-btn{
+.view-btn{
 margin-top:auto;
-width:100%;
 padding:15px;
-background:#25D366;
 border:none;
-border-radius:10px;
-font-size:18px;
-font-weight:bold;
+background:#000;
 color:white;
+font-size:17px;
+font-weight:bold;
 cursor:pointer;
+border-radius:10px;
 }
 
 /* MODAL */
@@ -333,22 +242,22 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.75);
+background:rgba(0,0,0,0.8);
 display:none;
 justify-content:center;
 align-items:center;
 padding:20px;
-z-index:999999;
+z-index:99999;
 }
 
-.modal-content{
+.modal-box{
 background:white;
 width:100%;
 max-width:1200px;
 border-radius:20px;
+overflow:hidden;
 display:grid;
 grid-template-columns:1fr 1fr;
-overflow:hidden;
 position:relative;
 max-height:95vh;
 overflow-y:auto;
@@ -356,28 +265,28 @@ overflow-y:auto;
 
 .close-modal{
 position:absolute;
-top:12px;
+top:15px;
 right:20px;
-font-size:42px;
+font-size:40px;
 font-weight:bold;
 cursor:pointer;
-z-index:999;
+z-index:99;
 }
 
-.left-modal{
-padding:24px;
+.modal-left{
+padding:30px;
 }
 
 .main-image{
 width:100%;
-height:480px;
+height:500px;
 object-fit:contain;
-margin-bottom:20px;
 }
 
-.thumbs{
+.thumb-row{
 display:flex;
 gap:10px;
+margin-top:15px;
 flex-wrap:wrap;
 }
 
@@ -385,42 +294,42 @@ flex-wrap:wrap;
 width:90px;
 height:90px;
 border:2px solid #ddd;
-border-radius:10px;
 padding:5px;
+border-radius:10px;
 object-fit:contain;
 cursor:pointer;
 }
 
-.right-modal{
-padding:30px;
+.modal-right{
+padding:35px;
 }
 
 .modal-title{
-font-size:36px;
+font-size:40px;
 font-weight:900;
-line-height:1.45;
+line-height:1.4;
 margin-bottom:18px;
 }
 
 .modal-price{
-font-size:44px;
+font-size:48px;
 font-weight:900;
-margin-bottom:14px;
+margin-bottom:15px;
 }
 
 .modal-detail{
-font-size:16px;
+font-size:18px;
 font-weight:bold;
 margin-bottom:12px;
 }
 
 .flavour-select{
 width:100%;
-padding:14px;
+padding:16px;
 font-size:16px;
-border-radius:10px;
 border:1px solid #ccc;
-margin-bottom:18px;
+border-radius:10px;
+margin:20px 0;
 }
 
 .order-btn{
@@ -428,7 +337,7 @@ width:100%;
 padding:18px;
 background:#25D366;
 border:none;
-border-radius:10px;
+border-radius:12px;
 color:white;
 font-size:20px;
 font-weight:bold;
@@ -441,59 +350,74 @@ cursor:pointer;
 position:fixed;
 right:20px;
 bottom:20px;
-width:72px;
-height:72px;
+width:70px;
+height:70px;
 background:#25D366;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
 font-size:34px;
-text-decoration:none;
 color:white;
+text-decoration:none;
 z-index:999;
 }
 
 /* FOOTER */
 
 footer{
-background:#131921;
+background:#000;
 color:white;
+padding:30px;
 text-align:center;
-padding:35px;
-margin-top:40px;
+margin-top:50px;
 }
 
 /* MOBILE */
 
 @media(max-width:900px){
 
-.logo h1{
-font-size:18px;
+.topbar{
+flex-direction:column;
+align-items:stretch;
 }
 
-.contact{
-display:none;
+.logo{
+justify-content:center;
+}
+
+.logo h1{
+font-size:20px;
+text-align:center;
 }
 
 .hero{
 height:300px;
 }
 
-.hero-content h2{
+.hero h2{
 font-size:34px;
 }
 
-.hero-content p{
+.hero p{
 font-size:18px;
 }
 
-.modal-content{
+.modal-box{
 grid-template-columns:1fr;
 }
 
 .main-image{
 height:320px;
+}
+
+.category-title{
+font-size:28px;
+}
+
+.card{
+min-width:280px;
+max-width:280px;
 }
 
 }
@@ -504,61 +428,9 @@ height:320px;
 
 <body>
 
-<!-- SIDEBAR -->
-
-<div class="sidebar" id="sidebar">
-
-<div class="sidebar-header">
-
-Menu
-
-<div class="close-sidebar" onclick="closeSidebar()">
-×
-</div>
-
-</div>
-
-<div class="sidebar-section">
-
-<div class="sidebar-title">
-HOME
-</div>
-
-<div class="sidebar-item" onclick="showAllProducts()">
-All Products
-</div>
-
-</div>
-
-<div class="sidebar-section">
-
-<div class="sidebar-title">
-SHOP BY BRAND
-</div>
-
-<div id="brandContainer"></div>
-
-</div>
-
-<div class="sidebar-section">
-
-<div class="sidebar-title">
-SHOP BY CATEGORY
-</div>
-
-<div id="categoryContainer"></div>
-
-</div>
-
-</div>
-
 <!-- HEADER -->
 
 <header class="topbar">
-
-<button class="menu-btn" onclick="openSidebar()">
-☰
-</button>
 
 <div class="logo">
 
@@ -574,13 +446,11 @@ SHOP BY CATEGORY
 type="text"
 placeholder="Search Supplements..."
 id="searchInput"
-onkeyup="showSuggestions()">
+onkeyup="searchProducts()">
 
-<button class="search-btn" onclick="searchProducts()">
+<button class="search-btn">
 Search
 </button>
-
-<div class="suggestions" id="suggestions"></div>
 
 </div>
 
@@ -594,49 +464,49 @@ Search
 
 <section class="hero">
 
-<div class="hero-content">
+<div>
 
-<h2>100% Authentic Imported Supplements</h2>
+<h2>
+100% Authentic Imported Supplements
+</h2>
 
 <p>
-Whey Protein • Creatine • Pre Workout • Protein Snacks
+Protein • Creatine • Pre Workout • Recovery
 </p>
 
 </div>
 
 </section>
 
-<h2 class="section-title">
-Featured Supplements
-</h2>
+<!-- PRODUCTS -->
 
-<div class="products" id="products"></div>
+<div id="mainContainer"></div>
 
 <!-- MODAL -->
 
 <div class="modal" id="modal">
 
-<div class="modal-content">
+<div class="modal-box">
 
 <div class="close-modal" onclick="closeModal()">
 ×
 </div>
 
-<div class="left-modal">
+<div class="modal-left">
 
 <img id="mainImage" class="main-image">
 
-<div class="thumbs" id="thumbs"></div>
+<div class="thumb-row" id="thumbRow"></div>
 
 </div>
 
-<div class="right-modal">
+<div class="modal-right">
 
-<h2 id="modalTitle" class="modal-title"></h2>
+<div id="modalTitle" class="modal-title"></div>
 
 <div id="modalPrice" class="modal-price"></div>
 
-<div id="modalStock" class="stock"></div>
+<div id="modalStock" class="modal-detail"></div>
 
 <div id="modalSize" class="modal-detail"></div>
 
@@ -644,9 +514,7 @@ Featured Supplements
 
 <select id="flavourDropdown" class="flavour-select"></select>
 
-<ul id="modalBullets" class="bullets"></ul>
-
-<button id="orderButton" class="order-btn">
+<button id="orderBtn" class="order-btn">
 Order on WhatsApp
 </button>
 
@@ -658,14 +526,14 @@ Order on WhatsApp
 
 <footer>
 
-© 2026 AL HAYAT TRADING COMPANY — All Rights Reserved
+© 2026 AL HAYAT TRADING COMPANY
 
 </footer>
 
 <a
-class="float"
 href="https://wa.me/917710077786"
-target="_blank">
+target="_blank"
+class="float">
 
 💬
 
@@ -680,110 +548,19 @@ const WHATSAPP =
 "917710077786";
 
 let allProducts = [];
-let groupedProducts = [];
-let filteredProducts = [];
-
-/* CLEAN */
-
-function clean(text){
-
-if(!text) return "";
-
-return text
-.replace(/"/g,"")
-.trim();
-
-}
-
-/* MAIN CATEGORY */
-
-function getMainCategory(category){
-
-const cat = category.toLowerCase();
-
-if(
-cat.includes("protein") ||
-cat.includes("isolate") ||
-cat.includes("hydrolyzed") ||
-cat.includes("casein")
-){
-return "Proteins";
-}
-
-if(cat.includes("pre")){
-return "Pre Workout";
-}
-
-if(cat.includes("fat")){
-return "Fat Burners";
-}
-
-if(cat.includes("testosterone")){
-return "Testosterone Support";
-}
-
-return "Supplements";
-
-}
-
-/* BULLETS */
-
-function getBullets(product){
-
-const title = product.item.toLowerCase();
-
-if(title.includes("isoflex")){
-
-return [
-"100% Whey Protein Isolate",
-"Supports Lean Muscle Recovery",
-"Fast Digesting Protein Formula",
-"Low Sugar & Low Fat"
-];
-
-}
-
-if(title.includes("mesomorph")){
-
-return [
-"Extreme Energy & Focus",
-"Supports Intense Workouts",
-"Advanced Pre Workout Formula",
-"High Performance Blend"
-];
-
-}
-
-if(title.includes("anabol")){
-
-return [
-"Supports Muscle Strength",
-"Helps Training Performance",
-"Advanced Hardcore Formula",
-"Popular Muscle Support Product"
-];
-
-}
-
-return [
-"Premium Imported Supplement",
-"Trusted International Brand",
-"High Quality Formula",
-"Supports Fitness Goals"
-];
-
-}
-
-/* LOAD PRODUCTS */
 
 async function loadProducts(){
 
 try{
 
-const response = await fetch(CSV_URL);
-const csv = await response.text();
+const response =
+await fetch(CSV_URL);
 
-const rows = csv.trim().split("\n").slice(1);
+const csv =
+await response.text();
+
+const rows =
+csv.trim().split("\n").slice(1);
 
 allProducts = [];
 
@@ -792,9 +569,9 @@ rows.forEach(row=>{
 const cols =
 row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
 
-if(!cols || cols.length < 11) return;
+if(!cols || cols.length < 12) return;
 
-const product = {
+allProducts.push({
 
 sku: clean(cols[0]),
 brand: clean(cols[1]),
@@ -808,146 +585,80 @@ image1: clean(cols[8]),
 image2: clean(cols[9]),
 image3: clean(cols[10])
 
-};
-
-product.mainCategory =
-getMainCategory(product.category);
-
-product.bullets =
-getBullets(product);
-
-allProducts.push(product);
+});
 
 });
 
-filteredProducts = [...allProducts];
-
-renderSidebar();
-renderProducts();
+renderProducts(allProducts);
 
 }catch(err){
 
+document.getElementById("mainContainer").innerHTML =
+"<h2 style='padding:40px'>Unable To Load Products</h2>";
+
 console.log(err);
 
-document.getElementById("products").innerHTML =
-"<h2 style='padding:30px;'>Unable To Load Products</h2>";
-
 }
 
 }
 
-/* SIDEBAR */
+function clean(text){
 
-function renderSidebar(){
+if(!text) return "";
 
-const brands =
-[...new Set(allProducts.map(p=>p.brand))];
-
-document.getElementById("brandContainer")
-.innerHTML =
-
-brands.map(brand=>`
-
-<div
-class="sidebar-item"
-onclick="filterBrand('${brand}')">
-
-${brand}
-
-</div>
-
-`).join("");
-
-const categories =
-[...new Set(allProducts.map(p=>p.mainCategory))];
-
-document.getElementById("categoryContainer")
-.innerHTML =
-
-categories.map(category=>`
-
-<div
-class="sidebar-item"
-onclick="filterCategory('${category}')">
-
-${category}
-
-</div>
-
-`).join("");
+return text.replace(/"/g,"").trim();
 
 }
 
-function filterBrand(brand){
-
-filteredProducts =
-allProducts.filter(p=>p.brand===brand);
-
-renderProducts();
-
-closeSidebar();
-
-}
-
-function filterCategory(category){
-
-filteredProducts =
-allProducts.filter(p=>p.mainCategory===category);
-
-renderProducts();
-
-closeSidebar();
-
-}
-
-function showAllProducts(){
-
-filteredProducts = [...allProducts];
-
-renderProducts();
-
-closeSidebar();
-
-}
-
-/* PRODUCTS */
-
-function renderProducts(){
+function renderProducts(products){
 
 const container =
-document.getElementById("products");
+document.getElementById("mainContainer");
 
 container.innerHTML = "";
 
-const grouped = {};
+const groupedCategories = {};
 
-filteredProducts.forEach(product=>{
+products.forEach(product=>{
 
-const key =
-product.brand + product.item + product.size;
+const category =
+product.category || "Supplements";
 
-if(!grouped[key]){
-grouped[key] = [];
+if(!groupedCategories[category]){
+
+groupedCategories[category] = [];
+
 }
 
-grouped[key].push(product);
+groupedCategories[category].push(product);
 
 });
 
-groupedProducts =
-Object.values(grouped);
+Object.keys(groupedCategories).forEach(category=>{
 
-groupedProducts.forEach((group,index)=>{
+const section =
+document.createElement("div");
 
-const product = group[0];
+section.className =
+"category-section";
 
-container.innerHTML += `
+section.innerHTML =
+
+`
+
+<div class="category-title">
+${category}
+</div>
+
+<div class="products-row">
+
+${groupedCategories[category].map(product => `
 
 <div class="card">
 
 <div
-class="image-area"
-onclick="openModal(${index})">
+class="card-image"
+onclick='openModal(${JSON.stringify(product)})'>
 
 <img src="${product.image1}">
 
@@ -957,40 +668,37 @@ onclick="openModal(${index})">
 
 <div
 class="product-title"
-onclick="openModal(${index})">
+onclick='openModal(${JSON.stringify(product)})'>
 
 ${product.item}
 
 </div>
 
 <div class="meta">
-Size: ${product.size}
+${product.flavour}
 </div>
 
 <div class="meta">
-Available Flavours: ${group.length}
+${product.size}
 </div>
 
 <div class="price">
 ₹${product.price}
 </div>
 
-<div class="stock ${product.stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}">
+<div class="stock ${product.stock.toLowerCase().includes("out") ? "outstock" : "instock"}">
 ${product.stock}
 </div>
 
-<ul class="bullets">
-
-${product.bullets.map(b=>`<li>${b}</li>`).join("")}
-
-</ul>
-
 <button
-class="card-btn"
-onclick="openModal(${index})"
-style="${product.stock.toLowerCase().includes('out') ? 'background:#999;' : ''}">
+class="view-btn"
+onclick='openModal(${JSON.stringify(product)})'>
 
-${product.stock.toLowerCase().includes('out') ? 'Out Of Stock' : 'View Product'}
+${product.stock.toLowerCase().includes("out")
+?
+"Out Of Stock"
+:
+"View Product"}
 
 </button>
 
@@ -998,64 +706,15 @@ ${product.stock.toLowerCase().includes('out') ? 'Out Of Stock' : 'View Product'}
 
 </div>
 
-`;
-
-});
-
-}
-
-/* SEARCH */
-
-function showSuggestions(){
-
-const text =
-document.getElementById("searchInput")
-.value.toLowerCase();
-
-const suggestions =
-document.getElementById("suggestions");
-
-if(text.length===0){
-
-suggestions.style.display = "none";
-return;
-
-}
-
-const matches =
-allProducts.filter(product=>
-
-product.item.toLowerCase().includes(text)
-
-||
-
-product.brand.toLowerCase().includes(text)
-
-).slice(0,10);
-
-suggestions.innerHTML =
-
-matches.map(product=>`
-
-<div
-class="suggestion-item"
-onclick="pickSuggestion('${product.item}')">
-
-${product.item}
+`).join("")}
 
 </div>
 
-`).join("");
+`;
 
-suggestions.style.display = "block";
+container.appendChild(section);
 
-}
-
-function pickSuggestion(name){
-
-document.getElementById("searchInput").value = name;
-
-searchProducts();
+});
 
 }
 
@@ -1065,8 +724,8 @@ const text =
 document.getElementById("searchInput")
 .value.toLowerCase();
 
-filteredProducts =
-allProducts.filter(product=>
+const filtered =
+allProducts.filter(product =>
 
 product.item.toLowerCase().includes(text)
 
@@ -1076,51 +735,18 @@ product.brand.toLowerCase().includes(text)
 
 ||
 
-product.mainCategory.toLowerCase().includes(text)
+product.category.toLowerCase().includes(text)
 
 );
 
-renderProducts();
-
-document.getElementById("suggestions")
-.style.display = "none";
+renderProducts(filtered);
 
 }
 
-/* MODAL */
-
-function openModal(index){
-
-const group =
-groupedProducts[index];
+function openModal(product){
 
 document.getElementById("modal")
 .style.display = "flex";
-
-updateModal(group[0]);
-
-const dropdown =
-document.getElementById("flavourDropdown");
-
-dropdown.innerHTML =
-
-group.map((item,index)=>`
-
-<option value="${index}">
-${item.flavour}
-</option>
-
-`).join("");
-
-dropdown.onchange = function(){
-
-updateModal(group[this.value]);
-
-};
-
-}
-
-function updateModal(product){
 
 document.getElementById("mainImage")
 .src = product.image1;
@@ -1132,11 +758,7 @@ document.getElementById("modalPrice")
 .innerText = `₹${product.price}`;
 
 document.getElementById("modalStock")
-.innerText = product.stock;
-
-document.getElementById("modalStock")
-.className =
-`stock ${product.stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}`;
+.innerText = `Stock: ${product.stock}`;
 
 document.getElementById("modalSize")
 .innerText = `Size: ${product.size}`;
@@ -1144,57 +766,31 @@ document.getElementById("modalSize")
 document.getElementById("modalFlavor")
 .innerText = `Flavor: ${product.flavour}`;
 
-document.getElementById("modalBullets")
+document.getElementById("thumbRow")
 .innerHTML =
 
-product.bullets.map(b=>`
-<li>${b}</li>
-`).join("");
+`
 
-document.getElementById("thumbs")
-.innerHTML = `
+<img class="thumb" src="${product.image1}" onclick="changeImage('${product.image1}')">
 
-<img
-class="thumb"
-src="${product.image1}"
-onclick="changeImage('${product.image1}')">
+<img class="thumb" src="${product.image2}" onclick="changeImage('${product.image2}')">
 
-<img
-class="thumb"
-src="${product.image2}"
-onclick="changeImage('${product.image2}')">
-
-<img
-class="thumb"
-src="${product.image3}"
-onclick="changeImage('${product.image3}')">
+<img class="thumb" src="${product.image3}" onclick="changeImage('${product.image3}')">
 
 `;
 
-const btn =
-document.getElementById("orderButton");
+document.getElementById("flavourDropdown")
+.innerHTML =
 
-if(product.stock.toLowerCase().includes("out")){
+`<option>${product.flavour}</option>`;
 
-btn.disabled = true;
-btn.innerText = "Out Of Stock";
-btn.style.background = "#999";
-
-}else{
-
-btn.disabled = false;
-btn.innerText = "Order on WhatsApp";
-btn.style.background = "#25D366";
-
-}
-
-btn.onclick = function(){
-
-if(product.stock.toLowerCase().includes("out")) return;
+document.getElementById("orderBtn")
+.onclick = function(){
 
 const message =
 
 `Hello,
+
 I want to order:
 
 ${product.item}
@@ -1206,8 +802,11 @@ Size: ${product.size}
 Price: ₹${product.price}`;
 
 window.open(
+
 `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`,
+
 "_blank"
+
 );
 
 };
@@ -1216,7 +815,8 @@ window.open(
 
 function changeImage(src){
 
-document.getElementById("mainImage").src = src;
+document.getElementById("mainImage")
+.src = src;
 
 }
 
@@ -1227,28 +827,9 @@ document.getElementById("modal")
 
 }
 
-/* SIDEBAR */
-
-function openSidebar(){
-
-document.getElementById("sidebar")
-.classList.add("active");
-
-}
-
-function closeSidebar(){
-
-document.getElementById("sidebar")
-.classList.remove("active");
-
-}
-
-/* START */
-
 loadProducts();
 
 </script>
 
 </body>
-
 </html>
