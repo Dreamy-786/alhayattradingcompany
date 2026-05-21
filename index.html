@@ -6,10 +6,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AL HAYAT TRADING COMPANY</title>
+<title>AL HAYAT TRADING COMPANY | Imported Supplements India</title>
 
 <meta name="description"
-content="Buy 100% authentic imported supplements including whey protein, pre workout, creatine, BCAA and more.">
+content="Buy 100% authentic imported supplements including whey protein, creatine, pre workout, amino acids and more.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
 <style>
 
@@ -22,6 +24,7 @@ font-family:Arial,sans-serif;
 
 body{
 background:#eaeded;
+overflow-x:hidden;
 }
 
 /* =========================
@@ -30,15 +33,15 @@ HEADER
 
 .topbar{
 background:#131921;
-padding:12px 20px;
+padding:12px 25px;
 display:flex;
 align-items:center;
 justify-content:space-between;
 gap:20px;
-flex-wrap:wrap;
 position:sticky;
 top:0;
 z-index:999;
+flex-wrap:wrap;
 }
 
 .logo-area{
@@ -48,36 +51,38 @@ gap:15px;
 }
 
 .logo-area img{
-width:70px;
-height:70px;
+width:65px;
+height:65px;
 border-radius:10px;
-object-fit:cover;
 background:white;
+object-fit:cover;
 }
 
 .logo-area h1{
+font-size:32px;
 color:white;
-font-size:24px;
+font-weight:800;
 }
 
 .search-box{
 flex:1;
 min-width:250px;
+max-width:700px;
 }
 
 .search-box input{
 width:100%;
-padding:14px;
+padding:15px;
 border:none;
 border-radius:8px;
-font-size:16px;
+font-size:17px;
 outline:none;
 }
 
 .contact{
 color:white;
+font-size:18px;
 font-weight:bold;
-font-size:16px;
 }
 
 /* =========================
@@ -85,10 +90,11 @@ HERO
 ========================= */
 
 .hero{
-height:420px;
+height:500px;
 background:
-linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
+linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
 url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1400&auto=format&fit=crop');
+
 background-size:cover;
 background-position:center;
 display:flex;
@@ -99,9 +105,10 @@ padding:20px;
 }
 
 .hero-content h2{
-font-size:52px;
+font-size:58px;
 color:white;
 margin-bottom:15px;
+font-weight:900;
 }
 
 .hero-content p{
@@ -110,13 +117,13 @@ color:white;
 }
 
 /* =========================
-SECTION TITLE
+SECTION
 ========================= */
 
 .section-title{
-font-size:34px;
-font-weight:bold;
-padding:30px 20px 10px;
+font-size:38px;
+font-weight:800;
+padding:35px 25px 10px;
 color:#111;
 }
 
@@ -126,35 +133,53 @@ PRODUCT GRID
 
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:20px;
-padding:20px;
-max-width:1600px;
+grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+gap:25px;
+padding:25px;
+max-width:1700px;
 margin:auto;
 }
 
 /* =========================
-PRODUCT CARD
+CARD
 ========================= */
 
 .card{
 background:white;
-border-radius:12px;
-padding:18px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 4px 15px rgba(0,0,0,0.12);
 transition:0.3s;
+cursor:pointer;
+position:relative;
 }
 
 .card:hover{
-transform:translateY(-4px);
+transform:translateY(-5px);
+}
+
+.image-wrapper{
+background:white;
+height:340px;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
 }
 
 .product-img{
 width:100%;
-height:320px;
+height:100%;
 object-fit:contain;
-background:white;
-margin-bottom:15px;
+transition:0.4s;
+}
+
+.card:hover .product-img{
+transform:scale(1.05);
+}
+
+.card-content{
+padding:18px;
 }
 
 .brand{
@@ -164,23 +189,23 @@ margin-bottom:8px;
 }
 
 .product-title{
-font-size:20px;
-font-weight:bold;
-line-height:1.5;
-margin-bottom:10px;
+font-size:21px;
+font-weight:700;
+line-height:1.45;
+margin-bottom:12px;
 min-height:95px;
-color:#0f1111;
+color:#111;
 }
 
 .rating{
 font-size:17px;
-color:#ff9900;
 margin-bottom:10px;
+color:#ff9900;
 }
 
 .price{
 font-size:34px;
-font-weight:bold;
+font-weight:800;
 margin-bottom:10px;
 color:#111;
 }
@@ -199,41 +224,136 @@ color:green;
 color:red;
 }
 
-.select{
-width:100%;
-padding:12px;
-border:1px solid #ccc;
-border-radius:6px;
-margin-bottom:15px;
-font-size:16px;
+.flavor-title{
+font-size:15px;
+font-weight:bold;
+margin-bottom:8px;
 }
 
-.desc{
+.flavor-select{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
 font-size:15px;
-line-height:1.6;
-color:#333;
+margin-bottom:15px;
+}
+
+.bullets{
 margin-bottom:18px;
+padding-left:18px;
+}
+
+.bullets li{
+margin-bottom:8px;
+font-size:15px;
+line-height:1.5;
 }
 
 .order-btn{
 width:100%;
 padding:16px;
-border:none;
 background:#25D366;
+border:none;
 color:white;
 font-size:18px;
 font-weight:bold;
-border-radius:8px;
+border-radius:10px;
 cursor:pointer;
 transition:0.3s;
 }
 
 .order-btn:hover{
-background:#1db954;
+background:#1fb959;
 }
 
 /* =========================
-FLOATING WHATSAPP
+MODAL
+========================= */
+
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:9999;
+padding:20px;
+}
+
+.modal-content{
+background:white;
+width:100%;
+max-width:1200px;
+border-radius:18px;
+overflow:hidden;
+display:grid;
+grid-template-columns:1fr 1fr;
+max-height:95vh;
+overflow-y:auto;
+}
+
+.modal-left{
+padding:25px;
+background:#fff;
+}
+
+.main-image{
+width:100%;
+height:500px;
+object-fit:contain;
+margin-bottom:20px;
+}
+
+.thumbnail-row{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.thumbnail{
+width:90px;
+height:90px;
+border:2px solid #ddd;
+border-radius:10px;
+object-fit:contain;
+cursor:pointer;
+background:white;
+padding:5px;
+}
+
+.modal-right{
+padding:30px;
+}
+
+.modal-title{
+font-size:34px;
+font-weight:800;
+margin-bottom:15px;
+line-height:1.4;
+}
+
+.modal-price{
+font-size:40px;
+font-weight:900;
+margin-bottom:15px;
+}
+
+.close-btn{
+position:absolute;
+top:20px;
+right:25px;
+font-size:40px;
+color:white;
+cursor:pointer;
+}
+
+/* =========================
+WHATSAPP FLOAT
 ========================= */
 
 .float-whatsapp{
@@ -250,8 +370,8 @@ justify-content:center;
 font-size:34px;
 text-decoration:none;
 color:white;
-box-shadow:0 4px 10px rgba(0,0,0,0.3);
 z-index:999;
+box-shadow:0 5px 12px rgba(0,0,0,0.3);
 }
 
 /* =========================
@@ -262,7 +382,7 @@ footer{
 background:#131921;
 color:white;
 text-align:center;
-padding:30px;
+padding:35px;
 margin-top:50px;
 font-size:16px;
 }
@@ -271,14 +391,18 @@ font-size:16px;
 MOBILE
 ========================= */
 
-@media(max-width:768px){
+@media(max-width:900px){
+
+.modal-content{
+grid-template-columns:1fr;
+}
 
 .hero{
-height:300px;
+height:350px;
 }
 
 .hero-content h2{
-font-size:32px;
+font-size:38px;
 }
 
 .hero-content p{
@@ -286,11 +410,11 @@ font-size:18px;
 }
 
 .logo-area h1{
-font-size:18px;
+font-size:20px;
 }
 
-.search-box{
-width:100%;
+.main-image{
+height:350px;
 }
 
 }
@@ -344,7 +468,7 @@ HERO
 <h2>100% Authentic Imported Supplements</h2>
 
 <p>
-Whey Protein • Pre Workout • BCAA • Creatine
+Whey Protein • Pre Workout • Creatine • BCAA
 </p>
 
 </div>
@@ -352,7 +476,7 @@ Whey Protein • Pre Workout • BCAA • Creatine
 </section>
 
 <!-- =========================
-SECTION TITLE
+SECTION
 ========================= -->
 
 <h2 class="section-title">
@@ -367,6 +491,86 @@ PRODUCTS
 </div>
 
 <!-- =========================
+MODAL
+========================= -->
+
+<div class="modal" id="productModal">
+
+<div class="close-btn"
+onclick="closeModal()">
+×
+</div>
+
+<div class="modal-content">
+
+<div class="modal-left">
+
+<img
+id="modalMainImage"
+class="main-image"
+src="">
+
+<div
+class="thumbnail-row"
+id="thumbnailRow">
+</div>
+
+</div>
+
+<div class="modal-right">
+
+<div class="brand">
+Visit The Store
+</div>
+
+<h2
+class="modal-title"
+id="modalTitle">
+</h2>
+
+<div class="rating">
+⭐⭐⭐⭐☆ 4.5
+</div>
+
+<div
+class="modal-price"
+id="modalPrice">
+</div>
+
+<div
+id="modalStock"
+class="stock instock">
+</div>
+
+<h3 style="margin-bottom:10px;">
+Flavor
+</h3>
+
+<select
+id="modalFlavor"
+class="flavor-select">
+</select>
+
+<ul
+class="bullets"
+id="modalBullets">
+</ul>
+
+<button
+class="order-btn"
+onclick="modalOrder()">
+
+Order on WhatsApp
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================
 FOOTER
 ========================= -->
 
@@ -377,7 +581,7 @@ FOOTER
 </footer>
 
 <!-- =========================
-FLOATING WHATSAPP
+WHATSAPP
 ========================= -->
 
 <a
@@ -389,53 +593,32 @@ target="_blank">
 
 </a>
 
-<!-- =========================
-SCRIPT
-========================= -->
-
 <script>
 
-/* ==========================================
-WHATSAPP
-========================================== */
-
 const WHATSAPP_NUMBER = "917710077786";
-
-/* ==========================================
-GOOGLE SHEET CSV
-========================================== */
 
 const SHEET_CSV_URL =
 "https://docs.google.com/spreadsheets/d/e/2PACX-1vQZimj_keJIooGDnz0sOvML4cjwbQ8eZBnQ3CQ1xyiORgHssrZPaCYzqdbFz-EmKmFrAqBgV6C3kLUK/pub?output=csv";
 
-/* ==========================================
-LOAD PRODUCTS
-========================================== */
+let allProducts = [];
 
 async function loadProducts(){
 
 const container =
 document.getElementById("products-container");
 
-container.innerHTML =
-"<h2 style='padding:20px'>Loading Products...</h2>";
+container.innerHTML = "";
 
 try{
 
 const response =
 await fetch(SHEET_CSV_URL);
 
-const csvText =
+const csv =
 await response.text();
 
-container.innerHTML = "";
-
-/* ==========================================
-CSV PARSER
-========================================== */
-
 const rows =
-csvText.trim().split("\n").slice(1);
+csv.trim().split("\n").slice(1);
 
 rows.forEach((row,index)=>{
 
@@ -447,7 +630,7 @@ if(!cols || cols.length < 4) return;
 const sku =
 cols[0].replace(/"/g,"").trim();
 
-const item =
+const title =
 cols[1].replace(/"/g,"").trim();
 
 const price =
@@ -456,78 +639,126 @@ cols[2].replace(/"/g,"").trim();
 const stock =
 cols[3].replace(/"/g,"").trim();
 
-/* ==========================================
-AUTO IMAGE
-========================================== */
+const image1 =
+`https://source.unsplash.com/800x800/?${encodeURIComponent(title)},protein`;
 
-const image =
-`https://source.unsplash.com/600x600/?${encodeURIComponent(item)},supplement`;
+const image2 =
+`https://source.unsplash.com/801x801/?${encodeURIComponent(title)},supplement`;
 
-/* ==========================================
-FLAVORS
-========================================== */
+const image3 =
+`https://source.unsplash.com/802x802/?${encodeURIComponent(title)},gym`;
+
+let bullets = [
+"Premium Imported Supplement Formula",
+"Supports Muscle Recovery & Performance",
+"High Quality International Product",
+"Popular Choice Among Fitness Enthusiasts"
+];
+
+if(title.toLowerCase().includes("whey")){
+
+bullets = [
+"High Quality Whey Protein Formula",
+"Supports Lean Muscle Growth",
+"Fast Absorbing Protein Source",
+"Ideal Post Workout Recovery"
+];
+
+}
+
+if(title.toLowerCase().includes("pre")){
+
+bullets = [
+"Supports Energy & Workout Performance",
+"Helps Improve Focus & Pumps",
+"Popular Pre Workout Formula",
+"Ideal Before Intense Training"
+];
+
+}
+
+if(title.toLowerCase().includes("bcaa")){
+
+bullets = [
+"Supports Muscle Recovery",
+"Helps Reduce Muscle Breakdown",
+"Hydration & Endurance Support",
+"Ideal During Workouts"
+];
+
+}
 
 const flavors = [
 
 "Chocolate",
 "Vanilla",
 "Cookies & Cream",
-"Mango",
+"Blue Raspberry",
 "Strawberry",
-"Blue Raspberry"
+"Unflavoured"
 
 ];
 
-/* ==========================================
-CREATE PRODUCT CARD
-========================================== */
+const product = {
+
+sku,
+title,
+price,
+stock,
+images:[
+image1,
+image2,
+image3
+],
+bullets,
+flavors
+
+};
+
+allProducts.push(product);
 
 container.innerHTML += `
 
-<div class="card searchable">
+<div
+class="card searchable"
+onclick="openModal(${index})">
+
+<div class="image-wrapper">
 
 <img
 class="product-img"
-src="${image}"
-loading="lazy"
+src="${image1}"
+loading="lazy">
 
-onerror="
-this.src='https://via.placeholder.com/600x600?text=Supplement';
-">
+</div>
+
+<div class="card-content">
 
 <div class="brand">
-
 Visit The Store
-
 </div>
 
 <div class="product-title">
-
-${item}
-
+${title}
 </div>
 
 <div class="rating">
-
-⭐⭐⭐⭐☆ 4.4
-
+⭐⭐⭐⭐☆ 4.5
 </div>
 
 <div class="price">
-
 ₹${price}
-
 </div>
 
 <div class="stock ${stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}">
-
 ${stock}
-
 </div>
 
-<select
-class="select"
-id="flavor-${index}">
+<div class="flavor-title">
+Available Flavors
+</div>
+
+<select class="flavor-select">
 
 ${flavors.map(flavor=>
 `<option>${flavor}</option>`
@@ -535,22 +766,22 @@ ${flavors.map(flavor=>
 
 </select>
 
-<div class="desc">
+<ul class="bullets">
 
-✔ 100% Authentic Imported Supplement<br>
-✔ Fast Delivery Across India<br>
-✔ Premium Quality Product<br>
-✔ Trusted Seller
+${bullets.map(bullet=>
+`<li>${bullet}</li>`
+).join("")}
 
-</div>
+</ul>
 
 <button
-class="order-btn"
-onclick="orderNow('${index}','${item}','${price}')">
+class="order-btn">
 
-Order on WhatsApp
+View Product
 
 </button>
+
+</div>
 
 </div>
 
@@ -560,62 +791,104 @@ Order on WhatsApp
 
 }catch(error){
 
-console.log("GOOGLE SHEET ERROR:", error);
+console.log(error);
 
-document.getElementById("products-container")
-.innerHTML = `
-
-<div style="
-padding:40px;
-font-size:24px;
-font-weight:bold;
-color:red;
-">
-
-Unable To Load Products
-
-</div>
-
-`;
+container.innerHTML =
+"<h2 style='padding:40px'>Unable To Load Products</h2>";
 
 }
 
 }
 
-/* ==========================================
-WHATSAPP ORDER
-========================================== */
+function openModal(index){
 
-function orderNow(index,item,price){
+const product =
+allProducts[index];
+
+document.getElementById("productModal")
+.style.display = "flex";
+
+document.getElementById("modalMainImage")
+.src = product.images[0];
+
+document.getElementById("modalTitle")
+.innerText = product.title;
+
+document.getElementById("modalPrice")
+.innerText = `₹${product.price}`;
+
+document.getElementById("modalStock")
+.innerText = product.stock;
+
+document.getElementById("modalBullets")
+.innerHTML =
+product.bullets.map(bullet=>
+`<li>${bullet}</li>`
+).join("");
+
+document.getElementById("modalFlavor")
+.innerHTML =
+product.flavors.map(flavor=>
+`<option>${flavor}</option>`
+).join("");
+
+document.getElementById("thumbnailRow")
+.innerHTML =
+product.images.map(image=>
+
+`<img
+class="thumbnail"
+src="${image}"
+onclick="changeMainImage('${image}')">`
+
+).join("");
+
+window.selectedProduct =
+product;
+
+}
+
+function changeMainImage(image){
+
+document.getElementById("modalMainImage")
+.src = image;
+
+}
+
+function closeModal(){
+
+document.getElementById("productModal")
+.style.display = "none";
+
+}
+
+function modalOrder(){
 
 const flavor =
-document.getElementById(`flavor-${index}`).value;
+document.getElementById("modalFlavor")
+.value;
 
 const message = `Hello,
 
 I want to order:
 
 Product:
-${item}
+${window.selectedProduct.title}
 
 Flavor:
 ${flavor}
 
 Price:
-₹${price}
+₹${window.selectedProduct.price}
 
 Please share payment details.`;
 
-const whatsappURL =
-`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-
-window.open(whatsappURL,"_blank");
+window.open(
+`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
+"_blank"
+);
 
 }
-
-/* ==========================================
-SEARCH
-========================================== */
 
 function searchProducts(){
 
@@ -648,9 +921,18 @@ card.style.display = "none";
 
 }
 
-/* ==========================================
-START
-========================================== */
+window.onclick = function(event){
+
+const modal =
+document.getElementById("productModal");
+
+if(event.target == modal){
+
+closeModal();
+
+}
+
+}
 
 loadProducts();
 
