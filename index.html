@@ -9,7 +9,7 @@
 <title>AL HAYAT TRADING COMPANY | Imported Supplements India</title>
 
 <meta name="description"
-content="Buy authentic imported whey protein, creatine, pre workout, amino acids and sports nutrition supplements in India.">
+content="Buy authentic imported supplements including whey protein, creatine, pre workout, amino acids and protein snacks in India.">
 
 <style>
 
@@ -58,7 +58,7 @@ object-fit:cover;
 
 .logo-area h1{
 color:white;
-font-size:30px;
+font-size:28px;
 font-weight:900;
 }
 
@@ -88,7 +88,7 @@ HERO
 ========================= */
 
 .hero{
-height:480px;
+height:450px;
 background:
 linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
 url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop');
@@ -115,22 +115,48 @@ color:white;
 }
 
 /* =========================
-SECTION
+CATEGORY BAR
+========================= */
+
+.category-bar{
+display:flex;
+gap:12px;
+overflow-x:auto;
+padding:20px;
+background:white;
+position:sticky;
+top:89px;
+z-index:998;
+}
+
+.category-btn{
+padding:12px 18px;
+background:#131921;
+color:white;
+border:none;
+border-radius:999px;
+font-weight:bold;
+cursor:pointer;
+white-space:nowrap;
+}
+
+/* =========================
+SECTION TITLE
 ========================= */
 
 .section-title{
 font-size:38px;
 font-weight:900;
-padding:35px 25px 10px;
+padding:30px 25px 10px;
 }
 
 /* =========================
-GRID
+PRODUCT GRID
 ========================= */
 
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:25px;
 padding:25px;
 max-width:1700px;
@@ -155,7 +181,7 @@ transform:translateY(-5px);
 }
 
 .image-wrapper{
-height:350px;
+height:340px;
 background:white;
 display:flex;
 align-items:center;
@@ -179,16 +205,23 @@ padding:20px;
 }
 
 .product-title{
-font-size:22px;
+font-size:21px;
 font-weight:800;
 line-height:1.45;
-margin-bottom:14px;
-min-height:110px;
+margin-bottom:15px;
+min-height:95px;
 color:#111;
 }
 
+.meta{
+font-size:15px;
+margin-bottom:10px;
+font-weight:bold;
+color:#444;
+}
+
 .price{
-font-size:36px;
+font-size:34px;
 font-weight:900;
 margin-bottom:10px;
 }
@@ -207,14 +240,13 @@ color:green;
 color:red;
 }
 
-.flavor-box{
-display:inline-block;
-background:#f1f1f1;
-padding:10px 14px;
-border-radius:8px;
-font-size:14px;
-font-weight:bold;
-margin-bottom:15px;
+.flavor-select{
+width:100%;
+padding:14px;
+border-radius:10px;
+border:1px solid #ccc;
+margin-bottom:18px;
+font-size:15px;
 }
 
 .bullets{
@@ -278,7 +310,6 @@ overflow-y:auto;
 
 .modal-left{
 padding:25px;
-background:white;
 }
 
 .main-image{
@@ -295,14 +326,13 @@ flex-wrap:wrap;
 }
 
 .thumb{
-width:95px;
-height:95px;
+width:90px;
+height:90px;
 border:2px solid #ddd;
 border-radius:10px;
 object-fit:contain;
 padding:5px;
 cursor:pointer;
-background:white;
 }
 
 .modal-right{
@@ -310,7 +340,7 @@ padding:30px;
 }
 
 .modal-title{
-font-size:38px;
+font-size:36px;
 font-weight:900;
 line-height:1.4;
 margin-bottom:20px;
@@ -319,25 +349,22 @@ margin-bottom:20px;
 .modal-price{
 font-size:44px;
 font-weight:900;
-margin-bottom:12px;
-}
-
-.modal-flavor{
-display:inline-block;
-background:#f3f3f3;
-padding:12px 16px;
-border-radius:10px;
-font-weight:bold;
-margin-bottom:18px;
+margin-bottom:15px;
 }
 
 .close-btn{
 position:absolute;
-top:18px;
-right:22px;
+top:15px;
+right:20px;
 font-size:42px;
 cursor:pointer;
 font-weight:bold;
+}
+
+.detail-box{
+font-size:16px;
+font-weight:bold;
+margin-bottom:12px;
 }
 
 /* =========================
@@ -385,7 +412,7 @@ grid-template-columns:1fr;
 }
 
 .hero{
-height:350px;
+height:340px;
 }
 
 .hero-content h2{
@@ -455,7 +482,7 @@ HERO
 <h2>100% Authentic Imported Supplements</h2>
 
 <p>
-Whey Protein • Pre Workout • Creatine • BCAA
+Whey Protein • Pre Workout • Creatine • Protein Snacks
 </p>
 
 </div>
@@ -463,11 +490,18 @@ Whey Protein • Pre Workout • Creatine • BCAA
 </section>
 
 <!-- =========================
+CATEGORY BAR
+========================= -->
+
+<div class="category-bar" id="categoryBar">
+</div>
+
+<!-- =========================
 TITLE
 ========================= -->
 
 <h2 class="section-title">
-Best Sellers
+Featured Supplements
 </h2>
 
 <!-- =========================
@@ -487,8 +521,7 @@ MODAL
 class="modal"
 id="productModal">
 
-<div
-class="modal-content">
+<div class="modal-content">
 
 <div
 class="close-btn"
@@ -530,9 +563,19 @@ class="stock">
 </div>
 
 <div
-class="modal-flavor"
+class="detail-box"
+id="modalSize">
+</div>
+
+<div
+class="detail-box"
 id="modalFlavor">
 </div>
+
+<select
+id="modalFlavorDropdown"
+class="flavor-select">
+</select>
 
 <ul
 class="bullets"
@@ -540,6 +583,7 @@ id="modalBullets">
 </ul>
 
 <button
+id="modalOrderBtn"
 class="order-btn"
 onclick="orderNow()">
 
@@ -564,7 +608,7 @@ FOOTER
 </footer>
 
 <!-- =========================
-WHATSAPP FLOAT
+FLOAT WHATSAPP
 ========================= -->
 
 <a
@@ -582,57 +626,54 @@ const WHATSAPP_NUMBER =
 "917710077786";
 
 /* =========================
-YOUR CSV LINK
+PUT YOUR CSV LINK HERE
 ========================= */
 
 const SHEET_CSV_URL =
 "https://docs.google.com/spreadsheets/d/e/2PACX-1vQZimj_keJIooGDnz0sOvML4cjwbQ8eZBnQ3CQ1xyiORgHssrZPaCYzqdbFz-EmKmFrAqBgV6C3kLUK/pub?output=csv";
 
 let allProducts = [];
+let groupedProducts = [];
+let activeCategory = "All";
 
 /* =========================
 AUTO BULLETS
 ========================= */
 
-function generateBullets(title){
+function generateBullets(title,category){
 
 title = title.toLowerCase();
+category = category.toLowerCase();
 
 if(title.includes("isoflex")){
 
 return [
-
 "27g Whey Protein Isolate Per Serving",
 "Ultra Fast Absorption Formula",
 "Low Sugar & Low Fat Protein Blend",
 "Supports Lean Muscle Recovery"
-
 ];
 
 }
 
-if(title.includes("whey")){
+if(category.includes("hydrolyzed")){
 
 return [
+"Fast Digesting Hydrolyzed Protein",
+"Supports Lean Muscle Recovery",
+"Low Carb & Low Fat Formula",
+"Premium Whey Protein Source"
+];
 
-"High Quality Whey Protein Formula",
+}
+
+if(category.includes("isolate")){
+
+return [
+"High Protein Isolate Formula",
 "Supports Lean Muscle Growth",
-"Fast Digesting Protein Source",
-"Ideal Post Workout Recovery"
-
-];
-
-}
-
-if(title.includes("pre")){
-
-return [
-
-"Supports Energy & Workout Performance",
-"Helps Improve Focus & Pumps",
-"Clinically Dosed Workout Formula",
-"Ideal Before Intense Training"
-
+"Low Sugar & Low Fat",
+"Fast Absorption Protein Blend"
 ];
 
 }
@@ -640,36 +681,30 @@ return [
 if(title.includes("creatine")){
 
 return [
-
 "Supports Strength & Power Output",
 "Micronized Creatine Formula",
 "Improves Workout Performance",
 "Ideal For Daily Training"
-
 ];
 
 }
 
-if(title.includes("bcaa")){
+if(title.includes("pre")){
 
 return [
-
-"Supports Muscle Recovery",
-"Helps Reduce Muscle Breakdown",
-"Hydration & Endurance Support",
-"Ideal During Workouts"
-
+"Supports Workout Energy & Focus",
+"Clinically Dosed Ingredients",
+"Enhances Training Performance",
+"Ideal Before Intense Workouts"
 ];
 
 }
 
 return [
-
 "Premium Imported Supplement Formula",
 "High Quality Sports Nutrition Product",
-"Supports Fitness & Recovery Goals",
+"Supports Fitness Goals",
 "Trusted International Brand"
-
 ];
 
 }
@@ -680,13 +715,6 @@ LOAD PRODUCTS
 
 async function loadProducts(){
 
-const container =
-document.getElementById("products-container");
-
-container.innerHTML = "";
-
-try{
-
 const response =
 await fetch(SHEET_CSV_URL);
 
@@ -696,80 +724,133 @@ await response.text();
 const rows =
 csv.trim().split("\n").slice(1);
 
-rows.forEach((row,index)=>{
+allProducts = [];
+
+rows.forEach(row=>{
 
 const cols =
 row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
 
-if(!cols || cols.length < 8) return;
-
-const sku =
-cols[0].replace(/"/g,"").trim();
-
-let item =
-cols[1].replace(/"/g,"").trim();
-
-const price =
-cols[2].replace(/"/g,"").trim();
-
-const stock =
-cols[3].replace(/"/g,"").trim();
-
-const flavour =
-cols[4].replace(/"/g,"").trim();
-
-const image1 =
-cols[5].replace(/"/g,"").trim();
-
-const image2 =
-cols[6].replace(/"/g,"").trim();
-
-const image3 =
-cols[7].replace(/"/g,"").trim();
-
-/* =========================
-SEO TITLE FIX
-========================= */
-
-item =
-item
-.replaceAll("POUNDS","lb")
-.replaceAll("CHOCOLATE","Chocolate")
-.replaceAll("VANILLA","Vanilla")
-.replaceAll("UNFLAVOURED","Unflavoured");
-
-/* =========================
-BULLETS
-========================= */
-
-const bullets =
-generateBullets(item);
-
-/* =========================
-PRODUCT OBJECT
-========================= */
+if(!cols || cols.length < 12) return;
 
 const product = {
 
-sku,
-item,
-price,
-stock,
-flavour,
-images:[
-image1,
-image2,
-image3
-],
-bullets
+sku: cols[0].replace(/"/g,"").trim(),
+brand: cols[1].replace(/"/g,"").trim(),
+mainCategory: cols[2].replace(/"/g,"").trim(),
+category: cols[3].replace(/"/g,"").trim(),
+item: cols[4].replace(/"/g,"").trim(),
+flavour: cols[5].replace(/"/g,"").trim(),
+size: cols[6].replace(/"/g,"").trim(),
+price: cols[7].replace(/"/g,"").trim(),
+stock: cols[8].replace(/"/g,"").trim(),
+image1: cols[9].replace(/"/g,"").trim(),
+image2: cols[10].replace(/"/g,"").trim(),
+image3: cols[11].replace(/"/g,"").trim()
 
 };
 
+product.bullets =
+generateBullets(product.item,product.category);
+
 allProducts.push(product);
 
+});
+
+renderCategories();
+renderProducts();
+
+}
+
 /* =========================
-CARD
+RENDER CATEGORIES
 ========================= */
+
+function renderCategories(){
+
+const categories =
+["All", ...new Set(allProducts.map(p=>p.mainCategory))];
+
+document.getElementById("categoryBar")
+.innerHTML =
+
+categories.map(category=>
+
+`<button
+class="category-btn"
+onclick="filterCategory('${category}')">
+
+${category}
+
+</button>`
+
+).join("");
+
+}
+
+/* =========================
+FILTER CATEGORY
+========================= */
+
+function filterCategory(category){
+
+activeCategory = category;
+
+renderProducts();
+
+}
+
+/* =========================
+RENDER PRODUCTS
+========================= */
+
+function renderProducts(){
+
+const container =
+document.getElementById("products-container");
+
+container.innerHTML = "";
+
+let filtered =
+allProducts;
+
+if(activeCategory !== "All"){
+
+filtered =
+allProducts.filter(p=>
+p.mainCategory === activeCategory
+);
+
+}
+
+/* =========================
+GROUP PRODUCTS
+========================= */
+
+const grouped = {};
+
+filtered.forEach(product=>{
+
+const key =
+product.item;
+
+if(!grouped[key]){
+
+grouped[key] = [];
+
+}
+
+grouped[key].push(product);
+
+});
+
+groupedProducts =
+Object.values(grouped);
+
+groupedProducts.forEach((group,index)=>{
+
+const first =
+group[0];
 
 container.innerHTML += `
 
@@ -781,7 +862,7 @@ onclick="openModal(${index})">
 
 <img
 class="product-img"
-src="${image1}">
+src="${first.image1}">
 
 </div>
 
@@ -789,39 +870,57 @@ src="${image1}">
 
 <div class="product-title">
 
-${item}
+${first.item}
+
+</div>
+
+<div class="meta">
+
+Flavor: ${first.flavour}
+
+</div>
+
+<div class="meta">
+
+Size: ${first.size}
 
 </div>
 
 <div class="price">
 
-₹${price}
+₹${first.price}
 
 </div>
 
-<div class="stock ${stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}">
+<div class="stock ${first.stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}">
 
-${stock}
-
-</div>
-
-<div class="flavor-box">
-
-Flavor: ${flavour}
+${first.stock}
 
 </div>
 
 <ul class="bullets">
 
-${bullets.map(bullet=>
+${first.bullets.map(bullet=>
 `<li>${bullet}</li>`
 ).join("")}
 
 </ul>
 
-<button class="order-btn">
+<button
+class="order-btn"
+style="
+${first.stock.toLowerCase().includes('out')
+?
+'background:#999;cursor:not-allowed;'
+:
+''}
+">
 
-View Product
+${first.stock.toLowerCase().includes('out')
+?
+'Out Of Stock'
+:
+'View Product'}
 
 </button>
 
@@ -833,34 +932,63 @@ View Product
 
 });
 
-}catch(error){
-
-console.log(error);
-
-container.innerHTML =
-"<h2 style='padding:40px'>Unable To Load Products</h2>";
-
-}
-
 }
 
 /* =========================
-MODAL
+OPEN MODAL
 ========================= */
 
 function openModal(index){
 
-const product =
-allProducts[index];
+const group =
+groupedProducts[index];
 
-window.selectedProduct =
-product;
+window.currentGroup =
+group;
+
+window.selectedVariant =
+group[0];
 
 document.getElementById("productModal")
 .style.display = "flex";
 
+updateModal(group[0]);
+
+const dropdown =
+document.getElementById("modalFlavorDropdown");
+
+dropdown.innerHTML =
+
+group.map((variant,index)=>
+
+`<option value="${index}">
+${variant.flavour}
+</option>`
+
+).join("");
+
+dropdown.onchange = function(){
+
+const selected =
+group[this.value];
+
+window.selectedVariant =
+selected;
+
+updateModal(selected);
+
+};
+
+}
+
+/* =========================
+UPDATE MODAL
+========================= */
+
+function updateModal(product){
+
 document.getElementById("mainModalImage")
-.src = product.images[0];
+.src = product.image1;
 
 document.getElementById("modalTitle")
 .innerText = product.item;
@@ -875,26 +1003,73 @@ document.getElementById("modalStock")
 .className =
 `stock ${product.stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}`;
 
+document.getElementById("modalSize")
+.innerText =
+`Size: ${product.size}`;
+
 document.getElementById("modalFlavor")
 .innerText =
 `Flavor: ${product.flavour}`;
 
 document.getElementById("modalBullets")
 .innerHTML =
+
 product.bullets.map(bullet=>
 `<li>${bullet}</li>`
 ).join("");
 
 document.getElementById("thumbRow")
 .innerHTML =
-product.images.map(image=>
 
-`<img
+`
+
+<img
 class="thumb"
-src="${image}"
-onclick="changeImage('${image}')">`
+src="${product.image1}"
+onclick="changeImage('${product.image1}')">
 
-).join("");
+<img
+class="thumb"
+src="${product.image2}"
+onclick="changeImage('${product.image2}')">
+
+<img
+class="thumb"
+src="${product.image3}"
+onclick="changeImage('${product.image3}')">
+
+`;
+
+const btn =
+document.getElementById("modalOrderBtn");
+
+if(product.stock.toLowerCase().includes("out")){
+
+btn.disabled = true;
+
+btn.innerText =
+"Out Of Stock";
+
+btn.style.background =
+"#999";
+
+btn.style.cursor =
+"not-allowed";
+
+}else{
+
+btn.disabled = false;
+
+btn.innerText =
+"Order on WhatsApp";
+
+btn.style.background =
+"#25D366";
+
+btn.style.cursor =
+"pointer";
+
+}
 
 }
 
@@ -910,24 +1085,15 @@ document.getElementById("mainModalImage")
 }
 
 /* =========================
-CLOSE MODAL
-========================= */
-
-function closeModal(){
-
-document.getElementById("productModal")
-.style.display = "none";
-
-}
-
-/* =========================
-WHATSAPP
+ORDER
 ========================= */
 
 function orderNow(){
 
 const product =
-window.selectedProduct;
+window.selectedVariant;
+
+if(product.stock.toLowerCase().includes("out")) return;
 
 const message = `Hello,
 
@@ -937,6 +1103,9 @@ ${product.item}
 
 Flavor:
 ${product.flavour}
+
+Size:
+${product.size}
 
 Price:
 ₹${product.price}
@@ -976,11 +1145,13 @@ card.querySelector(".product-title")
 
 if(title.includes(input)){
 
-card.style.display = "block";
+card.style.display =
+"block";
 
 }else{
 
-card.style.display = "none";
+card.style.display =
+"none";
 
 }
 
@@ -989,8 +1160,15 @@ card.style.display = "none";
 }
 
 /* =========================
-CLICK OUTSIDE CLOSE
+CLOSE MODAL
 ========================= */
+
+function closeModal(){
+
+document.getElementById("productModal")
+.style.display = "none";
+
+}
 
 window.onclick = function(event){
 
