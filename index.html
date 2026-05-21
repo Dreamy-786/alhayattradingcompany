@@ -789,21 +789,32 @@ rows.forEach(row=>{
 const cols =
 row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
 
-if(!cols || cols.length < 12) return;
+if(!cols || cols.length < 13) return;
 
 const product = {
 
 sku: clean(cols[0]),
-brand: clean(cols[1]),
-mainCategory: clean(cols[2]),
-category: clean(cols[3]),
-item: clean(cols[4]),
-flavour: clean(cols[5]),
-size: clean(cols[6]),
-price: clean(cols[7]),
-stock: clean(cols[8]),
+
+item: clean(cols[1]),
+
+price: clean(cols[2]),
+
+stock: clean(cols[3]),
+
+flavour: clean(cols[4]),
+
+size: clean(cols[5]),
+
+brand: clean(cols[6]),
+
+mainCategory: clean(cols[7]),
+
+category: clean(cols[8]),
+
 image1: clean(cols[9]),
+
 image2: clean(cols[10]),
+
 image3: clean(cols[11])
 
 };
