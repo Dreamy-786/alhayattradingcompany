@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -95,7 +96,7 @@ font-size:15px;
 white-space:nowrap;
 }
 
-/* SEARCH DROPDOWN */
+/* SEARCH */
 
 .suggestions{
 position:absolute;
@@ -108,6 +109,8 @@ overflow:hidden;
 display:none;
 box-shadow:0 4px 10px rgba(0,0,0,0.15);
 z-index:999;
+max-height:350px;
+overflow-y:auto;
 }
 
 .suggestion-item{
@@ -247,6 +250,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 padding:20px;
+cursor:pointer;
 }
 
 .image-area img{
@@ -265,9 +269,9 @@ height:100%;
 .product-title{
 font-size:22px;
 font-weight:900;
-line-height:1.45;
+line-height:1.4;
 margin-bottom:12px;
-min-height:100px;
+cursor:pointer;
 }
 
 .meta{
@@ -532,8 +536,7 @@ All Products
 SHOP BY BRAND
 </div>
 
-<div id="brandContainer">
-</div>
+<div id="brandContainer"></div>
 
 </div>
 
@@ -543,8 +546,7 @@ SHOP BY BRAND
 SHOP BY CATEGORY
 </div>
 
-<div id="categoryContainer">
-</div>
+<div id="categoryContainer"></div>
 
 </div>
 
@@ -671,43 +673,72 @@ target="_blank">
 
 <script>
 
-/* ===============================
-CONFIG
-=============================== */
-
 const CSV_URL =
 "https://docs.google.com/spreadsheets/d/e/2PACX-1vQZimj_keJIooGDnz0sOvML4cjwbQ8eZBnQ3CQ1xyiORgHssrZPaCYzqdbFz-EmKmFrAqBgV6C3kLUK/pub?output=csv";
 
 const WHATSAPP =
 "917710077786";
 
-/* ===============================
-DATA
-=============================== */
-
 let allProducts = [];
 let groupedProducts = [];
 let filteredProducts = [];
 
-/* ===============================
-BULLETS
-=============================== */
+/* CLEAN */
+
+function clean(text){
+
+if(!text) return "";
+
+return text
+.replace(/"/g,"")
+.trim();
+
+}
+
+/* MAIN CATEGORY */
+
+function getMainCategory(category){
+
+const cat = category.toLowerCase();
+
+if(
+cat.includes("protein") ||
+cat.includes("isolate") ||
+cat.includes("hydrolyzed") ||
+cat.includes("casein")
+){
+return "Proteins";
+}
+
+if(cat.includes("pre")){
+return "Pre Workout";
+}
+
+if(cat.includes("fat")){
+return "Fat Burners";
+}
+
+if(cat.includes("testosterone")){
+return "Testosterone Support";
+}
+
+return "Supplements";
+
+}
+
+/* BULLETS */
 
 function getBullets(product){
 
-const title =
-product.item.toLowerCase();
-
-const category =
-(product.category || "").toLowerCase();
+const title = product.item.toLowerCase();
 
 if(title.includes("isoflex")){
 
 return [
-"100% Whey Protein Isolate Formula",
+"100% Whey Protein Isolate",
 "Supports Lean Muscle Recovery",
-"Fast Digesting & Easy Mixing",
-"Low Sugar & Low Fat Protein"
+"Fast Digesting Protein Formula",
+"Low Sugar & Low Fat"
 ];
 
 }
@@ -715,72 +746,44 @@ return [
 if(title.includes("mesomorph")){
 
 return [
-"Extreme Energy & Focus Formula",
-"Supports Intense Workout Performance",
-"High Stimulant Pre Workout Blend",
-"Popular Advanced Pre Workout"
+"Extreme Energy & Focus",
+"Supports Intense Workouts",
+"Advanced Pre Workout Formula",
+"High Performance Blend"
 ];
 
 }
 
-if(title.includes("creatine")){
+if(title.includes("anabol")){
 
 return [
-"Supports Strength & Muscle Power",
-"Improves Workout Performance",
-"Micronized Creatine Formula",
-"Ideal For Daily Training"
-];
-
-}
-
-if(title.includes("bcaa")){
-
-return [
-"Supports Muscle Recovery",
-"Essential Amino Acid Formula",
-"Helps Reduce Muscle Breakdown",
-"Perfect Intra Workout Supplement"
-];
-
-}
-
-if(category.includes("protein")){
-
-return [
-"Premium Imported Protein Formula",
-"Supports Lean Muscle Growth",
-"High Quality Sports Nutrition",
-"Trusted International Supplement"
+"Supports Muscle Strength",
+"Helps Training Performance",
+"Advanced Hardcore Formula",
+"Popular Muscle Support Product"
 ];
 
 }
 
 return [
 "Premium Imported Supplement",
-"Supports Fitness Goals",
+"Trusted International Brand",
 "High Quality Formula",
-"Trusted International Brand"
+"Supports Fitness Goals"
 ];
 
 }
 
-/* ===============================
-LOAD PRODUCTS
-=============================== */
+/* LOAD PRODUCTS */
 
 async function loadProducts(){
 
 try{
 
-const response =
-await fetch(CSV_URL);
+const response = await fetch(CSV_URL);
+const csv = await response.text();
 
-const csv =
-await response.text();
-
-const rows =
-csv.trim().split("\n").slice(1);
+const rows = csv.trim().split("\n").slice(1);
 
 allProducts = [];
 
@@ -789,35 +792,26 @@ rows.forEach(row=>{
 const cols =
 row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
 
-if(!cols || cols.length < 13) return;
+if(!cols || cols.length < 11) return;
 
 const product = {
 
 sku: clean(cols[0]),
-
-item: clean(cols[1]),
-
-price: clean(cols[2]),
-
-stock: clean(cols[3]),
-
-flavour: clean(cols[4]),
-
-size: clean(cols[5]),
-
-brand: clean(cols[6]),
-
-mainCategory: clean(cols[7]),
-
-category: clean(cols[8]),
-
-image1: clean(cols[9]),
-
-image2: clean(cols[10]),
-
-image3: clean(cols[11])
+brand: clean(cols[1]),
+item: clean(cols[2]),
+price: clean(cols[3]),
+stock: clean(cols[4]),
+category: clean(cols[5]),
+size: clean(cols[6]),
+flavour: clean(cols[7]),
+image1: clean(cols[8]),
+image2: clean(cols[9]),
+image3: clean(cols[10])
 
 };
+
+product.mainCategory =
+getMainCategory(product.category);
 
 product.bullets =
 getBullets(product);
@@ -833,64 +827,54 @@ renderProducts();
 
 }catch(err){
 
-document.getElementById("products").innerHTML =
-"<h2 style='padding:30px;color:red;'>Unable To Load Products</h2>";
-
 console.log(err);
 
-}
+document.getElementById("products").innerHTML =
+"<h2 style='padding:30px;'>Unable To Load Products</h2>";
 
 }
 
-function clean(text){
-
-return text
-.replace(/"/g,"")
-.trim();
-
 }
 
-/* ===============================
-SIDEBAR
-=============================== */
+/* SIDEBAR */
 
 function renderSidebar(){
 
 const brands =
-[...new Set(allProducts.map(p=>p.brand).filter(Boolean))];
+[...new Set(allProducts.map(p=>p.brand))];
 
 document.getElementById("brandContainer")
 .innerHTML =
 
-brands.map(brand=>
+brands.map(brand=>`
 
-`<div
+<div
 class="sidebar-item"
 onclick="filterBrand('${brand}')">
 
 ${brand}
 
-</div>`
+</div>
 
-).join("");
+`).join("");
 
 const categories =
-[...new Set(allProducts.map(p=>p.mainCategory).filter(Boolean))];
+[...new Set(allProducts.map(p=>p.mainCategory))];
 
 document.getElementById("categoryContainer")
 .innerHTML =
 
-categories.map(category=>
+categories.map(category=>`
 
-`<div
+<div
 class="sidebar-item"
 onclick="filterCategory('${category}')">
 
 ${category}
 
-</div>`
+</div>
 
-).join("");
+`).join("");
 
 }
 
@@ -918,8 +902,7 @@ closeSidebar();
 
 function showAllProducts(){
 
-filteredProducts =
-[...allProducts];
+filteredProducts = [...allProducts];
 
 renderProducts();
 
@@ -927,9 +910,7 @@ closeSidebar();
 
 }
 
-/* ===============================
-RENDER PRODUCTS
-=============================== */
+/* PRODUCTS */
 
 function renderProducts(){
 
@@ -943,12 +924,10 @@ const grouped = {};
 filteredProducts.forEach(product=>{
 
 const key =
-product.item;
+product.brand + product.item + product.size;
 
 if(!grouped[key]){
-
 grouped[key] = [];
-
 }
 
 grouped[key].push(product);
@@ -960,8 +939,7 @@ Object.values(grouped);
 
 groupedProducts.forEach((group,index)=>{
 
-const product =
-group[0];
+const product = group[0];
 
 container.innerHTML += `
 
@@ -986,11 +964,11 @@ ${product.item}
 </div>
 
 <div class="meta">
-Flavor: ${product.flavour}
+Size: ${product.size}
 </div>
 
 <div class="meta">
-Size: ${product.size}
+Available Flavours: ${group.length}
 </div>
 
 <div class="price">
@@ -1010,19 +988,9 @@ ${product.bullets.map(b=>`<li>${b}</li>`).join("")}
 <button
 class="card-btn"
 onclick="openModal(${index})"
-style="
-${product.stock.toLowerCase().includes('out')
-?
-'background:#999;cursor:not-allowed;'
-:
-''}
-">
+style="${product.stock.toLowerCase().includes('out') ? 'background:#999;' : ''}">
 
-${product.stock.toLowerCase().includes('out')
-?
-'Out Of Stock'
-:
-'View Product'}
+${product.stock.toLowerCase().includes('out') ? 'Out Of Stock' : 'View Product'}
 
 </button>
 
@@ -1036,9 +1004,7 @@ ${product.stock.toLowerCase().includes('out')
 
 }
 
-/* ===============================
-SEARCH
-=============================== */
+/* SEARCH */
 
 function showSuggestions(){
 
@@ -1051,9 +1017,7 @@ document.getElementById("suggestions");
 
 if(text.length===0){
 
-suggestions.style.display =
-"none";
-
+suggestions.style.display = "none";
 return;
 
 }
@@ -1063,31 +1027,33 @@ allProducts.filter(product=>
 
 product.item.toLowerCase().includes(text)
 
-).slice(0,8);
+||
+
+product.brand.toLowerCase().includes(text)
+
+).slice(0,10);
 
 suggestions.innerHTML =
 
-matches.map(product=>
+matches.map(product=>`
 
-`<div
+<div
 class="suggestion-item"
 onclick="pickSuggestion('${product.item}')">
 
 ${product.item}
 
-</div>`
+</div>
 
-).join("");
+`).join("");
 
-suggestions.style.display =
-"block";
+suggestions.style.display = "block";
 
 }
 
 function pickSuggestion(name){
 
-document.getElementById("searchInput")
-.value = name;
+document.getElementById("searchInput").value = name;
 
 searchProducts();
 
@@ -1121,20 +1087,12 @@ document.getElementById("suggestions")
 
 }
 
-/* ===============================
-MODAL
-=============================== */
+/* MODAL */
 
 function openModal(index){
 
 const group =
 groupedProducts[index];
-
-window.currentGroup =
-group;
-
-window.selectedProduct =
-group[0];
 
 document.getElementById("modal")
 .style.display = "flex";
@@ -1146,23 +1104,17 @@ document.getElementById("flavourDropdown");
 
 dropdown.innerHTML =
 
-group.map((item,index)=>
+group.map((item,index)=>`
 
-`<option value="${index}">
+<option value="${index}">
 ${item.flavour}
-</option>`
+</option>
 
-).join("");
+`).join("");
 
 dropdown.onchange = function(){
 
-const selected =
-group[this.value];
-
-window.selectedProduct =
-selected;
-
-updateModal(selected);
+updateModal(group[this.value]);
 
 };
 
@@ -1187,24 +1139,20 @@ document.getElementById("modalStock")
 `stock ${product.stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}`;
 
 document.getElementById("modalSize")
-.innerText =
-`Size: ${product.size}`;
+.innerText = `Size: ${product.size}`;
 
 document.getElementById("modalFlavor")
-.innerText =
-`Flavor: ${product.flavour}`;
+.innerText = `Flavor: ${product.flavour}`;
 
 document.getElementById("modalBullets")
 .innerHTML =
 
-product.bullets.map(b=>
-`<li>${b}</li>`
-).join("");
+product.bullets.map(b=>`
+<li>${b}</li>
+`).join("");
 
 document.getElementById("thumbs")
-.innerHTML =
-
-`
+.innerHTML = `
 
 <img
 class="thumb"
@@ -1247,28 +1195,19 @@ if(product.stock.toLowerCase().includes("out")) return;
 const message =
 
 `Hello,
-
 I want to order:
 
 ${product.item}
 
-Flavor:
-${product.flavour}
+Flavor: ${product.flavour}
 
-Size:
-${product.size}
+Size: ${product.size}
 
-Price:
-₹${product.price}
-
-Please share payment details.`;
+Price: ₹${product.price}`;
 
 window.open(
-
 `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`,
-
 "_blank"
-
 );
 
 };
@@ -1277,8 +1216,7 @@ window.open(
 
 function changeImage(src){
 
-document.getElementById("mainImage")
-.src = src;
+document.getElementById("mainImage").src = src;
 
 }
 
@@ -1289,9 +1227,7 @@ document.getElementById("modal")
 
 }
 
-/* ===============================
-SIDEBAR
-=============================== */
+/* SIDEBAR */
 
 function openSidebar(){
 
@@ -1307,13 +1243,12 @@ document.getElementById("sidebar")
 
 }
 
-/* ===============================
-START
-=============================== */
+/* START */
 
 loadProducts();
 
 </script>
 
 </body>
+
 </html>
