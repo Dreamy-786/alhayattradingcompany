@@ -9,9 +9,7 @@
 <title>AL HAYAT TRADING COMPANY | Imported Supplements India</title>
 
 <meta name="description"
-content="Buy 100% authentic imported supplements including whey protein, creatine, pre workout, amino acids and more.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
+content="Buy authentic imported whey protein, creatine, pre workout, amino acids and sports nutrition supplements in India.">
 
 <style>
 
@@ -38,10 +36,10 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 gap:20px;
+flex-wrap:wrap;
 position:sticky;
 top:0;
 z-index:999;
-flex-wrap:wrap;
 }
 
 .logo-area{
@@ -59,15 +57,15 @@ object-fit:cover;
 }
 
 .logo-area h1{
-font-size:32px;
 color:white;
-font-weight:800;
+font-size:30px;
+font-weight:900;
 }
 
 .search-box{
 flex:1;
-min-width:250px;
 max-width:700px;
+min-width:250px;
 }
 
 .search-box input{
@@ -75,7 +73,7 @@ width:100%;
 padding:15px;
 border:none;
 border-radius:8px;
-font-size:17px;
+font-size:16px;
 outline:none;
 }
 
@@ -90,10 +88,10 @@ HERO
 ========================= */
 
 .hero{
-height:500px;
+height:480px;
 background:
 linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
-url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1400&auto=format&fit=crop');
+url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop');
 
 background-size:cover;
 background-position:center;
@@ -106,9 +104,9 @@ padding:20px;
 
 .hero-content h2{
 font-size:58px;
+font-weight:900;
 color:white;
 margin-bottom:15px;
-font-weight:900;
 }
 
 .hero-content p{
@@ -122,13 +120,12 @@ SECTION
 
 .section-title{
 font-size:38px;
-font-weight:800;
+font-weight:900;
 padding:35px 25px 10px;
-color:#111;
 }
 
 /* =========================
-PRODUCT GRID
+GRID
 ========================= */
 
 .products{
@@ -146,12 +143,11 @@ CARD
 
 .card{
 background:white;
-border-radius:16px;
+border-radius:18px;
 overflow:hidden;
-box-shadow:0 4px 15px rgba(0,0,0,0.12);
+box-shadow:0 4px 14px rgba(0,0,0,0.12);
 transition:0.3s;
 cursor:pointer;
-position:relative;
 }
 
 .card:hover{
@@ -159,55 +155,42 @@ transform:translateY(-5px);
 }
 
 .image-wrapper{
+height:350px;
 background:white;
-height:340px;
 display:flex;
 align-items:center;
 justify-content:center;
-overflow:hidden;
+padding:20px;
 }
 
 .product-img{
 width:100%;
 height:100%;
 object-fit:contain;
-transition:0.4s;
+transition:0.3s;
 }
 
 .card:hover .product-img{
-transform:scale(1.05);
+transform:scale(1.03);
 }
 
 .card-content{
-padding:18px;
-}
-
-.brand{
-font-size:14px;
-color:#007185;
-margin-bottom:8px;
+padding:20px;
 }
 
 .product-title{
-font-size:21px;
-font-weight:700;
+font-size:22px;
+font-weight:800;
 line-height:1.45;
-margin-bottom:12px;
-min-height:95px;
+margin-bottom:14px;
+min-height:110px;
 color:#111;
-}
-
-.rating{
-font-size:17px;
-margin-bottom:10px;
-color:#ff9900;
 }
 
 .price{
-font-size:34px;
-font-weight:800;
+font-size:36px;
+font-weight:900;
 margin-bottom:10px;
-color:#111;
 }
 
 .stock{
@@ -224,28 +207,23 @@ color:green;
 color:red;
 }
 
-.flavor-title{
-font-size:15px;
-font-weight:bold;
-margin-bottom:8px;
-}
-
-.flavor-select{
-width:100%;
-padding:12px;
+.flavor-box{
+display:inline-block;
+background:#f1f1f1;
+padding:10px 14px;
 border-radius:8px;
-border:1px solid #ccc;
-font-size:15px;
+font-size:14px;
+font-weight:bold;
 margin-bottom:15px;
 }
 
 .bullets{
+padding-left:20px;
 margin-bottom:18px;
-padding-left:18px;
 }
 
 .bullets li{
-margin-bottom:8px;
+margin-bottom:9px;
 font-size:15px;
 line-height:1.5;
 }
@@ -255,10 +233,10 @@ width:100%;
 padding:16px;
 background:#25D366;
 border:none;
+border-radius:10px;
 color:white;
 font-size:18px;
 font-weight:bold;
-border-radius:10px;
 cursor:pointer;
 transition:0.3s;
 }
@@ -277,53 +255,54 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.7);
+background:rgba(0,0,0,0.75);
 display:none;
 align-items:center;
 justify-content:center;
-z-index:9999;
 padding:20px;
+z-index:9999;
 }
 
 .modal-content{
 background:white;
 width:100%;
-max-width:1200px;
-border-radius:18px;
+max-width:1250px;
+border-radius:20px;
 overflow:hidden;
 display:grid;
 grid-template-columns:1fr 1fr;
+position:relative;
 max-height:95vh;
 overflow-y:auto;
 }
 
 .modal-left{
 padding:25px;
-background:#fff;
+background:white;
 }
 
 .main-image{
 width:100%;
-height:500px;
+height:520px;
 object-fit:contain;
 margin-bottom:20px;
 }
 
-.thumbnail-row{
+.thumb-row{
 display:flex;
 gap:12px;
 flex-wrap:wrap;
 }
 
-.thumbnail{
-width:90px;
-height:90px;
+.thumb{
+width:95px;
+height:95px;
 border:2px solid #ddd;
 border-radius:10px;
 object-fit:contain;
+padding:5px;
 cursor:pointer;
 background:white;
-padding:5px;
 }
 
 .modal-right{
@@ -331,47 +310,56 @@ padding:30px;
 }
 
 .modal-title{
-font-size:34px;
-font-weight:800;
-margin-bottom:15px;
+font-size:38px;
+font-weight:900;
 line-height:1.4;
+margin-bottom:20px;
 }
 
 .modal-price{
-font-size:40px;
+font-size:44px;
 font-weight:900;
-margin-bottom:15px;
+margin-bottom:12px;
+}
+
+.modal-flavor{
+display:inline-block;
+background:#f3f3f3;
+padding:12px 16px;
+border-radius:10px;
+font-weight:bold;
+margin-bottom:18px;
 }
 
 .close-btn{
 position:absolute;
-top:20px;
-right:25px;
-font-size:40px;
-color:white;
+top:18px;
+right:22px;
+font-size:42px;
 cursor:pointer;
+font-weight:bold;
 }
 
 /* =========================
-WHATSAPP FLOAT
+FLOAT WHATSAPP
 ========================= */
 
 .float-whatsapp{
 position:fixed;
 bottom:20px;
 right:20px;
-width:70px;
-height:70px;
+width:72px;
+height:72px;
 background:#25D366;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:34px;
+font-size:36px;
 text-decoration:none;
 color:white;
+box-shadow:0 4px 12px rgba(0,0,0,0.3);
 z-index:999;
-box-shadow:0 5px 12px rgba(0,0,0,0.3);
 }
 
 /* =========================
@@ -381,10 +369,9 @@ FOOTER
 footer{
 background:#131921;
 color:white;
-text-align:center;
 padding:35px;
+text-align:center;
 margin-top:50px;
-font-size:16px;
 }
 
 /* =========================
@@ -402,19 +389,19 @@ height:350px;
 }
 
 .hero-content h2{
-font-size:38px;
+font-size:36px;
 }
 
 .hero-content p{
 font-size:18px;
 }
 
-.logo-area h1{
-font-size:20px;
-}
-
 .main-image{
 height:350px;
+}
+
+.logo-area h1{
+font-size:20px;
 }
 
 }
@@ -476,7 +463,7 @@ Whey Protein • Pre Workout • Creatine • BCAA
 </section>
 
 <!-- =========================
-SECTION
+TITLE
 ========================= -->
 
 <h2 class="section-title">
@@ -487,50 +474,50 @@ Best Sellers
 PRODUCTS
 ========================= -->
 
-<div class="products" id="products-container">
+<div
+class="products"
+id="products-container">
 </div>
 
 <!-- =========================
 MODAL
 ========================= -->
 
-<div class="modal" id="productModal">
+<div
+class="modal"
+id="productModal">
 
-<div class="close-btn"
+<div
+class="modal-content">
+
+<div
+class="close-btn"
 onclick="closeModal()">
-×
-</div>
 
-<div class="modal-content">
+×
+
+</div>
 
 <div class="modal-left">
 
 <img
-id="modalMainImage"
+id="mainModalImage"
 class="main-image"
 src="">
 
 <div
-class="thumbnail-row"
-id="thumbnailRow">
+class="thumb-row"
+id="thumbRow">
 </div>
 
 </div>
 
 <div class="modal-right">
 
-<div class="brand">
-Visit The Store
-</div>
-
 <h2
 class="modal-title"
 id="modalTitle">
 </h2>
-
-<div class="rating">
-⭐⭐⭐⭐☆ 4.5
-</div>
 
 <div
 class="modal-price"
@@ -539,17 +526,13 @@ id="modalPrice">
 
 <div
 id="modalStock"
-class="stock instock">
+class="stock">
 </div>
 
-<h3 style="margin-bottom:10px;">
-Flavor
-</h3>
-
-<select
-id="modalFlavor"
-class="flavor-select">
-</select>
+<div
+class="modal-flavor"
+id="modalFlavor">
+</div>
 
 <ul
 class="bullets"
@@ -558,7 +541,7 @@ id="modalBullets">
 
 <button
 class="order-btn"
-onclick="modalOrder()">
+onclick="orderNow()">
 
 Order on WhatsApp
 
@@ -581,7 +564,7 @@ FOOTER
 </footer>
 
 <!-- =========================
-WHATSAPP
+WHATSAPP FLOAT
 ========================= -->
 
 <a
@@ -595,12 +578,105 @@ target="_blank">
 
 <script>
 
-const WHATSAPP_NUMBER = "917710077786";
+const WHATSAPP_NUMBER =
+"917710077786";
+
+/* =========================
+YOUR CSV LINK
+========================= */
 
 const SHEET_CSV_URL =
 "https://docs.google.com/spreadsheets/d/e/2PACX-1vQZimj_keJIooGDnz0sOvML4cjwbQ8eZBnQ3CQ1xyiORgHssrZPaCYzqdbFz-EmKmFrAqBgV6C3kLUK/pub?output=csv";
 
 let allProducts = [];
+
+/* =========================
+AUTO BULLETS
+========================= */
+
+function generateBullets(title){
+
+title = title.toLowerCase();
+
+if(title.includes("isoflex")){
+
+return [
+
+"27g Whey Protein Isolate Per Serving",
+"Ultra Fast Absorption Formula",
+"Low Sugar & Low Fat Protein Blend",
+"Supports Lean Muscle Recovery"
+
+];
+
+}
+
+if(title.includes("whey")){
+
+return [
+
+"High Quality Whey Protein Formula",
+"Supports Lean Muscle Growth",
+"Fast Digesting Protein Source",
+"Ideal Post Workout Recovery"
+
+];
+
+}
+
+if(title.includes("pre")){
+
+return [
+
+"Supports Energy & Workout Performance",
+"Helps Improve Focus & Pumps",
+"Clinically Dosed Workout Formula",
+"Ideal Before Intense Training"
+
+];
+
+}
+
+if(title.includes("creatine")){
+
+return [
+
+"Supports Strength & Power Output",
+"Micronized Creatine Formula",
+"Improves Workout Performance",
+"Ideal For Daily Training"
+
+];
+
+}
+
+if(title.includes("bcaa")){
+
+return [
+
+"Supports Muscle Recovery",
+"Helps Reduce Muscle Breakdown",
+"Hydration & Endurance Support",
+"Ideal During Workouts"
+
+];
+
+}
+
+return [
+
+"Premium Imported Supplement Formula",
+"High Quality Sports Nutrition Product",
+"Supports Fitness & Recovery Goals",
+"Trusted International Brand"
+
+];
+
+}
+
+/* =========================
+LOAD PRODUCTS
+========================= */
 
 async function loadProducts(){
 
@@ -625,12 +701,12 @@ rows.forEach((row,index)=>{
 const cols =
 row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
 
-if(!cols || cols.length < 4) return;
+if(!cols || cols.length < 8) return;
 
 const sku =
 cols[0].replace(/"/g,"").trim();
 
-const title =
+let item =
 cols[1].replace(/"/g,"").trim();
 
 const price =
@@ -639,83 +715,61 @@ cols[2].replace(/"/g,"").trim();
 const stock =
 cols[3].replace(/"/g,"").trim();
 
+const flavour =
+cols[4].replace(/"/g,"").trim();
+
 const image1 =
-`https://source.unsplash.com/800x800/?${encodeURIComponent(title)},protein`;
+cols[5].replace(/"/g,"").trim();
 
 const image2 =
-`https://source.unsplash.com/801x801/?${encodeURIComponent(title)},supplement`;
+cols[6].replace(/"/g,"").trim();
 
 const image3 =
-`https://source.unsplash.com/802x802/?${encodeURIComponent(title)},gym`;
+cols[7].replace(/"/g,"").trim();
 
-let bullets = [
-"Premium Imported Supplement Formula",
-"Supports Muscle Recovery & Performance",
-"High Quality International Product",
-"Popular Choice Among Fitness Enthusiasts"
-];
+/* =========================
+SEO TITLE FIX
+========================= */
 
-if(title.toLowerCase().includes("whey")){
+item =
+item
+.replaceAll("POUNDS","lb")
+.replaceAll("CHOCOLATE","Chocolate")
+.replaceAll("VANILLA","Vanilla")
+.replaceAll("UNFLAVOURED","Unflavoured");
 
-bullets = [
-"High Quality Whey Protein Formula",
-"Supports Lean Muscle Growth",
-"Fast Absorbing Protein Source",
-"Ideal Post Workout Recovery"
-];
+/* =========================
+BULLETS
+========================= */
 
-}
+const bullets =
+generateBullets(item);
 
-if(title.toLowerCase().includes("pre")){
-
-bullets = [
-"Supports Energy & Workout Performance",
-"Helps Improve Focus & Pumps",
-"Popular Pre Workout Formula",
-"Ideal Before Intense Training"
-];
-
-}
-
-if(title.toLowerCase().includes("bcaa")){
-
-bullets = [
-"Supports Muscle Recovery",
-"Helps Reduce Muscle Breakdown",
-"Hydration & Endurance Support",
-"Ideal During Workouts"
-];
-
-}
-
-const flavors = [
-
-"Chocolate",
-"Vanilla",
-"Cookies & Cream",
-"Blue Raspberry",
-"Strawberry",
-"Unflavoured"
-
-];
+/* =========================
+PRODUCT OBJECT
+========================= */
 
 const product = {
 
 sku,
-title,
+item,
 price,
 stock,
+flavour,
 images:[
 image1,
 image2,
 image3
 ],
-bullets,
-flavors
+bullets
 
 };
 
 allProducts.push(product);
+
+/* =========================
+CARD
+========================= */
 
 container.innerHTML += `
 
@@ -727,44 +781,35 @@ onclick="openModal(${index})">
 
 <img
 class="product-img"
-src="${image1}"
-loading="lazy">
+src="${image1}">
 
 </div>
 
 <div class="card-content">
 
-<div class="brand">
-Visit The Store
-</div>
-
 <div class="product-title">
-${title}
-</div>
 
-<div class="rating">
-⭐⭐⭐⭐☆ 4.5
+${item}
+
 </div>
 
 <div class="price">
+
 ₹${price}
+
 </div>
 
 <div class="stock ${stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}">
+
 ${stock}
+
 </div>
 
-<div class="flavor-title">
-Available Flavors
+<div class="flavor-box">
+
+Flavor: ${flavour}
+
 </div>
-
-<select class="flavor-select">
-
-${flavors.map(flavor=>
-`<option>${flavor}</option>`
-).join("")}
-
-</select>
 
 <ul class="bullets">
 
@@ -774,8 +819,7 @@ ${bullets.map(bullet=>
 
 </ul>
 
-<button
-class="order-btn">
+<button class="order-btn">
 
 View Product
 
@@ -800,19 +844,26 @@ container.innerHTML =
 
 }
 
+/* =========================
+MODAL
+========================= */
+
 function openModal(index){
 
 const product =
 allProducts[index];
 
+window.selectedProduct =
+product;
+
 document.getElementById("productModal")
 .style.display = "flex";
 
-document.getElementById("modalMainImage")
+document.getElementById("mainModalImage")
 .src = product.images[0];
 
 document.getElementById("modalTitle")
-.innerText = product.title;
+.innerText = product.item;
 
 document.getElementById("modalPrice")
 .innerText = `₹${product.price}`;
@@ -820,40 +871,47 @@ document.getElementById("modalPrice")
 document.getElementById("modalStock")
 .innerText = product.stock;
 
+document.getElementById("modalStock")
+.className =
+`stock ${product.stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}`;
+
+document.getElementById("modalFlavor")
+.innerText =
+`Flavor: ${product.flavour}`;
+
 document.getElementById("modalBullets")
 .innerHTML =
 product.bullets.map(bullet=>
 `<li>${bullet}</li>`
 ).join("");
 
-document.getElementById("modalFlavor")
-.innerHTML =
-product.flavors.map(flavor=>
-`<option>${flavor}</option>`
-).join("");
-
-document.getElementById("thumbnailRow")
+document.getElementById("thumbRow")
 .innerHTML =
 product.images.map(image=>
 
 `<img
-class="thumbnail"
+class="thumb"
 src="${image}"
-onclick="changeMainImage('${image}')">`
+onclick="changeImage('${image}')">`
 
 ).join("");
 
-window.selectedProduct =
-product;
-
 }
 
-function changeMainImage(image){
+/* =========================
+CHANGE IMAGE
+========================= */
 
-document.getElementById("modalMainImage")
+function changeImage(image){
+
+document.getElementById("mainModalImage")
 .src = image;
 
 }
+
+/* =========================
+CLOSE MODAL
+========================= */
 
 function closeModal(){
 
@@ -862,33 +920,42 @@ document.getElementById("productModal")
 
 }
 
-function modalOrder(){
+/* =========================
+WHATSAPP
+========================= */
 
-const flavor =
-document.getElementById("modalFlavor")
-.value;
+function orderNow(){
+
+const product =
+window.selectedProduct;
 
 const message = `Hello,
 
 I want to order:
 
-Product:
-${window.selectedProduct.title}
+${product.item}
 
 Flavor:
-${flavor}
+${product.flavour}
 
 Price:
-₹${window.selectedProduct.price}
+₹${product.price}
 
 Please share payment details.`;
 
 window.open(
+
 `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
+
 "_blank"
+
 );
 
 }
+
+/* =========================
+SEARCH
+========================= */
 
 function searchProducts(){
 
@@ -921,6 +988,10 @@ card.style.display = "none";
 
 }
 
+/* =========================
+CLICK OUTSIDE CLOSE
+========================= */
+
 window.onclick = function(event){
 
 const modal =
@@ -933,6 +1004,10 @@ closeModal();
 }
 
 }
+
+/* =========================
+START
+========================= */
 
 loadProducts();
 
