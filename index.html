@@ -132,22 +132,15 @@ padding:40px 30px;
 }
 
 .category-header{
-display:flex;
-align-items:center;
-justify-content:space-between;
 margin-bottom:25px;
+border-bottom:4px solid #111;
+padding-bottom:12px;
 }
 
 .category-title{
 font-size:42px;
 font-weight:900;
-}
-
-.view-all{
-font-size:16px;
-font-weight:700;
-cursor:pointer;
-color:#ff9900;
+text-transform:uppercase;
 }
 
 /* PRODUCTS */
@@ -331,15 +324,6 @@ margin-bottom:16px;
 font-size:16px;
 font-weight:700;
 margin-bottom:12px;
-}
-
-.flavour-select{
-width:100%;
-padding:15px;
-border-radius:10px;
-border:1px solid #ccc;
-font-size:16px;
-margin-bottom:20px;
 }
 
 .features{
@@ -557,8 +541,6 @@ Whey Protein • Creatine • Pre Workout • Mass Gainer • Protein Snacks
 
 <div id="modalFlavor" class="modal-detail"></div>
 
-<select id="flavourDropdown" class="flavour-select"></select>
-
 <ul id="modalFeatures" class="features"></ul>
 
 <button id="orderBtn" class="order-btn">
@@ -595,13 +577,15 @@ const WHATSAPP =
 "917710077786";
 
 let allProducts = [];
-let groupedProducts = [];
 
 function clean(text){
 
 if(!text) return "";
 
-return text.replace(/"/g,"").trim();
+return text
+.replace(/"/g,"")
+.replace(/\r/g,"")
+.trim();
 
 }
 
@@ -663,7 +647,7 @@ const csv =
 await response.text();
 
 const rows =
-csv.trim().split("\n").slice(1);
+csv.split("\n").slice(1);
 
 allProducts = [];
 
@@ -672,7 +656,7 @@ rows.forEach(row=>{
 const cols =
 row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
 
-if(!cols || cols.length < 12) return;
+if(!cols || cols.length < 11) return;
 
 const product = {
 
@@ -690,10 +674,14 @@ image3: clean(cols[10])
 
 };
 
+if(product.item){
+
 product.features =
 getFeatures(product);
 
 allProducts.push(product);
+
+}
 
 });
 
@@ -754,13 +742,16 @@ ${category}
 
 <div class="products-row">
 
-${categories[category].map((product,index)=>`
+${categories[category].map(product => `
 
 <div class="card" onclick="openModal('${product.sku}')">
 
 <div class="product-image">
 
-<img src="${product.image1}" loading="lazy">
+<img
+src="${product.image1}"
+loading="lazy"
+onerror="this.src='https://via.placeholder.com/400x400?text=No+Image'">
 
 </div>
 
@@ -775,11 +766,11 @@ ${product.brand}
 </div>
 
 <div class="product-meta">
-${product.flavour}
+Flavor: ${product.flavour}
 </div>
 
 <div class="product-meta">
-${product.size}
+Size: ${product.size}
 </div>
 
 <div class="product-price">
@@ -834,10 +825,18 @@ const filtered =
 allProducts.filter(product =>
 
 (product.item || "").toLowerCase().includes(text)
+
 ||
+
 (product.brand || "").toLowerCase().includes(text)
+
 ||
+
 (product.category || "").toLowerCase().includes(text)
+
+||
+
+(product.flavour || "").toLowerCase().includes(text)
 
 );
 
@@ -847,11 +846,10 @@ renderCategories(filtered);
 
 function openModal(sku){
 
-const group =
-allProducts.filter(p => p.sku === sku);
-
 const product =
-group[0];
+allProducts.find(p => p.sku === sku);
+
+if(!product) return;
 
 document.getElementById("modal").style.display =
 "flex";
@@ -887,11 +885,20 @@ product.features.map(feature =>
 
 document.getElementById("thumbs").innerHTML = `
 
-<img class="thumb" src="${product.image1}" onclick="changeImage('${product.image1}')">
+<img
+class="thumb"
+src="${product.image1}"
+onclick="changeImage('${product.image1}')">
 
-<img class="thumb" src="${product.image2}" onclick="changeImage('${product.image2}')">
+<img
+class="thumb"
+src="${product.image2}"
+onclick="changeImage('${product.image2}')">
 
-<img class="thumb" src="${product.image3}" onclick="changeImage('${product.image3}')">
+<img
+class="thumb"
+src="${product.image3}"
+onclick="changeImage('${product.image3}')">
 
 `;
 
