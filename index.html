@@ -21,16 +21,16 @@ font-family:'Montserrat',sans-serif;
 }
 
 body{
-background:#f4f4f4;
-overflow-x:hidden;
+background:#f5f5f5;
 color:#111;
+overflow-x:hidden;
 }
 
 /* HEADER */
 
 header{
 background:#000;
-padding:14px 28px;
+padding:18px 30px;
 display:flex;
 align-items:center;
 gap:20px;
@@ -43,29 +43,27 @@ z-index:9999;
 display:flex;
 align-items:center;
 gap:12px;
-min-width:max-content;
 }
 
 .logo img{
-width:55px;
-height:55px;
+width:58px;
+height:58px;
 border-radius:10px;
 object-fit:cover;
 background:white;
 }
 
 .logo h1{
-font-size:24px;
+font-size:28px;
 font-weight:900;
 color:white;
-white-space:nowrap;
 }
 
 .search-box{
 flex:1;
 display:flex;
 background:white;
-border-radius:10px;
+border-radius:12px;
 overflow:hidden;
 max-width:900px;
 }
@@ -75,7 +73,7 @@ flex:1;
 padding:16px;
 border:none;
 outline:none;
-font-size:16px;
+font-size:15px;
 font-weight:600;
 }
 
@@ -83,26 +81,22 @@ font-weight:600;
 width:70px;
 border:none;
 background:#ff9900;
+font-size:22px;
 cursor:pointer;
-font-size:20px;
-font-weight:bold;
 }
 
 .contact{
 color:white;
 font-weight:700;
-font-size:15px;
-white-space:nowrap;
 }
 
 /* HERO */
 
 .hero{
-height:360px;
+height:350px;
 background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
 url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop');
-
 background-size:cover;
 background-position:center;
 display:flex;
@@ -116,7 +110,7 @@ padding:20px;
 font-size:60px;
 font-weight:900;
 color:white;
-margin-bottom:14px;
+margin-bottom:15px;
 }
 
 .hero p{
@@ -128,45 +122,42 @@ color:white;
 /* CATEGORY */
 
 .category-section{
-padding:40px 24px;
+padding:40px 30px;
 }
 
 .category-title{
-font-size:42px;
+font-size:40px;
 font-weight:900;
-margin-bottom:24px;
-border-left:8px solid #ff9900;
-padding-left:16px;
+margin-bottom:25px;
 }
-
-/* PRODUCTS */
 
 .products-row{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-gap:24px;
+grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+gap:22px;
 }
+
+/* CARD */
 
 .card{
 background:white;
 border-radius:18px;
 overflow:hidden;
-box-shadow:0 3px 12px rgba(0,0,0,.08);
-transition:.25s;
+box-shadow:0 3px 10px rgba(0,0,0,.08);
 cursor:pointer;
+transition:.2s;
 display:flex;
 flex-direction:column;
 }
 
 .card:hover{
-transform:translateY(-4px);
+transform:translateY(-5px);
 }
 
 .product-image{
 height:300px;
-background:white;
 padding:20px;
-position:relative;
+background:white;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -178,21 +169,6 @@ height:100%;
 object-fit:contain;
 }
 
-/* SERVINGS */
-
-.servings{
-position:absolute;
-top:14px;
-left:14px;
-background:#ff9900;
-color:#000;
-padding:8px 12px;
-border-radius:10px;
-font-size:13px;
-font-weight:900;
-box-shadow:0 2px 8px rgba(0,0,0,.15);
-}
-
 .product-content{
 padding:20px;
 display:flex;
@@ -201,11 +177,11 @@ height:100%;
 }
 
 .product-title{
-font-size:19px;
+font-size:18px;
 font-weight:800;
 line-height:1.45;
-margin-bottom:12px;
-min-height:82px;
+margin-bottom:10px;
+min-height:80px;
 }
 
 .product-meta{
@@ -216,16 +192,15 @@ margin-bottom:6px;
 }
 
 .product-price{
-font-size:34px;
+font-size:32px;
 font-weight:900;
-margin-top:12px;
-margin-bottom:10px;
+margin:12px 0;
 }
 
 .stock{
 font-size:15px;
 font-weight:800;
-margin-bottom:14px;
+margin-bottom:15px;
 }
 
 .instock{
@@ -238,8 +213,7 @@ color:red;
 
 .card-btn{
 margin-top:auto;
-width:100%;
-padding:14px;
+padding:15px;
 border:none;
 border-radius:10px;
 font-size:16px;
@@ -268,7 +242,7 @@ z-index:999999;
 .modal-box{
 background:white;
 width:100%;
-max-width:1200px;
+max-width:1250px;
 border-radius:22px;
 overflow:hidden;
 display:grid;
@@ -280,8 +254,8 @@ overflow-y:auto;
 
 .close-modal{
 position:absolute;
-top:14px;
-right:20px;
+top:15px;
+right:22px;
 font-size:42px;
 font-weight:900;
 cursor:pointer;
@@ -296,12 +270,12 @@ padding:30px;
 width:100%;
 height:480px;
 object-fit:contain;
-margin-bottom:18px;
+margin-bottom:20px;
 }
 
 .thumbs{
 display:flex;
-gap:10px;
+gap:12px;
 flex-wrap:wrap;
 }
 
@@ -313,23 +287,26 @@ border-radius:10px;
 padding:5px;
 object-fit:contain;
 cursor:pointer;
+background:white;
 }
 
+/* RIGHT */
+
 .modal-right{
-padding:34px;
+padding:35px;
 }
 
 .modal-title{
-font-size:36px;
+font-size:38px;
 font-weight:900;
 line-height:1.4;
-margin-bottom:14px;
+margin-bottom:15px;
 }
 
 .modal-price{
-font-size:44px;
+font-size:45px;
 font-weight:900;
-margin-bottom:12px;
+margin-bottom:15px;
 }
 
 .modal-detail{
@@ -338,16 +315,63 @@ font-weight:700;
 margin-bottom:10px;
 }
 
+.servings-box{
+display:inline-block;
+background:#ff9900;
+color:white;
+padding:10px 18px;
+border-radius:10px;
+font-size:18px;
+font-weight:900;
+margin-bottom:20px;
+}
+
+.option-title{
+font-size:15px;
+font-weight:800;
+margin-bottom:12px;
+margin-top:18px;
+}
+
+.option-group{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:10px;
+}
+
+.option-btn{
+padding:12px 16px;
+border:2px solid #ddd;
+border-radius:10px;
+background:white;
+cursor:pointer;
+font-size:14px;
+font-weight:800;
+transition:.2s;
+}
+
+.option-btn.active{
+border-color:#ff9900;
+background:#fff5e6;
+}
+
+.option-btn.disabled{
+opacity:.4;
+text-decoration:line-through;
+cursor:not-allowed;
+}
+
 .features{
 padding-left:18px;
-margin:20px 0;
+margin:25px 0;
 }
 
 .features li{
-margin-bottom:10px;
+margin-bottom:12px;
 font-size:15px;
-line-height:1.5;
 font-weight:600;
+line-height:1.5;
 }
 
 .order-btn{
@@ -368,23 +392,23 @@ cursor:pointer;
 position:fixed;
 right:18px;
 bottom:18px;
-width:72px;
-height:72px;
-background:#25D366;
+width:70px;
+height:70px;
 border-radius:50%;
+background:#25D366;
 display:flex;
 align-items:center;
 justify-content:center;
 font-size:34px;
-color:white;
 text-decoration:none;
+color:white;
 z-index:999;
 }
 
 /* FOOTER */
 
 footer{
-background:#000;
+background:black;
 color:white;
 text-align:center;
 padding:35px;
@@ -398,7 +422,7 @@ font-weight:700;
 
 header{
 flex-wrap:wrap;
-padding:14px;
+padding:15px;
 }
 
 .logo h1{
@@ -410,7 +434,7 @@ display:none;
 }
 
 .hero{
-height:280px;
+height:260px;
 }
 
 .hero h2{
@@ -434,15 +458,6 @@ gap:14px;
 height:220px;
 }
 
-.product-title{
-font-size:15px;
-min-height:auto;
-}
-
-.product-price{
-font-size:24px;
-}
-
 .modal-box{
 grid-template-columns:1fr;
 }
@@ -456,7 +471,7 @@ font-size:28px;
 }
 
 .modal-price{
-font-size:34px;
+font-size:32px;
 }
 
 }
@@ -493,9 +508,7 @@ placeholder="Search supplements..."
 id="searchInput"
 onkeyup="searchProducts()">
 
-<button>
-🔍
-</button>
+<button>🔍</button>
 
 </div>
 
@@ -511,9 +524,7 @@ onkeyup="searchProducts()">
 
 <h2>100% Authentic Imported Supplements</h2>
 
-<p>
-Whey Protein • Creatine • Pre Workout • Mass Gainer • Protein Snacks
-</p>
+<p>Whey Protein • Pre Workout • Creatine • Fat Burner • Protein Snacks</p>
 
 </div>
 
@@ -527,9 +538,7 @@ Whey Protein • Creatine • Pre Workout • Mass Gainer • Protein Snacks
 
 <div class="modal-box">
 
-<div class="close-modal" onclick="closeModal()">
-×
-</div>
+<div class="close-modal" onclick="closeModal()">×</div>
 
 <div class="modal-left">
 
@@ -547,11 +556,17 @@ Whey Protein • Creatine • Pre Workout • Mass Gainer • Protein Snacks
 
 <div id="modalStock" class="stock"></div>
 
-<div id="modalSize" class="modal-detail"></div>
+<div id="servingsBox" class="servings-box"></div>
 
-<div id="modalFlavor" class="modal-detail"></div>
+<div id="modalBrand" class="modal-detail"></div>
 
-<div id="modalServings" class="modal-detail"></div>
+<div id="modalCategory" class="modal-detail"></div>
+
+<div class="option-title">FLAVOUR</div>
+<div class="option-group" id="flavourOptions"></div>
+
+<div class="option-title">SIZE</div>
+<div class="option-group" id="sizeOptions"></div>
 
 <ul id="modalFeatures" class="features"></ul>
 
@@ -585,10 +600,18 @@ target="_blank">
 const CSV_URL =
 "https://docs.google.com/spreadsheets/d/e/2PACX-1vQZimj_keJIooGDnz0sOvML4cjwbQ8eZBnQ3CQ1xyiORgHssrZPaCYzqdbFz-EmKmFrAqBgV6C3kLUK/pub?output=csv";
 
-const WHATSAPP =
-"917710077786";
+const WHATSAPP = "917710077786";
 
 let allProducts = [];
+let groupedProducts = [];
+
+function clean(text){
+
+if(!text) return "";
+
+return text.replace(/^"|"$/g,"").trim();
+
+}
 
 /* FAST CSV PARSER */
 
@@ -616,19 +639,21 @@ insideQuotes = !insideQuotes;
 }else if(char === ',' && !insideQuotes){
 
 row.push(current);
-current = '';
+current='';
 
 }else if((char === '\n' || char === '\r') && !insideQuotes){
 
 if(current || row.length){
 row.push(current);
 rows.push(row);
-row = [];
-current = '';
+row=[];
+current='';
 }
 
 }else{
+
 current += char;
+
 }
 
 }
@@ -642,34 +667,25 @@ return rows;
 
 }
 
-function clean(text){
-
-if(!text) return "";
-
-return text.replace(/"/g,"").trim();
-
-}
-
 async function loadProducts(){
 
 try{
 
-const response =
-await fetch(CSV_URL);
+const response = await fetch(CSV_URL);
 
-const csv =
-await response.text();
+const csv = await response.text();
 
-const rows =
-parseCSV(csv);
+const rows = parseCSV(csv);
 
-rows.shift();
+const headers = rows[0];
 
 allProducts = [];
 
-rows.forEach(cols=>{
+for(let i=1;i<rows.length;i++){
 
-if(cols.length < 16) return;
+const cols = rows[i];
+
+if(!cols[0]) continue;
 
 const product = {
 
@@ -684,30 +700,58 @@ flavour: clean(cols[7]),
 image1: clean(cols[8]),
 image2: clean(cols[9]),
 image3: clean(cols[10]),
-
 bullet1: clean(cols[11]),
 bullet2: clean(cols[12]),
 bullet3: clean(cols[13]),
 bullet4: clean(cols[14]),
-
 servings: clean(cols[15])
 
 };
 
 allProducts.push(product);
 
-});
+}
 
-renderCategories(allProducts);
+groupProducts();
+
+renderCategories(groupedProducts);
 
 }catch(error){
+
+console.log(error);
 
 document.getElementById("allCategories").innerHTML =
 "<h2 style='padding:40px;color:red;'>Unable To Load Products</h2>";
 
-console.log(error);
+}
 
 }
+
+function groupProducts(){
+
+const map = {};
+
+allProducts.forEach(product=>{
+
+const key =
+(product.item || "").toLowerCase();
+
+if(!map[key]){
+
+map[key] = {
+title: product.item,
+category: product.category,
+brand: product.brand,
+products: []
+};
+
+}
+
+map[key].products.push(product);
+
+});
+
+groupedProducts = Object.values(map);
 
 }
 
@@ -720,16 +764,16 @@ container.innerHTML = "";
 
 const categories = {};
 
-products.forEach(product=>{
+products.forEach(group=>{
 
 const category =
-product.category || "Supplements";
+group.category || "Supplements";
 
 if(!categories[category]){
 categories[category] = [];
 }
 
-categories[category].push(product);
+categories[category].push(group);
 
 });
 
@@ -749,49 +793,43 @@ ${category}
 
 <div class="products-row">
 
-${categories[category].map(product=>`
+${categories[category].map(group=>{
 
-<div class="card" onclick="openModal('${product.sku}')">
+const first = group.products[0];
+
+return `
+
+<div class="card" onclick="openModal('${encodeURIComponent(group.title)}')">
 
 <div class="product-image">
 
-<div class="servings">
-${product.servings || 'N/A'} SERVINGS
-</div>
-
-<img src="${product.image1}" loading="lazy">
+<img
+src="${first.image1 || 'https://via.placeholder.com/400x400?text=No+Image'}"
+loading="lazy">
 
 </div>
 
 <div class="product-content">
 
 <div class="product-title">
-${product.item}
+${group.title}
 </div>
 
 <div class="product-meta">
-${product.brand}
-</div>
-
-<div class="product-meta">
-${product.flavour}
-</div>
-
-<div class="product-meta">
-${product.size}
+${group.brand}
 </div>
 
 <div class="product-price">
-₹${product.price}
+${first.price ? `₹${first.price}` : 'Out Of Stock'}
 </div>
 
-<div class="stock ${product.stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}">
-${product.stock}
+<div class="stock ${first.stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}">
+${first.stock}
 </div>
 
 <button class="card-btn">
 
-${product.stock.toLowerCase().includes('out')
+${first.stock.toLowerCase().includes('out')
 ?
 'Out Of Stock'
 :
@@ -803,7 +841,9 @@ ${product.stock.toLowerCase().includes('out')
 
 </div>
 
-`).join("")}
+`;
+
+}).join("")}
 
 </div>
 
@@ -822,21 +862,21 @@ document.getElementById("searchInput")
 .value
 .toLowerCase();
 
-if(text === ""){
+if(!text){
 
-renderCategories(allProducts);
+renderCategories(groupedProducts);
 return;
 
 }
 
 const filtered =
-allProducts.filter(product =>
+groupedProducts.filter(group =>
 
-(product.item || "").toLowerCase().includes(text)
+(group.title || "").toLowerCase().includes(text)
 ||
-(product.brand || "").toLowerCase().includes(text)
+(group.brand || "").toLowerCase().includes(text)
 ||
-(product.category || "").toLowerCase().includes(text)
+(group.category || "").toLowerCase().includes(text)
 
 );
 
@@ -844,60 +884,164 @@ renderCategories(filtered);
 
 }
 
-function openModal(sku){
+function openModal(encodedTitle){
 
-const product =
-allProducts.find(p => p.sku === sku);
+const title =
+decodeURIComponent(encodedTitle);
 
-if(!product) return;
+const group =
+groupedProducts.find(g => g.title === title);
+
+const first =
+group.products[0];
 
 document.getElementById("modal").style.display =
 "flex";
 
+updateModal(group, first);
+
+}
+
+function updateModal(group, product){
+
 document.getElementById("mainImage").src =
-product.image1;
+product.image1 || "";
 
 document.getElementById("modalTitle").innerText =
-product.item;
+group.title;
 
 document.getElementById("modalPrice").innerText =
-`₹${product.price}`;
+product.price ? `₹${product.price}` : "Out Of Stock";
 
 document.getElementById("modalStock").innerText =
-product.stock;
+product.stock || "";
 
 document.getElementById("modalStock").className =
 `stock ${product.stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}`;
 
-document.getElementById("modalSize").innerText =
-`Size: ${product.size}`;
+document.getElementById("modalBrand").innerText =
+`Brand: ${product.brand}`;
 
-document.getElementById("modalFlavor").innerText =
-`Flavor: ${product.flavour}`;
+document.getElementById("modalCategory").innerText =
+`Category: ${product.category}`;
 
-document.getElementById("modalServings").innerText =
-`Servings: ${product.servings}`;
+document.getElementById("servingsBox").innerText =
+product.servings
+?
+`${product.servings} SERVINGS`
+:
+"";
 
-document.getElementById("modalFeatures").innerHTML =
+document.getElementById("modalFeatures").innerHTML = `
 
-`
-<li>${product.bullet1}</li>
-<li>${product.bullet2}</li>
-<li>${product.bullet3}</li>
-<li>${product.bullet4}</li>
-`;
-
-document.getElementById("thumbs").innerHTML = `
-
-<img class="thumb" src="${product.image1}" onclick="changeImage('${product.image1}')">
-
-<img class="thumb" src="${product.image2}" onclick="changeImage('${product.image2}')">
-
-<img class="thumb" src="${product.image3}" onclick="changeImage('${product.image3}')">
+${product.bullet1 ? `<li>${product.bullet1}</li>` : ''}
+${product.bullet2 ? `<li>${product.bullet2}</li>` : ''}
+${product.bullet3 ? `<li>${product.bullet3}</li>` : ''}
+${product.bullet4 ? `<li>${product.bullet4}</li>` : ''}
 
 `;
 
-document.getElementById("orderBtn").onclick = function(){
+/* IMAGES */
+
+const images =
+[
+product.image1,
+product.image2,
+product.image3
+].filter(Boolean);
+
+document.getElementById("thumbs").innerHTML =
+
+images.map(img=>`
+
+<img
+class="thumb"
+src="${img}"
+onclick="changeImage('${img}')">
+
+`).join("");
+
+/* FLAVOURS */
+
+const flavourContainer =
+document.getElementById("flavourOptions");
+
+const sizeContainer =
+document.getElementById("sizeOptions");
+
+const flavours =
+[...new Set(group.products.map(p=>p.flavour).filter(Boolean))];
+
+flavourContainer.innerHTML = "";
+
+flavours.forEach(flavour=>{
+
+const btn =
+document.createElement("button");
+
+btn.className =
+`option-btn ${flavour === product.flavour ? 'active' : ''}`;
+
+btn.innerText = flavour;
+
+btn.onclick = ()=>{
+
+const matching =
+group.products.filter(p => p.flavour === flavour);
+
+const firstAvailable =
+matching.find(p => !p.stock.toLowerCase().includes('out'))
+|| matching[0];
+
+updateModal(group, firstAvailable);
+
+};
+
+flavourContainer.appendChild(btn);
+
+});
+
+/* SIZES */
+
+const sizes =
+group.products
+.filter(p => p.flavour === product.flavour);
+
+sizeContainer.innerHTML = "";
+
+sizes.forEach(sizeProduct=>{
+
+const btn =
+document.createElement("button");
+
+const out =
+sizeProduct.stock.toLowerCase().includes('out');
+
+btn.className =
+`option-btn
+${sizeProduct.size === product.size ? 'active' : ''}
+${out ? 'disabled' : ''}`;
+
+btn.innerText =
+sizeProduct.size || "Default";
+
+if(!out){
+
+btn.onclick = ()=>{
+
+updateModal(group, sizeProduct);
+
+};
+
+}
+
+sizeContainer.appendChild(btn);
+
+});
+
+/* WHATSAPP */
+
+document.getElementById("orderBtn").onclick = ()=>{
 
 const message =
 
@@ -905,15 +1049,13 @@ const message =
 
 I want to order:
 
-${product.item}
+${group.title}
 
-Flavor: ${product.flavour}
+Flavor: ${product.flavour || 'N/A'}
 
-Size: ${product.size}
+Size: ${product.size || 'N/A'}
 
-Servings: ${product.servings}
-
-Price: ₹${product.price}
+Price: ${product.price ? `₹${product.price}` : 'Out Of Stock'}
 
 Please share payment details.`;
 
@@ -931,8 +1073,7 @@ window.open(
 
 function changeImage(src){
 
-document.getElementById("mainImage").src =
-src;
+document.getElementById("mainImage").src = src;
 
 }
 
