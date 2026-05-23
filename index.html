@@ -11,7 +11,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -22,10 +22,10 @@ box-sizing:border-box;
 }
 
 body{
-background:#f4f1ea;
+background:#f5f1ea;
 font-family:'Inter',sans-serif;
-color:#111;
 overflow-x:hidden;
+color:#111;
 }
 
 /* HEADER */
@@ -34,14 +34,13 @@ header{
 position:sticky;
 top:0;
 z-index:99999;
-background:rgba(255,255,255,.92);
+background:rgba(255,255,255,.94);
 backdrop-filter:blur(14px);
-border-bottom:1px solid rgba(0,0,0,.06);
-padding:14px 40px;
+padding:14px 32px;
 display:flex;
 align-items:center;
 justify-content:space-between;
-gap:30px;
+border-bottom:1px solid rgba(0,0,0,.07);
 }
 
 .logo{
@@ -52,122 +51,101 @@ text-decoration:none;
 }
 
 .logo img{
-width:64px;
-height:64px;
-border-radius:16px;
+width:68px;
+height:68px;
+border-radius:18px;
 object-fit:cover;
-box-shadow:0 6px 18px rgba(0,0,0,.15);
-background:white;
-}
-
-.logo-text{
-display:flex;
-flex-direction:column;
+box-shadow:0 8px 22px rgba(0,0,0,.14);
 }
 
 .logo-text h1{
 font-family:'Cinzel',serif;
-font-size:24px;
+font-size:28px;
 font-weight:800;
 letter-spacing:2px;
-color:#111;
 line-height:1;
+color:#111;
 }
 
 .logo-text span{
-font-size:12px;
+font-size:11px;
 letter-spacing:4px;
-color:#777;
-margin-top:6px;
+color:#888;
 }
 
 /* HERO */
 
 .hero{
-height:480px;
-position:relative;
-overflow:hidden;
+height:460px;
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1800&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-padding:30px;
-background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2000&auto=format&fit=crop');
-
-background-size:cover;
-background-position:center;
-}
-
-.hero::after{
-content:'';
-position:absolute;
-inset:0;
-background:
-linear-gradient(to bottom,transparent,rgba(0,0,0,.35));
+padding:20px;
 }
 
 .hero-content{
-position:relative;
-z-index:2;
-max-width:1100px;
+max-width:1000px;
 }
 
-.hero-content h2{
+.hero h2{
 font-family:'Cinzel',serif;
 font-size:72px;
-font-weight:800;
+line-height:1.2;
 color:white;
-line-height:1.15;
 margin-bottom:18px;
 letter-spacing:2px;
 }
 
-.hero-content p{
+.hero p{
 font-size:20px;
-color:#f1f1f1;
-font-weight:400;
-letter-spacing:1px;
+color:#eee;
+line-height:1.7;
 }
 
-/* TOPBAR */
+/* FILTER BAR */
 
 .topbar{
 position:sticky;
-top:95px;
+top:96px;
 z-index:9999;
 background:white;
-padding:18px 30px;
+padding:18px 26px;
 display:flex;
 gap:18px;
 align-items:center;
-border-bottom:1px solid rgba(0,0,0,.06);
 flex-wrap:wrap;
+border-bottom:1px solid rgba(0,0,0,.06);
 }
 
 .filter{
-padding:16px 18px;
+height:56px;
+padding:0 18px;
 border-radius:14px;
 border:1px solid rgba(0,0,0,.1);
 background:white;
 font-size:15px;
 font-weight:600;
-min-width:230px;
 outline:none;
-font-family:'Inter',sans-serif;
+min-width:230px;
 }
 
 .search-box{
 flex:1;
-display:flex;
-align-items:center;
+min-width:260px;
+height:56px;
 background:#f7f7f7;
 border-radius:14px;
+display:flex;
+align-items:center;
 padding:0 18px;
-height:58px;
 border:1px solid rgba(0,0,0,.08);
-min-width:250px;
 }
 
 .search-box input{
@@ -189,7 +167,7 @@ cursor:pointer;
 /* PRODUCTS */
 
 #productsContainer{
-padding:40px 30px 70px;
+padding:38px 28px 80px;
 }
 
 .section-title{
@@ -197,7 +175,6 @@ font-family:'Cinzel',serif;
 font-size:42px;
 margin-bottom:26px;
 font-weight:700;
-letter-spacing:1px;
 }
 
 .products-grid{
@@ -210,10 +187,9 @@ gap:28px;
 background:white;
 border-radius:26px;
 overflow:hidden;
-cursor:pointer;
+box-shadow:0 10px 32px rgba(0,0,0,.08);
 transition:.25s;
-box-shadow:
-0 10px 35px rgba(0,0,0,.07);
+cursor:pointer;
 border:1px solid rgba(0,0,0,.05);
 display:flex;
 flex-direction:column;
@@ -224,12 +200,12 @@ transform:translateY(-6px);
 }
 
 .card-image{
-height:300px;
-background:#fff;
-padding:24px;
+height:310px;
+background:white;
 display:flex;
 align-items:center;
 justify-content:center;
+padding:24px;
 position:relative;
 }
 
@@ -247,11 +223,10 @@ padding:8px 14px;
 border-radius:100px;
 font-size:12px;
 font-weight:700;
-letter-spacing:.5px;
 }
 
 .instock{
-background:#e9f8ef;
+background:#e7f8ec;
 color:#198754;
 }
 
@@ -273,13 +248,12 @@ font-weight:700;
 letter-spacing:2px;
 color:#777;
 margin-bottom:12px;
-text-transform:uppercase;
 }
 
 .title{
 font-family:'Cinzel',serif;
-font-size:23px;
-line-height:1.4;
+font-size:22px;
+line-height:1.45;
 min-height:120px;
 margin-bottom:18px;
 }
@@ -292,8 +266,8 @@ margin-bottom:14px;
 
 .meta{
 font-size:14px;
+color:#666;
 margin-bottom:8px;
-color:#555;
 }
 
 .view-btn{
@@ -306,11 +280,6 @@ color:white;
 font-size:15px;
 font-weight:700;
 cursor:pointer;
-transition:.2s;
-}
-
-.view-btn:hover{
-background:#222;
 }
 
 /* MODAL */
@@ -322,7 +291,7 @@ background:rgba(0,0,0,.7);
 display:none;
 align-items:center;
 justify-content:center;
-padding:25px;
+padding:18px;
 z-index:999999;
 }
 
@@ -331,7 +300,7 @@ width:100%;
 max-width:1320px;
 height:92vh;
 background:white;
-border-radius:32px;
+border-radius:28px;
 overflow:hidden;
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -340,67 +309,68 @@ position:relative;
 
 .close{
 position:absolute;
-top:18px;
-right:22px;
+top:16px;
+right:20px;
 font-size:42px;
 cursor:pointer;
 z-index:99;
 }
 
+/* LEFT */
+
 .modal-left{
-padding:45px;
 background:#fafafa;
+padding:36px;
 display:flex;
 flex-direction:column;
-justify-content:center;
 align-items:center;
+justify-content:center;
 position:relative;
 }
 
 .main-image{
 width:100%;
-height:520px;
+height:430px;
 object-fit:contain;
-transition:.2s;
 }
 
 .image-nav{
 position:absolute;
 top:50%;
 transform:translateY(-50%);
-width:54px;
-height:54px;
-border-radius:50%;
+width:52px;
+height:52px;
 background:white;
+border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
 font-size:28px;
 cursor:pointer;
-box-shadow:0 8px 24px rgba(0,0,0,.12);
+box-shadow:0 8px 20px rgba(0,0,0,.15);
 user-select:none;
 }
 
 .prev-btn{
-left:20px;
+left:14px;
 }
 
 .next-btn{
-right:20px;
+right:14px;
 }
 
 .thumbs{
 display:flex;
-gap:14px;
+gap:12px;
 margin-top:24px;
 flex-wrap:wrap;
 justify-content:center;
 }
 
 .thumb{
-width:92px;
-height:92px;
-border-radius:16px;
+width:86px;
+height:86px;
+border-radius:14px;
 border:2px solid #ddd;
 padding:8px;
 cursor:pointer;
@@ -408,56 +378,64 @@ object-fit:contain;
 background:white;
 }
 
+/* RIGHT */
+
 .modal-right{
-padding:50px;
+padding:38px;
 overflow-y:auto;
+display:flex;
+flex-direction:column;
+height:100%;
 }
 
 .modal-title{
 font-family:'Cinzel',serif;
-font-size:42px;
+font-size:38px;
 line-height:1.4;
-margin-bottom:18px;
+margin-bottom:16px;
 }
 
 .modal-price{
-font-size:48px;
+font-size:44px;
 font-weight:800;
 margin-bottom:18px;
 }
 
 .servings{
-display:inline-block;
+display:inline-flex;
+align-items:center;
+justify-content:center;
 padding:10px 18px;
+border-radius:100px;
 background:#111;
 color:white;
-border-radius:100px;
 font-size:14px;
 font-weight:700;
-margin-bottom:22px;
+margin-bottom:18px;
+width:max-content;
 }
 
 .detail{
-font-size:16px;
-margin-bottom:12px;
+font-size:15px;
+margin-bottom:10px;
 color:#444;
 }
 
 .option-title{
-font-size:17px;
+font-size:16px;
 font-weight:700;
-margin-top:28px;
+margin-top:24px;
 margin-bottom:14px;
 }
 
 .options{
 display:flex;
 flex-wrap:wrap;
-gap:12px;
+gap:10px;
 }
 
 .option{
-padding:12px 16px;
+padding:11px 15px;
 border-radius:12px;
 border:1px solid #ccc;
 font-size:14px;
@@ -473,74 +451,115 @@ border-color:#111;
 }
 
 .option.disabled{
-opacity:.4;
+opacity:.35;
 text-decoration:line-through;
 cursor:not-allowed;
 }
 
 .features{
-margin-top:30px;
+margin-top:24px;
 padding-left:20px;
 }
 
 .features li{
-margin-bottom:14px;
-line-height:1.7;
+margin-bottom:12px;
 font-size:15px;
+line-height:1.7;
 color:#444;
 }
 
+/* FIXED BUTTON */
+
+.order-wrap{
+margin-top:auto;
+padding-top:24px;
+position:sticky;
+bottom:0;
+background:white;
+}
+
 .order-btn{
-margin-top:35px;
 width:100%;
 height:62px;
 border:none;
 border-radius:16px;
-background:#111;
+background:#25D366;
 color:white;
 font-size:18px;
-font-weight:700;
+font-weight:800;
 cursor:pointer;
+box-shadow:0 8px 20px rgba(37,211,102,.25);
+}
+
+/* FLOAT BUTTON */
+
+.float-btn{
+position:fixed;
+right:22px;
+bottom:22px;
+width:72px;
+height:72px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:34px;
+text-decoration:none;
+color:white;
+z-index:999999;
+box-shadow:0 10px 24px rgba(37,211,102,.35);
 }
 
 /* MOBILE */
 
-@media(max-width:950px){
+@media(max-width:980px){
 
 .hero{
-height:380px;
+height:340px;
 }
 
-.hero-content h2{
+.hero h2{
 font-size:42px;
 }
 
-.topbar{
-top:82px;
-padding:15px;
+.hero p{
+font-size:16px;
 }
 
 .modal-box{
 grid-template-columns:1fr;
-height:95vh;
+height:96vh;
 overflow-y:auto;
 }
 
-.modal-left,
+.modal-left{
+padding:18px;
+min-height:420px;
+}
+
 .modal-right{
-padding:25px;
+padding:22px;
 }
 
 .main-image{
-height:340px;
+height:280px;
 }
 
 .modal-title{
-font-size:30px;
+font-size:28px;
+}
+
+.modal-price{
+font-size:34px;
 }
 
 .products-grid{
 grid-template-columns:1fr 1fr;
+}
+
+.topbar{
+top:92px;
 }
 
 }
@@ -552,45 +571,68 @@ padding:12px 16px;
 }
 
 .logo img{
-width:54px;
-height:54px;
+width:56px;
+height:56px;
 }
 
 .logo-text h1{
-font-size:18px;
+font-size:20px;
 }
 
-.hero-content h2{
-font-size:34px;
-}
-
-.hero-content p{
-font-size:15px;
+.hero h2{
+font-size:32px;
 }
 
 .products-grid{
 grid-template-columns:1fr;
 }
 
+.title{
+font-size:19px;
+min-height:auto;
+}
+
 .section-title{
 font-size:28px;
 }
 
-.title{
-font-size:18px;
-min-height:auto;
+.modal{
+padding:0;
 }
 
-.price{
-font-size:26px;
+.modal-box{
+height:100vh;
+border-radius:0;
+}
+
+.modal-left{
+min-height:360px;
+}
+
+.main-image{
+height:240px;
+}
+
+.thumb{
+width:72px;
+height:72px;
 }
 
 .modal-title{
-font-size:25px;
+font-size:24px;
 }
 
 .modal-price{
-font-size:34px;
+font-size:30px;
+}
+
+.order-btn{
+height:58px;
+font-size:16px;
+}
+
+.topbar{
+padding:14px;
 }
 
 }
@@ -620,10 +662,10 @@ font-size:34px;
 
 <div class="hero-content">
 
-<h2>Imported Sports Nutrition</h2>
+<h2>Premium Imported Supplements</h2>
 
 <p>
-Authentic supplements sourced from trusted international brands
+Trusted global brands for performance, recovery and elite fitness goals
 </p>
 
 </div>
@@ -645,7 +687,7 @@ Authentic supplements sourced from trusted international brands
 <input
 type="text"
 id="searchInput"
-placeholder="Search products, brands, flavours...">
+placeholder="Search supplements...">
 
 <button>
 🔍
@@ -656,6 +698,8 @@ placeholder="Search products, brands, flavours...">
 </div>
 
 <div id="productsContainer"></div>
+
+<!-- MODAL -->
 
 <div class="modal" id="modal">
 
@@ -709,6 +753,8 @@ Sizes
 
 <ul id="features" class="features"></ul>
 
+<div class="order-wrap">
+
 <button id="orderBtn" class="order-btn">
 Order On WhatsApp
 </button>
@@ -719,6 +765,19 @@ Order On WhatsApp
 
 </div>
 
+</div>
+
+<!-- FLOAT -->
+
+<a
+href="https://wa.me/917710077786"
+class="float-btn"
+target="_blank">
+
+💬
+
+</a>
+
 <script>
 
 const CSV_URL =
@@ -727,37 +786,42 @@ const CSV_URL =
 let allProducts = [];
 let currentImages = [];
 let currentImageIndex = 0;
+let currentGroup = [];
+let selectedProduct = null;
 
 async function loadProducts(){
 
-const res = await fetch(CSV_URL);
-const text = await res.text();
+const response = await fetch(CSV_URL);
+const csv = await response.text();
 
-const rows = text.trim().split("\n");
-const headers = rows[0].split(",");
+const rows = csv.trim().split("\n");
 
 allProducts = rows.slice(1).map(row=>{
 
-const cols = row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g) || [];
+const cols =
+row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g) || [];
+
+const clean = (i)=>
+(cols[i] || "").replace(/"/g,'').trim();
 
 return{
 
-sku: cols[0]?.replace(/"/g,'').trim() || "",
-brand: cols[1]?.replace(/"/g,'').trim() || "",
-item: cols[2]?.replace(/"/g,'').trim() || "",
-price: cols[3]?.replace(/"/g,'').trim() || "",
-stock: cols[4]?.replace(/"/g,'').trim() || "",
-category: cols[5]?.replace(/"/g,'').trim() || "",
-size: cols[6]?.replace(/"/g,'').trim() || "",
-flavour: cols[7]?.replace(/"/g,'').trim() || "",
-image1: cols[8]?.replace(/"/g,'').trim() || "",
-image2: cols[9]?.replace(/"/g,'').trim() || "",
-image3: cols[10]?.replace(/"/g,'').trim() || "",
-bullet1: cols[11]?.replace(/"/g,'').trim() || "",
-bullet2: cols[12]?.replace(/"/g,'').trim() || "",
-bullet3: cols[13]?.replace(/"/g,'').trim() || "",
-bullet4: cols[14]?.replace(/"/g,'').trim() || "",
-servings: cols[15]?.replace(/"/g,'').trim() || ""
+sku: clean(0),
+brand: clean(1),
+item: clean(2),
+price: clean(3),
+stock: clean(4),
+category: clean(5),
+size: clean(6),
+flavour: clean(7),
+image1: clean(8),
+image2: clean(9),
+image3: clean(10),
+bullet1: clean(11),
+bullet2: clean(12),
+bullet3: clean(13),
+bullet4: clean(14),
+servings: clean(15)
 
 };
 
@@ -772,6 +836,8 @@ function renderProducts(){
 const container =
 document.getElementById("productsContainer");
 
+container.innerHTML = "";
+
 const mode =
 document.getElementById("viewFilter").value;
 
@@ -780,9 +846,7 @@ document.getElementById("searchInput")
 .value
 .toLowerCase();
 
-container.innerHTML = "";
-
-let filtered =
+const filtered =
 allProducts.filter(p=>
 
 (p.item + p.brand + p.flavour + p.category)
@@ -799,19 +863,19 @@ renderSection("All Products",filtered);
 
 if(mode === "brand"){
 
-const brands = {};
+const groups = {};
 
 filtered.forEach(p=>{
 
-if(!brands[p.brand]) brands[p.brand] = [];
+if(!groups[p.brand]) groups[p.brand] = [];
 
-brands[p.brand].push(p);
+groups[p.brand].push(p);
 
 });
 
-Object.keys(brands).forEach(b=>{
+Object.keys(groups).forEach(name=>{
 
-renderSection(b,brands[b]);
+renderSection(name,groups[name]);
 
 });
 
@@ -819,19 +883,19 @@ renderSection(b,brands[b]);
 
 if(mode === "category"){
 
-const cats = {};
+const groups = {};
 
 filtered.forEach(p=>{
 
-if(!cats[p.category]) cats[p.category] = [];
+if(!groups[p.category]) groups[p.category] = [];
 
-cats[p.category].push(p);
+groups[p.category].push(p);
 
 });
 
-Object.keys(cats).forEach(c=>{
+Object.keys(groups).forEach(name=>{
 
-renderSection(c,cats[c]);
+renderSection(name,groups[name]);
 
 });
 
@@ -903,7 +967,7 @@ ${product.item}
 </div>
 
 <div class="meta">
-${product.size || ""}
+${product.category || ""}
 </div>
 
 <button class="view-btn">
@@ -924,9 +988,6 @@ container.appendChild(section);
 
 }
 
-let currentGroup = [];
-let selectedProduct = null;
-
 function openModal(item){
 
 currentGroup =
@@ -940,6 +1001,9 @@ updateModal(selectedProduct);
 document.getElementById("modal").style.display =
 "flex";
 
+document.body.style.overflow =
+"hidden";
+
 }
 
 function updateModal(product){
@@ -952,6 +1016,9 @@ product.item;
 document.getElementById("modalPrice").innerText =
 product.price ? `₹${product.price}` : "Price Unavailable";
 
+document.getElementById("servings").innerText =
+product.servings ? `${product.servings} SERVINGS` : "—";
+
 document.getElementById("stock").innerHTML =
 `<b>Status:</b> ${product.stock}`;
 
@@ -961,24 +1028,20 @@ document.getElementById("size").innerHTML =
 document.getElementById("flavour").innerHTML =
 `<b>Flavor:</b> ${product.flavour || "-"}`;
 
-document.getElementById("servings").innerText =
-product.servings ? `${product.servings} SERVINGS` : "—";
-
-const imgs = [
+currentImages = [
 product.image1,
 product.image2,
 product.image3
 ].filter(Boolean);
 
-currentImages = imgs;
 currentImageIndex = 0;
 
 document.getElementById("mainImage").src =
-imgs[0] || "";
+currentImages[0] || "";
 
 document.getElementById("thumbs").innerHTML =
 
-imgs.map((img,index)=>`
+currentImages.map((img,index)=>`
 
 <img
 class="thumb"
@@ -998,7 +1061,7 @@ product.bullet4
 
 .filter(Boolean)
 
-.map(b=>`<li>${b}</li>`)
+.map(f=>`<li>${f}</li>`)
 
 .join("");
 
@@ -1032,12 +1095,12 @@ ${p.flavour || "-"}
 
 /* SIZES */
 
-const sizes =
+const sizeProducts =
 currentGroup.filter(p=>p.flavour === product.flavour);
 
 document.getElementById("sizeOptions").innerHTML =
 
-sizes.map(p=>`
+sizeProducts.map(p=>`
 
 <div
 class="option
@@ -1057,6 +1120,7 @@ document.getElementById("orderBtn").onclick = function(){
 window.open(
 
 `https://wa.me/917710077786?text=${encodeURIComponent(
+
 `Hello, I want to order:
 
 ${product.item}
@@ -1066,7 +1130,10 @@ Flavor: ${product.flavour}
 Size: ${product.size}
 
 Price: ₹${product.price}`
-)}`
+
+)}`,
+
+"_blank"
 
 );
 
@@ -1148,9 +1215,9 @@ document.addEventListener("keydown",e=>{
 
 if(document.getElementById("modal").style.display === "flex"){
 
-if(e.key === "ArrowRight") nextImage();
-
 if(e.key === "ArrowLeft") prevImage();
+
+if(e.key === "ArrowRight") nextImage();
 
 if(e.key === "Escape") closeModal();
 
@@ -1162,6 +1229,9 @@ function closeModal(){
 
 document.getElementById("modal").style.display =
 "none";
+
+document.body.style.overflow =
+"auto";
 
 }
 
