@@ -10,8 +10,9 @@
 <link rel="icon" href="https://i.postimg.cc/ncHVXSW3/LOGO.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -21,11 +22,15 @@ padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
-background:#f5f1ea;
+background:#f4f1ea;
 font-family:'Inter',sans-serif;
-overflow-x:hidden;
 color:#111;
+overflow-x:hidden;
 }
 
 /* HEADER */
@@ -33,14 +38,20 @@ color:#111;
 header{
 position:sticky;
 top:0;
-z-index:99999;
-background:rgba(255,255,255,.94);
-backdrop-filter:blur(14px);
-padding:14px 32px;
+z-index:9999;
+background:rgba(10,10,10,.96);
+backdrop-filter:blur(12px);
+padding:14px 28px;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.header-wrap{
 display:flex;
 align-items:center;
 justify-content:space-between;
-border-bottom:1px solid rgba(0,0,0,.07);
+gap:20px;
+max-width:1700px;
+margin:auto;
 }
 
 .logo{
@@ -48,148 +59,167 @@ display:flex;
 align-items:center;
 gap:16px;
 text-decoration:none;
+min-width:fit-content;
 }
 
 .logo img{
 width:68px;
 height:68px;
+object-fit:contain;
 border-radius:18px;
-object-fit:cover;
-box-shadow:0 8px 22px rgba(0,0,0,.14);
+background:white;
+padding:6px;
+box-shadow:0 8px 25px rgba(0,0,0,.35);
 }
 
-.logo-text h1{
-font-family:'Cinzel',serif;
-font-size:28px;
-font-weight:800;
-letter-spacing:2px;
+.logo-text{
+display:flex;
+flex-direction:column;
+}
+
+.logo-title{
+font-family:'Cormorant Garamond',serif;
+font-size:34px;
+font-weight:700;
+letter-spacing:1px;
+color:#f6f1e8;
 line-height:1;
-color:#111;
 }
 
-.logo-text span{
+.logo-sub{
 font-size:11px;
 letter-spacing:4px;
-color:#888;
+color:#c6b28a;
+margin-top:4px;
+text-transform:uppercase;
+}
+
+.top-contact{
+display:flex;
+align-items:center;
+gap:12px;
+background:#111;
+border:1px solid rgba(255,255,255,.08);
+padding:12px 18px;
+border-radius:16px;
+color:white;
+font-weight:600;
+font-size:14px;
 }
 
 /* HERO */
 
 .hero{
-height:460px;
-background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1800&auto=format&fit=crop');
+position:relative;
+height:500px;
+overflow:hidden;
+}
 
-background-size:cover;
-background-position:center;
+.hero img{
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(.48);
+}
+
+.hero-overlay{
+position:absolute;
+inset:0;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-padding:20px;
+padding:30px;
 }
 
-.hero-content{
-max-width:1000px;
-}
-
-.hero h2{
-font-family:'Cinzel',serif;
-font-size:72px;
-line-height:1.2;
+.hero-content h1{
+font-family:'Cormorant Garamond',serif;
+font-size:78px;
+font-weight:700;
 color:white;
+line-height:1;
 margin-bottom:18px;
-letter-spacing:2px;
 }
 
-.hero p{
-font-size:20px;
-color:#eee;
+.hero-content p{
+font-size:18px;
+font-weight:500;
+color:#e9e3d7;
+max-width:900px;
 line-height:1.7;
 }
 
 /* FILTER BAR */
 
-.topbar{
+.filter-sticky{
 position:sticky;
-top:96px;
-z-index:9999;
-background:white;
-padding:18px 26px;
+top:98px;
+z-index:999;
+background:#f4f1ea;
+padding:18px 20px;
+border-bottom:1px solid rgba(0,0,0,.06);
+}
+
+.filter-wrap{
+max-width:1700px;
+margin:auto;
 display:flex;
 gap:18px;
 align-items:center;
 flex-wrap:wrap;
-border-bottom:1px solid rgba(0,0,0,.06);
 }
 
-.filter{
-height:56px;
-padding:0 18px;
-border-radius:14px;
-border:1px solid rgba(0,0,0,.1);
+.filter-select,
+.search-box{
+height:58px;
+border-radius:18px;
+border:1px solid rgba(0,0,0,.08);
 background:white;
+padding:0 18px;
 font-size:15px;
 font-weight:600;
 outline:none;
-min-width:230px;
+}
+
+.filter-select{
+min-width:240px;
+cursor:pointer;
 }
 
 .search-box{
 flex:1;
-min-width:260px;
-height:56px;
-background:#f7f7f7;
-border-radius:14px;
-display:flex;
-align-items:center;
-padding:0 18px;
-border:1px solid rgba(0,0,0,.08);
-}
-
-.search-box input{
-flex:1;
-border:none;
-background:none;
-outline:none;
-font-size:16px;
-font-family:'Inter',sans-serif;
-}
-
-.search-box button{
-background:none;
-border:none;
-font-size:22px;
-cursor:pointer;
+min-width:300px;
 }
 
 /* PRODUCTS */
 
 #productsContainer{
-padding:38px 28px 80px;
+padding:40px 28px 80px;
+max-width:1700px;
+margin:auto;
 }
 
 .section-title{
-font-family:'Cinzel',serif;
-font-size:42px;
-margin-bottom:26px;
+font-family:'Cormorant Garamond',serif;
+font-size:52px;
 font-weight:700;
+margin-bottom:30px;
+color:#111;
 }
 
 .products-grid{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
 gap:28px;
 }
 
 .card{
 background:white;
-border-radius:26px;
+border-radius:28px;
 overflow:hidden;
-box-shadow:0 10px 32px rgba(0,0,0,.08);
-transition:.25s;
 cursor:pointer;
+transition:.28s;
+box-shadow:0 10px 35px rgba(0,0,0,.05);
 border:1px solid rgba(0,0,0,.05);
 display:flex;
 flex-direction:column;
@@ -197,84 +227,79 @@ flex-direction:column;
 
 .card:hover{
 transform:translateY(-6px);
+box-shadow:0 20px 40px rgba(0,0,0,.12);
 }
 
 .card-image{
-height:310px;
-background:white;
+height:320px;
+background:#faf8f3;
+padding:24px;
 display:flex;
 align-items:center;
 justify-content:center;
-padding:24px;
-position:relative;
 }
 
 .card-image img{
 max-width:100%;
 max-height:100%;
 object-fit:contain;
+transition:.3s;
 }
 
-.stock-badge{
-position:absolute;
-top:16px;
-left:16px;
-padding:8px 14px;
-border-radius:100px;
-font-size:12px;
-font-weight:700;
-}
-
-.instock{
-background:#e7f8ec;
-color:#198754;
-}
-
-.outstock{
-background:#fdecec;
-color:#dc3545;
+.card:hover .card-image img{
+transform:scale(1.05);
 }
 
 .card-content{
-padding:24px;
+padding:22px;
 display:flex;
 flex-direction:column;
-flex:1;
+height:100%;
 }
 
-.brand{
-font-size:12px;
-font-weight:700;
-letter-spacing:2px;
-color:#777;
-margin-bottom:12px;
-}
-
-.title{
-font-family:'Cinzel',serif;
-font-size:22px;
-line-height:1.45;
-min-height:120px;
-margin-bottom:18px;
-}
-
-.price{
-font-size:34px;
+.card-brand{
+font-size:11px;
 font-weight:800;
+letter-spacing:2px;
+color:#8d7448;
+margin-bottom:12px;
+text-transform:uppercase;
+}
+
+.card-title{
+font-family:'Cormorant Garamond',serif;
+font-size:28px;
+font-weight:700;
+line-height:1.15;
+min-height:95px;
 margin-bottom:14px;
 }
 
-.meta{
+.card-price{
+font-size:32px;
+font-weight:800;
+margin-bottom:10px;
+}
+
+.card-stock{
 font-size:14px;
-color:#666;
-margin-bottom:8px;
+font-weight:700;
+margin-bottom:18px;
+}
+
+.instock{
+color:green;
+}
+
+.outstock{
+color:#b10000;
 }
 
 .view-btn{
 margin-top:auto;
-height:54px;
+height:56px;
 border:none;
-border-radius:14px;
+border-radius:16px;
 background:#111;
 color:white;
 font-size:15px;
@@ -287,244 +312,265 @@ cursor:pointer;
 .modal{
 position:fixed;
 inset:0;
-background:rgba(0,0,0,.7);
+background:rgba(0,0,0,.75);
 display:none;
 align-items:center;
 justify-content:center;
-padding:18px;
+padding:20px;
 z-index:999999;
 }
 
 .modal-box{
+background:white;
 width:100%;
 max-width:1320px;
 height:92vh;
-background:white;
-border-radius:28px;
+border-radius:30px;
 overflow:hidden;
 display:grid;
 grid-template-columns:1fr 1fr;
 position:relative;
 }
 
-.close{
+.close-modal{
 position:absolute;
-top:16px;
-right:20px;
-font-size:42px;
+top:18px;
+right:22px;
+width:48px;
+height:48px;
+border-radius:50%;
+background:#111;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:26px;
 cursor:pointer;
-z-index:99;
+z-index:9999;
 }
 
-/* LEFT */
-
 .modal-left{
-background:#fafafa;
-padding:36px;
+background:#faf8f3;
+padding:30px;
 display:flex;
 flex-direction:column;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+.main-image-wrap{
+width:100%;
+height:460px;
+display:flex;
 align-items:center;
 justify-content:center;
 position:relative;
 }
 
 .main-image{
-width:100%;
-height:430px;
+max-width:100%;
+max-height:100%;
 object-fit:contain;
+transition:.2s;
+cursor:zoom-in;
 }
 
 .image-nav{
 position:absolute;
 top:50%;
 transform:translateY(-50%);
-width:52px;
-height:52px;
-background:white;
+width:48px;
+height:48px;
 border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:28px;
+background:white;
+border:none;
+font-size:24px;
 cursor:pointer;
-box-shadow:0 8px 20px rgba(0,0,0,.15);
-user-select:none;
+box-shadow:0 8px 25px rgba(0,0,0,.12);
 }
 
 .prev-btn{
-left:14px;
+left:0;
 }
 
 .next-btn{
-right:14px;
+right:0;
 }
 
 .thumbs{
 display:flex;
 gap:12px;
-margin-top:24px;
+margin-top:20px;
 flex-wrap:wrap;
 justify-content:center;
 }
 
 .thumb{
-width:86px;
-height:86px;
-border-radius:14px;
-border:2px solid #ddd;
-padding:8px;
+width:90px;
+height:90px;
+border-radius:16px;
+background:white;
+padding:6px;
+border:2px solid transparent;
 cursor:pointer;
 object-fit:contain;
-background:white;
 }
 
-/* RIGHT */
+.thumb.active{
+border-color:#111;
+}
 
 .modal-right{
-padding:38px;
+padding:40px;
 overflow-y:auto;
 display:flex;
 flex-direction:column;
-height:100%;
 }
 
 .modal-title{
-font-family:'Cinzel',serif;
-font-size:38px;
-line-height:1.4;
-margin-bottom:16px;
+font-family:'Cormorant Garamond',serif;
+font-size:52px;
+font-weight:700;
+line-height:1.05;
+margin-bottom:18px;
 }
 
 .modal-price{
-font-size:44px;
+font-size:46px;
 font-weight:800;
-margin-bottom:18px;
+margin-bottom:16px;
 }
 
-.servings{
+.servings-badge{
 display:inline-flex;
 align-items:center;
 justify-content:center;
-padding:10px 18px;
-border-radius:100px;
 background:#111;
 color:white;
-font-size:14px;
-font-weight:700;
+padding:10px 18px;
+border-radius:999px;
+font-size:13px;
+font-weight:800;
+width:fit-content;
 margin-bottom:18px;
-width:max-content;
 }
 
-.detail{
+.modal-stock{
 font-size:15px;
-margin-bottom:10px;
-color:#444;
-}
-
-.option-title{
-font-size:16px;
-font-weight:700;
-margin-top:24px;
+font-weight:800;
 margin-bottom:14px;
 }
 
-.options{
+.detail-line{
+font-size:15px;
+font-weight:600;
+margin-bottom:10px;
+}
+
+.option-title{
+margin-top:20px;
+margin-bottom:12px;
+font-size:14px;
+font-weight:800;
+text-transform:uppercase;
+letter-spacing:1px;
+}
+
+.options-wrap{
 display:flex;
 flex-wrap:wrap;
 gap:10px;
+margin-bottom:8px;
 }
 
-.option{
-padding:11px 15px;
+.option-btn{
+padding:10px 14px;
 border-radius:12px;
-border:1px solid #ccc;
-font-size:14px;
-cursor:pointer;
 background:white;
-transition:.2s;
+border:1px solid rgba(0,0,0,.12);
+cursor:pointer;
+font-size:13px;
+font-weight:700;
 }
 
-.option.active{
+.option-btn.active{
 background:#111;
 color:white;
 border-color:#111;
 }
 
-.option.disabled{
-opacity:.35;
+.option-btn.disabled{
 text-decoration:line-through;
+opacity:.45;
 cursor:not-allowed;
 }
 
 .features{
-margin-top:24px;
-padding-left:20px;
+margin-top:18px;
+padding-left:18px;
 }
 
 .features li{
-margin-bottom:12px;
+margin-bottom:14px;
+line-height:1.6;
 font-size:15px;
-line-height:1.7;
-color:#444;
-}
-
-/* FIXED BUTTON */
-
-.order-wrap{
-margin-top:auto;
-padding-top:24px;
-position:sticky;
-bottom:0;
-background:white;
+font-weight:500;
 }
 
 .order-btn{
-width:100%;
-height:62px;
+margin-top:auto;
+height:64px;
 border:none;
-border-radius:16px;
+border-radius:18px;
 background:#25D366;
 color:white;
 font-size:18px;
 font-weight:800;
 cursor:pointer;
-box-shadow:0 8px 20px rgba(37,211,102,.25);
+width:100%;
+position:sticky;
+bottom:0;
 }
 
 /* FLOAT BUTTON */
 
-.float-btn{
+.whatsapp-float{
 position:fixed;
 right:22px;
 bottom:22px;
-width:72px;
-height:72px;
-background:#25D366;
+width:74px;
+height:74px;
 border-radius:50%;
+background:#25D366;
 display:flex;
 align-items:center;
 justify-content:center;
 font-size:34px;
 text-decoration:none;
-color:white;
+box-shadow:0 15px 35px rgba(0,0,0,.25);
 z-index:999999;
-box-shadow:0 10px 24px rgba(37,211,102,.35);
 }
 
 /* MOBILE */
 
-@media(max-width:980px){
+@media(max-width:950px){
 
 .hero{
-height:340px;
+height:360px;
 }
 
-.hero h2{
-font-size:42px;
+.hero-content h1{
+font-size:48px;
 }
 
-.hero p{
-font-size:16px;
+.filter-wrap{
+flex-direction:column;
+}
+
+.search-box,
+.filter-select{
+width:100%;
 }
 
 .modal-box{
@@ -534,20 +580,19 @@ overflow-y:auto;
 }
 
 .modal-left{
-padding:18px;
-min-height:420px;
+padding:20px;
 }
 
 .modal-right{
-padding:22px;
+padding:24px;
 }
 
-.main-image{
-height:280px;
+.main-image-wrap{
+height:300px;
 }
 
 .modal-title{
-font-size:28px;
+font-size:34px;
 }
 
 .modal-price{
@@ -558,81 +603,46 @@ font-size:34px;
 grid-template-columns:1fr 1fr;
 }
 
-.topbar{
-top:92px;
-}
-
-}
-
-@media(max-width:650px){
-
 header{
 padding:12px 16px;
 }
 
 .logo img{
-width:56px;
-height:56px;
+width:54px;
+height:54px;
 }
 
-.logo-text h1{
-font-size:20px;
+.logo-title{
+font-size:22px;
 }
 
-.hero h2{
-font-size:32px;
+.top-contact{
+display:none;
 }
+
+}
+
+@media(max-width:600px){
 
 .products-grid{
 grid-template-columns:1fr;
 }
 
-.title{
-font-size:19px;
+.hero-content h1{
+font-size:38px;
+}
+
+.card-title{
 min-height:auto;
 }
 
-.section-title{
-font-size:28px;
-}
-
-.modal{
-padding:0;
-}
-
-.modal-box{
-height:100vh;
-border-radius:0;
-}
-
-.modal-left{
-min-height:360px;
-}
-
-.main-image{
-height:240px;
-}
-
-.thumb{
-width:72px;
-height:72px;
-}
-
-.modal-title{
-font-size:24px;
-}
-
-.modal-price{
-font-size:30px;
+.modal-right{
+overflow-y:visible;
 }
 
 .order-btn{
-height:58px;
-font-size:16px;
-}
-
-.topbar{
-padding:14px;
+position:relative;
+margin-top:20px;
 }
 
 }
@@ -645,36 +655,61 @@ padding:14px;
 
 <header>
 
+<div class="header-wrap">
+
 <a class="logo" href="#">
 
 <img src="https://i.postimg.cc/ncHVXSW3/LOGO.jpg">
 
 <div class="logo-text">
-<h1>AL HAYAT</h1>
-<span>TRADING COMPANY</span>
+
+<div class="logo-title">
+AL HAYAT
+</div>
+
+<div class="logo-sub">
+TRADING COMPANY
+</div>
+
 </div>
 
 </a>
+
+<div class="top-contact">
+📞 +91 77100 77786
+</div>
+
+</div>
 
 </header>
 
 <section class="hero">
 
+<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2000&auto=format&fit=crop">
+
+<div class="hero-overlay">
+
 <div class="hero-content">
 
-<h2>Premium Imported Supplements</h2>
+<h1>
+Imported Sports Nutrition
+</h1>
 
 <p>
-Trusted global brands for performance, recovery and elite fitness goals
+Authentic international supplements, protein powders, pre-workouts, wellness products & performance nutrition.
 </p>
+
+</div>
 
 </div>
 
 </section>
 
-<div class="topbar">
+<div class="filter-sticky">
 
-<select id="viewFilter" class="filter">
+<div class="filter-wrap">
+
+<select class="filter-select" id="filterType" onchange="renderProducts()">
 
 <option value="all">Assorted Products</option>
 <option value="brand">Shop By Brand</option>
@@ -682,16 +717,12 @@ Trusted global brands for performance, recovery and elite fitness goals
 
 </select>
 
-<div class="search-box">
-
 <input
 type="text"
+class="search-box"
 id="searchInput"
-placeholder="Search supplements...">
-
-<button>
-🔍
-</button>
+placeholder="Search products, brands, categories..."
+onkeyup="renderProducts()">
 
 </div>
 
@@ -699,26 +730,28 @@ placeholder="Search supplements...">
 
 <div id="productsContainer"></div>
 
-<!-- MODAL -->
-
 <div class="modal" id="modal">
 
 <div class="modal-box">
 
-<div class="close" onclick="closeModal()">
+<div class="close-modal" onclick="closeModal()">
 ×
 </div>
 
 <div class="modal-left">
 
-<div class="image-nav prev-btn" onclick="prevImage()">
+<div class="main-image-wrap">
+
+<button class="image-nav prev-btn" onclick="prevImage(event)">
 ‹
-</div>
+</button>
 
 <img id="mainImage" class="main-image">
 
-<div class="image-nav next-btn" onclick="nextImage()">
+<button class="image-nav next-btn" onclick="nextImage(event)">
 ›
+</button>
+
 </div>
 
 <div class="thumbs" id="thumbs"></div>
@@ -731,31 +764,29 @@ placeholder="Search supplements...">
 
 <div id="modalPrice" class="modal-price"></div>
 
-<div id="servings" class="servings"></div>
+<div id="modalServings" class="servings-badge"></div>
 
-<div id="stock" class="detail"></div>
+<div id="modalStock" class="modal-stock"></div>
 
-<div id="size" class="detail"></div>
+<div id="modalSize" class="detail-line"></div>
 
-<div id="flavour" class="detail"></div>
+<div id="modalFlavour" class="detail-line"></div>
 
 <div class="option-title">
 Flavours
 </div>
 
-<div id="flavourOptions" class="options"></div>
+<div class="options-wrap" id="flavourOptions"></div>
 
 <div class="option-title">
 Sizes
 </div>
 
-<div id="sizeOptions" class="options"></div>
+<div class="options-wrap" id="sizeOptions"></div>
 
-<ul id="features" class="features"></ul>
+<ul class="features" id="features"></ul>
 
-<div class="order-wrap">
-
-<button id="orderBtn" class="order-btn">
+<button class="order-btn" id="orderBtn">
 Order On WhatsApp
 </button>
 
@@ -765,13 +796,9 @@ Order On WhatsApp
 
 </div>
 
-</div>
-
-<!-- FLOAT -->
-
 <a
 href="https://wa.me/917710077786"
-class="float-btn"
+class="whatsapp-float"
 target="_blank">
 
 💬
@@ -783,51 +810,87 @@ target="_blank">
 const CSV_URL =
 "https://docs.google.com/spreadsheets/d/e/2PACX-1vQZimj_keJIooGDnz0sOvML4cjwbQ8eZBnQ3CQ1xyiORgHssrZPaCYzqdbFz-EmKmFrAqBgV6C3kLUK/pub?output=csv";
 
+const WHATSAPP = "917710077786";
+
 let allProducts = [];
 let currentImages = [];
 let currentImageIndex = 0;
-let currentGroup = [];
-let selectedProduct = null;
+
+function clean(value){
+if(!value) return "";
+return value.replace(/^"|"$/g,"").trim();
+}
 
 async function loadProducts(){
 
-const response = await fetch(CSV_URL);
+const response = await fetch(CSV_URL + "&t=" + Date.now());
 const csv = await response.text();
 
-const rows = csv.trim().split("\n");
+const rows = csv.split("\n").slice(1);
 
-allProducts = rows.slice(1).map(row=>{
+allProducts = [];
 
-const cols =
-row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g) || [];
+rows.forEach(row=>{
 
-const clean = (i)=>
-(cols[i] || "").replace(/"/g,'').trim();
+const cols = row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
 
-return{
+if(!cols) return;
 
-sku: clean(0),
-brand: clean(1),
-item: clean(2),
-price: clean(3),
-stock: clean(4),
-category: clean(5),
-size: clean(6),
-flavour: clean(7),
-image1: clean(8),
-image2: clean(9),
-image3: clean(10),
-bullet1: clean(11),
-bullet2: clean(12),
-bullet3: clean(13),
-bullet4: clean(14),
-servings: clean(15)
+const product = {
+
+sku: clean(cols[0]),
+brand: clean(cols[1]),
+item: clean(cols[2]),
+price: clean(cols[3]),
+stock: clean(cols[4]),
+category: clean(cols[5]),
+size: clean(cols[6]),
+flavour: clean(cols[7]),
+image1: clean(cols[8]),
+image2: clean(cols[9]),
+image3: clean(cols[10]),
+bullet1: clean(cols[11]),
+bullet2: clean(cols[12]),
+bullet3: clean(cols[13]),
+bullet4: clean(cols[14]),
+servings: clean(cols[15])
 
 };
+
+product.groupKey =
+(product.brand + product.item).toLowerCase();
+
+allProducts.push(product);
 
 });
 
 renderProducts();
+
+}
+
+function getUniqueProducts(products){
+
+const unique = [];
+
+const map = new Map();
+
+products.forEach(product=>{
+
+const key =
+product.brand + "-" +
+product.item + "-" +
+product.size;
+
+if(!map.has(key)){
+
+map.set(key,true);
+unique.push(product);
+
+}
+
+});
+
+return unique;
 
 }
 
@@ -836,138 +899,147 @@ function renderProducts(){
 const container =
 document.getElementById("productsContainer");
 
-container.innerHTML = "";
-
-const mode =
-document.getElementById("viewFilter").value;
-
 const search =
 document.getElementById("searchInput")
 .value
 .toLowerCase();
 
-const filtered =
-allProducts.filter(p=>
+const filter =
+document.getElementById("filterType")
+.value;
 
-(p.item + p.brand + p.flavour + p.category)
-.toLowerCase()
-.includes(search)
+let filtered = allProducts.filter(product =>
+
+(product.item || "").toLowerCase().includes(search)
+||
+(product.brand || "").toLowerCase().includes(search)
+||
+(product.category || "").toLowerCase().includes(search)
 
 );
 
-if(mode === "all"){
+filtered = getUniqueProducts(filtered);
 
-renderSection("All Products",filtered);
+container.innerHTML = "";
 
+if(filter === "brand"){
+
+const brands = {};
+
+filtered.forEach(product=>{
+
+if(!brands[product.brand]){
+brands[product.brand] = [];
 }
 
-if(mode === "brand"){
-
-const groups = {};
-
-filtered.forEach(p=>{
-
-if(!groups[p.brand]) groups[p.brand] = [];
-
-groups[p.brand].push(p);
+brands[product.brand].push(product);
 
 });
 
-Object.keys(groups).forEach(name=>{
+Object.keys(brands).sort().forEach(brand=>{
 
-renderSection(name,groups[name]);
-
-});
-
-}
-
-if(mode === "category"){
-
-const groups = {};
-
-filtered.forEach(p=>{
-
-if(!groups[p.category]) groups[p.category] = [];
-
-groups[p.category].push(p);
-
-});
-
-Object.keys(groups).forEach(name=>{
-
-renderSection(name,groups[name]);
-
-});
-
-}
-
-}
-
-function renderSection(title,data){
-
-const container =
-document.getElementById("productsContainer");
-
-const unique = {};
-
-data.forEach(p=>{
-
-const key =
-p.item;
-
-if(!unique[key]){
-
-unique[key] = p;
-
-}
-
-});
-
-const products =
-Object.values(unique);
-
-const section =
-document.createElement("div");
-
-section.innerHTML = `
+container.innerHTML += `
 
 <div class="section-title">
-${title}
+${brand}
 </div>
 
 <div class="products-grid">
 
-${products.map(product=>`
+${brands[brand].map(product=>cardHTML(product)).join("")}
 
-<div class="card"
-onclick="openModal('${product.item.replace(/'/g,"")}')">
+</div>
+
+`;
+
+});
+
+}
+
+else if(filter === "category"){
+
+const categories = {};
+
+filtered.forEach(product=>{
+
+if(!categories[product.category]){
+categories[product.category] = [];
+}
+
+categories[product.category].push(product);
+
+});
+
+Object.keys(categories).sort().forEach(category=>{
+
+container.innerHTML += `
+
+<div class="section-title">
+${category}
+</div>
+
+<div class="products-grid">
+
+${categories[category].map(product=>cardHTML(product)).join("")}
+
+</div>
+
+`;
+
+});
+
+}
+
+else{
+
+container.innerHTML = `
+
+<div class="products-grid">
+
+${filtered.map(product=>cardHTML(product)).join("")}
+
+</div>
+
+`;
+
+}
+
+}
+
+function cardHTML(product){
+
+const image =
+product.image1 ||
+product.image2 ||
+product.image3 ||
+"https://via.placeholder.com/500x500?text=No+Image";
+
+return `
+
+<div class="card" onclick="openProduct('${product.sku}')">
 
 <div class="card-image">
 
-<div class="stock-badge ${product.stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}">
-${product.stock}
-</div>
-
-<img src="${product.image1 || 'https://via.placeholder.com/300'}">
+<img src="${image}" loading="lazy">
 
 </div>
 
 <div class="card-content">
 
-<div class="brand">
+<div class="card-brand">
 ${product.brand}
 </div>
 
-<div class="title">
+<div class="card-title">
 ${product.item}
 </div>
 
-<div class="price">
+<div class="card-price">
 ₹${product.price || "-"}
 </div>
 
-<div class="meta">
-${product.category || ""}
+<div class="card-stock ${product.stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}">
+${product.stock || ""}
 </div>
 
 <button class="view-btn">
@@ -978,37 +1050,36 @@ View Product
 
 </div>
 
-`).join("")}
-
-</div>
-
 `;
 
-container.appendChild(section);
+}
+
+function openProduct(sku){
+
+window.scrollTo(0,0);
+
+const selected =
+allProducts.find(p => p.sku === sku);
+
+const group =
+allProducts.filter(p =>
+p.item === selected.item &&
+p.brand === selected.brand
+);
+
+const uniqueFlavours =
+[...new Set(group.map(p=>p.flavour).filter(Boolean))];
+
+const uniqueSizes =
+[...new Set(group.map(p=>p.size).filter(Boolean))];
+
+document.getElementById("modal").style.display = "flex";
+
+updateModal(selected, group, uniqueFlavours, uniqueSizes);
 
 }
 
-function openModal(item){
-
-currentGroup =
-allProducts.filter(p=>p.item === item);
-
-selectedProduct =
-currentGroup[0];
-
-updateModal(selectedProduct);
-
-document.getElementById("modal").style.display =
-"flex";
-
-document.body.style.overflow =
-"hidden";
-
-}
-
-function updateModal(product){
-
-selectedProduct = product;
+function updateModal(product, group, flavours, sizes){
 
 document.getElementById("modalTitle").innerText =
 product.item;
@@ -1016,16 +1087,21 @@ product.item;
 document.getElementById("modalPrice").innerText =
 product.price ? `₹${product.price}` : "Price Unavailable";
 
-document.getElementById("servings").innerText =
-product.servings ? `${product.servings} SERVINGS` : "—";
+document.getElementById("modalServings").innerText =
+product.servings
+? `${product.servings} SERVINGS`
+: "SERVINGS N/A";
 
-document.getElementById("stock").innerHTML =
-`<b>Status:</b> ${product.stock}`;
+document.getElementById("modalStock").innerText =
+product.stock;
 
-document.getElementById("size").innerHTML =
+document.getElementById("modalStock").className =
+`modal-stock ${product.stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}`;
+
+document.getElementById("modalSize").innerHTML =
 `<b>Size:</b> ${product.size || "-"}`;
 
-document.getElementById("flavour").innerHTML =
+document.getElementById("modalFlavour").innerHTML =
 `<b>Flavor:</b> ${product.flavour || "-"}`;
 
 currentImages = [
@@ -1034,94 +1110,98 @@ product.image2,
 product.image3
 ].filter(Boolean);
 
-currentImageIndex = 0;
+if(currentImages.length === 0){
 
-document.getElementById("mainImage").src =
-currentImages[0] || "";
-
-document.getElementById("thumbs").innerHTML =
-
-currentImages.map((img,index)=>`
-
-<img
-class="thumb"
-src="${img}"
-onclick="setImage(${index})">
-
-`).join("");
-
-document.getElementById("features").innerHTML =
-
-[
-product.bullet1,
-product.bullet2,
-product.bullet3,
-product.bullet4
-]
-
-.filter(Boolean)
-
-.map(f=>`<li>${f}</li>`)
-
-.join("");
-
-/* UNIQUE FLAVOURS */
-
-const flavourMap = {};
-
-currentGroup.forEach(p=>{
-
-if(!flavourMap[p.flavour]){
-
-flavourMap[p.flavour] = p;
+currentImages = [
+"https://via.placeholder.com/500x500?text=No+Image"
+];
 
 }
 
-});
+currentImageIndex = 0;
+
+changeImage(currentImages[0]);
+
+document.getElementById("thumbs").innerHTML =
+currentImages.map((img,index)=>`
+
+<img
+class="thumb ${index===0 ? 'active' : ''}"
+src="${img}"
+onclick="changeImageByIndex(${index})">
+
+`).join("");
 
 document.getElementById("flavourOptions").innerHTML =
+flavours.map(flavour=>{
 
-Object.values(flavourMap).map(p=>`
+const flavourProducts =
+group.filter(p => p.flavour === flavour);
 
-<div
-class="option ${p.flavour === product.flavour ? 'active' : ''}"
-onclick="selectFlavour('${p.flavour.replace(/'/g,"")}')">
+const available =
+flavourProducts.some(p =>
+!p.stock.toLowerCase().includes("out")
+);
 
-${p.flavour || "-"}
+const active =
+product.flavour === flavour;
 
-</div>
+return `
 
-`).join("");
+<button
+class="option-btn ${active ? 'active' : ''} ${!available ? 'disabled' : ''}"
+${available ? `onclick="selectFlavour('${flavour}','${product.item.replace(/'/g,"\\'")}','${product.brand.replace(/'/g,"\\'")}')"` : ""}>
 
-/* SIZES */
+${flavour}
 
-const sizeProducts =
-currentGroup.filter(p=>p.flavour === product.flavour);
+</button>
+
+`;
+
+}).join("");
 
 document.getElementById("sizeOptions").innerHTML =
+sizes.map(size=>{
 
-sizeProducts.map(p=>`
+const sizeProduct =
+group.find(p =>
+p.size === size &&
+p.flavour === product.flavour
+);
 
-<div
-class="option
-${p.size === product.size ? 'active' : ''}
-${p.stock.toLowerCase().includes('out') ? 'disabled' : ''}"
+const available =
+sizeProduct &&
+!sizeProduct.stock.toLowerCase().includes("out");
 
-onclick="${p.stock.toLowerCase().includes('out') ? '' : `selectSize('${p.size.replace(/'/g,"")}')`}">
+const active =
+product.size === size;
 
-${p.size}
+return `
 
-</div>
+<button
+class="option-btn ${active ? 'active' : ''} ${!available ? 'disabled' : ''}"
+${available ? `onclick="openProduct('${sizeProduct.sku}')"` : ""}>
 
-`).join("");
+${size}
+
+</button>
+
+`;
+
+}).join("");
+
+document.getElementById("features").innerHTML = `
+
+${product.bullet1 ? `<li>${product.bullet1}</li>` : ""}
+${product.bullet2 ? `<li>${product.bullet2}</li>` : ""}
+${product.bullet3 ? `<li>${product.bullet3}</li>` : ""}
+${product.bullet4 ? `<li>${product.bullet4}</li>` : ""}
+
+`;
 
 document.getElementById("orderBtn").onclick = function(){
 
-window.open(
-
-`https://wa.me/917710077786?text=${encodeURIComponent(
-
-`Hello, I want to order:
+const msg = `Hello, I want to order:
 
 ${product.item}
 
@@ -1129,60 +1209,60 @@ Flavor: ${product.flavour}
 
 Size: ${product.size}
 
-Price: ₹${product.price}`
+Price: ₹${product.price}`;
 
-)}`,
-
+window.open(
+`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`,
 "_blank"
-
 );
 
 };
 
 }
 
-function selectFlavour(flavour){
+function selectFlavour(flavour,item,brand){
 
 const product =
-currentGroup.find(p=>p.flavour === flavour);
+allProducts.find(p =>
 
-if(product){
-
-updateModal(product);
-
-}
-
-}
-
-function selectSize(size){
-
-const product =
-currentGroup.find(p=>
-
-p.flavour === selectedProduct.flavour
-&&
-p.size === size
+p.flavour === flavour &&
+p.item === item &&
+p.brand === brand &&
+!p.stock.toLowerCase().includes("out")
 
 );
 
 if(product){
 
-updateModal(product);
+openProduct(product.sku);
 
 }
 
 }
 
-function setImage(index){
+function changeImage(src){
+
+document.getElementById("mainImage").src = src;
+
+document.querySelectorAll(".thumb")
+.forEach(t=>t.classList.remove("active"));
+
+document.querySelectorAll(".thumb")[currentImageIndex]
+?.classList.add("active");
+
+}
+
+function changeImageByIndex(index){
 
 currentImageIndex = index;
 
-document.getElementById("mainImage").src =
-currentImages[index];
+changeImage(currentImages[index]);
 
 }
 
-function prevImage(){
+function prevImage(event){
+
+event.stopPropagation();
 
 currentImageIndex--;
 
@@ -1193,11 +1273,13 @@ currentImages.length - 1;
 
 }
 
-setImage(currentImageIndex);
+changeImage(currentImages[currentImageIndex]);
 
 }
 
-function nextImage(){
+function nextImage(event){
+
+event.stopPropagation();
 
 currentImageIndex++;
 
@@ -1207,20 +1289,21 @@ currentImageIndex = 0;
 
 }
 
-setImage(currentImageIndex);
+changeImage(currentImages[currentImageIndex]);
 
 }
 
-document.addEventListener("keydown",e=>{
+document.addEventListener("keydown",function(e){
 
-if(document.getElementById("modal").style.display === "flex"){
+if(document.getElementById("modal").style.display !== "flex")
+return;
 
-if(e.key === "ArrowLeft") prevImage();
+if(e.key === "ArrowRight"){
+nextImage(e);
+}
 
-if(e.key === "ArrowRight") nextImage();
-
-if(e.key === "Escape") closeModal();
-
+if(e.key === "ArrowLeft"){
+prevImage(e);
 }
 
 });
@@ -1230,20 +1313,11 @@ function closeModal(){
 document.getElementById("modal").style.display =
 "none";
 
-document.body.style.overflow =
-"auto";
-
 }
 
-document.getElementById("viewFilter")
-.addEventListener("change",renderProducts);
+window.onclick = function(event){
 
-document.getElementById("searchInput")
-.addEventListener("keyup",renderProducts);
-
-window.onclick = function(e){
-
-if(e.target.id === "modal"){
+if(event.target.id === "modal"){
 
 closeModal();
 
