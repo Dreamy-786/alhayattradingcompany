@@ -1,763 +1,1347 @@
-<!-- =========================
-FIXES APPLIED
-=========================
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-✅ Product detail popup fixed height (NO INTERNAL SCROLL)
-✅ Close modal returns to SAME SCROLL POSITION
-✅ WhatsApp ORDER NOW button fixed + always visible
-✅ Floating WhatsApp button bottom-right restored
-✅ Product images fixed (ignores bad image links)
-✅ One card per UNIQUE SIZE product
-✅ Flavours duplicate issue fixed
-✅ Horizontal sliders for Brand + Category
-✅ Left/right arrows added
-✅ Premium luxury layout
-✅ Sticky top search/filter only
-✅ Proper modal sizing mobile + desktop
-✅ Product image arrows added
-✅ Tab/logo issue fixed
-✅ Green buttons
-✅ Brand/category working again
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-REPLACE YOUR FULL JS WITH THIS
-========================= -->
-<script>
+<title>AL HAYAT TRADING COMPANY</title>
 
-let allProducts = [];
-let groupedProducts = {};
-let currentFilter = "assorted";
-let currentModalImages = [];
-let currentImageIndex = 0;
-let lastScrollY = 0;
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-const VALID_IMAGE = (url) => {
-    return url &&
-    url.startsWith("http") &&
-    !url.includes("undefined") &&
-    !url.includes(".webp.webp");
-};
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-async function loadCSV() {
-
-    const response = await fetch("products.csv?v=" + Date.now());
-    const csvText = await response.text();
-
-    Papa.parse(csvText, {
-        header: true,
-        skipEmptyLines: true,
-
-        complete: function(results) {
-
-            allProducts = results.data.map(product => {
-
-                const images = [
-                    product.IMAGE1_FRONT,
-                    product.IMAGE2_SIDE,
-                    product.IMAGE3_BACK
-                ].filter(img => VALID_IMAGE(img));
-
-                return {
-                    ...product,
-                    images
-                };
-            });
-
-            buildGroupedProducts();
-            renderProducts();
-            renderBrands();
-            renderCategories();
-        }
-    });
-}
-
-function normalize(str) {
-    return (str || "").trim().toLowerCase();
-}
-
-function buildGroupedProducts() {
-
-    groupedProducts = {};
-
-    allProducts.forEach(product => {
-
-        const key =
-            normalize(product.BRAND) +
-            "|" +
-            normalize(product.ITEM);
-
-        if (!groupedProducts[key]) {
-            groupedProducts[key] = [];
-        }
-
-        groupedProducts[key].push(product);
-    });
-}
-
-function getUniqueCards() {
-
-    const cards = [];
-
-    Object.values(groupedProducts).forEach(group => {
-
-        const uniqueSizes = {};
-
-        group.forEach(product => {
-
-            const size = normalize(product.Size);
-
-            if (!uniqueSizes[size]) {
-                uniqueSizes[size] = product;
-            }
-        });
-
-        Object.values(uniqueSizes).forEach(p => cards.push(p));
-    });
-
-    return cards;
-}
-
-function renderProducts(products = null) {
-
-    const container = document.getElementById("products-container");
-
-    const finalProducts = products || getUniqueCards();
-
-    container.innerHTML = "";
-
-    finalProducts.forEach(product => {
-
-        const image = product.images[0] || "https://via.placeholder.com/300x300";
-
-        container.innerHTML += `
-        <div class="product-card">
-
-            <div class="product-image-wrap">
-
-                <img
-                    src="${image}"
-                    class="product-image"
-                    loading="lazy"
-                    onclick="openModal('${product.SKU}')"
-                >
-
-            </div>
-
-            <div class="product-brand">
-                ${product.BRAND || ""}
-            </div>
-
-            <div class="product-title">
-                ${product.ITEM || ""}
-            </div>
-
-            <div class="product-price">
-                ${product.PRICE ? "₹" + product.PRICE : ""}
-            </div>
-
-            <div class="${product.STOCK === 'In Stock' ? 'stock-green' : 'stock-red'}">
-                ${product.STOCK || ""}
-            </div>
-
-            <button
-                class="view-btn"
-                onclick="openModal('${product.SKU}')"
-            >
-                View Product
-            </button>
-
-        </div>
-        `;
-    });
-}
-
-function openModal(sku) {
-
-    lastScrollY = window.scrollY;
-
-    const product = allProducts.find(p => p.SKU === sku);
-
-    if (!product) return;
-
-    const key =
-        normalize(product.BRAND) +
-        "|" +
-        normalize(product.ITEM);
-
-    const variants = groupedProducts[key];
-
-    const uniqueFlavours = [...new Map(
-        variants.map(v => [normalize(v.FLAVOUR), v])
-    ).values()];
-
-    const uniqueSizes = [...new Map(
-        variants.map(v => [normalize(v.Size), v])
-    ).values()];
-
-    currentModalImages = product.images;
-    currentImageIndex = 0;
-
-    document.getElementById("modal").style.display = "flex";
-
-    renderModalImage();
-
-    document.getElementById("modal-content").innerHTML = `
-
-    <div class="modal-layout">
-
-        <div class="modal-left">
-
-            <div class="modal-image-box">
-
-                <button class="img-arrow left" onclick="prevImage()">‹</button>
-
-                <img id="main-modal-image" class="main-modal-image">
-
-                <button class="img-arrow right" onclick="nextImage()">›</button>
-
-            </div>
-
-            <div class="thumbs">
-                ${currentModalImages.map((img, i) => `
-                    <img
-                        src="${img}"
-                        onclick="changeImage(${i})"
-                        class="thumb"
-                    >
-                `).join("")}
-            </div>
-
-        </div>
-
-        <div class="modal-right">
-
-            <h1>${product.ITEM}</h1>
-
-            <div class="modal-price">
-                ${product.PRICE ? "₹" + product.PRICE : ""}
-            </div>
-
-            <div class="${product.STOCK === 'In Stock' ? 'stock-green' : 'stock-red'}">
-                ${product.STOCK}
-            </div>
-
-            <div class="modal-meta">
-                <b>Servings:</b> ${product.SERVINGS || "-"}
-            </div>
-
-            <div class="modal-meta">
-                <b>Size:</b> ${product.Size || "-"}
-            </div>
-
-            <div class="modal-meta">
-                <b>Flavour:</b> ${product.FLAVOUR || "-"}
-            </div>
-
-            <div class="variant-title">
-                Flavours
-            </div>
-
-            <div class="variant-wrap">
-
-                ${uniqueFlavours.map(v => {
-
-                    const out = v.STOCK !== "In Stock";
-
-                    return `
-                    <button
-                        class="variant-btn ${out ? 'disabled-variant' : ''}"
-                        onclick="openModal('${v.SKU}')"
-                    >
-                        ${v.FLAVOUR || "N/A"}
-                    </button>
-                    `;
-                }).join("")}
-
-            </div>
-
-            <div class="variant-title">
-                Sizes
-            </div>
-
-            <div class="variant-wrap">
-
-                ${uniqueSizes.map(v => {
-
-                    const out = v.STOCK !== "In Stock";
-
-                    return `
-                    <button
-                        class="variant-btn ${out ? 'disabled-variant' : ''}"
-                        onclick="openModal('${v.SKU}')"
-                    >
-                        ${v.Size || "N/A"}
-                    </button>
-                    `;
-                }).join("")}
-
-            </div>
-
-            <ul class="bullets">
-                ${[
-                    product.BULLET1,
-                    product.BULLET2,
-                    product.BULLET3,
-                    product.BULLET4
-                ]
-                .filter(Boolean)
-                .map(b => `<li>${b}</li>`)
-                .join("")}
-            </ul>
-
-            <a
-                href="https://wa.me/917700777786?text=Hi,%20I%20want%20to%20order%20${encodeURIComponent(product.ITEM)}"
-                target="_blank"
-                class="order-btn"
-            >
-                ORDER NOW ON WHATSAPP
-            </a>
-
-        </div>
-
-    </div>
-    `;
-}
-
-function closeModal() {
-
-    document.getElementById("modal").style.display = "none";
-
-    window.scrollTo({
-        top: lastScrollY,
-        behavior: "instant"
-    });
-}
-
-function renderModalImage() {
-
-    const img = document.getElementById("main-modal-image");
-
-    if (img && currentModalImages[currentImageIndex]) {
-        img.src = currentModalImages[currentImageIndex];
-    }
-}
-
-function changeImage(index) {
-    currentImageIndex = index;
-    renderModalImage();
-}
-
-function prevImage() {
-
-    currentImageIndex--;
-
-    if (currentImageIndex < 0) {
-        currentImageIndex = currentModalImages.length - 1;
-    }
-
-    renderModalImage();
-}
-
-function nextImage() {
-
-    currentImageIndex++;
-
-    if (currentImageIndex >= currentModalImages.length) {
-        currentImageIndex = 0;
-    }
-
-    renderModalImage();
-}
-
-document.addEventListener("keydown", function(e){
-
-    if(document.getElementById("modal").style.display !== "flex") return;
-
-    if(e.key === "ArrowLeft") prevImage();
-    if(e.key === "ArrowRight") nextImage();
-});
-
-function renderBrands() {
-
-    const brands = [...new Set(allProducts.map(p => p.BRAND).filter(Boolean))];
-
-    const wrap = document.getElementById("brand-slider");
-
-    wrap.innerHTML = brands.map(b => `
-        <button class="filter-chip" onclick="filterBrand('${b}')">
-            ${b}
-        </button>
-    `).join("");
-}
-
-function renderCategories() {
-
-    const cats = [...new Set(allProducts.map(p => p.Category).filter(Boolean))];
-
-    const wrap = document.getElementById("category-slider");
-
-    wrap.innerHTML = cats.map(c => `
-        <button class="filter-chip" onclick="filterCategory('${c}')">
-            ${c}
-        </button>
-    `).join("");
-}
-
-function filterBrand(brand) {
-
-    const filtered = getUniqueCards().filter(p => p.BRAND === brand);
-
-    renderProducts(filtered);
-}
-
-function filterCategory(cat) {
-
-    const filtered = getUniqueCards().filter(p => p.Category === cat);
-
-    renderProducts(filtered);
-}
-
-function searchProducts() {
-
-    const q = document.getElementById("searchInput").value.toLowerCase();
-
-    const filtered = getUniqueCards().filter(p =>
-        (p.ITEM || "").toLowerCase().includes(q) ||
-        (p.BRAND || "").toLowerCase().includes(q)
-    );
-
-    renderProducts(filtered);
-}
-
-window.onclick = function(event) {
-
-    const modal = document.getElementById("modal");
-
-    if (event.target === modal) {
-        closeModal();
-    }
-}
-
-loadCSV();
-
-</script>
-
-
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap');
-
 *{
-    font-family:'Inter',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    background:#f6f3ee;
-    margin:0;
-    overflow-x:hidden;
+font-family:'Inter',sans-serif;
+background:#f7f4ef;
+color:#111;
+overflow-x:hidden;
 }
 
-h1,h2,h3,.product-title{
-    font-family:'Cormorant Garamond',serif;
+h1,h2,h3,.product-title,.modal-title{
+font-family:'Cormorant Garamond',serif;
 }
+
+/* HEADER */
 
 .topbar{
 
-    position:sticky;
-    top:0;
-    z-index:999;
-    background:white;
-    padding:14px 20px;
-    display:flex;
-    align-items:center;
-    gap:15px;
-    box-shadow:0 2px 12px rgba(0,0,0,0.08);
+position:sticky;
+top:0;
+z-index:9999;
+
+background:rgba(255,255,255,.96);
+backdrop-filter:blur(12px);
+
+padding:14px 20px;
+
+display:flex;
+align-items:center;
+gap:18px;
+
+box-shadow:0 3px 16px rgba(0,0,0,.08);
+}
+
+.logo-wrap{
+display:flex;
+align-items:center;
+gap:14px;
+min-width:max-content;
 }
 
 .logo{
-    height:54px;
-    width:auto;
-    object-fit:contain;
+width:62px;
+height:62px;
+object-fit:contain;
+border-radius:14px;
+background:white;
+padding:4px;
+}
+
+.brand-name{
+font-size:30px;
+font-weight:700;
+letter-spacing:1px;
+}
+
+.search-wrap{
+flex:1;
+display:flex;
+gap:12px;
 }
 
 .search{
-    flex:1;
-    height:48px;
-    border-radius:14px;
-    border:none;
-    background:#f1f1f1;
-    padding:0 20px;
-    font-size:15px;
+
+flex:1;
+height:52px;
+border:none;
+outline:none;
+
+background:#f1f1f1;
+
+border-radius:14px;
+
+padding:0 18px;
+
+font-size:15px;
+font-weight:500;
 }
 
-.products-grid{
+.filter-btn{
 
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-    gap:22px;
-    padding:30px;
+height:52px;
+padding:0 22px;
+
+border:none;
+border-radius:14px;
+
+background:black;
+color:white;
+
+font-weight:700;
+cursor:pointer;
 }
 
-.product-card{
+.contact-top{
 
-    background:white;
-    border-radius:22px;
-    padding:18px;
-    transition:.3s;
-    box-shadow:0 4px 14px rgba(0,0,0,0.06);
+font-size:14px;
+font-weight:700;
+white-space:nowrap;
 }
 
-.product-card:hover{
-    transform:translateY(-6px);
+/* HERO */
+
+.hero{
+
+height:430px;
+
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+padding:20px;
 }
 
-.product-image-wrap{
+.hero-inner h1{
 
-    height:240px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+font-size:74px;
+color:white;
+font-weight:700;
+margin-bottom:16px;
 }
 
-.product-image{
+.hero-inner p{
 
-    max-width:100%;
-    max-height:220px;
-    object-fit:contain;
-    cursor:pointer;
+font-size:20px;
+color:white;
+font-weight:500;
 }
 
-.product-brand{
+/* FILTER SECTIONS */
 
-    font-size:11px;
-    letter-spacing:1.5px;
-    color:#777;
-    margin-top:14px;
+.section{
+padding:28px 24px;
 }
 
-.product-title{
+.section-title{
 
-    font-size:22px;
-    min-height:70px;
+font-size:40px;
+font-weight:700;
+margin-bottom:18px;
 }
 
-.product-price{
-
-    font-size:28px;
-    font-weight:700;
-    margin-top:12px;
-}
-
-.stock-green{
-    color:#008f3d;
-}
-
-.stock-red{
-    color:#c62828;
-}
-
-.view-btn,
-.order-btn{
-
-    background:#0d9f4f;
-    color:white;
-    border:none;
-    border-radius:14px;
-    height:50px;
-    padding:0 24px;
-    cursor:pointer;
-    font-weight:700;
-    margin-top:18px;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    text-decoration:none;
-}
-
-#modal{
-
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.65);
-    display:none;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-}
-
-.modal-layout{
-
-    width:min(1150px,96vw);
-    height:min(92vh,850px);
-    background:white;
-    border-radius:28px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    overflow:hidden;
-}
-
-.modal-left,
-.modal-right{
-    padding:34px;
-}
-
-.modal-right{
-    overflow:hidden;
-}
-
-.modal-image-box{
-
-    position:relative;
-    height:520px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.main-modal-image{
-
-    max-width:100%;
-    max-height:500px;
-    object-fit:contain;
-}
-
-.img-arrow{
-
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    border:none;
-    background:black;
-    color:white;
-    width:42px;
-    height:42px;
-    border-radius:50%;
-    cursor:pointer;
-}
-
-.left{ left:0; }
-.right{ right:0; }
-
-.thumbs{
-    display:flex;
-    gap:10px;
-    margin-top:14px;
-}
-
-.thumb{
-
-    width:70px;
-    height:70px;
-    border-radius:12px;
-    object-fit:contain;
-    border:1px solid #ddd;
-    cursor:pointer;
-}
-
-.variant-wrap{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-bottom:18px;
-}
-
-.variant-btn{
-
-    border:1px solid #ccc;
-    background:white;
-    padding:10px 14px;
-    border-radius:12px;
-    cursor:pointer;
-}
-
-.disabled-variant{
-
-    text-decoration:line-through;
-    opacity:.45;
-}
-
-.bullets{
-
-    margin-top:14px;
-    padding-left:20px;
-    line-height:1.7;
-}
-
-.slider-row{
-
-    position:relative;
-    margin:25px;
+.slider-wrap{
+position:relative;
 }
 
 .slider{
 
-    display:flex;
-    overflow-x:auto;
-    gap:12px;
-    scroll-behavior:smooth;
-    padding-bottom:8px;
+display:flex;
+gap:12px;
+overflow-x:auto;
+scroll-behavior:smooth;
+
+padding-bottom:10px;
 }
 
-.filter-chip{
-
-    white-space:nowrap;
-    border:none;
-    background:black;
-    color:white;
-    padding:12px 18px;
-    border-radius:999px;
-    cursor:pointer;
+.slider::-webkit-scrollbar{
+display:none;
 }
 
-.whatsapp-float{
+.chip{
 
-    position:fixed;
-    right:22px;
-    bottom:22px;
-    z-index:999;
-    background:#0d9f4f;
-    color:white;
-    width:65px;
-    height:65px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:30px;
-    text-decoration:none;
-    box-shadow:0 6px 20px rgba(0,0,0,.2);
+border:none;
+background:black;
+color:white;
+
+padding:13px 18px;
+
+border-radius:999px;
+
+white-space:nowrap;
+
+font-weight:600;
+
+cursor:pointer;
 }
+
+/* PRODUCTS */
+
+.products-grid{
+
+padding:0 24px 40px;
+
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+
+gap:24px;
+}
+
+.card{
+
+background:white;
+
+border-radius:24px;
+
+padding:18px;
+
+box-shadow:0 5px 20px rgba(0,0,0,.07);
+
+transition:.25s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card-image-wrap{
+
+height:260px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.card-image{
+
+max-width:100%;
+max-height:240px;
+
+object-fit:contain;
+
+cursor:pointer;
+}
+
+.card-brand{
+
+font-size:12px;
+letter-spacing:1.5px;
+color:#777;
+
+margin-top:14px;
+}
+
+.product-title{
+
+font-size:26px;
+line-height:1.1;
+
+margin-top:8px;
+
+min-height:82px;
+}
+
+.price{
+
+font-size:34px;
+font-weight:700;
+
+margin-top:16px;
+}
+
+.stock-green{
+color:#0f8f45;
+font-weight:700;
+margin-top:8px;
+}
+
+.stock-red{
+color:#c62828;
+font-weight:700;
+margin-top:8px;
+}
+
+.view-btn{
+
+width:100%;
+height:52px;
+
+margin-top:18px;
+
+border:none;
+border-radius:14px;
+
+background:#0f9f4f;
+color:white;
+
+font-size:15px;
+font-weight:700;
+
+cursor:pointer;
+}
+
+/* MODAL */
+
+.modal{
+
+position:fixed;
+inset:0;
+
+background:rgba(0,0,0,.7);
+
+display:none;
+align-items:center;
+justify-content:center;
+
+z-index:999999;
+
+padding:20px;
+}
+
+.modal-box{
+
+width:min(1180px,100%);
+height:min(760px,92vh);
+
+background:white;
+
+border-radius:30px;
+
+display:grid;
+grid-template-columns:1fr 1fr;
+
+overflow:hidden;
+
+position:relative;
+}
+
+.close{
+
+position:absolute;
+top:14px;
+right:20px;
+
+font-size:42px;
+font-weight:700;
+
+cursor:pointer;
+z-index:99;
+}
+
+.modal-left{
+
+padding:30px;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.image-box{
+
+height:470px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+position:relative;
+}
+
+.main-image{
+
+max-width:100%;
+max-height:450px;
+
+object-fit:contain;
+}
+
+.img-btn{
+
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+
+width:44px;
+height:44px;
+
+border:none;
+border-radius:50%;
+
+background:black;
+color:white;
+
+font-size:28px;
+
+cursor:pointer;
+}
+
+.prev{
+left:0;
+}
+
+.next{
+right:0;
+}
+
+.thumbs{
+
+display:flex;
+gap:10px;
+
+margin-top:16px;
+}
+
+.thumb{
+
+width:78px;
+height:78px;
+
+border-radius:12px;
+
+border:1px solid #ddd;
+
+object-fit:contain;
+
+cursor:pointer;
+}
+
+.modal-right{
+
+padding:34px;
+
+overflow:hidden;
+
+display:flex;
+flex-direction:column;
+justify-content:flex-start;
+}
+
+.modal-title{
+
+font-size:46px;
+line-height:1.05;
+}
+
+.modal-price{
+
+font-size:48px;
+font-weight:700;
+
+margin-top:18px;
+}
+
+.modal-meta{
+
+margin-top:12px;
+
+font-size:15px;
+font-weight:600;
+}
+
+.variant-title{
+
+font-size:18px;
+font-weight:700;
+
+margin-top:18px;
+margin-bottom:10px;
+}
+
+.variant-wrap{
+
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.variant{
+
+border:1px solid #ccc;
+background:white;
+
+padding:10px 16px;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-weight:600;
+}
+
+.variant.disabled{
+
+opacity:.4;
+text-decoration:line-through;
+}
+
+.bullets{
+
+margin-top:20px;
+
+padding-left:20px;
+
+line-height:1.7;
+
+font-size:14px;
+}
+
+.order-btn{
+
+margin-top:auto;
+
+width:100%;
+height:58px;
+
+background:#0f9f4f;
+color:white;
+
+border:none;
+border-radius:16px;
+
+font-size:18px;
+font-weight:700;
+
+cursor:pointer;
+
+text-decoration:none;
+
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+/* FLOAT BUTTON */
+
+.float{
+
+position:fixed;
+
+right:22px;
+bottom:22px;
+
+width:68px;
+height:68px;
+
+border-radius:50%;
+
+background:#0f9f4f;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:32px;
+color:white;
+
+text-decoration:none;
+
+z-index:999;
+
+box-shadow:0 6px 20px rgba(0,0,0,.2);
+}
+
+/* MOBILE */
 
 @media(max-width:900px){
 
-    .modal-layout{
-        grid-template-columns:1fr;
-        height:95vh;
-        overflow:auto;
-    }
+.hero{
+height:300px;
+}
 
-    .modal-image-box{
-        height:300px;
-    }
+.hero-inner h1{
+font-size:42px;
+}
 
-    .main-modal-image{
-        max-height:280px;
-    }
+.hero-inner p{
+font-size:15px;
+}
 
-    .products-grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:14px;
-        padding:14px;
-    }
+.modal-box{
 
-    .product-title{
-        font-size:17px;
-        min-height:auto;
-    }
+grid-template-columns:1fr;
 
-    .product-price{
-        font-size:22px;
-    }
+height:95vh;
+
+overflow-y:auto;
+}
+
+.image-box{
+height:300px;
+}
+
+.main-image{
+max-height:280px;
+}
+
+.modal-title{
+font-size:32px;
+}
+
+.modal-price{
+font-size:34px;
+}
+
+.products-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:14px;
+
+padding:0 14px 20px;
+}
+
+.product-title{
+font-size:18px;
+min-height:auto;
+}
+
+.card-image-wrap{
+height:180px;
+}
+
+.card-image{
+max-height:170px;
+}
+
+.topbar{
+flex-wrap:wrap;
+}
+
+.contact-top{
+display:none;
+}
+
+.brand-name{
+font-size:20px;
+}
+
+.logo{
+width:52px;
+height:52px;
+}
+
+}
+
+@media(max-width:600px){
+
+.products-grid{
+grid-template-columns:1fr;
+}
+
 }
 
 </style>
+
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+<div class="logo-wrap">
+
+<img
+src="https://i.postimg.cc/ncHVXSW3/LOGO.jpg"
+class="logo">
+
+<div class="brand-name">
+AL HAYAT
+</div>
+
+</div>
+
+<div class="search-wrap">
+
+<input
+type="text"
+class="search"
+placeholder="Search supplements..."
+id="searchInput"
+onkeyup="searchProducts()">
+
+<button
+class="filter-btn"
+onclick="showAll()">
+ALL
+</button>
+
+</div>
+
+<div class="contact-top">
+📞 +91 77100 77786
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-inner">
+
+<h1>
+AL HAYAT TRADING COMPANY
+</h1>
+
+<p>
+Imported Sports Nutrition & Supplements
+</p>
+
+</div>
+
+</section>
+
+<!-- BRAND -->
+
+<div class="section">
+
+<div class="section-title">
+Shop By Brand
+</div>
+
+<div class="slider-wrap">
+
+<div class="slider" id="brandSlider"></div>
+
+</div>
+
+</div>
+
+<!-- CATEGORY -->
+
+<div class="section">
+
+<div class="section-title">
+Shop By Category
+</div>
+
+<div class="slider-wrap">
+
+<div class="slider" id="categorySlider"></div>
+
+</div>
+
+</div>
+
+<!-- PRODUCTS -->
+
+<div
+class="products-grid"
+id="productsGrid">
+</div>
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+<div class="modal-box">
+
+<div
+class="close"
+onclick="closeModal()">
+×
+</div>
+
+<div
+id="modalContent"
+style="display:contents;">
+</div>
+
+</div>
+
+</div>
+
+<!-- FLOAT -->
+
+<a
+href="https://wa.me/917710077786"
+class="float"
+target="_blank">
+
+💬
+
+</a>
+
+<script>
+
+const CSV_URL =
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vQZimj_keJIooGDnz0sOvML4cjwbQ8eZBnQ3CQ1xyiORgHssrZPaCYzqdbFz-EmKmFrAqBgV6C3kLUK/pub?output=csv";
+
+let allProducts = [];
+let grouped = {};
+
+let modalImages = [];
+let currentImage = 0;
+
+let scrollPos = 0;
+
+function clean(v){
+return (v || "").trim();
+}
+
+function validImage(url){
+
+return url &&
+url.startsWith("http") &&
+!url.includes("undefined");
+}
+
+async function loadProducts(){
+
+Papa.parse(CSV_URL,{
+
+download:true,
+header:true,
+skipEmptyLines:true,
+
+complete:function(results){
+
+allProducts = results.data.map(p=>{
+
+const images = [
+
+p.IMAGE1_FRONT,
+p.IMAGE2_SIDE,
+p.IMAGE3_BACK
+
+].filter(validImage);
+
+return {
+
+...p,
+images
+
+};
+
+});
+
+groupProducts();
+renderProducts();
+renderBrands();
+renderCategories();
+
+}
+
+});
+
+}
+
+function normalize(v){
+return clean(v).toLowerCase();
+}
+
+function groupProducts(){
+
+grouped = {};
+
+allProducts.forEach(p=>{
+
+const key =
+normalize(p.BRAND) +
+"|" +
+normalize(p.ITEM);
+
+if(!grouped[key]){
+grouped[key] = [];
+}
+
+grouped[key].push(p);
+
+});
+
+}
+
+function getCards(){
+
+const cards = [];
+
+Object.values(grouped).forEach(group=>{
+
+const sizeMap = {};
+
+group.forEach(p=>{
+
+const size =
+normalize(p.Size);
+
+if(!sizeMap[size]){
+sizeMap[size] = p;
+}
+
+});
+
+Object.values(sizeMap).forEach(p=>cards.push(p));
+
+});
+
+return cards;
+}
+
+function renderProducts(products=null){
+
+const grid =
+document.getElementById("productsGrid");
+
+const finalProducts =
+products || getCards();
+
+grid.innerHTML = "";
+
+finalProducts.forEach(product=>{
+
+const image =
+product.images[0] ||
+"https://via.placeholder.com/300";
+
+grid.innerHTML += `
+
+<div class="card">
+
+<div class="card-image-wrap">
+
+<img
+src="${image}"
+class="card-image"
+onclick="openModal('${product.SKU}')">
+
+</div>
+
+<div class="card-brand">
+${product.BRAND || ""}
+</div>
+
+<div class="product-title">
+${product.ITEM || ""}
+</div>
+
+<div class="price">
+${product.PRICE ? "₹"+product.PRICE : ""}
+</div>
+
+<div class="${
+product.STOCK === "In Stock"
+?
+'stock-green'
+:
+'stock-red'
+}">
+${product.STOCK || ""}
+</div>
+
+<button
+class="view-btn"
+onclick="openModal('${product.SKU}')">
+
+VIEW PRODUCT
+
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+function renderBrands(){
+
+const brands =
+[...new Set(allProducts.map(p=>p.BRAND).filter(Boolean))];
+
+document.getElementById("brandSlider").innerHTML =
+
+brands.map(b=>`
+
+<button
+class="chip"
+onclick="filterBrand('${b}')">
+
+${b}
+
+</button>
+
+`).join("");
+
+}
+
+function renderCategories(){
+
+const cats =
+[...new Set(allProducts.map(p=>p.Category).filter(Boolean))];
+
+document.getElementById("categorySlider").innerHTML =
+
+cats.map(c=>`
+
+<button
+class="chip"
+onclick="filterCategory('${c}')">
+
+${c}
+
+</button>
+
+`).join("");
+
+}
+
+function filterBrand(brand){
+
+renderProducts(
+
+getCards().filter(p=>p.BRAND === brand)
+
+);
+
+}
+
+function filterCategory(cat){
+
+renderProducts(
+
+getCards().filter(p=>p.Category === cat)
+
+);
+
+}
+
+function showAll(){
+renderProducts();
+}
+
+function searchProducts(){
+
+const q =
+document.getElementById("searchInput")
+.value
+.toLowerCase();
+
+const filtered =
+getCards().filter(p=>
+
+(p.ITEM || "").toLowerCase().includes(q)
+||
+(p.BRAND || "").toLowerCase().includes(q)
+
+);
+
+renderProducts(filtered);
+
+}
+
+function openModal(sku){
+
+scrollPos = window.scrollY;
+
+const product =
+allProducts.find(p=>p.SKU === sku);
+
+if(!product) return;
+
+const key =
+normalize(product.BRAND)
++
+"|"
++
+normalize(product.ITEM);
+
+const variants =
+grouped[key];
+
+const uniqueFlavours =
+[...new Map(
+
+variants.map(v=>[
+normalize(v.FLAVOUR),
+v
+])
+
+).values()];
+
+const uniqueSizes =
+[...new Map(
+
+variants.map(v=>[
+normalize(v.Size),
+v
+])
+
+).values()];
+
+modalImages =
+product.images;
+
+currentImage = 0;
+
+document.getElementById("modal").style.display =
+"flex";
+
+document.getElementById("modalContent").innerHTML = `
+
+<div class="modal-left">
+
+<div class="image-box">
+
+<button
+class="img-btn prev"
+onclick="prevImage()">
+
+‹
+
+</button>
+
+<img
+id="mainImage"
+class="main-image"
+src="${modalImages[0] || ''}">
+
+<button
+class="img-btn next"
+onclick="nextImage()">
+
+›
+
+</button>
+
+</div>
+
+<div class="thumbs">
+
+${modalImages.map((img,i)=>`
+
+<img
+src="${img}"
+class="thumb"
+onclick="changeImage(${i})">
+
+`).join("")}
+
+</div>
+
+</div>
+
+<div class="modal-right">
+
+<div class="modal-title">
+${product.ITEM}
+</div>
+
+<div class="modal-price">
+${product.PRICE ? "₹"+product.PRICE : ""}
+</div>
+
+<div class="${
+product.STOCK === "In Stock"
+?
+'stock-green'
+:
+'stock-red'
+}">
+${product.STOCK}
+</div>
+
+<div class="modal-meta">
+<b>Servings:</b>
+${product.SERVINGS || "-"}
+</div>
+
+<div class="modal-meta">
+<b>Size:</b>
+${product.Size || "-"}
+</div>
+
+<div class="modal-meta">
+<b>Flavour:</b>
+${product.FLAVOUR || "-"}
+</div>
+
+<div class="variant-title">
+Flavours
+</div>
+
+<div class="variant-wrap">
+
+${uniqueFlavours.map(v=>`
+
+<button
+class="variant ${
+v.STOCK !== "In Stock"
+?
+'disabled'
+:
+''
+}"
+onclick="openModal('${v.SKU}')">
+
+${v.FLAVOUR || "N/A"}
+
+</button>
+
+`).join("")}
+
+</div>
+
+<div class="variant-title">
+Sizes
+</div>
+
+<div class="variant-wrap">
+
+${uniqueSizes.map(v=>`
+
+<button
+class="variant ${
+v.STOCK !== "In Stock"
+?
+'disabled'
+:
+''
+}"
+onclick="openModal('${v.SKU}')">
+
+${v.Size || "N/A"}
+
+</button>
+
+`).join("")}
+
+</div>
+
+<ul class="bullets">
+
+${[
+product.BULLET1,
+product.BULLET2,
+product.BULLET3,
+product.BULLET4
+]
+.filter(Boolean)
+.map(b=>`<li>${b}</li>`)
+.join("")}
+
+</ul>
+
+<a
+target="_blank"
+class="order-btn"
+href="https://wa.me/917710077786?text=Hi%20I%20want%20to%20order%20${encodeURIComponent(product.ITEM)}">
+
+ORDER NOW ON WHATSAPP
+
+</a>
+
+</div>
+
+`;
+
+}
+
+function closeModal(){
+
+document.getElementById("modal").style.display =
+"none";
+
+window.scrollTo(0,scrollPos);
+
+}
+
+function changeImage(index){
+
+currentImage = index;
+
+document.getElementById("mainImage").src =
+modalImages[currentImage];
+
+}
+
+function prevImage(){
+
+currentImage--;
+
+if(currentImage < 0){
+currentImage =
+modalImages.length - 1;
+}
+
+document.getElementById("mainImage").src =
+modalImages[currentImage];
+
+}
+
+function nextImage(){
+
+currentImage++;
+
+if(currentImage >= modalImages.length){
+currentImage = 0;
+}
+
+document.getElementById("mainImage").src =
+modalImages[currentImage];
+
+}
+
+document.addEventListener("keydown",function(e){
+
+if(
+document.getElementById("modal").style.display !== "flex"
+) return;
+
+if(e.key === "ArrowLeft"){
+prevImage();
+}
+
+if(e.key === "ArrowRight"){
+nextImage();
+}
+
+});
+
+window.onclick = function(event){
+
+if(event.target.id === "modal"){
+closeModal();
+}
+
+}
+
+loadProducts();
+
+</script>
+
+</body>
+</html>
