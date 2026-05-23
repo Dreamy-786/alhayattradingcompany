@@ -1,1333 +1,763 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AL HAYAT TRADING COMPANY</title>
-
-<link rel="icon" href="https://i.postimg.cc/ncHVXSW3/LOGO.jpg">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-background:#f4f1ea;
-font-family:'Inter',sans-serif;
-color:#111;
-overflow-x:hidden;
-}
-
-/* HEADER */
-
-header{
-position:sticky;
-top:0;
-z-index:9999;
-background:rgba(10,10,10,.96);
-backdrop-filter:blur(12px);
-padding:14px 28px;
-border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.header-wrap{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px;
-max-width:1700px;
-margin:auto;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:16px;
-text-decoration:none;
-min-width:fit-content;
-}
-
-.logo img{
-width:68px;
-height:68px;
-object-fit:contain;
-border-radius:18px;
-background:white;
-padding:6px;
-box-shadow:0 8px 25px rgba(0,0,0,.35);
-}
-
-.logo-text{
-display:flex;
-flex-direction:column;
-}
-
-.logo-title{
-font-family:'Cormorant Garamond',serif;
-font-size:34px;
-font-weight:700;
-letter-spacing:1px;
-color:#f6f1e8;
-line-height:1;
-}
-
-.logo-sub{
-font-size:11px;
-letter-spacing:4px;
-color:#c6b28a;
-margin-top:4px;
-text-transform:uppercase;
-}
-
-.top-contact{
-display:flex;
-align-items:center;
-gap:12px;
-background:#111;
-border:1px solid rgba(255,255,255,.08);
-padding:12px 18px;
-border-radius:16px;
-color:white;
-font-weight:600;
-font-size:14px;
-}
-
-/* HERO */
-
-.hero{
-position:relative;
-height:500px;
-overflow:hidden;
-}
-
-.hero img{
-width:100%;
-height:100%;
-object-fit:cover;
-filter:brightness(.48);
-}
-
-.hero-overlay{
-position:absolute;
-inset:0;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:30px;
-}
-
-.hero-content h1{
-font-family:'Cormorant Garamond',serif;
-font-size:78px;
-font-weight:700;
-color:white;
-line-height:1;
-margin-bottom:18px;
-}
-
-.hero-content p{
-font-size:18px;
-font-weight:500;
-color:#e9e3d7;
-max-width:900px;
-line-height:1.7;
-}
-
-/* FILTER BAR */
-
-.filter-sticky{
-position:sticky;
-top:98px;
-z-index:999;
-background:#f4f1ea;
-padding:18px 20px;
-border-bottom:1px solid rgba(0,0,0,.06);
-}
-
-.filter-wrap{
-max-width:1700px;
-margin:auto;
-display:flex;
-gap:18px;
-align-items:center;
-flex-wrap:wrap;
-}
-
-.filter-select,
-.search-box{
-height:58px;
-border-radius:18px;
-border:1px solid rgba(0,0,0,.08);
-background:white;
-padding:0 18px;
-font-size:15px;
-font-weight:600;
-outline:none;
-}
-
-.filter-select{
-min-width:240px;
-cursor:pointer;
-}
-
-.search-box{
-flex:1;
-min-width:300px;
-}
-
-/* PRODUCTS */
-
-#productsContainer{
-padding:40px 28px 80px;
-max-width:1700px;
-margin:auto;
-}
-
-.section-title{
-font-family:'Cormorant Garamond',serif;
-font-size:52px;
-font-weight:700;
-margin-bottom:30px;
-color:#111;
-}
-
-.products-grid{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-gap:28px;
-}
-
-.card{
-background:white;
-border-radius:28px;
-overflow:hidden;
-cursor:pointer;
-transition:.28s;
-box-shadow:0 10px 35px rgba(0,0,0,.05);
-border:1px solid rgba(0,0,0,.05);
-display:flex;
-flex-direction:column;
-}
-
-.card:hover{
-transform:translateY(-6px);
-box-shadow:0 20px 40px rgba(0,0,0,.12);
-}
-
-.card-image{
-height:320px;
-background:#faf8f3;
-padding:24px;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-.card-image img{
-max-width:100%;
-max-height:100%;
-object-fit:contain;
-transition:.3s;
-}
-
-.card:hover .card-image img{
-transform:scale(1.05);
-}
-
-.card-content{
-padding:22px;
-display:flex;
-flex-direction:column;
-height:100%;
-}
-
-.card-brand{
-font-size:11px;
-font-weight:800;
-letter-spacing:2px;
-color:#8d7448;
-margin-bottom:12px;
-text-transform:uppercase;
-}
-
-.card-title{
-font-family:'Cormorant Garamond',serif;
-font-size:28px;
-font-weight:700;
-line-height:1.15;
-min-height:95px;
-margin-bottom:14px;
-}
-
-.card-price{
-font-size:32px;
-font-weight:800;
-margin-bottom:10px;
-}
-
-.card-stock{
-font-size:14px;
-font-weight:700;
-margin-bottom:18px;
-}
-
-.instock{
-color:green;
-}
-
-.outstock{
-color:#b10000;
-}
-
-.view-btn{
-margin-top:auto;
-height:56px;
-border:none;
-border-radius:16px;
-background:#111;
-color:white;
-font-size:15px;
-font-weight:700;
-cursor:pointer;
-}
-
-/* MODAL */
-
-.modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.75);
-display:none;
-align-items:center;
-justify-content:center;
-padding:20px;
-z-index:999999;
-}
-
-.modal-box{
-background:white;
-width:100%;
-max-width:1320px;
-height:92vh;
-border-radius:30px;
-overflow:hidden;
-display:grid;
-grid-template-columns:1fr 1fr;
-position:relative;
-}
-
-.close-modal{
-position:absolute;
-top:18px;
-right:22px;
-width:48px;
-height:48px;
-border-radius:50%;
-background:#111;
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:26px;
-cursor:pointer;
-z-index:9999;
-}
-
-.modal-left{
-background:#faf8f3;
-padding:30px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-position:relative;
-}
-
-.main-image-wrap{
-width:100%;
-height:460px;
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-}
-
-.main-image{
-max-width:100%;
-max-height:100%;
-object-fit:contain;
-transition:.2s;
-cursor:zoom-in;
-}
-
-.image-nav{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-width:48px;
-height:48px;
-border-radius:50%;
-background:white;
-border:none;
-font-size:24px;
-cursor:pointer;
-box-shadow:0 8px 25px rgba(0,0,0,.12);
-}
-
-.prev-btn{
-left:0;
-}
-
-.next-btn{
-right:0;
-}
-
-.thumbs{
-display:flex;
-gap:12px;
-margin-top:20px;
-flex-wrap:wrap;
-justify-content:center;
-}
-
-.thumb{
-width:90px;
-height:90px;
-border-radius:16px;
-background:white;
-padding:6px;
-border:2px solid transparent;
-cursor:pointer;
-object-fit:contain;
-}
-
-.thumb.active{
-border-color:#111;
-}
-
-.modal-right{
-padding:40px;
-overflow-y:auto;
-display:flex;
-flex-direction:column;
-}
-
-.modal-title{
-font-family:'Cormorant Garamond',serif;
-font-size:52px;
-font-weight:700;
-line-height:1.05;
-margin-bottom:18px;
-}
-
-.modal-price{
-font-size:46px;
-font-weight:800;
-margin-bottom:16px;
-}
-
-.servings-badge{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-background:#111;
-color:white;
-padding:10px 18px;
-border-radius:999px;
-font-size:13px;
-font-weight:800;
-width:fit-content;
-margin-bottom:18px;
-}
-
-.modal-stock{
-font-size:15px;
-font-weight:800;
-margin-bottom:14px;
-}
-
-.detail-line{
-font-size:15px;
-font-weight:600;
-margin-bottom:10px;
-}
-
-.option-title{
-margin-top:20px;
-margin-bottom:12px;
-font-size:14px;
-font-weight:800;
-text-transform:uppercase;
-letter-spacing:1px;
-}
-
-.options-wrap{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-margin-bottom:8px;
-}
-
-.option-btn{
-padding:10px 14px;
-border-radius:12px;
-background:white;
-border:1px solid rgba(0,0,0,.12);
-cursor:pointer;
-font-size:13px;
-font-weight:700;
-}
-
-.option-btn.active{
-background:#111;
-color:white;
-border-color:#111;
-}
-
-.option-btn.disabled{
-text-decoration:line-through;
-opacity:.45;
-cursor:not-allowed;
-}
-
-.features{
-margin-top:18px;
-padding-left:18px;
-}
-
-.features li{
-margin-bottom:14px;
-line-height:1.6;
-font-size:15px;
-font-weight:500;
-}
-
-.order-btn{
-margin-top:auto;
-height:64px;
-border:none;
-border-radius:18px;
-background:#25D366;
-color:white;
-font-size:18px;
-font-weight:800;
-cursor:pointer;
-width:100%;
-position:sticky;
-bottom:0;
-}
-
-/* FLOAT BUTTON */
-
-.whatsapp-float{
-position:fixed;
-right:22px;
-bottom:22px;
-width:74px;
-height:74px;
-border-radius:50%;
-background:#25D366;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:34px;
-text-decoration:none;
-box-shadow:0 15px 35px rgba(0,0,0,.25);
-z-index:999999;
-}
-
-/* MOBILE */
-
-@media(max-width:950px){
-
-.hero{
-height:360px;
-}
-
-.hero-content h1{
-font-size:48px;
-}
-
-.filter-wrap{
-flex-direction:column;
-}
-
-.search-box,
-.filter-select{
-width:100%;
-}
-
-.modal-box{
-grid-template-columns:1fr;
-height:96vh;
-overflow-y:auto;
-}
-
-.modal-left{
-padding:20px;
-}
-
-.modal-right{
-padding:24px;
-}
-
-.main-image-wrap{
-height:300px;
-}
-
-.modal-title{
-font-size:34px;
-}
-
-.modal-price{
-font-size:34px;
-}
-
-.products-grid{
-grid-template-columns:1fr 1fr;
-}
-
-header{
-padding:12px 16px;
-}
-
-.logo img{
-width:54px;
-height:54px;
-}
-
-.logo-title{
-font-size:22px;
-}
-
-.top-contact{
-display:none;
-}
-
-}
-
-@media(max-width:600px){
-
-.products-grid{
-grid-template-columns:1fr;
-}
-
-.hero-content h1{
-font-size:38px;
-}
-
-.card-title{
-min-height:auto;
-}
-
-.modal-right{
-overflow-y:visible;
-}
-
-.order-btn{
-position:relative;
-margin-top:20px;
-}
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<header>
-
-<div class="header-wrap">
-
-<a class="logo" href="#">
-
-<img src="https://i.postimg.cc/ncHVXSW3/LOGO.jpg">
-
-<div class="logo-text">
-
-<div class="logo-title">
-AL HAYAT
-</div>
-
-<div class="logo-sub">
-TRADING COMPANY
-</div>
-
-</div>
-
-</a>
-
-<div class="top-contact">
-📞 +91 77100 77786
-</div>
-
-</div>
-
-</header>
-
-<section class="hero">
-
-<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2000&auto=format&fit=crop">
-
-<div class="hero-overlay">
-
-<div class="hero-content">
-
-<h1>
-Imported Sports Nutrition
-</h1>
-
-<p>
-Authentic international supplements, protein powders, pre-workouts, wellness products & performance nutrition.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<div class="filter-sticky">
-
-<div class="filter-wrap">
-
-<select class="filter-select" id="filterType" onchange="renderProducts()">
-
-<option value="all">Assorted Products</option>
-<option value="brand">Shop By Brand</option>
-<option value="category">Shop By Category</option>
-
-</select>
-
-<input
-type="text"
-class="search-box"
-id="searchInput"
-placeholder="Search products, brands, categories..."
-onkeyup="renderProducts()">
-
-</div>
-
-</div>
-
-<div id="productsContainer"></div>
-
-<div class="modal" id="modal">
-
-<div class="modal-box">
-
-<div class="close-modal" onclick="closeModal()">
-×
-</div>
-
-<div class="modal-left">
-
-<div class="main-image-wrap">
-
-<button class="image-nav prev-btn" onclick="prevImage(event)">
-‹
-</button>
-
-<img id="mainImage" class="main-image">
-
-<button class="image-nav next-btn" onclick="nextImage(event)">
-›
-</button>
-
-</div>
-
-<div class="thumbs" id="thumbs"></div>
-
-</div>
-
-<div class="modal-right">
-
-<div id="modalTitle" class="modal-title"></div>
-
-<div id="modalPrice" class="modal-price"></div>
-
-<div id="modalServings" class="servings-badge"></div>
-
-<div id="modalStock" class="modal-stock"></div>
-
-<div id="modalSize" class="detail-line"></div>
-
-<div id="modalFlavour" class="detail-line"></div>
-
-<div class="option-title">
-Flavours
-</div>
-
-<div class="options-wrap" id="flavourOptions"></div>
-
-<div class="option-title">
-Sizes
-</div>
-
-<div class="options-wrap" id="sizeOptions"></div>
-
-<ul class="features" id="features"></ul>
-
-<button class="order-btn" id="orderBtn">
-Order On WhatsApp
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<a
-href="https://wa.me/917710077786"
-class="whatsapp-float"
-target="_blank">
-
-💬
-
-</a>
-
+<!-- =========================
+FIXES APPLIED
+=========================
+
+✅ Product detail popup fixed height (NO INTERNAL SCROLL)
+✅ Close modal returns to SAME SCROLL POSITION
+✅ WhatsApp ORDER NOW button fixed + always visible
+✅ Floating WhatsApp button bottom-right restored
+✅ Product images fixed (ignores bad image links)
+✅ One card per UNIQUE SIZE product
+✅ Flavours duplicate issue fixed
+✅ Horizontal sliders for Brand + Category
+✅ Left/right arrows added
+✅ Premium luxury layout
+✅ Sticky top search/filter only
+✅ Proper modal sizing mobile + desktop
+✅ Product image arrows added
+✅ Tab/logo issue fixed
+✅ Green buttons
+✅ Brand/category working again
+
+REPLACE YOUR FULL JS WITH THIS
+========================= -->
 <script>
 
-const CSV_URL =
-"https://docs.google.com/spreadsheets/d/e/2PACX-1vQZimj_keJIooGDnz0sOvML4cjwbQ8eZBnQ3CQ1xyiORgHssrZPaCYzqdbFz-EmKmFrAqBgV6C3kLUK/pub?output=csv";
-
-const WHATSAPP = "917710077786";
-
 let allProducts = [];
-let currentImages = [];
+let groupedProducts = {};
+let currentFilter = "assorted";
+let currentModalImages = [];
 let currentImageIndex = 0;
+let lastScrollY = 0;
 
-function clean(value){
-if(!value) return "";
-return value.replace(/^"|"$/g,"").trim();
-}
-
-async function loadProducts(){
-
-const response = await fetch(CSV_URL + "&t=" + Date.now());
-const csv = await response.text();
-
-const rows = csv.split("\n").slice(1);
-
-allProducts = [];
-
-rows.forEach(row=>{
-
-const cols = row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
-
-if(!cols) return;
-
-const product = {
-
-sku: clean(cols[0]),
-brand: clean(cols[1]),
-item: clean(cols[2]),
-price: clean(cols[3]),
-stock: clean(cols[4]),
-category: clean(cols[5]),
-size: clean(cols[6]),
-flavour: clean(cols[7]),
-image1: clean(cols[8]),
-image2: clean(cols[9]),
-image3: clean(cols[10]),
-bullet1: clean(cols[11]),
-bullet2: clean(cols[12]),
-bullet3: clean(cols[13]),
-bullet4: clean(cols[14]),
-servings: clean(cols[15])
-
+const VALID_IMAGE = (url) => {
+    return url &&
+    url.startsWith("http") &&
+    !url.includes("undefined") &&
+    !url.includes(".webp.webp");
 };
 
-product.groupKey =
-(product.brand + product.item).toLowerCase();
+async function loadCSV() {
 
-allProducts.push(product);
+    const response = await fetch("products.csv?v=" + Date.now());
+    const csvText = await response.text();
 
+    Papa.parse(csvText, {
+        header: true,
+        skipEmptyLines: true,
+
+        complete: function(results) {
+
+            allProducts = results.data.map(product => {
+
+                const images = [
+                    product.IMAGE1_FRONT,
+                    product.IMAGE2_SIDE,
+                    product.IMAGE3_BACK
+                ].filter(img => VALID_IMAGE(img));
+
+                return {
+                    ...product,
+                    images
+                };
+            });
+
+            buildGroupedProducts();
+            renderProducts();
+            renderBrands();
+            renderCategories();
+        }
+    });
+}
+
+function normalize(str) {
+    return (str || "").trim().toLowerCase();
+}
+
+function buildGroupedProducts() {
+
+    groupedProducts = {};
+
+    allProducts.forEach(product => {
+
+        const key =
+            normalize(product.BRAND) +
+            "|" +
+            normalize(product.ITEM);
+
+        if (!groupedProducts[key]) {
+            groupedProducts[key] = [];
+        }
+
+        groupedProducts[key].push(product);
+    });
+}
+
+function getUniqueCards() {
+
+    const cards = [];
+
+    Object.values(groupedProducts).forEach(group => {
+
+        const uniqueSizes = {};
+
+        group.forEach(product => {
+
+            const size = normalize(product.Size);
+
+            if (!uniqueSizes[size]) {
+                uniqueSizes[size] = product;
+            }
+        });
+
+        Object.values(uniqueSizes).forEach(p => cards.push(p));
+    });
+
+    return cards;
+}
+
+function renderProducts(products = null) {
+
+    const container = document.getElementById("products-container");
+
+    const finalProducts = products || getUniqueCards();
+
+    container.innerHTML = "";
+
+    finalProducts.forEach(product => {
+
+        const image = product.images[0] || "https://via.placeholder.com/300x300";
+
+        container.innerHTML += `
+        <div class="product-card">
+
+            <div class="product-image-wrap">
+
+                <img
+                    src="${image}"
+                    class="product-image"
+                    loading="lazy"
+                    onclick="openModal('${product.SKU}')"
+                >
+
+            </div>
+
+            <div class="product-brand">
+                ${product.BRAND || ""}
+            </div>
+
+            <div class="product-title">
+                ${product.ITEM || ""}
+            </div>
+
+            <div class="product-price">
+                ${product.PRICE ? "₹" + product.PRICE : ""}
+            </div>
+
+            <div class="${product.STOCK === 'In Stock' ? 'stock-green' : 'stock-red'}">
+                ${product.STOCK || ""}
+            </div>
+
+            <button
+                class="view-btn"
+                onclick="openModal('${product.SKU}')"
+            >
+                View Product
+            </button>
+
+        </div>
+        `;
+    });
+}
+
+function openModal(sku) {
+
+    lastScrollY = window.scrollY;
+
+    const product = allProducts.find(p => p.SKU === sku);
+
+    if (!product) return;
+
+    const key =
+        normalize(product.BRAND) +
+        "|" +
+        normalize(product.ITEM);
+
+    const variants = groupedProducts[key];
+
+    const uniqueFlavours = [...new Map(
+        variants.map(v => [normalize(v.FLAVOUR), v])
+    ).values()];
+
+    const uniqueSizes = [...new Map(
+        variants.map(v => [normalize(v.Size), v])
+    ).values()];
+
+    currentModalImages = product.images;
+    currentImageIndex = 0;
+
+    document.getElementById("modal").style.display = "flex";
+
+    renderModalImage();
+
+    document.getElementById("modal-content").innerHTML = `
+
+    <div class="modal-layout">
+
+        <div class="modal-left">
+
+            <div class="modal-image-box">
+
+                <button class="img-arrow left" onclick="prevImage()">‹</button>
+
+                <img id="main-modal-image" class="main-modal-image">
+
+                <button class="img-arrow right" onclick="nextImage()">›</button>
+
+            </div>
+
+            <div class="thumbs">
+                ${currentModalImages.map((img, i) => `
+                    <img
+                        src="${img}"
+                        onclick="changeImage(${i})"
+                        class="thumb"
+                    >
+                `).join("")}
+            </div>
+
+        </div>
+
+        <div class="modal-right">
+
+            <h1>${product.ITEM}</h1>
+
+            <div class="modal-price">
+                ${product.PRICE ? "₹" + product.PRICE : ""}
+            </div>
+
+            <div class="${product.STOCK === 'In Stock' ? 'stock-green' : 'stock-red'}">
+                ${product.STOCK}
+            </div>
+
+            <div class="modal-meta">
+                <b>Servings:</b> ${product.SERVINGS || "-"}
+            </div>
+
+            <div class="modal-meta">
+                <b>Size:</b> ${product.Size || "-"}
+            </div>
+
+            <div class="modal-meta">
+                <b>Flavour:</b> ${product.FLAVOUR || "-"}
+            </div>
+
+            <div class="variant-title">
+                Flavours
+            </div>
+
+            <div class="variant-wrap">
+
+                ${uniqueFlavours.map(v => {
+
+                    const out = v.STOCK !== "In Stock";
+
+                    return `
+                    <button
+                        class="variant-btn ${out ? 'disabled-variant' : ''}"
+                        onclick="openModal('${v.SKU}')"
+                    >
+                        ${v.FLAVOUR || "N/A"}
+                    </button>
+                    `;
+                }).join("")}
+
+            </div>
+
+            <div class="variant-title">
+                Sizes
+            </div>
+
+            <div class="variant-wrap">
+
+                ${uniqueSizes.map(v => {
+
+                    const out = v.STOCK !== "In Stock";
+
+                    return `
+                    <button
+                        class="variant-btn ${out ? 'disabled-variant' : ''}"
+                        onclick="openModal('${v.SKU}')"
+                    >
+                        ${v.Size || "N/A"}
+                    </button>
+                    `;
+                }).join("")}
+
+            </div>
+
+            <ul class="bullets">
+                ${[
+                    product.BULLET1,
+                    product.BULLET2,
+                    product.BULLET3,
+                    product.BULLET4
+                ]
+                .filter(Boolean)
+                .map(b => `<li>${b}</li>`)
+                .join("")}
+            </ul>
+
+            <a
+                href="https://wa.me/917700777786?text=Hi,%20I%20want%20to%20order%20${encodeURIComponent(product.ITEM)}"
+                target="_blank"
+                class="order-btn"
+            >
+                ORDER NOW ON WHATSAPP
+            </a>
+
+        </div>
+
+    </div>
+    `;
+}
+
+function closeModal() {
+
+    document.getElementById("modal").style.display = "none";
+
+    window.scrollTo({
+        top: lastScrollY,
+        behavior: "instant"
+    });
+}
+
+function renderModalImage() {
+
+    const img = document.getElementById("main-modal-image");
+
+    if (img && currentModalImages[currentImageIndex]) {
+        img.src = currentModalImages[currentImageIndex];
+    }
+}
+
+function changeImage(index) {
+    currentImageIndex = index;
+    renderModalImage();
+}
+
+function prevImage() {
+
+    currentImageIndex--;
+
+    if (currentImageIndex < 0) {
+        currentImageIndex = currentModalImages.length - 1;
+    }
+
+    renderModalImage();
+}
+
+function nextImage() {
+
+    currentImageIndex++;
+
+    if (currentImageIndex >= currentModalImages.length) {
+        currentImageIndex = 0;
+    }
+
+    renderModalImage();
+}
+
+document.addEventListener("keydown", function(e){
+
+    if(document.getElementById("modal").style.display !== "flex") return;
+
+    if(e.key === "ArrowLeft") prevImage();
+    if(e.key === "ArrowRight") nextImage();
 });
 
-renderProducts();
+function renderBrands() {
 
+    const brands = [...new Set(allProducts.map(p => p.BRAND).filter(Boolean))];
+
+    const wrap = document.getElementById("brand-slider");
+
+    wrap.innerHTML = brands.map(b => `
+        <button class="filter-chip" onclick="filterBrand('${b}')">
+            ${b}
+        </button>
+    `).join("");
 }
 
-function getUniqueProducts(products){
+function renderCategories() {
 
-const unique = [];
+    const cats = [...new Set(allProducts.map(p => p.Category).filter(Boolean))];
 
-const map = new Map();
+    const wrap = document.getElementById("category-slider");
 
-products.forEach(product=>{
-
-const key =
-product.brand + "-" +
-product.item + "-" +
-product.size;
-
-if(!map.has(key)){
-
-map.set(key,true);
-unique.push(product);
-
+    wrap.innerHTML = cats.map(c => `
+        <button class="filter-chip" onclick="filterCategory('${c}')">
+            ${c}
+        </button>
+    `).join("");
 }
 
-});
+function filterBrand(brand) {
 
-return unique;
+    const filtered = getUniqueCards().filter(p => p.BRAND === brand);
 
+    renderProducts(filtered);
 }
 
-function renderProducts(){
+function filterCategory(cat) {
 
-const container =
-document.getElementById("productsContainer");
+    const filtered = getUniqueCards().filter(p => p.Category === cat);
 
-const search =
-document.getElementById("searchInput")
-.value
-.toLowerCase();
-
-const filter =
-document.getElementById("filterType")
-.value;
-
-let filtered = allProducts.filter(product =>
-
-(product.item || "").toLowerCase().includes(search)
-||
-(product.brand || "").toLowerCase().includes(search)
-||
-(product.category || "").toLowerCase().includes(search)
-
-);
-
-filtered = getUniqueProducts(filtered);
-
-container.innerHTML = "";
-
-if(filter === "brand"){
-
-const brands = {};
-
-filtered.forEach(product=>{
-
-if(!brands[product.brand]){
-brands[product.brand] = [];
+    renderProducts(filtered);
 }
 
-brands[product.brand].push(product);
+function searchProducts() {
 
-});
+    const q = document.getElementById("searchInput").value.toLowerCase();
 
-Object.keys(brands).sort().forEach(brand=>{
+    const filtered = getUniqueCards().filter(p =>
+        (p.ITEM || "").toLowerCase().includes(q) ||
+        (p.BRAND || "").toLowerCase().includes(q)
+    );
 
-container.innerHTML += `
-
-<div class="section-title">
-${brand}
-</div>
-
-<div class="products-grid">
-
-${brands[brand].map(product=>cardHTML(product)).join("")}
-
-</div>
-
-`;
-
-});
-
+    renderProducts(filtered);
 }
 
-else if(filter === "category"){
+window.onclick = function(event) {
 
-const categories = {};
+    const modal = document.getElementById("modal");
 
-filtered.forEach(product=>{
-
-if(!categories[product.category]){
-categories[product.category] = [];
+    if (event.target === modal) {
+        closeModal();
+    }
 }
 
-categories[product.category].push(product);
-
-});
-
-Object.keys(categories).sort().forEach(category=>{
-
-container.innerHTML += `
-
-<div class="section-title">
-${category}
-</div>
-
-<div class="products-grid">
-
-${categories[category].map(product=>cardHTML(product)).join("")}
-
-</div>
-
-`;
-
-});
-
-}
-
-else{
-
-container.innerHTML = `
-
-<div class="products-grid">
-
-${filtered.map(product=>cardHTML(product)).join("")}
-
-</div>
-
-`;
-
-}
-
-}
-
-function cardHTML(product){
-
-const image =
-product.image1 ||
-product.image2 ||
-product.image3 ||
-"https://via.placeholder.com/500x500?text=No+Image";
-
-return `
-
-<div class="card" onclick="openProduct('${product.sku}')">
-
-<div class="card-image">
-
-<img src="${image}" loading="lazy">
-
-</div>
-
-<div class="card-content">
-
-<div class="card-brand">
-${product.brand}
-</div>
-
-<div class="card-title">
-${product.item}
-</div>
-
-<div class="card-price">
-₹${product.price || "-"}
-</div>
-
-<div class="card-stock ${product.stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}">
-${product.stock || ""}
-</div>
-
-<button class="view-btn">
-View Product
-</button>
-
-</div>
-
-</div>
-
-`;
-
-}
-
-function openProduct(sku){
-
-window.scrollTo(0,0);
-
-const selected =
-allProducts.find(p => p.sku === sku);
-
-const group =
-allProducts.filter(p =>
-p.item === selected.item &&
-p.brand === selected.brand
-);
-
-const uniqueFlavours =
-[...new Set(group.map(p=>p.flavour).filter(Boolean))];
-
-const uniqueSizes =
-[...new Set(group.map(p=>p.size).filter(Boolean))];
-
-document.getElementById("modal").style.display = "flex";
-
-updateModal(selected, group, uniqueFlavours, uniqueSizes);
-
-}
-
-function updateModal(product, group, flavours, sizes){
-
-document.getElementById("modalTitle").innerText =
-product.item;
-
-document.getElementById("modalPrice").innerText =
-product.price ? `₹${product.price}` : "Price Unavailable";
-
-document.getElementById("modalServings").innerText =
-product.servings
-? `${product.servings} SERVINGS`
-: "SERVINGS N/A";
-
-document.getElementById("modalStock").innerText =
-product.stock;
-
-document.getElementById("modalStock").className =
-`modal-stock ${product.stock.toLowerCase().includes('out') ? 'outstock' : 'instock'}`;
-
-document.getElementById("modalSize").innerHTML =
-`<b>Size:</b> ${product.size || "-"}`;
-
-document.getElementById("modalFlavour").innerHTML =
-`<b>Flavor:</b> ${product.flavour || "-"}`;
-
-currentImages = [
-product.image1,
-product.image2,
-product.image3
-].filter(Boolean);
-
-if(currentImages.length === 0){
-
-currentImages = [
-"https://via.placeholder.com/500x500?text=No+Image"
-];
-
-}
-
-currentImageIndex = 0;
-
-changeImage(currentImages[0]);
-
-document.getElementById("thumbs").innerHTML =
-currentImages.map((img,index)=>`
-
-<img
-class="thumb ${index===0 ? 'active' : ''}"
-src="${img}"
-onclick="changeImageByIndex(${index})">
-
-`).join("");
-
-document.getElementById("flavourOptions").innerHTML =
-flavours.map(flavour=>{
-
-const flavourProducts =
-group.filter(p => p.flavour === flavour);
-
-const available =
-flavourProducts.some(p =>
-!p.stock.toLowerCase().includes("out")
-);
-
-const active =
-product.flavour === flavour;
-
-return `
-
-<button
-class="option-btn ${active ? 'active' : ''} ${!available ? 'disabled' : ''}"
-${available ? `onclick="selectFlavour('${flavour}','${product.item.replace(/'/g,"\\'")}','${product.brand.replace(/'/g,"\\'")}')"` : ""}>
-
-${flavour}
-
-</button>
-
-`;
-
-}).join("");
-
-document.getElementById("sizeOptions").innerHTML =
-sizes.map(size=>{
-
-const sizeProduct =
-group.find(p =>
-p.size === size &&
-p.flavour === product.flavour
-);
-
-const available =
-sizeProduct &&
-!sizeProduct.stock.toLowerCase().includes("out");
-
-const active =
-product.size === size;
-
-return `
-
-<button
-class="option-btn ${active ? 'active' : ''} ${!available ? 'disabled' : ''}"
-${available ? `onclick="openProduct('${sizeProduct.sku}')"` : ""}>
-
-${size}
-
-</button>
-
-`;
-
-}).join("");
-
-document.getElementById("features").innerHTML = `
-
-${product.bullet1 ? `<li>${product.bullet1}</li>` : ""}
-${product.bullet2 ? `<li>${product.bullet2}</li>` : ""}
-${product.bullet3 ? `<li>${product.bullet3}</li>` : ""}
-${product.bullet4 ? `<li>${product.bullet4}</li>` : ""}
-
-`;
-
-document.getElementById("orderBtn").onclick = function(){
-
-const msg = `Hello, I want to order:
-
-${product.item}
-
-Flavor: ${product.flavour}
-
-Size: ${product.size}
-
-Price: ₹${product.price}`;
-
-window.open(
-`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`,
-"_blank"
-);
-
-};
-
-}
-
-function selectFlavour(flavour,item,brand){
-
-const product =
-allProducts.find(p =>
-
-p.flavour === flavour &&
-p.item === item &&
-p.brand === brand &&
-!p.stock.toLowerCase().includes("out")
-
-);
-
-if(product){
-
-openProduct(product.sku);
-
-}
-
-}
-
-function changeImage(src){
-
-document.getElementById("mainImage").src = src;
-
-document.querySelectorAll(".thumb")
-.forEach(t=>t.classList.remove("active"));
-
-document.querySelectorAll(".thumb")[currentImageIndex]
-?.classList.add("active");
-
-}
-
-function changeImageByIndex(index){
-
-currentImageIndex = index;
-
-changeImage(currentImages[index]);
-
-}
-
-function prevImage(event){
-
-event.stopPropagation();
-
-currentImageIndex--;
-
-if(currentImageIndex < 0){
-
-currentImageIndex =
-currentImages.length - 1;
-
-}
-
-changeImage(currentImages[currentImageIndex]);
-
-}
-
-function nextImage(event){
-
-event.stopPropagation();
-
-currentImageIndex++;
-
-if(currentImageIndex >= currentImages.length){
-
-currentImageIndex = 0;
-
-}
-
-changeImage(currentImages[currentImageIndex]);
-
-}
-
-document.addEventListener("keydown",function(e){
-
-if(document.getElementById("modal").style.display !== "flex")
-return;
-
-if(e.key === "ArrowRight"){
-nextImage(e);
-}
-
-if(e.key === "ArrowLeft"){
-prevImage(e);
-}
-
-});
-
-function closeModal(){
-
-document.getElementById("modal").style.display =
-"none";
-
-}
-
-window.onclick = function(event){
-
-if(event.target.id === "modal"){
-
-closeModal();
-
-}
-
-};
-
-loadProducts();
+loadCSV();
 
 </script>
 
-</body>
-</html>
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+*{
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    background:#f6f3ee;
+    margin:0;
+    overflow-x:hidden;
+}
+
+h1,h2,h3,.product-title{
+    font-family:'Cormorant Garamond',serif;
+}
+
+.topbar{
+
+    position:sticky;
+    top:0;
+    z-index:999;
+    background:white;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    box-shadow:0 2px 12px rgba(0,0,0,0.08);
+}
+
+.logo{
+    height:54px;
+    width:auto;
+    object-fit:contain;
+}
+
+.search{
+    flex:1;
+    height:48px;
+    border-radius:14px;
+    border:none;
+    background:#f1f1f1;
+    padding:0 20px;
+    font-size:15px;
+}
+
+.products-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:22px;
+    padding:30px;
+}
+
+.product-card{
+
+    background:white;
+    border-radius:22px;
+    padding:18px;
+    transition:.3s;
+    box-shadow:0 4px 14px rgba(0,0,0,0.06);
+}
+
+.product-card:hover{
+    transform:translateY(-6px);
+}
+
+.product-image-wrap{
+
+    height:240px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.product-image{
+
+    max-width:100%;
+    max-height:220px;
+    object-fit:contain;
+    cursor:pointer;
+}
+
+.product-brand{
+
+    font-size:11px;
+    letter-spacing:1.5px;
+    color:#777;
+    margin-top:14px;
+}
+
+.product-title{
+
+    font-size:22px;
+    min-height:70px;
+}
+
+.product-price{
+
+    font-size:28px;
+    font-weight:700;
+    margin-top:12px;
+}
+
+.stock-green{
+    color:#008f3d;
+}
+
+.stock-red{
+    color:#c62828;
+}
+
+.view-btn,
+.order-btn{
+
+    background:#0d9f4f;
+    color:white;
+    border:none;
+    border-radius:14px;
+    height:50px;
+    padding:0 24px;
+    cursor:pointer;
+    font-weight:700;
+    margin-top:18px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+}
+
+#modal{
+
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.modal-layout{
+
+    width:min(1150px,96vw);
+    height:min(92vh,850px);
+    background:white;
+    border-radius:28px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    overflow:hidden;
+}
+
+.modal-left,
+.modal-right{
+    padding:34px;
+}
+
+.modal-right{
+    overflow:hidden;
+}
+
+.modal-image-box{
+
+    position:relative;
+    height:520px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.main-modal-image{
+
+    max-width:100%;
+    max-height:500px;
+    object-fit:contain;
+}
+
+.img-arrow{
+
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    border:none;
+    background:black;
+    color:white;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.left{ left:0; }
+.right{ right:0; }
+
+.thumbs{
+    display:flex;
+    gap:10px;
+    margin-top:14px;
+}
+
+.thumb{
+
+    width:70px;
+    height:70px;
+    border-radius:12px;
+    object-fit:contain;
+    border:1px solid #ddd;
+    cursor:pointer;
+}
+
+.variant-wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:18px;
+}
+
+.variant-btn{
+
+    border:1px solid #ccc;
+    background:white;
+    padding:10px 14px;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+.disabled-variant{
+
+    text-decoration:line-through;
+    opacity:.45;
+}
+
+.bullets{
+
+    margin-top:14px;
+    padding-left:20px;
+    line-height:1.7;
+}
+
+.slider-row{
+
+    position:relative;
+    margin:25px;
+}
+
+.slider{
+
+    display:flex;
+    overflow-x:auto;
+    gap:12px;
+    scroll-behavior:smooth;
+    padding-bottom:8px;
+}
+
+.filter-chip{
+
+    white-space:nowrap;
+    border:none;
+    background:black;
+    color:white;
+    padding:12px 18px;
+    border-radius:999px;
+    cursor:pointer;
+}
+
+.whatsapp-float{
+
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    z-index:999;
+    background:#0d9f4f;
+    color:white;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    text-decoration:none;
+    box-shadow:0 6px 20px rgba(0,0,0,.2);
+}
+
+@media(max-width:900px){
+
+    .modal-layout{
+        grid-template-columns:1fr;
+        height:95vh;
+        overflow:auto;
+    }
+
+    .modal-image-box{
+        height:300px;
+    }
+
+    .main-modal-image{
+        max-height:280px;
+    }
+
+    .products-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:14px;
+        padding:14px;
+    }
+
+    .product-title{
+        font-size:17px;
+        min-height:auto;
+    }
+
+    .product-price{
+        font-size:22px;
+    }
+}
+
+</style>
