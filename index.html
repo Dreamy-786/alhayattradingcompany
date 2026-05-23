@@ -9,7 +9,8 @@
 <title>AL HAYAT TRADING COMPANY</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,7 +18,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Montserrat',sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
@@ -33,10 +34,8 @@ background:#000;
 padding:18px 30px;
 display:flex;
 align-items:center;
+justify-content:space-between;
 gap:20px;
-position:sticky;
-top:0;
-z-index:9999;
 }
 
 .logo{
@@ -48,7 +47,7 @@ gap:12px;
 .logo img{
 width:58px;
 height:58px;
-border-radius:10px;
+border-radius:12px;
 object-fit:cover;
 background:white;
 }
@@ -57,37 +56,13 @@ background:white;
 font-size:28px;
 font-weight:900;
 color:white;
-}
-
-.search-box{
-flex:1;
-display:flex;
-background:white;
-border-radius:12px;
-overflow:hidden;
-max-width:900px;
-}
-
-.search-box input{
-flex:1;
-padding:16px;
-border:none;
-outline:none;
-font-size:15px;
-font-weight:600;
-}
-
-.search-box button{
-width:70px;
-border:none;
-background:#ff9900;
-font-size:22px;
-cursor:pointer;
+letter-spacing:.5px;
 }
 
 .contact{
 color:white;
 font-weight:700;
+font-size:15px;
 }
 
 /* HERO */
@@ -97,12 +72,15 @@ height:350px;
 background:
 linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
 url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop');
+
 background-size:cover;
 background-position:center;
+
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
+
 padding:20px;
 }
 
@@ -110,13 +88,66 @@ padding:20px;
 font-size:60px;
 font-weight:900;
 color:white;
-margin-bottom:15px;
+margin-bottom:14px;
 }
 
 .hero p{
 font-size:22px;
 font-weight:600;
 color:white;
+}
+
+/* TOP CONTROLS */
+
+.top-controls{
+position:sticky;
+top:0;
+z-index:999;
+background:white;
+padding:18px 25px;
+display:flex;
+gap:20px;
+align-items:center;
+justify-content:space-between;
+flex-wrap:wrap;
+box-shadow:0 2px 12px rgba(0,0,0,.08);
+}
+
+.filter-bar{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.filter-btn{
+padding:14px 20px;
+border:none;
+border-radius:12px;
+background:#eee;
+font-size:14px;
+font-weight:800;
+cursor:pointer;
+transition:.2s;
+}
+
+.filter-btn.active{
+background:black;
+color:white;
+}
+
+.search-wrapper{
+flex:1;
+max-width:700px;
+}
+
+.search-wrapper input{
+width:100%;
+padding:16px;
+border:2px solid #ddd;
+border-radius:12px;
+outline:none;
+font-size:15px;
+font-weight:700;
 }
 
 /* CATEGORY */
@@ -126,7 +157,7 @@ padding:40px 30px;
 }
 
 .category-title{
-font-size:40px;
+font-size:38px;
 font-weight:900;
 margin-bottom:25px;
 }
@@ -141,13 +172,14 @@ gap:22px;
 
 .card{
 background:white;
-border-radius:18px;
+border-radius:20px;
 overflow:hidden;
-box-shadow:0 3px 10px rgba(0,0,0,.08);
-cursor:pointer;
+box-shadow:0 3px 12px rgba(0,0,0,.08);
 transition:.2s;
+cursor:pointer;
 display:flex;
 flex-direction:column;
+height:100%;
 }
 
 .card:hover{
@@ -155,12 +187,12 @@ transform:translateY(-5px);
 }
 
 .product-image{
-height:300px;
+height:320px;
 padding:20px;
-background:white;
 display:flex;
 align-items:center;
 justify-content:center;
+background:white;
 }
 
 .product-image img{
@@ -179,22 +211,22 @@ height:100%;
 .product-title{
 font-size:18px;
 font-weight:800;
-line-height:1.45;
-margin-bottom:10px;
-min-height:80px;
+line-height:1.5;
+margin-bottom:12px;
+min-height:85px;
 }
 
 .product-meta{
 font-size:14px;
 font-weight:700;
-color:#555;
+color:#666;
 margin-bottom:6px;
 }
 
 .product-price{
 font-size:32px;
 font-weight:900;
-margin:12px 0;
+margin:14px 0;
 }
 
 .stock{
@@ -213,13 +245,14 @@ color:red;
 
 .card-btn{
 margin-top:auto;
+width:100%;
 padding:15px;
 border:none;
-border-radius:10px;
-font-size:16px;
-font-weight:800;
+border-radius:12px;
 background:#25D366;
 color:white;
+font-size:16px;
+font-weight:800;
 cursor:pointer;
 }
 
@@ -231,7 +264,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,.75);
+background:rgba(0,0,0,.78);
 display:none;
 align-items:center;
 justify-content:center;
@@ -243,7 +276,7 @@ z-index:999999;
 background:white;
 width:100%;
 max-width:1250px;
-border-radius:22px;
+border-radius:24px;
 overflow:hidden;
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -268,43 +301,47 @@ padding:30px;
 
 .main-image{
 width:100%;
-height:480px;
+height:500px;
 object-fit:contain;
-margin-bottom:20px;
+cursor:zoom-in;
+transition:.2s;
+}
+
+.main-image:hover{
+transform:scale(1.03);
 }
 
 .thumbs{
 display:flex;
 gap:12px;
+margin-top:18px;
 flex-wrap:wrap;
 }
 
 .thumb{
 width:90px;
 height:90px;
+padding:6px;
 border:2px solid #ddd;
 border-radius:10px;
-padding:5px;
-object-fit:contain;
 cursor:pointer;
+object-fit:contain;
 background:white;
 }
-
-/* RIGHT */
 
 .modal-right{
 padding:35px;
 }
 
 .modal-title{
-font-size:38px;
+font-size:36px;
 font-weight:900;
 line-height:1.4;
 margin-bottom:15px;
 }
 
 .modal-price{
-font-size:45px;
+font-size:46px;
 font-weight:900;
 margin-bottom:15px;
 }
@@ -312,7 +349,7 @@ margin-bottom:15px;
 .modal-detail{
 font-size:16px;
 font-weight:700;
-margin-bottom:10px;
+margin-bottom:12px;
 }
 
 .servings-box{
@@ -320,7 +357,7 @@ display:inline-block;
 background:#ff9900;
 color:white;
 padding:10px 18px;
-border-radius:10px;
+border-radius:12px;
 font-size:18px;
 font-weight:900;
 margin-bottom:20px;
@@ -328,16 +365,15 @@ margin-bottom:20px;
 
 .option-title{
 font-size:15px;
-font-weight:800;
+font-weight:900;
 margin-bottom:12px;
-margin-top:18px;
+margin-top:20px;
 }
 
 .option-group{
 display:flex;
 flex-wrap:wrap;
 gap:10px;
-margin-bottom:10px;
 }
 
 .option-btn{
@@ -345,26 +381,26 @@ padding:12px 16px;
 border:2px solid #ddd;
 border-radius:10px;
 background:white;
-cursor:pointer;
 font-size:14px;
 font-weight:800;
+cursor:pointer;
 transition:.2s;
 }
 
 .option-btn.active{
 border-color:#ff9900;
-background:#fff5e6;
+background:#fff4df;
 }
 
 .option-btn.disabled{
-opacity:.4;
+opacity:.45;
 text-decoration:line-through;
 cursor:not-allowed;
 }
 
 .features{
-padding-left:18px;
 margin:25px 0;
+padding-left:18px;
 }
 
 .features li{
@@ -386,14 +422,46 @@ color:white;
 cursor:pointer;
 }
 
+/* IMAGE POPUP */
+
+.image-popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.96);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:999999999;
+padding:30px;
+}
+
+.image-popup img{
+max-width:95%;
+max-height:95%;
+object-fit:contain;
+}
+
+.image-popup-close{
+position:absolute;
+top:20px;
+right:35px;
+font-size:52px;
+font-weight:900;
+color:white;
+cursor:pointer;
+}
+
 /* FLOAT */
 
 .float{
 position:fixed;
 right:18px;
 bottom:18px;
-width:70px;
-height:70px;
+width:72px;
+height:72px;
 border-radius:50%;
 background:#25D366;
 display:flex;
@@ -420,19 +488,6 @@ font-weight:700;
 
 @media(max-width:900px){
 
-header{
-flex-wrap:wrap;
-padding:15px;
-}
-
-.logo h1{
-font-size:18px;
-}
-
-.contact{
-display:none;
-}
-
 .hero{
 height:260px;
 }
@@ -445,8 +500,12 @@ font-size:34px;
 font-size:16px;
 }
 
-.category-title{
-font-size:28px;
+.logo h1{
+font-size:18px;
+}
+
+.contact{
+display:none;
 }
 
 .products-row{
@@ -471,7 +530,7 @@ font-size:28px;
 }
 
 .modal-price{
-font-size:32px;
+font-size:34px;
 }
 
 }
@@ -500,18 +559,6 @@ grid-template-columns:1fr;
 
 </div>
 
-<div class="search-box">
-
-<input
-type="text"
-placeholder="Search supplements..."
-id="searchInput"
-onkeyup="searchProducts()">
-
-<button>🔍</button>
-
-</div>
-
 <div class="contact">
 📞 +91 77100 77786
 </div>
@@ -524,11 +571,43 @@ onkeyup="searchProducts()">
 
 <h2>100% Authentic Imported Supplements</h2>
 
-<p>Whey Protein • Pre Workout • Creatine • Fat Burner • Protein Snacks</p>
+<p>
+Whey Protein • Creatine • Pre Workout • Protein Snacks
+</p>
 
 </div>
 
 </section>
+
+<div class="top-controls">
+
+<div class="filter-bar">
+
+<button class="filter-btn active" onclick="setView('assorted', this)">
+Assorted
+</button>
+
+<button class="filter-btn" onclick="setView('brand', this)">
+Shop By Brand
+</button>
+
+<button class="filter-btn" onclick="setView('category', this)">
+Shop By Category
+</button>
+
+</div>
+
+<div class="search-wrapper">
+
+<input
+type="text"
+placeholder="Search supplements..."
+id="searchInput"
+onkeyup="searchProducts()">
+
+</div>
+
+</div>
 
 <div id="allCategories"></div>
 
@@ -538,7 +617,9 @@ onkeyup="searchProducts()">
 
 <div class="modal-box">
 
-<div class="close-modal" onclick="closeModal()">×</div>
+<div class="close-modal" onclick="closeModal()">
+×
+</div>
 
 <div class="modal-left">
 
@@ -562,11 +643,17 @@ onkeyup="searchProducts()">
 
 <div id="modalCategory" class="modal-detail"></div>
 
-<div class="option-title">FLAVOUR</div>
-<div class="option-group" id="flavourOptions"></div>
+<div class="option-title">
+FLAVOURS
+</div>
 
-<div class="option-title">SIZE</div>
-<div class="option-group" id="sizeOptions"></div>
+<div id="flavourOptions" class="option-group"></div>
+
+<div class="option-title">
+SIZES
+</div>
+
+<div id="sizeOptions" class="option-group"></div>
 
 <ul id="modalFeatures" class="features"></ul>
 
@@ -577,6 +664,22 @@ Order On WhatsApp
 </div>
 
 </div>
+
+</div>
+
+<!-- IMAGE POPUP -->
+
+<div class="image-popup" id="imagePopup">
+
+<div
+class="image-popup-close"
+onclick="closeImagePopup()">
+
+×
+
+</div>
+
+<img id="popupImage">
 
 </div>
 
@@ -600,10 +703,12 @@ target="_blank">
 const CSV_URL =
 "https://docs.google.com/spreadsheets/d/e/2PACX-1vQZimj_keJIooGDnz0sOvML4cjwbQ8eZBnQ3CQ1xyiORgHssrZPaCYzqdbFz-EmKmFrAqBgV6C3kLUK/pub?output=csv";
 
-const WHATSAPP = "917710077786";
+const WHATSAPP =
+"917710077786";
 
 let allProducts = [];
 let groupedProducts = [];
+let currentView = "assorted";
 
 function clean(text){
 
@@ -667,17 +772,20 @@ return rows;
 
 }
 
+/* LOAD PRODUCTS */
+
 async function loadProducts(){
 
 try{
 
-const response = await fetch(CSV_URL);
+const response =
+await fetch(CSV_URL);
 
-const csv = await response.text();
+const csv =
+await response.text();
 
-const rows = parseCSV(csv);
-
-const headers = rows[0];
+const rows =
+parseCSV(csv);
 
 allProducts = [];
 
@@ -720,12 +828,11 @@ renderCategories(groupedProducts);
 
 console.log(error);
 
-document.getElementById("allCategories").innerHTML =
-"<h2 style='padding:40px;color:red;'>Unable To Load Products</h2>";
-
 }
 
 }
+
+/* GROUP PRODUCTS */
 
 function groupProducts(){
 
@@ -734,15 +841,22 @@ const map = {};
 allProducts.forEach(product=>{
 
 const key =
-(product.item || "").toLowerCase();
+(product.item || "").toLowerCase()
++
+"|"
++
+(product.size || "").toLowerCase();
 
 if(!map[key]){
 
 map[key] = {
+
 title: product.item,
 category: product.category,
 brand: product.brand,
+size: product.size,
 products: []
+
 };
 
 }
@@ -755,51 +869,30 @@ groupedProducts = Object.values(map);
 
 }
 
-function renderCategories(products){
+/* FILTER VIEW */
 
-const container =
-document.getElementById("allCategories");
+function setView(type, el){
 
-container.innerHTML = "";
+currentView = type;
 
-const categories = {};
+document.querySelectorAll(".filter-btn")
+.forEach(btn=>btn.classList.remove("active"));
 
-products.forEach(group=>{
+el.classList.add("active");
 
-const category =
-group.category || "Supplements";
+renderCategories(groupedProducts);
 
-if(!categories[category]){
-categories[category] = [];
 }
 
-categories[category].push(group);
+/* PRODUCT CARD */
 
-});
-
-Object.keys(categories).forEach(category=>{
-
-const section =
-document.createElement("div");
-
-section.className =
-"category-section";
-
-section.innerHTML = `
-
-<div class="category-title">
-${category}
-</div>
-
-<div class="products-row">
-
-${categories[category].map(group=>{
-
-const first = group.products[0];
+function createCard(first, group){
 
 return `
 
-<div class="card" onclick="openModal('${encodeURIComponent(group.title)}')">
+<div
+class="card"
+onclick="openModal('${encodeURIComponent(group.title)}|${encodeURIComponent(group.size)}')">
 
 <div class="product-image">
 
@@ -817,6 +910,10 @@ ${group.title}
 
 <div class="product-meta">
 ${group.brand}
+</div>
+
+<div class="product-meta">
+${group.size || ''}
 </div>
 
 <div class="product-price">
@@ -843,6 +940,141 @@ ${first.stock.toLowerCase().includes('out')
 
 `;
 
+}
+
+/* RENDER */
+
+function renderCategories(products){
+
+const container =
+document.getElementById("allCategories");
+
+container.innerHTML = "";
+
+/* ASSORTED */
+
+if(currentView === "assorted"){
+
+const section =
+document.createElement("div");
+
+section.className =
+"category-section";
+
+section.innerHTML = `
+
+<div class="category-title">
+All Products
+</div>
+
+<div class="products-row">
+
+${products.map(group=>{
+
+const first = group.products[0];
+
+return createCard(first, group);
+
+}).join("")}
+
+</div>
+
+`;
+
+container.appendChild(section);
+
+return;
+
+}
+
+/* BRAND */
+
+if(currentView === "brand"){
+
+const brands = {};
+
+products.forEach(group=>{
+
+if(!brands[group.brand]){
+brands[group.brand] = [];
+}
+
+brands[group.brand].push(group);
+
+});
+
+Object.keys(brands).forEach(brand=>{
+
+const section =
+document.createElement("div");
+
+section.className =
+"category-section";
+
+section.innerHTML = `
+
+<div class="category-title">
+${brand}
+</div>
+
+<div class="products-row">
+
+${brands[brand].map(group=>{
+
+const first = group.products[0];
+
+return createCard(first, group);
+
+}).join("")}
+
+</div>
+
+`;
+
+container.appendChild(section);
+
+});
+
+return;
+
+}
+
+/* CATEGORY */
+
+const categories = {};
+
+products.forEach(group=>{
+
+if(!categories[group.category]){
+categories[group.category] = [];
+}
+
+categories[group.category].push(group);
+
+});
+
+Object.keys(categories).forEach(category=>{
+
+const section =
+document.createElement("div");
+
+section.className =
+"category-section";
+
+section.innerHTML = `
+
+<div class="category-title">
+${category}
+</div>
+
+<div class="products-row">
+
+${categories[category].map(group=>{
+
+const first = group.products[0];
+
+return createCard(first, group);
+
 }).join("")}
 
 </div>
@@ -854,6 +1086,8 @@ container.appendChild(section);
 });
 
 }
+
+/* SEARCH */
 
 function searchProducts(){
 
@@ -884,13 +1118,27 @@ renderCategories(filtered);
 
 }
 
-function openModal(encodedTitle){
+/* OPEN MODAL */
+
+function openModal(data){
+
+const split =
+data.split("|");
 
 const title =
-decodeURIComponent(encodedTitle);
+decodeURIComponent(split[0]);
+
+const size =
+decodeURIComponent(split[1]);
 
 const group =
-groupedProducts.find(g => g.title === title);
+groupedProducts.find(g =>
+
+g.title === title
+&&
+g.size === size
+
+);
 
 const first =
 group.products[0];
@@ -902,16 +1150,33 @@ updateModal(group, first);
 
 }
 
+/* UPDATE MODAL */
+
 function updateModal(group, product){
 
 document.getElementById("mainImage").src =
 product.image1 || "";
 
+document.getElementById("mainImage").onclick =
+function(){
+
+document.getElementById("imagePopup").style.display =
+"flex";
+
+document.getElementById("popupImage").src =
+product.image1;
+
+};
+
 document.getElementById("modalTitle").innerText =
 group.title;
 
 document.getElementById("modalPrice").innerText =
-product.price ? `₹${product.price}` : "Out Of Stock";
+product.price
+?
+`₹${product.price}`
+:
+"Out Of Stock";
 
 document.getElementById("modalStock").innerText =
 product.stock || "";
@@ -966,13 +1231,10 @@ onclick="changeImage('${img}')">
 const flavourContainer =
 document.getElementById("flavourOptions");
 
-const sizeContainer =
-document.getElementById("sizeOptions");
+flavourContainer.innerHTML = "";
 
 const flavours =
 [...new Set(group.products.map(p=>p.flavour).filter(Boolean))];
-
-flavourContainer.innerHTML = "";
 
 flavours.forEach(flavour=>{
 
@@ -982,7 +1244,8 @@ document.createElement("button");
 btn.className =
 `option-btn ${flavour === product.flavour ? 'active' : ''}`;
 
-btn.innerText = flavour;
+btn.innerText =
+flavour;
 
 btn.onclick = ()=>{
 
@@ -1003,11 +1266,17 @@ flavourContainer.appendChild(btn);
 
 /* SIZES */
 
-const sizes =
-group.products
-.filter(p => p.flavour === product.flavour);
+const sizeContainer =
+document.getElementById("sizeOptions");
 
 sizeContainer.innerHTML = "";
+
+const sizes =
+group.products.filter(p =>
+
+p.flavour === product.flavour
+
+);
 
 sizes.forEach(sizeProduct=>{
 
@@ -1071,15 +1340,30 @@ window.open(
 
 }
 
+/* IMAGE */
+
 function changeImage(src){
 
-document.getElementById("mainImage").src = src;
+document.getElementById("mainImage").src =
+src;
+
+document.getElementById("popupImage").src =
+src;
 
 }
+
+/* CLOSE */
 
 function closeModal(){
 
 document.getElementById("modal").style.display =
+"none";
+
+}
+
+function closeImagePopup(){
+
+document.getElementById("imagePopup").style.display =
 "none";
 
 }
