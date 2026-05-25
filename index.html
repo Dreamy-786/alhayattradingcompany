@@ -6,9 +6,9 @@
 
 <title>AL HAYAT TRADING</title>
 
-<link rel="icon" type="image/png" href="https://i.postimg.cc/Y9K0Qw1S/logo.png">
+<link rel="icon" href="https://i.postimg.cc/Y9K0Qw1S/logo.png">
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
@@ -22,83 +22,75 @@ box-sizing:border-box;
 
 body{
 background:#050505;
-color:#fff;
-font-family:'Manrope',sans-serif;
+font-family:'Inter',sans-serif;
+color:white;
 overflow-x:hidden;
 }
 
-body::-webkit-scrollbar{
-width:8px;
+h1,h2,h3,h4{
+font-family:'Cormorant Garamond',serif;
 }
 
-body::-webkit-scrollbar-thumb{
-background:#333;
-border-radius:10px;
-}
-
-h1,h2,h3,h4,h5{
-font-family:'Cinzel',serif;
-letter-spacing:1px;
+img{
+max-width:100%;
+display:block;
 }
 
 .topbar{
 position:sticky;
 top:0;
-z-index:9999;
-background:rgba(0,0,0,0.94);
-backdrop-filter:blur(12px);
+z-index:999;
+background:#000;
 border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .top-inner{
-max-width:1700px;
+max-width:1600px;
 margin:auto;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:14px 24px;
-gap:18px;
+padding:18px 30px;
 }
 
 .brand{
 display:flex;
 align-items:center;
-gap:14px;
+gap:16px;
 cursor:pointer;
 }
 
 .brand img{
-width:68px;
-height:68px;
+width:70px;
+height:70px;
 object-fit:contain;
-filter:drop-shadow(0 0 10px rgba(255,255,255,0.12));
+border-radius:14px;
+background:#111;
 }
 
 .brand-text h1{
-font-size:28px;
-font-weight:700;
+font-size:52px;
 line-height:1;
-}
-
-.brand-text p{
-font-size:11px;
-letter-spacing:4px;
-margin-top:6px;
-opacity:0.7;
-}
-
-.contact-top{
-font-size:18px;
 font-weight:700;
-color:#25D366;
-font-family:'Cinzel',serif;
+letter-spacing:2px;
+}
+
+.brand-text span{
+font-size:15px;
+color:#999;
+letter-spacing:5px;
+}
+
+.contact{
+font-size:20px;
+font-weight:700;
+color:#20d46b;
+font-family:'Cormorant Garamond',serif;
 }
 
 .banner{
-width:100%;
-height:420px;
+height:320px;
 overflow:hidden;
-position:relative;
 }
 
 .banner img{
@@ -107,415 +99,419 @@ height:100%;
 object-fit:cover;
 }
 
-.controls-wrap{
+.filters{
 position:sticky;
-top:97px;
-z-index:999;
-background:#090909;
-padding:16px;
+top:106px;
+z-index:998;
+background:#050505;
+padding:18px 20px;
 display:flex;
-justify-content:center;
+gap:14px;
 align-items:center;
-gap:12px;
-flex-wrap:wrap;
+overflow:auto;
 border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-.filter-btn{
-padding:12px 20px;
+.filters button{
+background:#111;
 border:none;
+color:white;
+padding:14px 26px;
 border-radius:999px;
-background:#151515;
-color:#fff;
-font-weight:700;
+font-size:15px;
+font-weight:600;
 cursor:pointer;
-transition:0.3s;
-font-family:'Manrope',sans-serif;
+white-space:nowrap;
 }
 
-.filter-btn.active,
-.filter-btn:hover{
-background:#fff;
-color:#000;
+.filters button.active{
+background:white;
+color:black;
 }
 
 .search{
-width:420px;
-max-width:90vw;
-padding:14px 18px;
-border:none;
-outline:none;
+flex:1;
+min-width:250px;
+}
+
+.search input{
+width:100%;
+padding:15px 20px;
 border-radius:999px;
-background:#141414;
-color:#fff;
+border:none;
+background:#111;
+color:white;
 font-size:15px;
 }
 
 .section{
-padding:34px 18px;
-max-width:1700px;
-margin:auto;
+padding:34px 24px;
 }
 
-.section-head{
+.section-header{
 display:flex;
-align-items:center;
 justify-content:space-between;
-margin-bottom:18px;
+align-items:center;
+margin-bottom:24px;
 }
 
-.section-head h2{
-font-size:34px;
+.section-header h2{
+font-size:56px;
 }
 
-.arrow-wrap{
+.slider-buttons{
 display:flex;
-gap:10px;
+gap:12px;
 }
 
-.arrow-btn{
-width:42px;
-height:42px;
+.slider-buttons button{
+width:52px;
+height:52px;
 border:none;
 border-radius:50%;
-background:#181818;
-color:#fff;
+background:#111;
+color:white;
+font-size:24px;
 cursor:pointer;
-font-size:20px;
 }
 
-.row-scroll{
+.products-row{
 display:flex;
-gap:18px;
+gap:22px;
 overflow-x:auto;
 scroll-behavior:smooth;
 padding-bottom:10px;
 }
 
-.row-scroll::-webkit-scrollbar{
-height:4px;
+.products-row::-webkit-scrollbar{
+display:none;
 }
 
-.row-scroll::-webkit-scrollbar-thumb{
-background:#444;
-border-radius:10px;
-}
-
-.product-card{
-min-width:245px;
-max-width:245px;
-background:#101010;
+.card{
+min-width:300px;
+max-width:300px;
+background:#0d0d0d;
 border:1px solid rgba(255,255,255,0.06);
 border-radius:24px;
-padding:18px;
-cursor:pointer;
+overflow:hidden;
 transition:0.3s;
 }
 
-.product-card:hover{
+.card:hover{
 transform:translateY(-6px);
-border-color:rgba(255,255,255,0.15);
 }
 
-.product-card img{
-width:100%;
-height:240px;
+.card-image{
+height:290px;
+background:white;
+padding:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.card-image img{
+height:100%;
 object-fit:contain;
-background:#fff;
-border-radius:18px;
-padding:10px;
 }
 
-.brand-name{
-margin-top:14px;
+.card-body{
+padding:22px;
+}
+
+.card-title{
+font-size:26px;
+line-height:1.15;
+margin-bottom:10px;
+min-height:95px;
+}
+
+.card-brand{
 font-size:12px;
+color:#888;
+margin-bottom:12px;
 letter-spacing:2px;
-color:#c9c9c9;
-text-transform:uppercase;
 }
 
-.product-title{
-font-size:16px;
+.price{
+font-size:32px;
 font-weight:700;
-line-height:1.4;
-margin-top:10px;
-min-height:66px;
-}
-
-.product-price{
-font-size:24px;
-font-weight:700;
-margin-top:10px;
+margin-bottom:10px;
 }
 
 .stock{
-margin-top:8px;
 font-size:13px;
-font-weight:700;
+margin-bottom:20px;
 }
 
 .instock{
-color:#2ecc71;
+color:#22c55e;
 }
 
 .outstock{
 color:#ff4d4d;
 }
 
+.view-btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:14px;
+background:white;
+color:black;
+font-weight:700;
+cursor:pointer;
+}
+
 .modal{
 position:fixed;
 inset:0;
-background:rgba(0,0,0,0.92);
-z-index:999999;
+background:rgba(0,0,0,0.8);
 display:none;
 align-items:center;
 justify-content:center;
-padding:18px;
+z-index:99999;
+padding:20px;
 }
 
 .modal-content{
+background:white;
+color:black;
 width:100%;
-max-width:1280px;
-background:#0d0d0d;
-border-radius:28px;
-padding:26px;
-max-height:94vh;
-overflow-y:auto;
-position:relative;
-}
-
-.close-modal{
-position:absolute;
-right:18px;
-top:10px;
-font-size:36px;
-cursor:pointer;
-}
-
-.detail-wrap{
+max-width:1400px;
+height:90vh;
+border-radius:30px;
+overflow:hidden;
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:26px;
+position:relative;
 }
 
-.main-image-wrap{
-background:#fff;
-height:520px;
-border-radius:24px;
+.close{
+position:absolute;
+top:24px;
+right:24px;
+font-size:40px;
+cursor:pointer;
+z-index:2;
+}
+
+.left{
+padding:30px;
 display:flex;
-align-items:center;
+flex-direction:column;
 justify-content:center;
+align-items:center;
+background:#fafafa;
 position:relative;
-padding:18px;
 }
 
 .main-image{
-max-width:100%;
-max-height:100%;
+height:500px;
 object-fit:contain;
-cursor:zoom-in;
 }
 
-.img-nav{
+.image-nav{
 position:absolute;
 top:50%;
 transform:translateY(-50%);
-width:46px;
-height:46px;
+width:52px;
+height:52px;
 border:none;
 border-radius:50%;
-background:rgba(0,0,0,0.72);
-color:#fff;
-font-size:22px;
+background:white;
+font-size:28px;
 cursor:pointer;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
 }
 
-.prev-img{
-left:14px;
+.prev{
+left:20px;
 }
 
-.next-img{
-right:14px;
+.next{
+right:20px;
 }
 
-.thumb-row{
+.thumbs{
 display:flex;
-gap:10px;
-margin-top:16px;
+gap:12px;
+margin-top:20px;
 }
 
-.thumb-row img{
+.thumbs img{
 width:82px;
 height:82px;
 object-fit:contain;
-background:#fff;
-padding:8px;
-border-radius:12px;
+border:2px solid #ddd;
+border-radius:14px;
+padding:6px;
 cursor:pointer;
+background:white;
 }
 
-.details-side h2{
-font-size:40px;
-line-height:1.1;
+.right{
+padding:40px;
+overflow-y:auto;
 }
 
-.detail-price{
-font-size:38px;
-font-weight:700;
-margin-top:14px;
+.right h2{
+font-size:58px;
+line-height:1;
+margin-bottom:20px;
 }
 
-.serving-box{
-display:inline-block;
-margin-top:14px;
-padding:10px 16px;
-border-radius:999px;
-background:#171717;
-font-weight:700;
+.right .price{
+font-size:60px;
 }
 
 .option-title{
 margin-top:24px;
 margin-bottom:12px;
-font-size:15px;
+font-size:18px;
 font-weight:700;
 }
 
-.option-grid{
+.option-wrap{
 display:flex;
 flex-wrap:wrap;
 gap:10px;
 }
 
-.option-btn{
-padding:10px 16px;
-border-radius:999px;
-border:1px solid rgba(255,255,255,0.08);
-background:#151515;
-color:#fff;
+.option{
+padding:12px 16px;
+border:1px solid #ccc;
+border-radius:12px;
 cursor:pointer;
-font-weight:600;
+font-size:14px;
+background:white;
 }
 
-.option-btn.active{
-background:#fff;
-color:#000;
+.option.active{
+background:black;
+color:white;
+border-color:black;
 }
 
-.option-btn.out{
-text-decoration:line-through;
+.option.out{
 opacity:0.4;
+text-decoration:line-through;
+pointer-events:none;
 }
 
-.bullet-list{
-display:flex;
-flex-direction:column;
-gap:12px;
+.bullets{
 margin-top:24px;
+padding-left:20px;
 }
 
-.bullet-item{
-background:#141414;
-padding:14px;
-border-radius:14px;
-line-height:1.6;
+.bullets li{
+margin-bottom:12px;
+line-height:1.5;
 }
 
 .order-btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-margin-top:24px;
-padding:18px 28px;
-background:#25D366;
-color:#fff;
-font-size:18px;
+margin-top:28px;
+width:100%;
+padding:18px;
+border:none;
+background:#22c55e;
+color:white;
+font-size:20px;
 font-weight:700;
 border-radius:18px;
+cursor:pointer;
 }
 
-.footer{
-margin-top:60px;
-padding:50px 20px;
-text-align:center;
-background:#080808;
-border-top:1px solid rgba(255,255,255,0.08);
-}
-
-.footer h3{
-font-size:30px;
-margin-bottom:10px;
-}
-
-.footer p{
-opacity:0.75;
-margin-top:8px;
-}
-
-.floating-wa{
+.whatsapp-float{
 position:fixed;
-right:22px;
-bottom:22px;
-width:72px;
-height:72px;
+right:24px;
+bottom:24px;
+width:74px;
+height:74px;
 border-radius:50%;
-background:#25D366;
+background:#25d366;
 display:flex;
 align-items:center;
 justify-content:center;
 font-size:34px;
-z-index:99999;
+z-index:999;
 box-shadow:0 0 25px rgba(37,211,102,0.5);
 }
 
-.zoom-view{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.96);
-display:none;
-align-items:center;
-justify-content:center;
-z-index:9999999;
+footer{
+padding:50px 20px;
+background:#000;
+text-align:center;
+border-top:1px solid rgba(255,255,255,0.08);
+margin-top:60px;
 }
 
-.zoom-view img{
-max-width:94vw;
-max-height:94vh;
-object-fit:contain;
+footer h3{
+font-size:42px;
+margin-bottom:12px;
+}
+
+footer p{
+color:#888;
+margin-bottom:8px;
 }
 
 @media(max-width:900px){
 
-.detail-wrap{
-grid-template-columns:1fr;
+.top-inner{
+padding:14px;
 }
 
-.main-image-wrap{
-height:340px;
-}
-
-.details-side h2{
-font-size:28px;
-}
-
-.detail-price{
-font-size:30px;
-}
-
-.banner{
-height:220px;
+.brand img{
+width:52px;
+height:52px;
 }
 
 .brand-text h1{
-font-size:20px;
+font-size:30px;
 }
 
-.contact-top{
-font-size:13px;
+.contact{
+display:none;
 }
 
-.controls-wrap{
-top:84px;
+.banner{
+height:170px;
+}
+
+.section-header h2{
+font-size:38px;
+}
+
+.card{
+min-width:240px;
+max-width:240px;
+}
+
+.modal-content{
+grid-template-columns:1fr;
+height:95vh;
+overflow-y:auto;
+}
+
+.left{
+padding:20px;
+}
+
+.main-image{
+height:300px;
+}
+
+.right{
+padding:24px;
+}
+
+.right h2{
+font-size:34px;
+}
+
+.right .price{
+font-size:40px;
 }
 
 }
@@ -528,16 +524,17 @@ top:84px;
 <div class="topbar">
 <div class="top-inner">
 
-<div class="brand" onclick="scrollToTop()">
-<img src="https://i.postimg.cc/Y9K0Qw1S/logo.png">
+<div class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+<img src="https://i.postimg.cc/Y9K0Qw1S/logo.png"
+onerror="this.src='https://via.placeholder.com/70x70?text=AH'">
 
 <div class="brand-text">
 <h1>AL HAYAT TRADING</h1>
-<p>PREMIUM IMPORTS</p>
+<span>PREMIUM IMPORTS</span>
 </div>
 </div>
 
-<div class="contact-top">
+<div class="contact">
 📞 +91 93222 90988
 </div>
 
@@ -545,534 +542,397 @@ top:84px;
 </div>
 
 <div class="banner">
-<img src="https://i.postimg.cc/8z7w33L4/banner.jpg">
+<img src="https://i.postimg.cc/J0fZLx8Q/banner.jpg"
+onerror="this.src='https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop'">
 </div>
 
-<div class="controls-wrap">
+<div class="filters">
 
-<button class="filter-btn active" onclick="setMode('featured',this)">
-FEATURED DEALS
-</button>
+<button class="active">FEATURED DEALS</button>
+<button>SHOP BY BRAND</button>
+<button>SHOP BY CATEGORY</button>
 
-<button class="filter-btn" onclick="setMode('brand',this)">
-SHOP BY BRAND
-</button>
-
-<button class="filter-btn" onclick="setMode('category',this)">
-SHOP BY CATEGORY
-</button>
-
-<input type="text" class="search" placeholder="Search Products..." oninput="searchProducts(this.value)">
+<div class="search">
+<input type="text" id="searchInput" placeholder="Search Products...">
+</div>
 
 </div>
 
-<div id="mainContainer"></div>
+<div class="section">
 
-<div class="footer">
+<div class="section-header">
+<h2>FEATURED DEALS</h2>
+
+<div class="slider-buttons">
+<button onclick="slide(-1)">‹</button>
+<button onclick="slide(1)">›</button>
+</div>
+</div>
+
+<div class="products-row" id="products"></div>
+
+</div>
+
+<div class="modal" id="modal">
+<div class="modal-content">
+
+<div class="close" onclick="closeModal()">×</div>
+
+<div class="left">
+
+<button class="image-nav prev" onclick="changeImage(-1)">‹</button>
+
+<img id="mainImage" class="main-image">
+
+<button class="image-nav next" onclick="changeImage(1)">›</button>
+
+<div class="thumbs" id="thumbs"></div>
+
+</div>
+
+<div class="right">
+
+<h2 id="title"></h2>
+
+<div class="price" id="price"></div>
+
+<div id="stock"></div>
+
+<div class="option-title">Choose Flavor</div>
+<div class="option-wrap" id="flavors"></div>
+
+<div class="option-title">Choose Size</div>
+<div class="option-wrap" id="sizes"></div>
+
+<ul class="bullets" id="bullets"></ul>
+
+<button class="order-btn" id="orderBtn">
+Order On WhatsApp
+</button>
+
+</div>
+
+</div>
+</div>
+
+<a class="whatsapp-float"
+href="https://wa.me/919322290988"
+target="_blank">💬</a>
+
+<footer>
+
 <h3>AL HAYAT TRADING</h3>
+
 <p>Premium Imported Sports Nutrition & Wellness Products</p>
+
 <p>Mumbai, India</p>
-<p>📞 +91 93222 90988</p>
-</div>
 
-<a class="floating-wa" href="https://wa.me/919322290988" target="_blank">
-💬
-</a>
+<p>WhatsApp: +91 93222 90988</p>
 
-<div class="modal" id="productModal">
-<div class="modal-content" id="modalContent"></div>
-</div>
-
-<div class="zoom-view" id="zoomView" onclick="closeZoom()">
-<img id="zoomImg">
-</div>
+</footer>
 
 <script>
 
-let rawProducts=[];
-let groupedProducts=[];
-let currentMode='featured';
+const CSV_URL = "products.csv";
 
-Papa.parse('products.csv',{
+let products = [];
+let currentGroup = [];
+let currentProduct = null;
+let currentImages = [];
+let currentImageIndex = 0;
+
+Papa.parse(CSV_URL,{
+
 download:true,
 header:true,
-skipEmptyLines:true,
+
 complete:function(results){
 
-rawProducts=results.data;
+products = results.data.filter(p=>p.ITEM);
 
-groupProducts();
-
-renderPage();
+renderProducts();
 
 }
+
 });
 
-function groupProducts(){
+function shuffle(arr){
+return [...arr].sort(()=>Math.random()-0.5);
+}
 
-const map={};
+function renderProducts(){
 
-rawProducts.forEach(p=>{
+const container = document.getElementById("products");
 
-const key=(p.ITEM||'').trim();
+container.innerHTML = "";
 
-if(!map[key]){
+const grouped = {};
 
-map[key]={
-main:p,
-variants:[]
+products.forEach(p=>{
+
+const key = p.ITEM;
+
+if(!grouped[key]){
+grouped[key]=[];
+}
+
+grouped[key].push(p);
+
+});
+
+const uniqueProducts = Object.values(grouped).map(group=>group[0]);
+
+shuffle(uniqueProducts).slice(0,25).forEach(product=>{
+
+const card = document.createElement("div");
+
+card.className="card";
+
+const image = product.IMAGE1_FRONT || product.IMAGE2_SIDE || product.IMAGE3_BACK || "https://via.placeholder.com/300x300?text=No+Image";
+
+card.innerHTML=`
+
+<div class="card-image">
+<img src="${image}" onerror="this.src='https://via.placeholder.com/300x300?text=Image'">
+</div>
+
+<div class="card-body">
+
+<div class="card-title">${product.ITEM}</div>
+
+<div class="card-brand">${product.BRAND}</div>
+
+<div class="price">
+${product.PRICE ? "₹"+product.PRICE : "Out Of Stock"}
+</div>
+
+<div class="stock ${product.STOCK==='In Stock'?'instock':'outstock'}">
+${product.STOCK}
+</div>
+
+<button class="view-btn">
+View Product
+</button>
+
+</div>
+
+`;
+
+card.querySelector(".view-btn").onclick=()=>openModal(product.ITEM);
+
+container.appendChild(card);
+
+});
+
+}
+
+function openModal(item){
+
+currentGroup = products.filter(p=>p.ITEM===item);
+
+currentProduct = currentGroup[0];
+
+document.getElementById("modal").style.display="flex";
+
+renderModal();
+
+}
+
+function renderModal(){
+
+const p = currentProduct;
+
+document.getElementById("title").innerText=p.ITEM;
+
+document.getElementById("price").innerText=
+p.PRICE ? "₹"+p.PRICE : "Out Of Stock";
+
+document.getElementById("stock").innerHTML=
+`<span class="${p.STOCK==='In Stock'?'instock':'outstock'}">${p.STOCK}</span>`;
+
+currentImages = [
+p.IMAGE1_FRONT,
+p.IMAGE2_SIDE,
+p.IMAGE3_BACK
+].filter(x=>x && x.startsWith("http"));
+
+currentImageIndex=0;
+
+updateImage();
+
+const thumbs=document.getElementById("thumbs");
+
+thumbs.innerHTML="";
+
+currentImages.forEach((img,index)=>{
+
+thumbs.innerHTML+=`
+<img src="${img}"
+onclick="selectImage(${index})"
+onerror="this.style.display='none'">
+`;
+
+});
+
+const flavorWrap=document.getElementById("flavors");
+
+flavorWrap.innerHTML="";
+
+const flavors=[...new Set(currentGroup.map(x=>x.FLAVOUR).filter(Boolean))];
+
+flavors.forEach(flavor=>{
+
+const product=currentGroup.find(x=>x.FLAVOUR===flavor);
+
+const div=document.createElement("div");
+
+div.className="option";
+
+if(product.STOCK!=="In Stock"){
+div.classList.add("out");
+}
+
+if(flavor===p.FLAVOUR){
+div.classList.add("active");
+}
+
+div.innerText=flavor;
+
+div.onclick=()=>{
+
+currentProduct=product;
+
+renderModal();
+
+};
+
+flavorWrap.appendChild(div);
+
+});
+
+const sizeWrap=document.getElementById("sizes");
+
+sizeWrap.innerHTML="";
+
+const sizes=[...new Set(currentGroup.map(x=>x.Size).filter(Boolean))];
+
+sizes.forEach(size=>{
+
+const product=currentGroup.find(x=>x.Size===size);
+
+const div=document.createElement("div");
+
+div.className="option";
+
+if(product.STOCK!=="In Stock"){
+div.classList.add("out");
+}
+
+if(size===p.Size){
+div.classList.add("active");
+}
+
+div.innerText=size;
+
+div.onclick=()=>{
+
+currentProduct=product;
+
+renderModal();
+
+};
+
+sizeWrap.appendChild(div);
+
+});
+
+const bullets=document.getElementById("bullets");
+
+bullets.innerHTML="";
+
+["BULLET1","BULLET2","BULLET3","BULLET4"].forEach(key=>{
+
+if(p[key]){
+
+bullets.innerHTML+=`<li>${p[key]}</li>`;
+
+}
+
+});
+
+document.getElementById("orderBtn").onclick=()=>{
+
+window.open(
+`https://wa.me/919322290988?text=Hi, I want to order ${p.ITEM} - ${p.FLAVOUR||''} ${p.Size||''}`
+);
+
 };
 
 }
 
-map[key].variants.push(p);
+function updateImage(){
 
-});
-
-groupedProducts=Object.values(map);
-
-}
-
-function randomize(arr){
-
-return [...arr].sort(()=>Math.random()-0.5);
-
-}
-
-function renderPage(){
-
-const container=document.getElementById('mainContainer');
-
-container.innerHTML='';
-
-if(currentMode==='featured') renderFeatured(container);
-
-if(currentMode==='brand') renderBrands(container);
-
-if(currentMode==='category') renderCategories(container);
-
-}
-
-function renderFeatured(container){
-
-const section=document.createElement('div');
-
-section.className='section';
-
-section.innerHTML=`
-<div class="section-head">
-
-<h2>FEATURED DEALS</h2>
-
-<div class="arrow-wrap">
-<button class="arrow-btn" onclick="slideRow('featuredRow',-400)">❮</button>
-<button class="arrow-btn" onclick="slideRow('featuredRow',400)">❯</button>
-</div>
-
-</div>
-
-<div class="row-scroll" id="featuredRow">
-
-${randomize(groupedProducts).slice(0,25).map(g=>createCard(g.main)).join('')}
-
-</div>
-`;
-
-container.appendChild(section);
-
-attachCardEvents();
-
-}
-
-function renderBrands(container){
-
-const brands=[...new Set(groupedProducts.map(x=>x.main.BRAND).filter(Boolean))];
-
-brands.forEach(brand=>{
-
-const rowId=brand.replace(/\s/g,'');
-
-const items=randomize(groupedProducts.filter(x=>x.main.BRAND===brand));
-
-const section=document.createElement('div');
-
-section.className='section';
-
-section.innerHTML=`
-<div class="section-head">
-
-<h2>${brand}</h2>
-
-<div class="arrow-wrap">
-<button class="arrow-btn" onclick="slideRow('${rowId}',-400)">❮</button>
-<button class="arrow-btn" onclick="slideRow('${rowId}',400)">❯</button>
-</div>
-
-</div>
-
-<div class="row-scroll" id="${rowId}">
-${items.map(g=>createCard(g.main)).join('')}
-</div>
-`;
-
-container.appendChild(section);
-
-});
-
-attachCardEvents();
-
-}
-
-function renderCategories(container){
-
-const cats=[...new Set(groupedProducts.map(x=>x.main.Category).filter(Boolean))];
-
-cats.forEach(cat=>{
-
-const rowId=cat.replace(/\s/g,'');
-
-const items=randomize(groupedProducts.filter(x=>x.main.Category===cat));
-
-const section=document.createElement('div');
-
-section.className='section';
-
-section.innerHTML=`
-<div class="section-head">
-
-<h2>${cat}</h2>
-
-<div class="arrow-wrap">
-<button class="arrow-btn" onclick="slideRow('${rowId}',-400)">❮</button>
-<button class="arrow-btn" onclick="slideRow('${rowId}',400)">❯</button>
-</div>
-
-</div>
-
-<div class="row-scroll" id="${rowId}">
-${items.map(g=>createCard(g.main)).join('')}
-</div>
-`;
-
-container.appendChild(section);
-
-});
-
-attachCardEvents();
-
-}
-
-function createCard(product){
-
-const img=
-product.IMAGE1_FRONT ||
-product.IMAGE2_SIDE ||
-product.IMAGE3_BACK ||
-'https://via.placeholder.com/300';
-
-return `
-<div class="product-card" data-item="${product.ITEM}">
-
-<img src="${img}" onerror="this.src='https://via.placeholder.com/300'">
-
-<div class="brand-name">${product.BRAND||''}</div>
-
-<div class="product-title">${product.ITEM||''}</div>
-
-<div class="product-price">
-${product.PRICE ? '₹'+product.PRICE : 'OUT OF STOCK'}
-</div>
-
-<div class="stock ${product.STOCK==='In Stock'?'instock':'outstock'}">
-${product.STOCK||''}
-</div>
-
-</div>
-`;
-
-}
-
-function attachCardEvents(){
-
-document.querySelectorAll('.product-card').forEach(card=>{
-
-card.onclick=()=>openProduct(card.dataset.item);
-
-});
-
-}
-
-function openProduct(item){
-
-const group=groupedProducts.find(g=>g.main.ITEM===item);
-
-if(!group) return;
-
-renderModal(group.variants[0],group.variants);
-
-document.getElementById('productModal').style.display='flex';
-
-}
-
-function renderModal(product,variants){
-
-const modal=document.getElementById('modalContent');
-
-const images=[
-product.IMAGE1_FRONT,
-product.IMAGE2_SIDE,
-product.IMAGE3_BACK
-].filter(Boolean).filter(x=>!x.includes('undefined'));
-
-const sizes=[...new Set(variants.map(v=>v.Size).filter(Boolean))];
-
-const flavours=[...new Set(variants.map(v=>v.FLAVOUR).filter(Boolean))];
-
-modal.innerHTML=`
-
-<div class="close-modal" onclick="closeModal()">×</div>
-
-<div class="detail-wrap">
-
-<div>
-
-<div class="main-image-wrap">
-
-<button class="img-nav prev-img" onclick="changeImage(-1)">❮</button>
-
-<img class="main-image"
-id="mainProductImage"
-src="${images[0]||'https://via.placeholder.com/500'}"
-onclick="zoomImage(this.src)">
-
-<button class="img-nav next-img" onclick="changeImage(1)">❯</button>
-
-</div>
-
-<div class="thumb-row">
-
-${images.map(img=>`
-<img src="${img}" onclick="setMainImage('${img}')">
-`).join('')}
-
-</div>
-
-</div>
-
-<div class="details-side">
-
-<h2>${product.ITEM}</h2>
-
-<div class="detail-price">
-${product.PRICE ? '₹'+product.PRICE : 'OUT OF STOCK'}
-</div>
-
-<div class="serving-box">
-SERVINGS : ${product.SERVINGS||'-'}
-</div>
-
-<div class="option-title">
-AVAILABLE SIZES
-</div>
-
-<div class="option-grid">
-
-${sizes.map(size=>{
-
-const exists=variants.find(v=>v.Size===size && v.STOCK==='In Stock');
-
-return `
-<button class="option-btn ${size===product.Size?'active':''} ${!exists?'out':''}"
-onclick="selectVariant('${size}','size','${product.ITEM}')">
-${size}
-</button>
-`;
-
-}).join('')}
-
-</div>
-
-<div class="option-title">
-AVAILABLE FLAVOURS
-</div>
-
-<div class="option-grid">
-
-${flavours.map(fl=>{
-
-const exists=variants.find(v=>v.FLAVOUR===fl && v.STOCK==='In Stock');
-
-return `
-<button class="option-btn ${fl===product.FLAVOUR?'active':''} ${!exists?'out':''}"
-onclick="selectVariant('${fl}','flavour','${product.ITEM}')">
-${fl}
-</button>
-`;
-
-}).join('')}
-
-</div>
-
-<div class="bullet-list">
-
-${product.BULLET1?`<div class="bullet-item">• ${product.BULLET1}</div>`:''}
-${product.BULLET2?`<div class="bullet-item">• ${product.BULLET2}</div>`:''}
-${product.BULLET3?`<div class="bullet-item">• ${product.BULLET3}</div>`:''}
-${product.BULLET4?`<div class="bullet-item">• ${product.BULLET4}</div>`:''}
-
-</div>
-
-<a class="order-btn"
-href="https://wa.me/919322290988?text=Hi%20I%20want%20to%20order%20${encodeURIComponent(product.ITEM)}"
-target="_blank">
-
-ORDER ON WHATSAPP
-
-</a>
-
-</div>
-
-</div>
-`;
-
-window.currentImages=images;
-window.currentIndex=0;
-
-}
-
-function selectVariant(value,type,item){
-
-const group=groupedProducts.find(g=>g.main.ITEM===item);
-
-if(!group) return;
-
-let found;
-
-if(type==='size'){
-
-found=group.variants.find(v=>v.Size===value);
-
-}else{
-
-found=group.variants.find(v=>v.FLAVOUR===value);
-
-}
-
-if(found){
-
-renderModal(found,group.variants);
-
-}
-
-}
-
-function setMainImage(src){
-
-document.getElementById('mainProductImage').src=src;
-
-window.currentIndex=window.currentImages.indexOf(src);
+document.getElementById("mainImage").src=
+currentImages[currentImageIndex];
 
 }
 
 function changeImage(dir){
 
-window.currentIndex+=dir;
+currentImageIndex+=dir;
 
-if(window.currentIndex<0){
+if(currentImageIndex<0){
+currentImageIndex=currentImages.length-1;
+}
 
-window.currentIndex=window.currentImages.length-1;
+if(currentImageIndex>=currentImages.length){
+currentImageIndex=0;
+}
+
+updateImage();
 
 }
 
-if(window.currentIndex>=window.currentImages.length){
+function selectImage(index){
 
-window.currentIndex=0;
+currentImageIndex=index;
 
-}
-
-document.getElementById('mainProductImage').src=
-window.currentImages[window.currentIndex];
+updateImage();
 
 }
-
-document.addEventListener('keydown',e=>{
-
-if(document.getElementById('productModal').style.display==='flex'){
-
-if(e.key==='ArrowRight') changeImage(1);
-
-if(e.key==='ArrowLeft') changeImage(-1);
-
-}
-
-});
 
 function closeModal(){
 
-document.getElementById('productModal').style.display='none';
+document.getElementById("modal").style.display="none";
 
 }
 
-function zoomImage(src){
+function slide(dir){
 
-document.getElementById('zoomView').style.display='flex';
+const row=document.getElementById("products");
 
-document.getElementById('zoomImg').src=src;
-
-}
-
-function closeZoom(){
-
-document.getElementById('zoomView').style.display='none';
-
-}
-
-function slideRow(id,amount){
-
-document.getElementById(id).scrollBy({
-left:amount,
+row.scrollBy({
+left:dir*900,
 behavior:'smooth'
 });
 
 }
 
-function setMode(mode,el){
+document.addEventListener("keydown",e=>{
 
-currentMode=mode;
+if(document.getElementById("modal").style.display==="flex"){
 
-document.querySelectorAll('.filter-btn').forEach(btn=>{
-btn.classList.remove('active');
-});
+if(e.key==="ArrowRight"){
+changeImage(1);
+}
 
-el.classList.add('active');
-
-renderPage();
+if(e.key==="ArrowLeft"){
+changeImage(-1);
+}
 
 }
 
-function searchProducts(text){
-
-text=text.toLowerCase();
-
-document.querySelectorAll('.product-card').forEach(card=>{
-
-card.style.display=
-card.dataset.item.toLowerCase().includes(text)
-?'block'
-:'none';
-
 });
-
-}
-
-function scrollToTop(){
-
-window.scrollTo({
-top:0,
-behavior:'smooth'
-});
-
-}
 
 </script>
 
