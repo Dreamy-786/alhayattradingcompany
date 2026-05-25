@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>AL HAYAT TRADING</title>
 
 <link rel="icon" href="https://i.postimg.cc/Y9K0Qw1S/logo.png">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
@@ -21,14 +22,15 @@ box-sizing:border-box;
 }
 
 body{
-background:#050505;
+background:#000;
+color:#fff;
 font-family:'Inter',sans-serif;
-color:white;
 overflow-x:hidden;
 }
 
 h1,h2,h3,h4{
 font-family:'Cormorant Garamond',serif;
+font-weight:600;
 }
 
 img{
@@ -39,61 +41,63 @@ display:block;
 .topbar{
 position:sticky;
 top:0;
-z-index:999;
+z-index:9999;
 background:#000;
-border-bottom:1px solid rgba(255,255,255,0.08);
+border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .top-inner{
 max-width:1600px;
 margin:auto;
+padding:18px 28px;
 display:flex;
-align-items:center;
 justify-content:space-between;
-padding:18px 30px;
+align-items:center;
+gap:20px;
 }
 
 .brand{
 display:flex;
 align-items:center;
-gap:16px;
+gap:18px;
 cursor:pointer;
 }
 
 .brand img{
-width:70px;
-height:70px;
-object-fit:contain;
-border-radius:14px;
-background:#111;
+width:72px;
+height:72px;
+border-radius:18px;
+object-fit:cover;
 }
 
 .brand-text h1{
-font-size:52px;
-line-height:1;
-font-weight:700;
-letter-spacing:2px;
+font-size:62px;
+line-height:0.9;
+letter-spacing:1px;
 }
 
-.brand-text span{
+.brand-text p{
 font-size:15px;
-color:#999;
-letter-spacing:5px;
+letter-spacing:6px;
+margin-top:10px;
+opacity:.8;
 }
 
 .contact{
-font-size:20px;
+font-size:22px;
 font-weight:700;
-color:#20d46b;
+color:#2cff71;
 font-family:'Cormorant Garamond',serif;
 }
 
-.banner{
-height:320px;
+.hero-banner{
+width:100%;
+height:340px;
 overflow:hidden;
+background:#111;
 }
 
-.banner img{
+.banner-image{
 width:100%;
 height:100%;
 object-fit:cover;
@@ -101,81 +105,80 @@ object-fit:cover;
 
 .filters{
 position:sticky;
-top:106px;
-z-index:998;
-background:#050505;
-padding:18px 20px;
+top:110px;
+z-index:999;
+background:#000;
+padding:22px;
 display:flex;
-gap:14px;
+gap:18px;
 align-items:center;
-overflow:auto;
-border-bottom:1px solid rgba(255,255,255,0.08);
+flex-wrap:wrap;
+border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-.filters button{
-background:#111;
+.filter-btn{
+padding:18px 34px;
 border:none;
-color:white;
-padding:14px 26px;
 border-radius:999px;
-font-size:15px;
-font-weight:600;
+background:#111;
+color:#fff;
+font-size:18px;
+font-weight:700;
 cursor:pointer;
-white-space:nowrap;
+transition:.25s;
 }
 
-.filters button.active{
-background:white;
-color:black;
+.filter-btn.active{
+background:#fff;
+color:#000;
 }
 
 .search{
 flex:1;
-min-width:250px;
-}
-
-.search input{
-width:100%;
-padding:15px 20px;
+min-width:280px;
+padding:18px 26px;
 border-radius:999px;
 border:none;
 background:#111;
-color:white;
-font-size:15px;
+color:#fff;
+font-size:18px;
+outline:none;
 }
 
 .section{
-padding:34px 24px;
+padding:40px 24px;
 }
 
-.section-header{
+.section-title{
+font-size:72px;
+margin-bottom:30px;
+}
+
+.slider-head{
 display:flex;
 justify-content:space-between;
 align-items:center;
 margin-bottom:24px;
 }
 
-.section-header h2{
-font-size:56px;
-}
-
-.slider-buttons{
+.slider-arrows{
 display:flex;
-gap:12px;
+gap:14px;
 }
 
-.slider-buttons button{
-width:52px;
-height:52px;
-border:none;
+.arrow{
+width:58px;
+height:58px;
 border-radius:50%;
 background:#111;
-color:white;
-font-size:24px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
 cursor:pointer;
 }
 
-.products-row{
+.horizontal-row{
 display:flex;
 gap:22px;
 overflow-x:auto;
@@ -183,82 +186,76 @@ scroll-behavior:smooth;
 padding-bottom:10px;
 }
 
-.products-row::-webkit-scrollbar{
+.horizontal-row::-webkit-scrollbar{
 display:none;
 }
 
-.card{
-min-width:300px;
-max-width:300px;
-background:#0d0d0d;
-border:1px solid rgba(255,255,255,0.06);
-border-radius:24px;
-overflow:hidden;
-transition:0.3s;
+.product-card{
+min-width:320px;
+background:#0e0e0e;
+border-radius:26px;
+padding:18px;
+transition:.25s;
+border:1px solid rgba(255,255,255,.06);
 }
 
-.card:hover{
+.product-card:hover{
 transform:translateY(-6px);
 }
 
-.card-image{
-height:290px;
-background:white;
-padding:18px;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-.card-image img{
-height:100%;
+.product-image{
+width:100%;
+height:260px;
 object-fit:contain;
+background:#fff;
+padding:12px;
+border-radius:18px;
 }
 
-.card-body{
-padding:22px;
-}
-
-.card-title{
+.product-title{
 font-size:26px;
-line-height:1.15;
-margin-bottom:10px;
-min-height:95px;
+margin-top:18px;
+line-height:1.1;
+min-height:68px;
 }
 
-.card-brand{
-font-size:12px;
-color:#888;
-margin-bottom:12px;
+.brand-name{
+margin-top:10px;
+opacity:.65;
+font-size:14px;
 letter-spacing:2px;
 }
 
 .price{
-font-size:32px;
-font-weight:700;
-margin-bottom:10px;
+font-size:36px;
+font-weight:800;
+margin-top:14px;
 }
 
 .stock{
-font-size:13px;
-margin-bottom:20px;
+margin-top:8px;
+font-size:15px;
+font-weight:700;
 }
 
 .instock{
-color:#22c55e;
+color:#30ff77;
 }
 
 .outstock{
-color:#ff4d4d;
+color:#ff4747;
+text-decoration:line-through;
 }
 
 .view-btn{
+margin-top:20px;
 width:100%;
-padding:15px;
+padding:16px;
 border:none;
-border-radius:14px;
-background:white;
-color:black;
+border-radius:16px;
+background:#fff;
+color:#000;
+font-size:16px;
 font-weight:700;
 cursor:pointer;
 }
@@ -266,252 +263,230 @@ cursor:pointer;
 .modal{
 position:fixed;
 inset:0;
-background:rgba(0,0,0,0.8);
+background:rgba(0,0,0,.82);
 display:none;
-align-items:center;
 justify-content:center;
+align-items:center;
 z-index:99999;
 padding:20px;
 }
 
-.modal-content{
-background:white;
-color:black;
-width:100%;
-max-width:1400px;
-height:90vh;
-border-radius:30px;
+.detail-modal{
+width:95%;
+max-width:1450px;
+height:92vh;
+background:#fff;
+color:#000;
+border-radius:34px;
 overflow:hidden;
+position:relative;
+}
+
+.close-btn{
+position:absolute;
+right:24px;
+top:18px;
+font-size:54px;
+cursor:pointer;
+z-index:10;
+}
+
+.detail-content{
+height:100%;
+overflow-y:auto;
+padding:34px;
 display:grid;
 grid-template-columns:1fr 1fr;
+gap:34px;
+}
+
+.detail-left{
 position:relative;
 }
 
-.close{
-position:absolute;
-top:24px;
-right:24px;
-font-size:40px;
-cursor:pointer;
-z-index:2;
-}
-
-.left{
-padding:30px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-background:#fafafa;
-position:relative;
-}
-
-.main-image{
-height:500px;
+.detail-main-image{
+width:100%;
+height:520px;
 object-fit:contain;
+background:#fff;
+border-radius:24px;
+padding:20px;
+}
+
+.gallery{
+display:flex;
+gap:14px;
+margin-top:18px;
+}
+
+.thumb{
+width:90px;
+height:90px;
+border-radius:16px;
+border:2px solid #ddd;
+padding:6px;
+object-fit:contain;
+cursor:pointer;
+background:#fff;
 }
 
 .image-nav{
 position:absolute;
-top:50%;
+top:42%;
 transform:translateY(-50%);
-width:52px;
-height:52px;
-border:none;
+width:58px;
+height:58px;
 border-radius:50%;
-background:white;
-font-size:28px;
+background:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
 cursor:pointer;
-box-shadow:0 4px 12px rgba(0,0,0,0.15);
+box-shadow:0 10px 30px rgba(0,0,0,.12);
 }
 
 .prev{
-left:20px;
+left:-10px;
 }
 
 .next{
-right:20px;
+right:-10px;
 }
 
-.thumbs{
-display:flex;
-gap:12px;
+.detail-title{
+font-size:56px;
+line-height:1;
+}
+
+.detail-price{
+font-size:72px;
+font-weight:900;
 margin-top:20px;
 }
 
-.thumbs img{
-width:82px;
-height:82px;
-object-fit:contain;
-border:2px solid #ddd;
-border-radius:14px;
-padding:6px;
-cursor:pointer;
-background:white;
-}
-
-.right{
-padding:40px;
-overflow-y:auto;
-}
-
-.right h2{
-font-size:58px;
-line-height:1;
-margin-bottom:20px;
-}
-
-.right .price{
-font-size:60px;
-}
-
 .option-title{
-margin-top:24px;
-margin-bottom:12px;
-font-size:18px;
-font-weight:700;
+font-size:22px;
+font-weight:800;
+margin-top:26px;
+margin-bottom:14px;
 }
 
-.option-wrap{
+.options{
 display:flex;
 flex-wrap:wrap;
 gap:10px;
 }
 
-.option{
-padding:12px 16px;
-border:1px solid #ccc;
+.option-btn{
+padding:12px 18px;
 border-radius:12px;
+border:1px solid #ccc;
+background:#fff;
 cursor:pointer;
-font-size:14px;
-background:white;
+font-weight:700;
 }
 
-.option.active{
-background:black;
-color:white;
-border-color:black;
-}
-
-.option.out{
-opacity:0.4;
+.option-btn.out{
 text-decoration:line-through;
-pointer-events:none;
-}
-
-.bullets{
-margin-top:24px;
-padding-left:20px;
-}
-
-.bullets li{
-margin-bottom:12px;
-line-height:1.5;
+opacity:.45;
 }
 
 .order-btn{
+display:flex;
+align-items:center;
+justify-content:center;
 margin-top:28px;
 width:100%;
-padding:18px;
-border:none;
-background:#22c55e;
-color:white;
-font-size:20px;
-font-weight:700;
+padding:22px;
 border-radius:18px;
-cursor:pointer;
+background:#25D366;
+color:#fff;
+font-size:24px;
+font-weight:900;
+text-decoration:none;
 }
 
 .whatsapp-float{
 position:fixed;
 right:24px;
 bottom:24px;
-width:74px;
-height:74px;
+width:78px;
+height:78px;
 border-radius:50%;
-background:#25d366;
+background:#25D366;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:34px;
-z-index:999;
-box-shadow:0 0 25px rgba(37,211,102,0.5);
+font-size:36px;
+z-index:99999;
+box-shadow:0 0 30px rgba(37,211,102,.6);
 }
 
-footer{
-padding:50px 20px;
-background:#000;
+.footer{
+margin-top:70px;
+padding:50px 24px;
+background:#080808;
+border-top:1px solid rgba(255,255,255,.08);
 text-align:center;
-border-top:1px solid rgba(255,255,255,0.08);
-margin-top:60px;
 }
 
-footer h3{
+.footer h2{
 font-size:42px;
-margin-bottom:12px;
+margin-bottom:16px;
 }
 
-footer p{
-color:#888;
-margin-bottom:8px;
+.footer p{
+opacity:.7;
+margin-top:8px;
 }
 
 @media(max-width:900px){
 
-.top-inner{
-padding:14px;
-}
-
-.brand img{
-width:52px;
-height:52px;
-}
-
 .brand-text h1{
-font-size:30px;
-}
-
-.contact{
-display:none;
-}
-
-.banner{
-height:170px;
-}
-
-.section-header h2{
 font-size:38px;
 }
 
-.card{
-min-width:240px;
-max-width:240px;
+.contact{
+font-size:18px;
 }
 
-.modal-content{
+.hero-banner{
+height:180px;
+}
+
+.filters{
+top:92px;
+}
+
+.section-title{
+font-size:42px;
+}
+
+.product-card{
+min-width:260px;
+}
+
+.detail-content{
 grid-template-columns:1fr;
-height:95vh;
-overflow-y:auto;
-}
-
-.left{
 padding:20px;
 }
 
-.main-image{
+.detail-main-image{
 height:300px;
 }
 
-.right{
-padding:24px;
-}
-
-.right h2{
+.detail-title{
 font-size:34px;
 }
 
-.right .price{
-font-size:40px;
+.detail-price{
+font-size:48px;
+}
+
+.order-btn{
+position:sticky;
+bottom:0;
 }
 
 }
@@ -521,17 +496,19 @@ font-size:40px;
 
 <body>
 
-<div class="topbar">
+<header class="topbar">
+
 <div class="top-inner">
 
 <div class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-<img src="https://i.postimg.cc/Y9K0Qw1S/logo.png"
-onerror="this.src='https://via.placeholder.com/70x70?text=AH'">
+
+<img src="https://i.postimg.cc/Y9K0Qw1S/logo.png">
 
 <div class="brand-text">
 <h1>AL HAYAT TRADING</h1>
-<span>PREMIUM IMPORTS</span>
+<p>PREMIUM IMPORTS</p>
 </div>
+
 </div>
 
 <div class="contact">
@@ -539,178 +516,162 @@ onerror="this.src='https://via.placeholder.com/70x70?text=AH'">
 </div>
 
 </div>
-</div>
 
-<div class="banner">
-<img src="https://i.postimg.cc/J0fZLx8Q/banner.jpg"
-onerror="this.src='https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop'">
-</div>
+</header>
+
+<section class="hero-banner">
+
+<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop"
+class="banner-image">
+
+</section>
 
 <div class="filters">
 
-<button class="active">FEATURED DEALS</button>
-<button>SHOP BY BRAND</button>
-<button>SHOP BY CATEGORY</button>
+<button class="filter-btn active">FEATURED DEALS</button>
 
-<div class="search">
-<input type="text" id="searchInput" placeholder="Search Products...">
+<button class="filter-btn">SHOP BY BRAND</button>
+
+<button class="filter-btn">SHOP BY CATEGORY</button>
+
+<input type="text" class="search" placeholder="Search Products...">
+
+</div>
+
+<section class="section">
+
+<div class="slider-head">
+
+<h2 class="section-title">FEATURED DEALS</h2>
+
+<div class="slider-arrows">
+<div class="arrow" onclick="scrollLeftRow()">‹</div>
+<div class="arrow" onclick="scrollRightRow()">›</div>
 </div>
 
 </div>
 
-<div class="section">
+<div class="horizontal-row" id="productsRow"></div>
 
-<div class="section-header">
-<h2>FEATURED DEALS</h2>
-
-<div class="slider-buttons">
-<button onclick="slide(-1)">‹</button>
-<button onclick="slide(1)">›</button>
-</div>
-</div>
-
-<div class="products-row" id="products"></div>
-
-</div>
+</section>
 
 <div class="modal" id="modal">
-<div class="modal-content">
 
-<div class="close" onclick="closeModal()">×</div>
+<div class="detail-modal">
 
-<div class="left">
+<div class="close-btn" onclick="closeModal()">×</div>
 
-<button class="image-nav prev" onclick="changeImage(-1)">‹</button>
+<div class="detail-content">
 
-<img id="mainImage" class="main-image">
+<div class="detail-left">
 
-<button class="image-nav next" onclick="changeImage(1)">›</button>
+<div class="image-nav prev" onclick="prevImage()">‹</div>
+<div class="image-nav next" onclick="nextImage()">›</div>
 
-<div class="thumbs" id="thumbs"></div>
+<img id="mainImage" class="detail-main-image">
+
+<div class="gallery" id="gallery"></div>
 
 </div>
 
-<div class="right">
+<div class="detail-right">
 
-<h2 id="title"></h2>
+<h2 class="detail-title" id="detailTitle"></h2>
 
-<div class="price" id="price"></div>
-
-<div id="stock"></div>
+<div class="detail-price" id="detailPrice"></div>
 
 <div class="option-title">Choose Flavor</div>
-<div class="option-wrap" id="flavors"></div>
+<div class="options" id="flavors"></div>
 
 <div class="option-title">Choose Size</div>
-<div class="option-wrap" id="sizes"></div>
+<div class="options" id="sizes"></div>
 
-<ul class="bullets" id="bullets"></ul>
-
-<button class="order-btn" id="orderBtn">
+<a href="https://wa.me/919322290988"
+target="_blank"
+class="order-btn">
 Order On WhatsApp
-</button>
+</a>
 
 </div>
 
 </div>
+
 </div>
 
-<a class="whatsapp-float"
-href="https://wa.me/919322290988"
-target="_blank">💬</a>
+</div>
 
-<footer>
+<a href="https://wa.me/919322290988"
+target="_blank"
+class="whatsapp-float">
+💬
+</a>
 
-<h3>AL HAYAT TRADING</h3>
+<footer class="footer">
 
-<p>Premium Imported Sports Nutrition & Wellness Products</p>
+<h2>AL HAYAT TRADING</h2>
 
 <p>Mumbai, India</p>
-
+<p>Premium Imported Sports Nutrition & Wellness Products</p>
 <p>WhatsApp: +91 93222 90988</p>
 
 </footer>
 
 <script>
 
-const CSV_URL = "products.csv";
-
 let products = [];
-let currentGroup = [];
-let currentProduct = null;
 let currentImages = [];
 let currentImageIndex = 0;
 
-Papa.parse(CSV_URL,{
+Papa.parse("products.csv",{
 
 download:true,
 header:true,
+skipEmptyLines:true,
 
 complete:function(results){
 
-products = results.data.filter(p=>p.ITEM);
+products = results.data.filter(p =>
+p.name &&
+p.image &&
+p.image.startsWith("http")
+);
 
-renderProducts();
+renderProducts(products);
 
 }
 
 });
 
 function shuffle(arr){
-return [...arr].sort(()=>Math.random()-0.5);
+return [...arr].sort(()=>0.5 - Math.random());
 }
 
-function renderProducts(){
+function renderProducts(data){
 
-const container = document.getElementById("products");
+const row = document.getElementById("productsRow");
 
-container.innerHTML = "";
+row.innerHTML = "";
 
-const grouped = {};
+shuffle(data).slice(0,25).forEach(product=>{
 
-products.forEach(p=>{
+row.innerHTML += `
 
-const key = p.ITEM;
+<div class="product-card">
 
-if(!grouped[key]){
-grouped[key]=[];
-}
+<img src="${product.image}" class="product-image">
 
-grouped[key].push(p);
+<h3 class="product-title">${product.name}</h3>
 
-});
+<div class="brand-name">${product.brand || ''}</div>
 
-const uniqueProducts = Object.values(grouped).map(group=>group[0]);
+<div class="price">₹${product.price || ''}</div>
 
-shuffle(uniqueProducts).slice(0,25).forEach(product=>{
-
-const card = document.createElement("div");
-
-card.className="card";
-
-const image = product.IMAGE1_FRONT || product.IMAGE2_SIDE || product.IMAGE3_BACK || "https://via.placeholder.com/300x300?text=No+Image";
-
-card.innerHTML=`
-
-<div class="card-image">
-<img src="${image}" onerror="this.src='https://via.placeholder.com/300x300?text=Image'">
+<div class="stock ${product.stock === 'Out Of Stock' ? 'outstock' : 'instock'}">
+${product.stock || 'In Stock'}
 </div>
 
-<div class="card-body">
-
-<div class="card-title">${product.ITEM}</div>
-
-<div class="card-brand">${product.BRAND}</div>
-
-<div class="price">
-${product.PRICE ? "₹"+product.PRICE : "Out Of Stock"}
-</div>
-
-<div class="stock ${product.STOCK==='In Stock'?'instock':'outstock'}">
-${product.STOCK}
-</div>
-
-<button class="view-btn">
+<button class="view-btn"
+onclick='openModal(${JSON.stringify(product)})'>
 View Product
 </button>
 
@@ -718,219 +679,168 @@ View Product
 
 `;
 
-card.querySelector(".view-btn").onclick=()=>openModal(product.ITEM);
-
-container.appendChild(card);
-
 });
 
 }
 
-function openModal(item){
+function openModal(product){
 
-currentGroup = products.filter(p=>p.ITEM===item);
+document.getElementById("modal").style.display = "flex";
 
-currentProduct = currentGroup[0];
+document.getElementById("detailTitle").innerText = product.name;
 
-document.getElementById("modal").style.display="flex";
-
-renderModal();
-
-}
-
-function renderModal(){
-
-const p = currentProduct;
-
-document.getElementById("title").innerText=p.ITEM;
-
-document.getElementById("price").innerText=
-p.PRICE ? "₹"+p.PRICE : "Out Of Stock";
-
-document.getElementById("stock").innerHTML=
-`<span class="${p.STOCK==='In Stock'?'instock':'outstock'}">${p.STOCK}</span>`;
+document.getElementById("detailPrice").innerText =
+product.stock === "Out Of Stock"
+?
+"Out Of Stock"
+:
+"₹" + product.price;
 
 currentImages = [
-p.IMAGE1_FRONT,
-p.IMAGE2_SIDE,
-p.IMAGE3_BACK
-].filter(x=>x && x.startsWith("http"));
+product.image,
+product.image2,
+product.image3
+].filter(img => img && img.startsWith("http"));
 
-currentImageIndex=0;
+currentImageIndex = 0;
 
-updateImage();
+updateMainImage();
 
-const thumbs=document.getElementById("thumbs");
+const gallery = document.getElementById("gallery");
 
-thumbs.innerHTML="";
+gallery.innerHTML = "";
 
-currentImages.forEach((img,index)=>{
+currentImages.forEach(img=>{
 
-thumbs.innerHTML+=`
+gallery.innerHTML += `
 <img src="${img}"
-onclick="selectImage(${index})"
-onerror="this.style.display='none'">
+class="thumb"
+onclick="setImage('${img}')">
 `;
 
 });
 
-const flavorWrap=document.getElementById("flavors");
+const flavors = document.getElementById("flavors");
 
-flavorWrap.innerHTML="";
+const uniqueFlavours = [...new Set(
+products
+.filter(p => p.name === product.name)
+.map(v => v.flavour)
+.filter(v => v && !v.startsWith("http"))
+)];
 
-const flavors=[...new Set(currentGroup.map(x=>x.FLAVOUR).filter(Boolean))];
+flavors.innerHTML = "";
 
-flavors.forEach(flavor=>{
+uniqueFlavours.forEach(flavor=>{
 
-const product=currentGroup.find(x=>x.FLAVOUR===flavor);
-
-const div=document.createElement("div");
-
-div.className="option";
-
-if(product.STOCK!=="In Stock"){
-div.classList.add("out");
-}
-
-if(flavor===p.FLAVOUR){
-div.classList.add("active");
-}
-
-div.innerText=flavor;
-
-div.onclick=()=>{
-
-currentProduct=product;
-
-renderModal();
-
-};
-
-flavorWrap.appendChild(div);
-
-});
-
-const sizeWrap=document.getElementById("sizes");
-
-sizeWrap.innerHTML="";
-
-const sizes=[...new Set(currentGroup.map(x=>x.Size).filter(Boolean))];
-
-sizes.forEach(size=>{
-
-const product=currentGroup.find(x=>x.Size===size);
-
-const div=document.createElement("div");
-
-div.className="option";
-
-if(product.STOCK!=="In Stock"){
-div.classList.add("out");
-}
-
-if(size===p.Size){
-div.classList.add("active");
-}
-
-div.innerText=size;
-
-div.onclick=()=>{
-
-currentProduct=product;
-
-renderModal();
-
-};
-
-sizeWrap.appendChild(div);
-
-});
-
-const bullets=document.getElementById("bullets");
-
-bullets.innerHTML="";
-
-["BULLET1","BULLET2","BULLET3","BULLET4"].forEach(key=>{
-
-if(p[key]){
-
-bullets.innerHTML+=`<li>${p[key]}</li>`;
-
-}
-
-});
-
-document.getElementById("orderBtn").onclick=()=>{
-
-window.open(
-`https://wa.me/919322290988?text=Hi, I want to order ${p.ITEM} - ${p.FLAVOUR||''} ${p.Size||''}`
+const matching = products.find(p =>
+p.flavour === flavor &&
+p.name === product.name
 );
 
-};
+flavors.innerHTML += `
 
-}
+<div class="option-btn ${matching.stock === 'Out Of Stock' ? 'out' : ''}">
+${flavor}
+</div>
 
-function updateImage(){
+`;
 
-document.getElementById("mainImage").src=
-currentImages[currentImageIndex];
+});
 
-}
+const sizes = document.getElementById("sizes");
 
-function changeImage(dir){
+const uniqueSizes = [...new Set(
+products
+.filter(p => p.name === product.name)
+.map(v => v.size)
+)];
 
-currentImageIndex+=dir;
+sizes.innerHTML = "";
 
-if(currentImageIndex<0){
-currentImageIndex=currentImages.length-1;
-}
+uniqueSizes.forEach(size=>{
 
-if(currentImageIndex>=currentImages.length){
-currentImageIndex=0;
-}
+sizes.innerHTML += `
+<div class="option-btn">
+${size}
+</div>
+`;
 
-updateImage();
-
-}
-
-function selectImage(index){
-
-currentImageIndex=index;
-
-updateImage();
+});
 
 }
 
 function closeModal(){
+document.getElementById("modal").style.display = "none";
+}
 
-document.getElementById("modal").style.display="none";
+function setImage(img){
+
+document.getElementById("mainImage").src = img;
 
 }
 
-function slide(dir){
+function updateMainImage(){
 
-const row=document.getElementById("products");
+document.getElementById("mainImage").src =
+currentImages[currentImageIndex];
 
-row.scrollBy({
-left:dir*900,
+}
+
+function nextImage(){
+
+currentImageIndex++;
+
+if(currentImageIndex >= currentImages.length){
+currentImageIndex = 0;
+}
+
+updateMainImage();
+
+}
+
+function prevImage(){
+
+currentImageIndex--;
+
+if(currentImageIndex < 0){
+currentImageIndex = currentImages.length - 1;
+}
+
+updateMainImage();
+
+}
+
+function scrollLeftRow(){
+
+document.getElementById("productsRow")
+.scrollBy({
+left:-900,
 behavior:'smooth'
 });
 
 }
 
-document.addEventListener("keydown",e=>{
+function scrollRightRow(){
 
-if(document.getElementById("modal").style.display==="flex"){
-
-if(e.key==="ArrowRight"){
-changeImage(1);
-}
-
-if(e.key==="ArrowLeft"){
-changeImage(-1);
-}
+document.getElementById("productsRow")
+.scrollBy({
+left:900,
+behavior:'smooth'
+});
 
 }
+
+document.querySelector(".search")
+.addEventListener("input",e=>{
+
+const val = e.target.value.toLowerCase();
+
+const filtered = products.filter(p =>
+p.name.toLowerCase().includes(val)
+);
+
+renderProducts(filtered);
 
 });
 
