@@ -1,651 +1,1218 @@
-<!-- ========================= -->
-<!-- WHOLE UPDATED CODE -->
-<!-- REPLACE YOUR FULL HTML -->
-<!-- ========================= -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AL HAYAT TRADING</title>
-
-<link rel="icon" type="image/png" href="YOUR_LOGO_LINK_HERE">
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-background:#050505;
-color:#fff;
-font-family:'Inter',sans-serif;
-overflow-x:hidden;
-}
-
-h1,h2,h3,h4{
-font-family:'Cormorant Garamond',serif;
-}
-
-a{
-text-decoration:none;
-color:inherit;
-}
-
-header{
-position:sticky;
-top:0;
-z-index:999;
-background:rgba(0,0,0,.92);
-backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.topbar{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:16px 30px;
-gap:20px;
-}
-
-.logo-wrap{
-display:flex;
-align-items:center;
-gap:14px;
-cursor:pointer;
-}
-
-.logo-wrap img{
-height:60px;
-width:60px;
-object-fit:contain;
-border-radius:16px;
-background:#111;
-padding:6px;
-}
-
-.logo-text{
-font-size:34px;
-font-weight:700;
-letter-spacing:2px;
-}
-
-.contact{
-font-size:17px;
-font-weight:600;
-color:#25D366;
-font-family:'Cormorant Garamond',serif;
-}
-
-.banner{
-width:100%;
-height:320px;
-overflow:hidden;
-}
-
-.banner img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.sticky-controls{
-position:sticky;
-top:93px;
-z-index:998;
-background:#050505;
-padding:18px 24px;
-display:flex;
-gap:14px;
-align-items:center;
-border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.filter-btn{
-padding:12px 18px;
-border-radius:14px;
-background:#111;
-border:1px solid rgba(255,255,255,.08);
-cursor:pointer;
-font-weight:600;
-transition:.2s;
-}
-
-.filter-btn:hover,
-.filter-btn.active{
-background:#25D366;
-color:#000;
-}
-
-.search{
-flex:1;
-height:48px;
-background:#111;
-border:none;
-border-radius:14px;
-padding:0 18px;
-color:#fff;
-font-size:15px;
-outline:none;
-}
-
-.section{
-padding:38px 24px;
-}
-
-.section-title{
-font-size:52px;
-margin-bottom:24px;
-}
-
-.horizontal-row{
-display:flex;
-gap:20px;
-overflow-x:auto;
-scroll-behavior:smooth;
-padding-bottom:10px;
-}
-
-.horizontal-row::-webkit-scrollbar{
-height:6px;
-}
-
-.horizontal-row::-webkit-scrollbar-thumb{
-background:#25D366;
-border-radius:10px;
-}
-
-.product-card{
-min-width:300px;
-max-width:300px;
-background:#111;
-border-radius:24px;
-padding:18px;
-border:1px solid rgba(255,255,255,.08);
-transition:.25s;
-display:flex;
-flex-direction:column;
-}
-
-.product-card:hover{
-transform:translateY(-5px);
-border-color:#25D366;
-box-shadow:0 0 30px rgba(37,211,102,.18);
-}
-
-.product-image{
-width:100%;
-height:250px;
-background:#fff;
-border-radius:18px;
-padding:12px;
-object-fit:contain;
-margin-bottom:16px;
-}
-
-.product-brand{
-font-size:11px;
-letter-spacing:2px;
-text-transform:uppercase;
-color:#999;
-margin-bottom:8px;
-}
-
-.product-title{
-font-size:26px;
-line-height:1.1;
-min-height:92px;
-margin-bottom:14px;
-}
-
-.product-price{
-font-size:32px;
-font-weight:800;
-margin-bottom:10px;
-}
-
-.product-stock{
-font-size:14px;
-margin-bottom:16px;
-}
-
-.instock{
-color:#25D366;
-}
-
-.outstock{
-color:#ff4d4d;
-}
-
-.view-btn{
-height:48px;
-border:none;
-background:#25D366;
-color:#000;
-font-weight:700;
-border-radius:14px;
-cursor:pointer;
-font-size:15px;
-margin-top:auto;
-}
-
-.modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.82);
-z-index:9999;
-display:none;
-align-items:center;
-justify-content:center;
-padding:20px;
-}
-
-.modal-box{
-width:100%;
-max-width:1320px;
-height:88vh;
-background:#fff;
-color:#000;
-border-radius:34px;
-overflow:hidden;
-display:grid;
-grid-template-columns:1fr 1fr;
-position:relative;
-}
-
-.close-btn{
-position:absolute;
-right:24px;
-top:18px;
-font-size:58px;
-cursor:pointer;
-z-index:3;
-}
-
-.modal-left{
-padding:30px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-background:#fafafa;
-position:relative;
-}
-
-.main-image{
-width:100%;
-max-width:500px;
-height:500px;
-object-fit:contain;
-}
-
-.image-row{
-display:flex;
-gap:14px;
-margin-top:20px;
-}
-
-.thumb{
-width:90px;
-height:90px;
-border-radius:14px;
-border:2px solid #ddd;
-padding:8px;
-object-fit:contain;
-background:#fff;
-cursor:pointer;
-}
-
-.arrow{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-width:54px;
-height:54px;
-border-radius:50%;
-background:#fff;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:28px;
-cursor:pointer;
-box-shadow:0 0 20px rgba(0,0,0,.12);
-}
-
-.arrow-left{
-left:24px;
-}
-
-.arrow-right{
-right:24px;
-}
-
-.modal-right{
-padding:34px;
-overflow-y:auto;
-padding-bottom:120px;
-}
-
-.modal-title{
-font-size:62px;
-line-height:1;
-margin-bottom:18px;
-}
-
-.modal-price{
-font-size:58px;
-font-weight:800;
-margin-bottom:12px;
-}
-
-.serving{
-display:inline-block;
-background:#000;
-color:#fff;
-padding:10px 18px;
-border-radius:30px;
-font-size:14px;
-font-weight:700;
-margin-bottom:16px;
-}
-
-.variant-title{
-font-size:22px;
-font-weight:700;
-margin-top:24px;
-margin-bottom:14px;
-}
-
-.variant-wrap{
-display:flex;
-flex-wrap:wrap;
-gap:12px;
-}
-
-.variant-btn{
-padding:12px 18px;
-border-radius:12px;
-border:1px solid #ccc;
-background:#fff;
-cursor:pointer;
-font-weight:600;
-}
-
-.variant-btn.active{
-background:#25D366;
-border-color:#25D366;
-color:#000;
-}
-
-.variant-btn.out{
-opacity:.4;
-text-decoration:line-through;
-}
-
-.bullets{
-margin-top:28px;
-padding-left:20px;
-line-height:1.8;
-font-size:16px;
-}
-
-.order-btn{
-position:sticky;
-bottom:0;
-width:100%;
-height:64px;
-background:#25D366;
-border:none;
-color:#000;
-font-size:22px;
-font-weight:800;
-border-radius:18px;
-margin-top:26px;
-cursor:pointer;
-}
-
-.whatsapp-float{
-position:fixed;
-right:20px;
-bottom:20px;
-width:68px;
-height:68px;
-background:#25D366;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:34px;
-z-index:999;
-box-shadow:0 0 30px rgba(37,211,102,.4);
-}
-
-footer{
-padding:40px 24px;
-text-align:center;
-background:#0b0b0b;
-border-top:1px solid rgba(255,255,255,.08);
-margin-top:40px;
-}
-
-footer h3{
-font-size:34px;
-margin-bottom:14px;
-}
-
-footer p{
-opacity:.8;
-line-height:1.8;
-}
-
-@media(max-width:900px){
-
-.banner{
-height:180px;
-}
-
-.logo-text{
-font-size:22px;
-}
-
-.sticky-controls{
-flex-wrap:wrap;
-top:82px;
-}
-
-.filter-btn{
-flex:1;
-min-width:120px;
-}
-
-.modal-box{
-grid-template-columns:1fr;
-height:95vh;
-overflow-y:auto;
-}
-
-.modal-title{
-font-size:38px;
-}
-
-.modal-price{
-font-size:40px;
-}
-
-.main-image{
-height:300px;
-}
-
-.product-card{
-min-width:260px;
-max-width:260px;
-}
-
-.section-title{
-font-size:34px;
-}
-
-}
-
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AL HAYAT TRADING</title>
+
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/Y9K0Qw1S/logo.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#0a0a0a;
+      color:#fff;
+      font-family:'Inter',sans-serif;
+      overflow-x:hidden;
+    }
+
+    h1,h2,h3,h4,h5{
+      font-family:'Cormorant Garamond',serif;
+      letter-spacing:0.5px;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(0,0,0,0.95);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .top-inner{
+      max-width:1600px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 24px;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      cursor:pointer;
+    }
+
+    .brand img{
+      width:56px;
+      height:56px; 
+            
+    .object-fit:contain;
+      border-radius:14px;
+      background:#111;
+    }
+
+    .brand h1{
+      font-size:34px;
+      font-weight:700;
+      color:#f5f5f5;
+    }
+
+    .contact{
+      font-size:18px;
+      font-weight:600;
+      color:#d4af37;
+      letter-spacing:1px;
+    }
+
+    .hero{
+      width:100%;
+      height:430px;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .sticky-controls{
+      position:sticky;
+      top:84px;
+      z-index:998;
+      background:#0d0d0d;
+      padding:14px 20px;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .controls-inner{
+      max-width:1600px;
+      margin:auto;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    select,input{
+      background:#141414;
+      border:1px solid rgba(255,255,255,0.08);
+      color:white;
+      padding:14px 18px;
+      border-radius:14px;
+      font-size:14px;
+    }
+
+    input{
+      flex:1;
+      min-width:240px;
+    }
+
+    .section{
+      max-width:1600px;
+      margin:50px auto;
+      padding:0 20px;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:20px;
+    }
+
+    .section-title{
+      font-size:44px;
+      color:#fff;
+    }
+
+    .arrow-wrap{
+      display:flex;
+      gap:10px;
+    }
+
+    .arrow-btn{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      border:none;
+      cursor:pointer;
+      background:#1a1a1a;
+      color:white;
+      font-size:18px;
+    }
+
+    .scroll-row{
+      display:flex;
+      gap:20px;
+      overflow-x:auto;
+      scroll-behavior:smooth;
+      padding-bottom:10px;
+    }
+
+    .scroll-row::-webkit-scrollbar{
+      display:none;
+    }
+
+    .product-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:24px;
+    }
+
+    .card{
+      background:#121212;
+      border:1px solid rgba(255,255,255,0.07);
+      border-radius:24px;
+      overflow:hidden;
+      transition:0.3s;
+      min-width:300px;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      border-color:#d4af37;
+    }
+
+    .card-image{
+      height:320px;
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+
+    .card-image img{
+      max-width:100%;
+      max-height:100%;
+      object-fit:contain;
+    }
+
+    .card-body{
+      padding:20px;
+    }
+
+    .brand-name{
+      color:#999;
+      font-size:12px;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .title{
+      font-size:20px;
+      line-height:1.4;
+      min-height:80px;
+      margin-bottom:14px;
+      color:#f5f5f5;
+      font-family:'Cormorant Garamond',serif;
+      font-weight:600;
+    }
+
+    .price{
+      font-size:28px;
+      font-weight:700;
+      margin-bottom:8px;
+    }
+
+    .stock{
+      font-size:14px;
+      margin-bottom:18px;
+    }
+
+    .stock.in{
+      color:#30d158;
+    }
+
+    .stock.out{
+      color:#ff453a;
+    }
+
+    .view-btn{
+      width:100%;
+      background:#d4af37;
+      color:#000;
+      padding:14px;
+      border:none;
+      border-radius:14px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .brand-box{
+      min-width:220px;
+      background:#111;
+      border-radius:22px;
+      padding:30px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .brand-box img{
+      width:100%;
+      height:90px;
+      object-fit:contain;
+      margin-bottom:14px;
+      filter:brightness(1.1);
+    }
+
+    .category-box{
+      min-width:260px;
+      background:#121212;
+      border-radius:22px;
+      padding:30px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.88);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+      padding:20px;
+    }
+
+    .modal-content{
+      width:100%;
+      max-width:1400px;
+      height:88vh;
+      background:#fff;
+      color:#000;
+      border-radius:26px;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      position:relative;
+    }
+      .border-radius:14px;
+      object-fit:cover;
+      background:#111;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+
+    .brand-text h1{
+      font-size:34px;
+      font-weight:700;
+      color:#f5f5f5;
+    }
+
+    .brand-text span{
+      font-size:11px;
+      color:#b8b8b8;
+      letter-spacing:4px;
+      margin-top:6px;
+      text-transform:uppercase;
+    }
+
+    .top-right{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      flex:1;
+      justify-content:flex-end;
+    }
+
+    .search-wrap{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      width:100%;
+      max-width:760px;
+    }
+
+    #filterSelect,
+    #searchInput{
+      height:48px;
+      border:none;
+      outline:none;
+      border-radius:14px;
+      background:#151515;
+      color:#fff;
+      padding:0 18px;
+      font-size:14px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    #filterSelect{
+      min-width:200px;
+      cursor:pointer;
+      font-weight:600;
+    }
+
+    #searchInput{
+      flex:1;
+    }
+
+    .contact-btn{
+      background:#1ed760;
+      color:#000;
+      padding:12px 22px;
+      border-radius:14px;
+      font-weight:700;
+      font-size:14px;
+      white-space:nowrap;
+      transition:0.25s;
+    }
+
+    .contact-btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .banner{
+      width:100%;
+      height:460px;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .banner img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .section{
+      padding:50px 30px;
+      max-width:1600px;
+      margin:auto;
+    }
+
+    .section-title{
+      font-size:42px;
+      margin-bottom:28px;
+      color:#fff;
+      font-weight:700;
+    }
+
+    .horizontal-wrap{
+      position:relative;
+    }
+
+    .horizontal-scroll{
+      display:flex;
+      gap:22px;
+      overflow-x:auto;
+      scroll-behavior:smooth;
+      padding-bottom:10px;
+    }
+
+    .horizontal-scroll::-webkit-scrollbar{
+      display:none;
+    }
+
+    .scroll-btn{
+      position:absolute;
+      top:42%;
+      transform:translateY(-50%);
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      border:none;
+      background:#fff;
+      color:#000;
+      font-size:28px;
+      font-weight:700;
+      cursor:pointer;
+      z-index:4;
+      box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .scroll-left{
+      left:-12px;
+    }
+
+    .scroll-right{
+      right:-12px;
+    }
+
+    .products-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:26px;
+    }
+
+    .product-card{
+      background:#111;
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.25s;
+      min-width:300px;
+      position:relative;
+    }
+
+    .product-card:hover{
+      transform:translateY(-5px);
+      border-color:rgba(255,255,255,0.16);
+    }
+
+    .product-image{
+      width:100%;
+      height:300px;
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      cursor:pointer;
+    }
+
+    .product-image img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      transition:0.3s;
+    }
+
+    .product-card:hover .product-image img{
+      transform:scale(1.06);
+    }
+
+    .product-content{
+      padding:20px;
+    }
+
+    .brand-name{
+      color:#8e8e8e;
+      font-size:11px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:10px;
+      font-weight:700;
+    }
+
+    .product-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:26px;
+      line-height:1.1;
+      min-height:88px;
+      color:#fff;
+      margin-bottom:14px;
+      font-weight:700;
+    }
+
+    .price{
+      font-size:28px;
+      font-weight:700;
+      margin-bottom:6px;
+    }
+
+    .stock{
+      font-size:13px;
+      margin-bottom:18px;
+    }
+
+    .in-stock{
+      color:#1ed760;
+    }
+
+    .out-stock{
+      color:#ff5b5b;
+    }
+
+    .view-btn{
+      width:100%;
+      border:none;
+      height:50px;
+      border-radius:14px;
+      background:#1ed760;
+      color:#000;
+      font-weight:700;
+      cursor:pointer;
+      font-size:15px;
+    }
+
+    .brand-logo{
+      width:170px;
+      height:100px;
+      background:#111;
+      border-radius:22px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(255,255,255,0.08);
+      flex-shrink:0;
+      cursor:pointer;
+      transition:0.25s;
+      padding:16px;
+    }
+
+    .brand-logo:hover{
+      transform:translateY(-4px);
+    }
+
+    .brand-logo span{
+      text-align:center;
+      font-weight:700;
+      font-size:16px;
+    }
+
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.88);
+      z-index:9999;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+
+    .modal-content{
+      width:100%;
+      max-width:1320px;
+      height:90vh;
+      background:#fff;
+      color:#000;
+      border-radius:30px;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      position:relative;
+    }
+
+    .close-modal{
+      position:absolute;
+      right:24px;
+      top:20px;
+      font-size:42px;
+      font-weight:700;
+      cursor:pointer;
+      z-index:20;
+    }
+
+    .modal-left{
+      background:#f6f6f6;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+      position:relative;
+    }
+
+    .main-image{
+      width:100%;
+      max-width:520px;
+      height:520px;
+      object-fit:contain;
+      transition:0.2s;
+      cursor:zoom-in;
+    }
+
+    .image-nav{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:58px;
+      height:58px;
+      border:none;
+      border-radius:50%;
+      background:#fff;
+      font-size:32px;
+      cursor:pointer;
+      box-shadow:0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .image-prev{
+      left:16px;
+    }
+
+    .image-next{
+      right:16px;
+    }
+
+    .thumbs{
+      display:flex;
+      gap:14px;
+      margin-top:18px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .thumbs img{
+      width:90px;
+      height:90px;
+      object-fit:contain;
+      border-radius:14px;
+      border:2px solid #ddd;
+      background:#fff;
+      cursor:pointer;
+    }
+
+    .modal-right{
+      padding:42px;
+      overflow-y:auto;
+    }
+
+    .modal-title{
+      font-size:56px;
+      line-height:1;
+      margin-bottom:20px;
+      color:#111;
+      font-weight:700;
+    }
+
+    .modal-price{
+      font-size:54px;
+      font-weight:800;
+      margin-bottom:12px;
+    }
+
+    .serving-pill{
+      display:inline-block;
+      background:#111;
+      color:#fff;
+      padding:8px 16px;
+      border-radius:999px;
+      font-size:12px;
+      margin-bottom:16px;
+      font-weight:700;
+      letter-spacing:1px;
+    }
+
+    .variant-title{
+      margin-top:24px;
+      margin-bottom:12px;
+      font-size:20px;
+      font-weight:700;
+      color:#111;
+    }
+
+    .variant-wrap{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .variant-btn{
+      padding:12px 16px;
+      border-radius:12px;
+      border:1px solid #ccc;
+      background:#fff;
+      cursor:pointer;
+      font-weight:600;
+      font-size:14px;
+    }
+
+    .variant-btn.active{
+      background:#111;
+      color:#fff;
+      border-color:#111;
+    }
+
+    .variant-btn.disabled{
+      opacity:0.45;
+      text-decoration:line-through;
+      cursor:not-allowed;
+    }
+
+    .bullets{
+      margin-top:24px;
+      padding-left:20px;
+      line-height:1.8;
+      color:#222;
+      font-size:15px;
+    }
+
+    .order-btn{
+      width:100%;
+      height:62px;
+      border:none;
+      border-radius:18px;
+      background:#1ed760;
+      color:#000;
+      font-size:20px;
+      font-weight:800;
+      margin-top:30px;
+      cursor:pointer;
+      position:sticky;
+      bottom:0;
+    }
+
+    .floating-whatsapp{
+      position:fixed;
+      bottom:24px;
+      right:24px;
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      background:#1ed760;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:34px;
+      z-index:999;
+      box-shadow:0 12px 30px rgba(0,0,0,0.35);
+    }
+
+    footer{
+      background:#050505;
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding:50px 30px;
+      margin-top:70px;
+    }
+
+    .footer-inner{
+      max-width:1400px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      gap:30px;
+    }
+
+    .footer-title{
+      font-size:32px;
+      margin-bottom:14px;
+    }
+
+    .footer-text{
+      color:#a8a8a8;
+      line-height:1.7;
+      font-size:14px;
+    }
+
+    @media(max-width:1100px){
+
+      .products-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .modal-content{
+        grid-template-columns:1fr;
+        height:95vh;
+        overflow-y:auto;
+      }
+
+      .modal-left{
+        min-height:420px;
+      }
+
+      .modal-title{
+        font-size:40px;
+      }
+    }
+
+    @media(max-width:768px){
+
+      .top-inner{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .search-wrap{
+        flex-direction:column;
+      }
+
+      #filterSelect,
+      #searchInput{
+        width:100%;
+      }
+
+      .products-grid{
+        grid-template-columns:1fr;
+      }
+
+      .banner{
+        height:220px;
+      }
+
+      .section{
+        padding:34px 16px;
+      }
+
+      .section-title{
+        font-size:30px;
+      }
+
+      .modal-content{
+        border-radius:18px;
+      }
+
+      .main-image{
+        height:300px;
+      }
+
+      .modal-right{
+        padding:24px;
+      }
+
+      .modal-title{
+        font-size:34px;
+      }
+
+      .modal-price{
+        font-size:38px;
+      }
+
+      .footer-inner{
+        grid-template-columns:1fr;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
 
-<header>
+  <div class="topbar">
 
-<div class="topbar">
+    <div class="top-inner">
 
-<a href="#" class="logo-wrap">
+      <div class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
 
-<img src="YOUR_LOGO_LINK_HERE">
+        <img src="https://i.postimg.cc/Y9K0Qw1S/logo.png">
 
-<div class="logo-text">
-AL HAYAT TRADING
-</div>
+        <div class="brand-text">
+          <h1>AL HAYAT TRADING</h1>
+          <span>Premium Nutrition</span>
+        </div>
 
-</a>
+      </div>
 
-<div class="contact">
-📞 +91 77000 77786
-</div>
+      <div class="top-right">
 
-</div>
+        <div class="search-wrap">
 
-</header>
+          <select id="filterSelect">
+            <option value="featured">Featured Deals</option>
+            <option value="brand">Shop By Brand</option>
+            <option value="category">Shop By Category</option>
+          </select>
 
-<div class="banner">
-<img src="YOUR_BANNER_LINK_HERE">
-</div>
+          <input type="text" id="searchInput" placeholder="Search products, brands, flavours..." />
 
-<div class="sticky-controls">
+        </div>
 
-<button class="filter-btn active">
-Featured Deals
-</button>
+        <a class="contact-btn" href="https://wa.me/917700777786" target="_blank">
+          +91 77007 77786
+        </a>
 
-<button class="filter-btn">
-Shop By Brand
-</button>
+      </div>
 
-<button class="filter-btn">
-Shop By Category
-</button>
+    </div>
 
-<input class="search" placeholder="Search products...">
+  </div>
 
-</div>
+  <div class="banner">
+    <img src="https://i.postimg.cc/MH7y4W5w/banner.jpg">
+  </div>
 
-<section class="section">
+  <div class="section">
 
-<h2 class="section-title">
-Featured Deals
-</h2>
+    <h2 class="section-title" id="mainTitle">Featured Deals</h2>
 
-<div class="horizontal-row" id="featuredProducts">
+    <div id="contentArea"></div>
 
-</div>
+  </div>
 
-</section>
+  <div class="modal" id="productModal">
 
-<footer>
+    <div class="modal-content">
 
-<h3>AL HAYAT TRADING COMPANY</h3>
+      <span class="close-modal" onclick="closeModal()">&times;</span>
 
-<p>
-Premium Imported Sports Nutrition & Wellness Products
-</p>
+      <div class="modal-left">
 
-<p>
-Mumbai, India
-</p>
+        <button class="image-nav image-prev" onclick="prevImage()">‹</button>
 
-<p>
-WhatsApp: +91 77000 77786
-</p>
+        <img id="mainImage" class="main-image">
 
-</footer>
+        <button class="image-nav image-next" onclick="nextImage()">›</button>
 
-<a class="whatsapp-float" href="https://wa.me/917700077786" target="_blank">
-💬
-</a>
+        <div class="thumbs" id="thumbs"></div>
 
-<div class="modal" id="productModal">
+      </div>
 
-<div class="modal-box">
+      <div class="modal-right">
 
-<div class="close-btn" onclick="closeModal()">
-×
-</div>
+        <h1 class="modal-title" id="modalTitle"></h1>
 
-<div class="modal-left">
+        <div class="modal-price" id="modalPrice"></div>
 
-<div class="arrow arrow-left" onclick="prevImage()">
-‹
-</div>
+        <div class="serving-pill" id="modalServings"></div>
 
-<img class="main-image" id="mainImage">
+        <div class="stock" id="modalStock"></div>
 
-<div class="arrow arrow-right" onclick="nextImage()">
-›
-</div>
+        <div class="variant-title">Choose Flavor</div>
+        <div class="variant-wrap" id="flavourWrap"></div>
 
-<div class="image-row" id="thumbRow"></div>
+        <div class="variant-title">Choose Size</div>
+        <div class="variant-wrap" id="sizeWrap"></div>
 
-</div>
+        <ul class="bullets" id="bulletList"></ul>
 
-<div class="modal-right" id="modalRight"></div>
+        <button class="order-btn" id="orderBtn">
+          Order On WhatsApp
+        </button>
 
-</div>
+      </div>
 
-</div>
+    </div>
 
-<script>
+  </div>
 
-let currentImages = [];
-let currentImageIndex = 0;
+  <a class="floating-whatsapp" href="https://wa.me/917700777786" target="_blank">
+    💬
+  </a>
 
-function prevImage(){
+  <footer>
 
-if(currentImageIndex > 0){
+    <div class="footer-inner">
 
-currentImageIndex--;
+      <div>
 
-document.getElementById("mainImage").src = currentImages[currentImageIndex];
+        <h3 class="footer-title">AL HAYAT TRADING</h3>
 
-}
+        <p class="footer-text">
+          Premium imported sports nutrition, proteins, pre-workouts, wellness supplements and performance products from trusted international brands.
+        </p>
 
-}
+      </div>
 
-function nextImage(){
+      <div>
 
-if(currentImageIndex < currentImages.length - 1){
+        <h3 class="footer-title">Contact</h3>
 
-currentImageIndex++;
+        <p class="footer-text">
+          +91 77007 77786<br><br>
+          Mumbai, India
+        </p>
 
-document.getElementById("mainImage").src = currentImages[currentImageIndex];
+      </div>
 
-}
+      <div>
 
-}
+        <h3 class="footer-title">Categories</h3>
 
-function closeModal(){
+        <p class="footer-text">
+          Whey Protein<br>
+          Pre Workout<br>
+          Fat Burner<br>
+          EAA & Recovery
+        </p>
 
-document.getElementById("productModal").style.display = "none";
+      </div>
 
-document.body.style.overflow = "auto";
+    </div>
 
-}
+  </footer>
 
-</script>
+  <script>
 
-</body>
-</html>
+    let rawProducts = [];
+    let groupedProducts = [];
+    let currentGroup = null;
+    let currentProduct = null;
+    let currentImages = [];
+    let currentImageIndex = 0;
+
+    Papa.parse('products.csv', {
+      download:true,
+      header:true,
+      complete:function(results){
+
+        rawProducts = results.data.filter(p => p.ITEM);
+
+        buildGroups();
+
+        renderFeatured();
+      }
+    });
+
+    function buildGroups(){
+
+      const map = {};
+
+      rawProducts.forEach(p => {
+
+        const key = (p.BRAND + '-' + p.ITEM).replace(/\s+/g,'');
+
+        if(!map[key]){
+          map[key] = [];
+        }
+
+        map[key].push(p);
+      });
+
+      groupedProducts = Object.values(map);
+    }
+
+    function shuffle(array){
+
+      return [...array].sort(() => Math.random() - 0.5);
+    }
+
+    function renderFeatured(){
+
+      document.getElementById('mainTitle').innerText = 'Featured Deals';
+
+      const randomProducts = shuffle(groupedProducts).slice(0,25);
+
+      let html = `<div class="products-grid">`;
+
+      randomProducts.forEach(group => {
+
+        const p = group[0];
+
+        const image = p.IMAGE1_FRONT || p.IMAGE2_SIDE || p.IMAGE3_BACK || 'https://via.placeholder.com/500';
+
+        html += `
+          <div class="product-card">
+
+            <div class="product-image" onclick="openModal('${p.SKU}')">
+              <img src="${image}" onerror="this.src='https://via.placeholder.com/500';">
+            </div>
+
+            <div class="product-content">
+
+              <div class="brand-name">${p.BRAND}</div>
+
+              <div class="product-title">${p.ITEM}</div>
+
+              <div class="price">
+                ${p.PRICE ? '₹'+p.PRICE : 'Out Of Stock'}
+              </div>
+
+              <div class="stock ${p.STOCK === 'In Stock' ? 'in-stock' : 'out-stock'}">
+                ${p.STOCK}
+              </div>
+
+              <button class="view-btn" onclick="openModal('${p.SKU}')">
+                View Product
+              </button>
+
+            </div>
+
+          </div>
+        `;
+      });
+
+      html += `</div>`;
+
+      document.getElementById('contentArea').innerHTML = html;
+    }
+
+    function renderBrands(){
+
+      document.getElementById('mainTitle').innerText = 'Shop By Brand';
+
+      const brands = [...new Set(rawProducts.map(p => p.BRAND))];
+
+      let html = `
+        <div class="horizontal-wrap">
+
+          <button class="scroll-btn scroll-left" onclick="scrollLeftCustom('brandScroll')">‹</button>
+
+          <div class="horizontal-scroll" id="brandScroll">
+      `;
+
+      brands.forEach(brand => {
+
+        html += `
+          <div class="brand-logo" onclick="renderBrandProducts('${brand}')">
+            <span>${brand}</span>
+          </div>
+        `;
+      });
+
+      html += `
+          </div>
+
+          <button class="scroll-btn scroll-right" onclick="scrollRightCustom('brandScroll')">›</button>
+
+        </div>
+
+        <div id="brandProducts" style="margin-top:40px;"></div>
+      `;
+
+      document.getElementById('contentArea').innerHTML = html;
+    }
+
+    function renderBrandProducts(brand){
+
+      const groups = groupedProducts.filter(g => g[0].BRAND === brand);
+
+      let html = `
+        <div class="horizontal-wrap">
+
+          <button class="scroll-btn scroll-left" onclick="scrollLeftCustom('brandProductsScroll')">‹</button>
+
+          <div class="horizontal-scroll" id="brandProductsScroll">
+      `;
+
+      shuffle(groups).forEach(group => {
+
+        const p = group[0];
+
+        const image = p.IMAGE1_FRONT || p.IMAGE2_SIDE || p.IMAGE3_BACK || 'https://via.placeholder.com/500';
+
+        html += `
+          <div class="product-card">
+
+            <div class="product-image" onclick="openModal('${p.SKU}')">
+              <img src="${image}" onerror="this.src='https://via.placeholder.com/500';">
+            </div>
+
+            <div class="product-content">
+
+              <div class="brand-name">${p.BRAND}</div>
+
+              <div class="product-title">${p.ITEM}</div>
+
+              <div class="price">
+                ${p.PRICE ? '₹'+p.PRICE : 'Out Of Stock'}
+              </div>
+
+              <button class="view-btn" onclick="openModal('${p.SKU}')">
+                View Product
+              </button>
+
+            </div>
+
+          </div>
+        `;
+      });
+
+      html += `
+          </div>
+
+          <button class="scroll-btn scroll-right" onclick="scrollRightCustom('brandProductsScroll')">›</button>
+
+        </div>
+      `;
+
+      document.getElementById('brandProducts').innerHTML = html;
+    }
