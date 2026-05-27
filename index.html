@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>AL HAYAT TRADING COMPANY — Premium Sports Nutrition</title>
-<link rel="icon" type="image/png" href="https://i.postimg.cc/Y9K0Qw1S/logo.png"/>
+<link rel="icon" type="image/png" href="https://i.postimg.cc/tJW8kgDV/LOGO.jpg"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
 <style>
@@ -262,11 +262,54 @@ button{font-family:var(--sans);}
 
 /* ── ROW SCROLL ── */
 .row-scroll{
-  display:flex;gap:18px;
-  overflow-x:auto;scroll-behavior:smooth;
+  display:block;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:18px;
   padding-bottom:8px;
 }
 .row-scroll::-webkit-scrollbar{display:none;}
+
+.category-section{
+  margin-bottom:70px;
+}
+
+.category-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.category-title{
+  font-family:var(--serif);
+  font-size:34px;
+  color:var(--chalk);
+  letter-spacing:1px;
+}
+
+.category-products{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  padding-bottom:10px;
+}
+
+.category-products::-webkit-scrollbar{
+  display:none;
+}
+
+.brand-products{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  padding-bottom:10px;
+}
+
+.brand-products::-webkit-scrollbar{
+  display:none;
+}
 
 /* ── BRAND CARDS ── */
 .brand-card{
@@ -652,7 +695,7 @@ button{font-family:var(--sans);}
 <header class="topbar">
   <div class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
     <div class="brand-logo-wrap">
-      <img src="https://i.postimg.cc/Y9K0Qw1S/logo.png" alt="AL HAYAT TRADING" onerror="this.style.display='none'">
+      <img src="https://i.postimg.cc/tJW8kgDV/LOGO.jpg" alt="AL HAYAT TRADING" onerror="this.style.display='none'">
     </div>
     <div class="brand-text">
       <h1>AL HAYAT TRADING</h1>
@@ -723,7 +766,7 @@ button{font-family:var(--sans);}
     <div class="footer-col">
       <div class="footer-logo-wrap">
         <div class="footer-logo">
-          <img src="https://i.postimg.cc/Y9K0Qw1S/logo.png" onerror="this.style.display='none'" alt="Logo">
+          <img src="https://i.postimg.cc/tJW8kgDV/LOGO.jpg" onerror="this.style.display='none'" alt="Logo">
         </div>
         <div>
           <div class="footer-brand-name">AL HAYAT TRADING</div>
@@ -942,10 +985,72 @@ function showFeatured() {
 }
 
 function showBrandSection() {
-  currentMode = "brand"; setActive("btn-brands");
-  setSectionTitle("Our Brands", "Shop by Brand");
+
+  currentMode = "brand";
+  setActive("btn-brands");
+
+  setSectionTitle("Brands", "Shop by Brand");
+
   document.getElementById("searchInput").value = "";
-  renderBrandCards();
+
+  productRow.innerHTML = "";
+
+  const brandMap = {};
+
+  allProducts.forEach(p => {
+
+    if (!brandMap[p.BRAND]) {
+      brandMap[p.BRAND] = [];
+    }
+
+    brandMap[p.BRAND].push(p);
+
+  });
+
+  Object.keys(brandMap).forEach(brand => {
+
+    const section = document.createElement("div");
+
+    section.className = "category-section";
+
+    const logoName = brand.toLowerCase().replace(/\s+/g,'-');
+
+    section.innerHTML = `
+      <div class="category-header">
+
+        <div style="display:flex;align-items:center;gap:18px;">
+
+          <img
+            src="brand-logos/${logoName}.png"
+            style="width:90px;height:60px;object-fit:contain;background:#fff;padding:8px;border-radius:4px;"
+            onerror="this.style.display='none'"
+          >
+
+          <div class="category-title">${brand}</div>
+
+        </div>
+
+      </div>
+
+      <div class="brand-products"></div>
+    `;
+
+    productRow.appendChild(section);
+
+    const row = section.querySelector(".brand-products");
+
+    const grouped = groupProducts(brandMap[brand]);
+
+    grouped.forEach(p => {
+
+      const card = createProductCard(p);
+
+      row.appendChild(card);
+
+    });
+
+  });
+
 }
 
 function renderBrandCards() {
@@ -978,10 +1083,53 @@ function filterByBrand(brand) {
 }
 
 function showCategorySection() {
-  currentMode = "category"; setActive("btn-cats");
+  currentMode = "category";
+  setActive("btn-cats");
+
   setSectionTitle("Categories", "Shop by Category");
   document.getElementById("searchInput").value = "";
-  renderCategoryCards();
+
+  productRow.innerHTML = "";
+
+  const categoryMap = {};
+
+  allProducts.forEach(p => {
+    if (!p.Category) return;
+
+    if (!categoryMap[p.Category]) {
+      categoryMap[p.Category] = [];
+    }
+
+    categoryMap[p.Category].push(p);
+  });
+
+  Object.keys(categoryMap).forEach(cat => {
+
+    const section = document.createElement("div");
+    section.className = "category-section";
+
+    const grouped = groupProducts(categoryMap[cat]);
+
+    section.innerHTML = `
+      <div class="category-header">
+        <div class="category-title">${cat}</div>
+      </div>
+      <div class="category-products" id="cat-${cat.replace(/\s+/g,'')}"></div>
+    `;
+
+    productRow.appendChild(section);
+
+    const row = section.querySelector(".category-products");
+
+    grouped.forEach(p => {
+
+      const card = createProductCard(p);
+
+      row.appendChild(card);
+
+    });
+
+  });
 }
 
 const CAT_ICONS = {
@@ -1061,7 +1209,53 @@ function renderProductCards(products) {
     productRow.appendChild(card);
   });
 }
+function createProductCard(p){
 
+  const card = document.createElement("div");
+
+  card.className = "card";
+
+  card.addEventListener("click", () => openProduct(p));
+
+  const isOut = (p.STOCK || "").toLowerCase().includes("out");
+
+  const imgSrc = isValidUrl(p.IMAGE1_FRONT) ? p.IMAGE1_FRONT : "";
+
+  const imageHtml = imgSrc
+    ? `<img src="${eav(imgSrc)}" alt="${eav(p.ITEM || "")}"
+        loading="lazy"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+    : "";
+
+  const fallbackStyle = imgSrc ? "display:none;" : "";
+
+  card.innerHTML = `
+    <div class="card-image">
+      ${imageHtml}
+      <div class="card-img-fallback" style="${fallbackStyle}">📦</div>
+    </div>
+
+    <div class="card-content">
+
+      <div class="card-brand">${esc(p.BRAND || "")}</div>
+
+      <div class="card-title">${esc(p.ITEM || "")}</div>
+
+      <div class="card-flavour">${esc(p.FLAVOUR || "")}</div>
+
+      <div class="card-price">₹${esc(p.PRICE || "")}</div>
+
+      <div class="stock-badge ${isOut ? "outstock" : "instock"}">
+        ${esc(p.STOCK || "")}
+      </div>
+
+      <button class="view-btn">View Product</button>
+
+    </div>
+  `;
+
+  return card;
+}
 // ── Modal ─────────────────────────────────────────────────────────────────────
 
 function openProduct(product) {
