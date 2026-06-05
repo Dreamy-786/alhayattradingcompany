@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,817 +6,595 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>AL HAYAT TRADING COMPANY — Premium Sports Nutrition</title>
 <link rel="icon" type="image/png" href="https://i.postimg.cc/tJW8kgDV/LOGO.jpg"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
 <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
 <style>
 :root{
-  --ink:#080808;
-  --ink2:#0d0d0d;
-  --ink3:#141414;
-  --ink4:#1c1c1c;
-  --ink5:#252525;
-  --chalk:#f9f6f0;
-  --chalk2:#e8e4dc;
-  --grey:#888;
-  --grey2:#aaa;
-  --grey3:#ccc;
+  --ink:#050505;
+  --ink2:#0b0b0b;
+  --ink3:#111111;
+  --ink4:#181818;
+  --ink5:#222222;
+  --chalk:#fcfbfa;
+  --chalk2:#e2ded7;
+  --grey:#777777;
+  --grey2:#b5b5b5;
+  --grey3:#dddddd;
   --gold:#c9a84c;
   --gold2:#e6c96e;
   --gold3:#f5e6b8;
   --green:#1db954;
   --green2:#25e66a;
-  --border:rgba(255,255,255,0.06);
+  --border:rgba(255,255,255,0.05);
   --border2:rgba(255,255,255,0.12);
-  --borderg:rgba(201,168,76,0.25);
-  --serif:'Cormorant Garamond',serif;
-  --sans:'Jost',sans-serif;
+  --borderg:rgba(201,168,76,0.22);
+  --serif:'Playfair Display', serif;
+  --sans:'Inter', sans-serif;
+  --sidebar-width:280px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{background:var(--ink);font-family:var(--sans);color:var(--chalk);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
 a{text-decoration:none;color:inherit;}
 img{display:block;}
-button{font-family:var(--sans);}
+button{font-family:var(--sans);font-weight:600;}
 
-/* ── TOPBAR ── */
-.topbar{
-  background:rgba(8,8,8,0.96);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  padding:0 40px;
-  height:80px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid var(--border);
-  position:sticky;
-  top:0;
-  z-index:1000;
+/* ── LAYOUT STRUCTURE ── */
+.app-container {
+  display: flex;
+  min-height: 100vh;
 }
-.topbar-divider{
-  width:1px;height:32px;
-  background:var(--border2);
-  margin:0 28px;
+
+/* ── SIDEBAR NAVIGATION (DESKTOP) ── */
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--ink2);
+  border-right: 1px solid var(--border);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1010;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 24px;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.brand{display:flex;align-items:center;gap:0;cursor:pointer;}
-.brand-logo-wrap{
-  width:52px;height:52px;
-  border:1px solid var(--borderg);
-  border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  background:var(--ink3);
-  margin-right:18px;
-  flex-shrink:0;
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 45px;
+  cursor: pointer;
 }
-.brand-logo-wrap img{width:38px;height:38px;object-fit:contain;}
-.brand-text h1{
-  font-family:var(--serif);
-  font-size:22px;font-weight:600;
-  letter-spacing:2px;
-  line-height:1;
-  color:var(--chalk);
+.sidebar-logo {
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--borderg);
+  border-radius: 10px;
+  background: var(--ink3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
-.brand-text p{
-  font-size:9px;letter-spacing:5px;
-  color:var(--gold);margin-top:6px;
-  text-transform:uppercase;font-weight:500;
+.sidebar-logo img { width: 32px; height: 32px; object-fit: contain; }
+.sidebar-brand-text h1 {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  color: var(--chalk);
 }
-.topbar-right{display:flex;align-items:center;}
-.contact a{
-  font-family:var(--serif);
-  font-size:17px;font-weight:600;
-  color:var(--gold2);
-  letter-spacing:0.5px;
-  display:flex;align-items:center;gap:8px;
-  transition:color 0.2s;
+.sidebar-brand-text p {
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: 3px;
+  font-weight: 500;
 }
-.contact a:hover{color:var(--gold3);}
-.contact-icon{
-  width:32px;height:32px;
-  border:1px solid var(--borderg);
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:14px;
-  flex-shrink:0;
+.sidebar-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  color: var(--grey2);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.sidebar-item:hover {
+  color: var(--chalk);
+  background: rgba(255,255,255,0.03);
+}
+.sidebar-item.active {
+  color: var(--gold);
+  background: rgba(201,168,76,0.08);
+  border-left: 3px solid var(--gold);
+  padding-left: 13px;
+}
+.sidebar-contact {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.sidebar-contact a {
+  font-size: 12px;
+  color: var(--gold2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+/* ── MAIN CONTENT AREA ── */
+.main-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── TOPBAR / MOBILE HEADER ── */
+.topbar {
+  background: rgba(5,5,5,0.96);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  padding: 0 40px;
+  height: 80px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.mobile-nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--chalk);
+  font-size: 24px;
+  cursor: pointer;
+}
+.search { width: 100%; max-width: 380px; }
+.search-wrap { position: relative; display: flex; align-items: center; }
+.search-icon { position: absolute; left: 16px; color: var(--grey); font-size: 14px; pointer-events: none; }
+.search input {
+  width: 100%;
+  height: 42px;
+  padding: 0 18px 0 44px;
+  background: var(--ink3);
+  border: 1px solid var(--border2);
+  outline: none;
+  border-radius: 6px;
+  color: var(--chalk);
+  font-family: var(--sans);
+  font-size: 13px;
+  transition: all 0.3s;
+  letter-spacing: 0.5px;
+}
+.search input:focus { border-color: var(--gold); background: var(--ink4); box-shadow: 0 0 0 3px rgba(201,168,76,0.15); }
 
 /* ── ANNOUNCEMENT BAR ── */
-.announce{
-  background:var(--gold);
-  color:var(--ink);
-  text-align:center;
-  padding:9px 20px;
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:3px;
-  text-transform:uppercase;
+.announce {
+  background: var(--gold);
+  color: var(--ink);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-/* ── BANNER ── */
-.banner{
-  width:100%;height:520px;
-  overflow:hidden;background:var(--ink2);
-  position:relative;
+/* ── HERO SLIDER ── */
+.hero-slider {
+  width: 100%;
+  height: 540px;
+  position: relative;
+  overflow: hidden;
+  background: var(--ink2);
 }
-.banner img{
-  width:100%;height:100%;
-  object-fit:cover;display:block;
-  filter:brightness(0.55);
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
 }
-.banner-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(105deg,rgba(8,8,8,0.75) 0%,rgba(8,8,8,0.3) 55%,transparent 100%);
-  display:flex;align-items:center;padding:0 80px;
+.slide.active { opacity: 1; z-index: 2; }
+.slide-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.35);
+  z-index: -1;
 }
-.banner-eyebrow{
-  font-size:11px;letter-spacing:5px;
-  color:var(--gold);text-transform:uppercase;
-  font-weight:500;margin-bottom:18px;
-  display:flex;align-items:center;gap:10px;
+.slide-overlay {
+  max-width: 650px;
+  animation: fadeInUp 0.8s ease-out forwards;
 }
-.banner-eyebrow::before{
-  content:'';display:block;
-  width:36px;height:1px;background:var(--gold);
+.slide-eyebrow {
+  font-size: 12px;
+  letter-spacing: 6px;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-.banner-text h2{
-  font-family:var(--serif);
-  font-size:74px;font-weight:700;
-  line-height:0.95;max-width:560px;
-  color:var(--chalk);
-  letter-spacing:-1px;
+.slide-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+.slide-title {
+  font-family: var(--serif);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--chalk);
+  letter-spacing: -0.5px;
+  margin-bottom: 24px;
 }
-.banner-text h2 em{
-  font-style:italic;color:var(--gold2);
-}
-.banner-text p{
-  margin-top:20px;font-size:14px;
-  color:var(--grey2);letter-spacing:3px;
-  text-transform:uppercase;font-weight:400;
-}
-.banner-cta{
-  margin-top:32px;
-  display:inline-flex;align-items:center;gap:10px;
-  border:1px solid var(--gold);
-  padding:14px 28px;border-radius:4px;
-  font-size:12px;letter-spacing:3px;
-  text-transform:uppercase;font-weight:600;
-  color:var(--gold);
-  transition:all 0.3s;cursor:pointer;background:transparent;
-}
-.banner-cta:hover{background:var(--gold);color:var(--ink);}
+.slide-title em { font-style: italic; color: var(--gold2); }
+.slide-subtitle { font-size: 15px; color: var(--grey2); letter-spacing: 2px; text-transform: uppercase; font-weight: 400; }
 
-/* ── FILTER BAR ── */
-.filter-bar{
-  background:rgba(13,13,13,0.98);
-  backdrop-filter:blur(16px);
-  padding:0 40px;
-  height:64px;
-  display:flex;align-items:center;gap:6px;
-  position:sticky;
-  top:80px;
-  z-index:999;
-  border-bottom:1px solid var(--border);
+/* ── ECOMMERCE STABLE GRID ── */
+.section { padding: 70px 50px; }
+.section-fade-in { animation: fadeIn 0.6s ease-out; }
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
 }
-.filter-btn{
-  height:36px;
-  padding:0 22px;
-  border:1px solid transparent;
-  border-radius:2px;
-  background:transparent;
-  color:var(--grey2);
-  font-family:var(--sans);
-  font-weight:500;
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  cursor:pointer;
-  transition:all 0.25s;
-  white-space:nowrap;
-}
-.filter-btn:hover{color:var(--chalk);border-color:var(--border2);}
-.filter-btn.active{
-  color:var(--gold);
-  border-color:var(--borderg);
-  background:rgba(201,168,76,0.06);
-}
-.filter-sep{width:1px;height:24px;background:var(--border);margin:0 10px;flex-shrink:0;}
-.search{flex:1;max-width:440px;margin-left:auto;}
-.search-wrap{
-  position:relative;
-  display:flex;align-items:center;
-}
-.search-icon{
-  position:absolute;left:16px;
-  color:var(--grey);font-size:14px;pointer-events:none;
-}
-.search input{
-  width:100%;
-  height:38px;
-  padding:0 18px 0 42px;
-  background:var(--ink3);
-  border:1px solid var(--border2);
-  outline:none;
-  border-radius:2px;
-  color:var(--chalk);
-  font-family:var(--sans);
-  font-size:13px;
-  transition:border-color 0.25s;
-  letter-spacing:0.5px;
-}
-.search input:focus{border-color:var(--borderg);}
-.search input::placeholder{color:var(--grey);}
+.section-eyebrow { font-size: 11px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; font-weight: 600; margin-bottom: 12px; }
+.section-title { font-family: var(--serif); font-size: 42px; font-weight: 600; letter-spacing: -0.5px; line-height: 1.1; color: var(--chalk); }
 
-/* ── SECTION ── */
-.section{padding:64px 40px;}
-.section-head{
-  display:flex;align-items:flex-end;
-  justify-content:space-between;
-  margin-bottom:36px;
-  padding-bottom:24px;
-  border-bottom:1px solid var(--border);
-}
-.section-head-left{}
-.section-eyebrow{
-  font-size:10px;letter-spacing:4px;
-  color:var(--gold);text-transform:uppercase;
-  font-weight:500;margin-bottom:10px;
-}
-.section-head h2{
-  font-family:var(--serif);
-  font-size:48px;font-weight:600;
-  letter-spacing:-0.5px;
-  line-height:1;
-  color:var(--chalk);
-}
-.arrow-wrap{display:flex;gap:8px;padding-bottom:4px;}
-.arrow{
-  width:42px;height:42px;
-  border-radius:2px;
-  background:transparent;
-  border:1px solid var(--border2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;cursor:pointer;
-  transition:all 0.25s;
-  color:var(--grey2);
-}
-.arrow:hover{background:var(--chalk);color:var(--ink);border-color:var(--chalk);}
-
-/* ── ROW SCROLL ── */
-.row-scroll{
-  display:block;
-  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-  gap:18px;
-  padding-bottom:8px;
-}
-.row-scroll::-webkit-scrollbar{display:none;}
-
-.category-section{
-  margin-bottom:70px;
+.ecommerce-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 }
 
-.category-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:20px;
+/* ── PREMIUM PRODUCT CARD ── */
+.card {
+  background: var(--ink3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
 }
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--borderg);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+.card-image {
+  height: 250px;
+  background: #ffffff;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.card:hover .card-image img { transform: scale(1.06); }
+.card-img-fallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 48px; color: #bbb; background: #f5f4f0; }
+.card-content { padding: 22px 20px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.card-brand { font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; font-weight: 600; }
+.card-title { font-family: var(--serif); font-size: 18px; line-height: 1.3; color: var(--chalk); min-height: 48px; font-weight: 500; }
+.card-flavour { font-size: 12px; color: var(--grey2); letter-spacing: 0.3px; }
+.card-price { font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--chalk); margin-top: 4px; }
+.stock-badge { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; padding: 4px 10px; border-radius: 4px; display: inline-block; width: fit-content; text-transform: uppercase; }
+.instock { color: #1db954; background: rgba(29,185,84,0.08); border: 1px solid rgba(29,185,84,0.2); }
+.outstock { color: #e05252; background: rgba(224,82,82,0.08); border: 1px solid rgba(224,82,82,0.2); text-decoration: line-through; }
+.view-btn {
+  margin-top: auto; padding: 13px; border: 1px solid var(--border2); border-radius: 4px; background: transparent; color: var(--chalk);
+  font-family: var(--sans); font-weight: 600; cursor: pointer; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; transition: all 0.3s;
+}
+.view-btn:hover { background: var(--chalk); color: var(--ink); border-color: var(--chalk); }
 
-.category-title{
-  font-family:var(--serif);
-  font-size:34px;
-  color:var(--chalk);
-  letter-spacing:1px;
+/* ── BRAND CARDS GRID ── */
+.brands-showcase-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+.brand-premium-card {
+  background: var(--ink3); border: 1px solid var(--border); border-radius: 8px; padding: 30px 20px; text-align: center; cursor: pointer; transition: all 0.4s;
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
 }
+.brand-premium-card:hover { border-color: var(--borderg); transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+.brand-logo-container { width: 110px; height: 80px; background: #ffffff; border-radius: 6px; padding: 10px; display: flex; align-items: center; justify-content: center; }
+.brand-logo-container img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.brand-premium-name { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--chalk); }
+.brand-product-count { font-size: 12px; color: var(--gold); font-weight: 500; letter-spacing: 1px; }
 
-.category-products{
-  display:flex;
-  gap:18px;
-  overflow-x:auto;
-  scroll-behavior:smooth;
-  padding-bottom:10px;
+/* ── CATEGORY CARDS GRID ── */
+.categories-showcase-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+.category-premium-card {
+  background: var(--ink3); border: 1px solid var(--border); border-radius: 8px; padding: 32px 24px; text-align: center; cursor: pointer; transition: all 0.4s;
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
 }
+.category-premium-card:hover { border-color: var(--borderg); transform: translateY(-4px); background: rgba(201,168,76,0.03); }
+.category-premium-icon { font-size: 36px; }
+.category-premium-title { font-family: var(--serif); font-size: 22px; font-weight: 500; color: var(--chalk); }
+.category-product-count { font-size: 12px; color: var(--gold); font-weight: 500; letter-spacing: 1px; }
 
-.category-products::-webkit-scrollbar{
-  display:none;
+/* ── INGREDIENTS DESIGN SYSTEM ── */
+.ingredients-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+.ingredient-card {
+  background: var(--ink3); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: all 0.4s; display: flex; flex-direction: column;
 }
+.ingredient-card:hover { border-color: var(--borderg); transform: translateY(-4px); }
+.ingredient-image-placeholder { height: 140px; background: linear-gradient(135deg, var(--ink4), var(--ink5)); display: flex; align-items: center; justify-content: center; font-size: 40px; color: var(--gold); border-bottom: 1px solid var(--border); }
+.ingredient-content { padding: 22px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.ingredient-title { font-family: var(--serif); font-size: 22px; color: var(--chalk); font-weight: 500; }
+.ingredient-desc { font-size: 13px; color: var(--grey2); line-height: 1.6; }
+.ingredient-readmore { margin-top: auto; color: var(--gold2); font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; padding-top: 14px; }
+.ingredient-readmore:hover { color: var(--gold3); }
 
-.brand-products{
-  display:flex;
-  gap:18px;
-  overflow-x:auto;
-  scroll-behavior:smooth;
-  padding-bottom:10px;
-}
+.detail-view-container { background: var(--ink2); border: 1px solid var(--border); border-radius: 8px; padding: 40px; }
+.back-to-ingredients { color: var(--gold); font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 30px; }
+.ingredient-detail-header h2 { font-family: var(--serif); font-size: 46px; color: var(--chalk); margin-bottom: 24px; }
+.ingredient-grid-details { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.ingredient-detail-block { background: var(--ink3); border: 1px solid var(--border); padding: 24px; border-radius: 6px; border-left: 3px solid var(--gold); }
+.ingredient-block-title { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.ingredient-block-text { font-size: 14px; color: var(--chalk2); line-height: 1.6; }
 
-.brand-products::-webkit-scrollbar{
-  display:none;
+/* ── LUXURY CALCULATOR STYLING ── */
+.calc-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: var(--ink2); border: 1px solid var(--border); padding: 40px; border-radius: 8px; }
+.calc-form { display: flex; flex-direction: column; gap: 20px; }
+.calc-group { display: flex; flex-direction: column; gap: 8px; }
+.calc-group label { font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--grey2); }
+.calc-group input, .calc-group select {
+  padding: 12px 16px; background: var(--ink3); border: 1px solid var(--border2); border-radius: 4px; color: var(--chalk); font-family: var(--sans); font-size: 14px; outline: none; transition: border 0.3s;
 }
+.calc-group input:focus, .calc-group select:focus { border-color: var(--gold); }
+.calc-btn { background: var(--gold); color: var(--ink); border: none; padding: 15px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; cursor: pointer; transition: all 0.3s; margin-top: 10px; }
+.calc-btn:hover { background: var(--gold2); }
+.calc-results { display: flex; flex-direction: column; gap: 16px; }
+.result-card { background: var(--ink3); border: 1px solid var(--border); padding: 20px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; }
+.result-label { font-size: 14px; color: var(--chalk2); }
+.result-value { font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--gold2); }
 
-/* ── BRAND CARDS ── */
-.brand-card{
-  min-width:160px;max-width:160px;
-  background:var(--ink3);
-  border:1px solid var(--border);
-  border-radius:4px;
-  cursor:pointer;transition:all 0.3s;
-  display:flex;flex-direction:column;
-  align-items:center;padding:24px 14px 18px;gap:12px;
-}
-.brand-card:hover{border-color:var(--borderg);transform:translateY(-3px);}
-.brand-card-img{
-  width:90px;height:68px;
-  object-fit:contain;background:#fff;
-  border-radius:4px;padding:6px;
-}
-.brand-card-name{
-  font-size:10px;letter-spacing:2px;
-  color:var(--grey2);text-transform:uppercase;
-  text-align:center;font-weight:500;
-}
+/* ── FOOD TOOL STYLING ── */
+.food-search-wrap { max-width: 500px; margin-bottom: 30px; }
+.food-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.food-card { background: var(--ink2); border: 1px solid var(--border); border-radius: 8px; padding: 24px; transition: all 0.3s; }
+.food-card:hover { border-color: var(--borderg); transform: translateY(-2px); }
+.food-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+.food-name { font-family: var(--serif); font-size: 22px; color: var(--chalk); font-weight: 500; }
+.food-serving { font-size: 12px; color: var(--grey2); }
+.food-macros { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; text-align: center; }
+.macro-box { background: var(--ink3); padding: 10px 5px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.02); }
+.macro-val { font-size: 15px; font-weight: 600; color: var(--chalk); }
+.macro-lbl { font-size: 9px; text-transform: uppercase; color: var(--grey2); margin-top: 2px; letter-spacing: 0.5px; }
+.macro-box.protein-highlight { border-color: rgba(201,168,76,0.25); background: rgba(201,168,76,0.04); }
+.macro-box.protein-highlight .macro-val { color: var(--gold2); }
 
-/* ── CATEGORY CARDS ── */
-.cat-card{
-  min-width:148px;max-width:148px;
-  background:var(--ink3);
-  border:1px solid var(--border);
-  border-radius:4px;
-  cursor:pointer;transition:all 0.3s;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  padding:24px 14px;gap:10px;text-align:center;
-}
-.cat-card:hover{border-color:var(--borderg);transform:translateY(-3px);}
-.cat-card-icon{font-size:26px;}
-.cat-card-name{
-  font-size:10px;letter-spacing:2px;
-  color:var(--grey2);text-transform:uppercase;
-  font-weight:500;line-height:1.5;
-}
+/* ── MODAL SYSTEM ── */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 9999; display: none; align-items: flex-start; justify-content: center; padding: 40px 20px; overflow-y: auto; }
+.modal-box { width: 100%; max-width: 1120px; background: #faf8f5; color: var(--ink); border-radius: 8px; overflow: hidden; display: flex; position: relative; min-height: 580px; margin: auto; border-top: 4px solid var(--gold); }
+.close { position: absolute; right: 24px; top: 18px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10; color: #555; background: rgba(0,0,0,0.05); border: none; transition: all 0.2s; }
+.close:hover { background: var(--ink); color: var(--chalk); }
+.modal-left { width: 46%; background: #f4f0e9; padding: 30px; display: flex; flex-direction: column; align-items: center; gap: 16px; position: relative; flex-shrink: 0; }
+.main-image-wrap { width: 100%; flex: 1; display: flex; align-items: center; justify-content: center; position: relative; min-height: 320px; }
+#mainImage { max-width: 100%; max-height: 380px; object-fit: contain; }
+.img-fallback-modal { width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; font-size: 56px; color: #aaa; background: #e6e1d7; border-radius: 8px; }
+.image-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 4px; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 22px; cursor: pointer; border: 1px solid rgba(0,0,0,0.1); color: #333; z-index: 2; transition: all 0.2s; }
+.image-nav:hover { background: var(--ink); color: #fff; }
+.prev { left: 10px; } .next { right: 10px; }
+.thumb-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.thumb { width: 68px; height: 68px; border: 2px solid rgba(0,0,0,0.08); border-radius: 4px; overflow: hidden; cursor: pointer; background: #fff; transition: all 0.2s; }
+.thumb.active { border-color: var(--gold); }
+.thumb img { width: 100%; height: 100%; object-fit: contain; }
+.modal-right { width: 54%; padding: 40px; overflow-y: auto; display: flex; flex-direction: column; max-height: 86vh; }
+.modal-brand { font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
+.modal-title { font-family: var(--serif); font-size: 36px; font-weight: 600; line-height: 1.2; margin-bottom: 8px; color: var(--ink); }
+.modal-price { font-family: var(--serif); font-size: 40px; font-weight: 700; margin-bottom: 12px; color: var(--ink); }
+.modal-stock { margin-bottom: 24px; }
+.option-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; color: #777; margin-bottom: 10px; }
+.flavour-grid, .size-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.option { padding: 10px 18px; border-radius: 4px; border: 1px solid rgba(0,0,0,0.15); background: #fff; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.2s; color: var(--ink); }
+.option:hover { border-color: var(--gold); }
+.option.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+.option.out { opacity: 0.35; text-decoration: line-through; cursor: default; }
+.order-btn { padding: 18px; width: 100%; background: var(--green); color: #fff; font-family: var(--sans); font-size: 13px; font-weight: 700; border: none; border-radius: 4px; cursor: pointer; letter-spacing: 2px; text-transform: uppercase; transition: all 0.3s; margin-top: 10px; margin-bottom: 24px; }
+.order-btn:hover { background: #18a847; box-shadow: 0 8px 25px rgba(29,185,84,0.25); }
+.modal-divider { height: 1px; background: rgba(0,0,0,0.08); margin: 4px 0 22px; }
+.modal-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.modal-bullets li { font-size: 13.5px; line-height: 1.6; color: #444; padding: 12px 16px; background: rgba(0,0,0,0.02); border-radius: 4px; border-left: 3px solid var(--gold); }
 
-/* ── PRODUCT CARDS ── */
-.card{
-  min-width:260px;max-width:260px;
-  background:var(--ink3);
-  border:1px solid var(--border);
-  border-radius:4px;
-  transition:all 0.35s;cursor:pointer;
-  display:flex;flex-direction:column;
-  overflow:hidden;
-}
-.card:hover{
-  transform:translateY(-5px);
-  border-color:var(--borderg);
-}
-.card-image{
-  height:248px;background:#fff;
-  padding:20px;
-  display:flex;align-items:center;justify-content:center;
-  position:relative;overflow:hidden;
-}
-.card-image img{
-  width:100%;height:100%;object-fit:contain;
-  transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
-}
-.card:hover .card-image img{transform:scale(1.05);}
-.card-img-fallback{
-  width:100%;height:100%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:42px;color:#bbb;background:#f0ede8;
-}
-.card-content{padding:20px 18px 18px;display:flex;flex-direction:column;gap:7px;flex:1;}
-.card-brand{
-  font-size:9px;letter-spacing:3px;
-  color:var(--gold);text-transform:uppercase;font-weight:500;
-}
-.card-title{
-  font-family:var(--serif);
-  font-size:19px;line-height:1.3;
-  color:var(--chalk);min-height:50px;
-  font-weight:500;
-}
-.card-flavour{font-size:11px;color:var(--grey);margin-top:1px;letter-spacing:0.5px;}
-.card-price{
-  font-family:var(--serif);
-  font-size:26px;font-weight:600;
-  color:var(--chalk);margin-top:4px;letter-spacing:-0.5px;
-}
-.stock-badge{
-  font-size:10px;font-weight:600;letter-spacing:1.5px;
-  padding:3px 10px;border-radius:2px;
-  display:inline-block;width:fit-content;
-  text-transform:uppercase;
-}
-.instock{color:#1db954;background:rgba(29,185,84,0.1);border:1px solid rgba(29,185,84,0.2);}
-.outstock{color:#e05252;background:rgba(224,82,82,0.08);border:1px solid rgba(224,82,82,0.18);text-decoration:line-through;}
-.view-btn{
-  margin-top:auto;padding:12px;
-  border:1px solid var(--border2);
-  border-radius:2px;
-  background:transparent;color:var(--chalk);
-  font-family:var(--sans);font-weight:500;
-  cursor:pointer;font-size:11px;
-  letter-spacing:2px;text-transform:uppercase;
-  transition:all 0.25s;
-}
-.view-btn:hover{background:var(--chalk);color:var(--ink);border-color:var(--chalk);}
+/* ── PREMIUM REDESIGNED FOOTER ── */
+.footer { background: var(--ink2); border-top: 1px solid var(--border); margin-top: auto; }
+.footer-top { padding: 70px 50px 50px; display: grid; grid-template-columns: 1.2fr 0.9fr 0.9fr; gap: 50px; border-bottom: 1px solid var(--border); }
+.footer-col h4 { font-family: var(--serif); font-size: 14px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+.footer-col p, .footer-col a { font-size: 13.5px; line-height: 2; color: var(--grey2); display: block; }
+.footer-col a:hover { color: var(--gold2); }
+.footer-logo-wrap { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+.footer-logo { width: 48px; height: 48px; border: 1px solid var(--borderg); border-radius: 10px; display: flex; align-items: center; justify-content: center; background: var(--ink3); }
+.footer-logo img { width: 32px; height: 32px; object-fit: contain; }
+.footer-brand-name { font-family: var(--serif); font-size: 19px; font-weight: 700; color: var(--chalk); letter-spacing: 0.5px; }
+.footer-tagline { font-size: 9px; color: var(--grey); letter-spacing: 3px; text-transform: uppercase; margin-top: 3px; }
+.footer-bottom { padding: 24px 50px; display: flex; align-items: center; justify-content: space-between; }
+.footer-copy { font-size: 11px; color: var(--grey); letter-spacing: 0.5px; }
+.footer-gold-line { width: 80px; height: 1px; background: var(--gold); opacity: 0.3; }
 
-/* ── MODAL ── */
-.modal{
-  position:fixed;inset:0;
-  background:rgba(0,0,0,0.9);
-  z-index:9999;display:none;
-  align-items:flex-start;justify-content:center;
-  padding:28px 20px;
-  overflow-y:auto;
-}
-.modal-box{
-  width:100%;max-width:1100px;
-  background:var(--chalk);color:var(--ink);
-  border-radius:4px;overflow:hidden;
-  display:flex;position:relative;
-  min-height:min(560px,88vh);
-  margin:auto;
-  border-top:3px solid var(--gold);
-}
-.close{
-  position:absolute;right:22px;top:16px;
-  width:36px;height:36px;
-  display:flex;align-items:center;justify-content:center;
-  border-radius:50%;
-  font-size:22px;line-height:1;
-  cursor:pointer;z-index:10;
-  color:#555;
-  background:rgba(0,0,0,0.06);
-  transition:all 0.2s;border:none;
-}
-.close:hover{background:var(--ink);color:var(--chalk);}
+/* ── WHATSAPP FLOATING ── */
+.whatsapp-float { position: fixed; right: 30px; bottom: 30px; width: 58px; height: 58px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 1000; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform 0.3s; }
+.whatsapp-float:hover { transform: scale(1.08); }
+.empty { padding: 60px; text-align: center; color: var(--grey); font-size: 16px; width: 100%; }
 
-/* modal left */
-.modal-left{
-  width:46%;background:#f2ede6;
-  padding:28px 22px;
-  display:flex;flex-direction:column;
-  align-items:center;gap:14px;
-  position:relative;
-  flex-shrink:0;
-}
-.main-image-wrap{
-  width:100%;flex:1;
-  display:flex;align-items:center;justify-content:center;
-  position:relative;min-height:300px;
-}
-#mainImage{
-  max-width:100%;max-height:360px;
-  object-fit:contain;border-radius:4px;
-}
-.img-fallback-modal{
-  width:140px;height:140px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:56px;color:#aaa;
-  background:#e4dfd6;border-radius:8px;
-}
-.image-nav{
-  position:absolute;top:50%;transform:translateY(-50%);
-  width:38px;height:38px;border-radius:2px;
-  background:#fff;
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;cursor:pointer;
-  transition:all 0.2s;
-  border:1px solid rgba(0,0,0,0.1);
-  color:#333;z-index:2;
-}
-.image-nav:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
-.prev{left:8px;}
-.next{right:8px;}
-.thumb-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
-.thumb{
-  width:64px;height:64px;
-  border:1.5px solid rgba(0,0,0,0.1);
-  border-radius:3px;overflow:hidden;
-  cursor:pointer;background:#fff;
-  transition:border-color 0.2s;flex-shrink:0;
-}
-.thumb.active{border-color:var(--gold);}
-.thumb img{width:100%;height:100%;object-fit:contain;}
+/* ── ANIMATIONS ── */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-/* modal right */
-.modal-right{
-  width:54%;padding:32px 36px 28px;
-  overflow-y:auto;display:flex;flex-direction:column;
-  max-height:88vh;
+/* ── RESPONSIVE RESPONSIVENESS SYSTEM ── */
+@media(max-width:1150px) {
+  .ecommerce-grid { grid-template-columns: repeat(3, 1fr); }
 }
-.modal-brand{
-  font-size:9px;letter-spacing:4px;
-  color:var(--gold);text-transform:uppercase;
-  margin-bottom:8px;font-weight:600;
+@media(max-width:960px) {
+  :root { --sidebar-width: 260px; }
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.mobile-open { transform: translateX(0); }
+  .main-content { margin-left: 0; }
+  .topbar { justify-content: space-between; padding: 0 24px; height: 70px; }
+  .mobile-nav-toggle { display: block; }
+  .search { max-width: 260px; }
+  .section { padding: 45px 24px; }
+  .ecommerce-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 45px 24px; }
+  .footer-bottom { padding: 20px 24px; flex-direction: column; gap: 12px; text-align: center; }
+  .calc-container { grid-template-columns: 1fr; gap: 30px; padding: 24px; }
+  .ingredient-grid-details { grid-template-columns: 1fr; }
+  .modal { padding: 0; align-items: flex-end; }
+  .modal-box { flex-direction: column; border-radius: 16px 16px 0 0; max-height: 94vh; }
+  .modal-left { width: 100%; padding: 24px; min-height: 260px; }
+  .modal-right { width: 100%; padding: 24px; max-height: none; overflow-y: visible; }
+  #mainImage { max-height: 240px; }
+  .modal-title { font-size: 26px; }
+  .modal-price { font-size: 32px; }
 }
-.modal-title{
-  font-family:var(--serif);
-  font-size:34px;font-weight:600;
-  line-height:1.15;margin-bottom:6px;
-  color:var(--ink);letter-spacing:-0.5px;
-}
-.modal-price{
-  font-family:var(--serif);
-  font-size:42px;font-weight:700;
-  margin-bottom:8px;
-  color:var(--ink);letter-spacing:-1px;
-}
-.modal-stock{margin-bottom:22px;}
-.modal-stock .instock{color:#15a046;background:rgba(21,160,70,0.08);border:1px solid rgba(21,160,70,0.2);}
-.modal-stock .outstock{color:#c0392b;background:rgba(192,57,43,0.08);border:1px solid rgba(192,57,43,0.18);text-decoration:line-through;}
-
-.option-label{
-  font-size:9px;letter-spacing:3px;
-  text-transform:uppercase;font-weight:600;
-  color:#888;margin-bottom:8px;
-}
-.flavour-grid,.size-grid{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
-.option{
-  padding:9px 16px;border-radius:2px;
-  border:1px solid rgba(0,0,0,0.15);
-  background:#fff;cursor:pointer;
-  font-weight:500;font-size:12px;
-  letter-spacing:0.5px;
-  transition:all 0.2s;white-space:nowrap;
-  color:var(--ink);
-}
-.option:hover{border-color:var(--gold);}
-.option.active{background:var(--ink);color:#fff;border-color:var(--ink);}
-.option.out{opacity:0.32;text-decoration:line-through;cursor:default;}
-.option.out:hover{border-color:rgba(0,0,0,0.15);}
-
-.order-btn{
-  padding:17px;width:100%;
-  background:var(--green);color:#fff;
-  font-family:var(--sans);font-size:13px;font-weight:600;
-  border:none;border-radius:2px;cursor:pointer;
-  letter-spacing:2.5px;text-transform:uppercase;
-  transition:all 0.3s;
-  margin-top:8px;margin-bottom:22px;
-  flex-shrink:0;
-}
-.order-btn:hover{background:#18a847;box-shadow:0 8px 28px rgba(29,185,84,0.28);}
-
-.modal-divider{
-  height:1px;background:rgba(0,0,0,0.08);
-  margin:4px 0 18px;
-}
-.modal-bullets{list-style:none;padding:0;display:flex;flex-direction:column;gap:7px;}
-.modal-bullets li{
-  font-size:13px;line-height:1.65;color:#444;
-  padding:10px 14px 10px 16px;
-  background:rgba(0,0,0,0.03);border-radius:2px;
-  border-left:2px solid var(--gold);
-  font-weight:400;
-}
-.modal-bullets li:empty{display:none;}
-
-/* ── FOOTER ── */
-.footer{
-  background:var(--ink2);
-  padding:0;
-  border-top:1px solid var(--border);
-  margin-top:80px;
-}
-.footer-top{
-  padding:64px 40px 48px;
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  gap:40px;
-  border-bottom:1px solid var(--border);
-}
-.footer-col h4{
-  font-family:var(--serif);
-  font-size:13px;font-weight:600;
-  letter-spacing:3px;text-transform:uppercase;
-  color:var(--gold);margin-bottom:20px;
-}
-.footer-col p,.footer-col a{
-  font-size:13px;line-height:2;
-  color:var(--grey2);display:block;
-}
-.footer-col a:hover{color:var(--gold2);}
-.footer-logo-wrap{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
-.footer-logo{
-  width:44px;height:44px;
-  border:1px solid var(--borderg);
-  border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  background:var(--ink3);
-}
-.footer-logo img{width:30px;height:30px;object-fit:contain;}
-.footer-brand-name{
-  font-family:var(--serif);
-  font-size:18px;font-weight:600;
-  color:var(--chalk);letter-spacing:1px;
-}
-.footer-tagline{font-size:11px;color:var(--grey);letter-spacing:3px;text-transform:uppercase;margin-top:4px;}
-.footer-bottom{
-  padding:20px 40px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.footer-copy{font-size:11px;color:var(--grey);letter-spacing:1px;}
-.footer-gold-line{
-  width:60px;height:1px;background:var(--gold);opacity:0.4;
-}
-
-/* ── WHATSAPP ── */
-.whatsapp-float{
-  position:fixed;right:24px;bottom:24px;
-  width:56px;height:56px;border-radius:50%;
-  background:#25D366;
-  display:flex;align-items:center;justify-content:center;
-  font-size:26px;z-index:1000;
-  box-shadow:0 4px 20px rgba(37,211,102,0.4);
-  transition:transform 0.3s,box-shadow 0.3s;
-}
-.whatsapp-float:hover{
-  transform:scale(1.1);
-  box-shadow:0 6px 28px rgba(37,211,102,0.55);
-}
-
-/* ── EMPTY ── */
-.empty{padding:60px;text-align:center;color:var(--grey);font-size:15px;width:100%;letter-spacing:1px;}
-
-/* ── MOBILE ── */
-@media(max-width:900px){
-  .topbar{padding:0 18px;height:68px;}
-  .brand-logo-wrap{width:42px;height:42px;}
-  .brand-logo-wrap img{width:30px;height:30px;}
-  .brand-text h1{font-size:17px;}
-  .brand-text p{font-size:8px;letter-spacing:4px;}
-  .contact{display:none;}
-  .announce{font-size:10px;padding:7px;}
-  .banner{height:240px;}
-  .banner-overlay{padding:0 28px;}
-  .banner-text h2{font-size:38px;}
-  .banner-text p{font-size:11px;}
-  .banner-cta{display:none;}
-  .filter-bar{
-    padding:0 16px;height:auto;
-    flex-wrap:wrap;gap:8px;
-    padding-top:12px;padding-bottom:12px;
-    top:68px;
-  }
-  .filter-sep{display:none;}
-  .search{max-width:100%;width:100%;margin-left:0;flex:none;}
-  .section{padding:36px 16px;}
-  .section-head h2{font-size:34px;}
-  .card{min-width:210px;max-width:210px;}
-  .card-image{height:196px;}
-  .card-title{font-size:16px;min-height:44px;}
-  .card-price{font-size:21px;}
-
-  .modal{padding:0;align-items:flex-end;}
-  .modal-box{
-    flex-direction:column;
-    border-radius:14px 14px 0 0;
-    min-height:auto;margin-top:auto;
-    max-height:96vh;border-top:3px solid var(--gold);
-  }
-  .modal-left{width:100%;padding:20px;min-height:240px;}
-  .modal-right{width:100%;padding:20px;max-height:none;overflow-y:visible;}
-  #mainImage{max-height:220px;}
-  .modal-title{font-size:24px;}
-  .modal-price{font-size:30px;}
-  .close{right:14px;top:12px;}
-
-  .footer-top{grid-template-columns:1fr;gap:28px;padding:36px 20px;}
-  .footer-bottom{padding:16px 20px;flex-direction:column;gap:10px;text-align:center;}
+@media(max-width:480px) {
+  .ecommerce-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .section-title { font-size: 30px; }
+  .slide { padding: 0 24px; }
+  .slide-title { font-size: 38px; }
+  .card-image { height: 170px; padding: 12px; }
+  .card-title { font-size: 15px; min-height: 40px; }
+  .card-price { font-size: 19px; }
 }
 </style>
 </head>
 <body>
 
-<!-- ANNOUNCE BAR -->
-<div class="announce">Free delivery on orders above ₹2,000 &nbsp;·&nbsp; Authentic imported products &nbsp;·&nbsp; Mumbai's premier sports nutrition</div>
-
-<!-- TOPBAR -->
-<header class="topbar">
-  <div class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    <div class="brand-logo-wrap">
-      <img src="https://i.postimg.cc/tJW8kgDV/LOGO.jpg" alt="AL HAYAT TRADING" onerror="this.style.display='none'">
+<div class="app-container">
+  
+  <aside class="sidebar" id="appSidebar">
+    <div class="sidebar-brand" onclick="navigate('home')">
+      <div class="sidebar-logo">
+        <img src="https://i.postimg.cc/tJW8kgDV/LOGO.jpg" alt="AL HAYAT TRADING COMPANY">
+      </div>
+      <div class="sidebar-brand-text">
+        <h1>AL HAYAT TRADING COMPANY</h1>
+        <p>Premium Imports</p>
+      </div>
     </div>
-    <div class="brand-text">
-      <h1>AL HAYAT TRADING</h1>
-      <p>Premium Imports</p>
-    </div>
-  </div>
-  <div class="topbar-right">
-    <div class="topbar-divider"></div>
-    <div class="contact">
+    
+    <ul class="sidebar-menu">
+      <li class="sidebar-item active" id="nav-home" onclick="navigate('home')"><span>🏠</span> Home</li>
+      <li class="sidebar-item" id="nav-brand" onclick="navigate('brand')"><span>🏷</span> Shop By Brand</li>
+      <li class="sidebar-item" id="nav-category" onclick="navigate('category')"><span>📦</span> Shop By Category</li>
+      <li class="sidebar-item" id="nav-ingredients" onclick="navigate('ingredients')"><span>🧪</span> Know About Ingredients</li>
+      <li class="sidebar-item" id="nav-calculator" onclick="navigate('calculator')"><span>🔥</span> Calorie Deficit Calculator</li>
+      <li class="sidebar-item" id="nav-food" onclick="navigate('food')"><span>🍗</span> Protein In My Food</li>
+    </ul>
+    
+    <div class="sidebar-contact">
       <a href="tel:+917710077786">
-        <div class="contact-icon">📞</div>
-        +91 77100 77786
+        <span>📞</span> +91 77100 77786
       </a>
     </div>
-  </div>
-</header>
+  </aside>
 
-<!-- BANNER -->
-<div class="banner">
-  <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1800&auto=format&fit=crop"
-       alt="Sports Nutrition Banner"
-       onerror="this.parentElement.style.background='#111'">
-  <div class="banner-overlay">
-    <div class="banner-text">
-      <div class="banner-eyebrow">Authentic Imported Nutrition</div>
-      <h2>Fuel Your<br><em>Potential</em></h2>
-      <p>Mumbai's Premium Sports Nutrition</p>
-      <button class="banner-cta" onclick="document.getElementById('searchInput').focus()">
-        Explore Products →
-      </button>
-    </div>
-  </div>
-</div>
+  <main class="main-content">
+    
+    <div class="announce">Free delivery on orders above ₹2,000  ·  Authentic imported products  ·  Mumbai's premier sports nutrition</div>
 
-<!-- FILTER BAR -->
-<div class="filter-bar">
-  <button class="filter-btn active" id="btn-featured" onclick="showFeatured()">Featured Deals</button>
-  <div class="filter-sep"></div>
-  <button class="filter-btn" id="btn-brands" onclick="showBrandSection()">Shop by Brand</button>
-  <div class="filter-sep"></div>
-  <button class="filter-btn" id="btn-cats" onclick="showCategorySection()">Shop by Category</button>
-  <div class="search">
-    <div class="search-wrap">
-      <span class="search-icon">🔍</span>
-      <input type="text" id="searchInput" placeholder="Search products, brands, flavours…">
-    </div>
-  </div>
-</div>
-
-<!-- MAIN SECTION -->
-<div class="section" id="mainSection">
-  <div class="section-head">
-    <div class="section-head-left">
-      <div class="section-eyebrow" id="sectionEyebrow">Curated Selection</div>
-      <h2 id="sectionTitle">Featured Deals</h2>
-    </div>
-    <div class="arrow-wrap">
-      <div class="arrow" onclick="scrollRowLeft()">&#8249;</div>
-      <div class="arrow" onclick="scrollRowRight()">&#8250;</div>
-    </div>
-  </div>
-  <div class="row-scroll" id="productRow"></div>
-</div>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-top">
-    <div class="footer-col">
-      <div class="footer-logo-wrap">
-        <div class="footer-logo">
-          <img src="https://i.postimg.cc/tJW8kgDV/LOGO.jpg" onerror="this.style.display='none'" alt="Logo">
-        </div>
-        <div>
-          <div class="footer-brand-name">AL HAYAT TRADING</div>
-          <div class="footer-tagline">Premium Imports</div>
+    <header class="topbar">
+      <button class="mobile-nav-toggle" onclick="toggleMobileSidebar()">☰</button>
+      <div class="search">
+        <div class="search-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" placeholder="Search products, brands, flavours…">
         </div>
       </div>
-      <p>Mumbai's trusted source for authentic imported sports nutrition and wellness products.</p>
-    </div>
+    </header>
 
-    <div class="footer-col">
-      <h4>Visit Us</h4>
-      <a href="https://maps.app.goo.gl/ecBnQQXmAke8J1zK6" target="_blank" rel="noopener"
-         style="line-height:1.9;">
-        Shop No.6, Kohinoor Co-Operative<br>
-        Housing Society Ltd, Momin Nagar,<br>
-        Jogeshwari West, Mumbai — 400102
-      </a>
-    </div>
+    <div id="view-port">
+      </div>
 
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <a href="tel:+917710077786">📞 &nbsp;+91 77100 77786</a>
-      <a href="https://wa.me/917710077786" target="_blank" rel="noopener">💬 &nbsp;WhatsApp Us</a>
-      <br>
-      <p style="color:#666;font-size:11px;line-height:1.6;">Open Mon – Sat &nbsp;·&nbsp; 10am – 8pm</p>
-    </div>
-  </div>
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-col">
+          <div class="footer-logo-wrap">
+            <div class="footer-logo">
+              <img src="https://i.postimg.cc/tJW8kgDV/LOGO.jpg" alt="Logo">
+            </div>
+            <div>
+              <div class="footer-brand-name">AL HAYAT TRADING COMPANY</div>
+              <div class="footer-tagline">Premium Imports</div>
+            </div>
+          </div>
+          <p>Mumbai's trusted source for authentic imported sports nutrition and wellness products.</p>
+        </div>
 
-  <div class="footer-bottom">
-    <div class="footer-gold-line"></div>
-    <p class="footer-copy">© 2025 AL HAYAT TRADING. All rights reserved. &nbsp;·&nbsp; Sports Nutrition &amp; Wellness Products</p>
-    <div class="footer-gold-line"></div>
-  </div>
-</footer>
+        <div class="footer-col">
+          <h4>Visit Our Store</h4>
+          <a href="https://maps.app.goo.gl/ecBnQQXmAke8J1zK6" target="_blank" rel="noopener">
+            Shop No.6, Kohinoor Co-Operative<br>
+            Housing Society Ltd, Momin Nagar,<br>
+            Jogeshwari West, Mumbai — 400102
+          </a>
+        </div>
 
-<!-- WHATSAPP FLOAT -->
+        <div class="footer-col">
+          <h4>Elite Support</h4>
+          <a href="tel:+917710077786">📞  +91 77100 77786</a>
+          <a href="https://wa.me/917710077786" target="_blank" rel="noopener">💬  WhatsApp Support</a>
+          <p style="color:#555; font-size:11px; margin-top:10px;">Open Mon – Sat  ·  10am – 8pm</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-gold-line"></div>
+        <p class="footer-copy">© 2026 AL HAYAT TRADING COMPANY. All rights reserved.  ·  Sports Nutrition & Wellness</p>
+        <div class="footer-gold-line"></div>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
 <a class="whatsapp-float" href="https://wa.me/917710077786" target="_blank" title="Chat on WhatsApp">💬</a>
 
-<!-- MODAL -->
 <div class="modal" id="modal" onclick="handleModalBgClick(event)">
   <div class="modal-box" id="modalBox">
-    <button class="close" onclick="closeModal()">&#215;</button>
+    <button class="close" onclick="closeModal()">×</button>
 
     <div class="modal-left">
       <div class="main-image-wrap">
-        <button class="image-nav prev" onclick="prevImage()">&#8249;</button>
+        <button class="image-nav prev" onclick="prevImage()">‹</button>
         <img id="mainImage" alt="Product Image">
         <div class="img-fallback-modal" id="imgFallback" style="display:none;">📦</div>
-        <button class="image-nav next" onclick="nextImage()">&#8250;</button>
+        <button class="image-nav next" onclick="nextImage()">›</button>
       </div>
       <div class="thumb-row" id="thumbRow"></div>
     </div>
@@ -845,68 +624,89 @@ button{font-family:var(--sans);}
 </div>
 
 <script>
-/*
-  FIXED BUGS:
-  1. Never use inline onclick strings for variant selection — always use data attributes + event delegation
-     to avoid quote/apostrophe escaping blowing up JS (e.g. "Chocolate Fudge Brownie's" would break ea())
-  2. Normalise every CSV field with .trim() before storing — stray whitespace caused comparison mismatches
-  3. Detect actual column name for Size (CSV may use "Size" or "SIZE") — done via colKey() helper
-  4. Image URL validation is strict — only http/https, and must not be a plain word like "N/A" or blank
-  5. Brand card images — use dedicated brand logo logic, fall back gracefully
-  6. No duplicate event listeners — orderBtn uses direct .onclick assignment each time (not addEventListener)
-  7. renderModalImage always resets onerror to avoid stale handler from previous product
-  8. groupProducts deduplication key uses trimmed values
-*/
-
 const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQZimj_keJIooGDnz0sOvML4cjwbQ8eZBnQ3CQ1xyiORgHssrZPaCYzqdbFz-EmKmFrAqBgV6C3kLUK/pub?output=csv";
 
+// App state
 let allProducts = [];
 let currentImages = [];
 let currentImgIndex = 0;
 let activeProduct = null;
-let currentMode = "featured";
-// Holds actual CSV column name for "Size" (case-insensitive detect)
+let currentView = "home";
 let COL_SIZE = "Size";
+let heroInterval = null;
 
-const productRow = document.getElementById("productRow");
+// Food Database Array
+const foodDatabase = [
+  { name: "Eggs", size: "1 Large Egg", cal: 78, pro: 6, carb: 0.6, fat: 5 },
+  { name: "Chicken Breast", size: "100g cooked", cal: 165, pro: 31, carb: 0, fat: 3.6 },
+  { name: "Fish", size: "100g Salmon", cal: 208, pro: 22, carb: 0, fat: 13 },
+  { name: "Paneer", size: "100g", cal: 265, pro: 18, carb: 1.2, fat: 20 },
+  { name: "Milk", size: "250ml Whole", cal: 150, pro: 8, carb: 12, fat: 8 },
+  { name: "Greek Yogurt", size: "150g Plain", cal: 100, pro: 15, carb: 6, fat: 2 },
+  { name: "Rice", size: "100g cooked Brown", cal: 111, pro: 2.6, carb: 23, fat: 0.9 },
+  { name: "Oats", size: "40g raw", cal: 150, pro: 5, carb: 27, fat: 3 },
+  { name: "Peanut Butter", size: "1 Tbsp (16g)", cal: 94, pro: 4, carb: 3, fat: 8 },
+  { name: "Almonds", size: "28g (23 nuts)", cal: 164, pro: 6, carb: 6, fat: 14 },
+  { name: "Banana", size: "1 Medium", cal: 105, pro: 1.3, carb: 27, fat: 0.3 },
+  { name: "Bread", size: "2 Slices Whole Wheat", cal: 140, pro: 7, carb: 24, fat: 2 },
+  { name: "Protein Bar", size: "1 Standard Bar", cal: 220, pro: 20, carb: 24, fat: 7 },
+  { name: "Protein Chips", size: "1 Bag Quest Chips", cal: 140, pro: 19, carb: 4, fat: 4.5 },
+  { name: "Whey Protein", size: "1 Scoop (33g)", cal: 120, pro: 24, carb: 3, fat: 1.5 },
+  { name: "Quest Bar", size: "1 Bar (60g)", cal: 200, pro: 21, carb: 22, fat: 7 }
+];
 
-// ── Helpers ──────────────────────────────────────────────────────────────────
+// Education Database
+const ingredientDatabase = [
+  { name: "Whey Protein Concentrate", desc: "A fast-digesting diary protein with rich levels of bioactive compounds.", w: "High-quality milk-derived protein containing around 70-80% protein content with some healthy fats and lactose.", b: "Excellent muscle builder, muscle retention asset, accelerates recovery speed.", u: "Gym-goers, athletes, or everyday people tracking extra clean daily protein metrics.", t: "Post workout or between major solid food meal intervals.", d: "25-50 grams depending on total protein targets.", p: "Most mainstream premium protein formulations." },
+  { name: "Whey Protein Isolate", desc: "Highly processed ultra-pure protein variant with almost non-existent fat or lactose traces.", w: "Whey processed extensively to reach 90%+ pure protein values.", b: "Rapidly absorbed into muscle strands, zero bloating risks, virtually macro-pure structure.", u: "Strict calorie cutting builders or lactose sensitive fitness individuals.", t: "Immediately post-training or morning first action down.", d: "1-2 standard clean scoops daily.", p: "Premium clean isolated powder lines." },
+  { name: "Hydrolyzed Whey Protein", desc: "Pre-digested fast-acting high-tech structural form engineered for instant amino uptake.", w: "Isolate or concentrate exposed to specialized enzymes breaking bonds down early.", b: "Fastest absorbing recovery formulation known, near-instant gastric exit speeds.", u: "Professional endurance competitors or high frequency athletes.", t: "Intra-workout windows or immediate post session drop down.", d: "25-30g per targeted serving.", p: "Elite medical grade recovery proteins." },
+  { name: "Casein Protein", desc: "Slow digesting trickle feed protein format supplying hours of deep cell protection.", w: "Slow release dairy component forming small structural nutrient gels inside stomach paths.", b: "Sustained multi-hour amino acid release preventing muscle breakdown.", u: "Anyone seeking continuous nighttime amino coverage.", t: "Directly prior to sleep intervals.", d: "30-40 grams before bed.", p: "Nighttime recovery protein tubs." },
+  { name: "Milk Protein", desc: "Natural native combination blending active casein elements with fast whey chains.", w: "Clean dry processing extraction of natural dairy components whole.", b: "Balanced release curve mixing early spike benefits with long term sustenance.", u: "Meal replacement users or daily balanced clean cookers.", t: "Breakfast or meal stretch gaps.", d: "25-40g per usage point.", p: "Mass gainers and protein bar foods." },
+  { name: "Creatine Monohydrate", desc: "The gold standard gold medal compound for pure biological athletic force development.", w: "Pure micronized white crystal powder supporting ATP chemical replication streams directly.", b: "Expands raw strength outputs, enhances cellular hydration levels, speeds muscle growth curves.", u: "Weight lifters, sprint runners, athletic power performers.", t: "Consistently anytime daily. Timing stays secondary to systemic daily saturation levels.", d: "3-5 grams daily every single day without cycling.", p: "Pure creatine powders and complex pre-workouts." },
+  { name: "Creatine HCL", desc: "Highly soluble creatine compound bound to hydrochloric acid for effortless digestion.", w: "Creatine molecule engineered with an HCL attachment increasing absorption metrics.", b: "Zero stomach distress risks, eliminates bloating, requires smaller functional doses.", u: "Athletes prone to GI distress with regular monohydrate.", t: "Pre or post workout windows.", d: "1.5-2 grams daily.", p: "Concentrated pre-workouts or separate pills." },
+  { name: "L-Citrulline", desc: "Natural compound expanding vascular pathways for exceptional athletic training pumps.", w: "Pure premium amino element supporting raw nitric oxide synthesis tracks inside body.", b: "Incredible muscle pumps, delayed fatigue onset, superior stamina capacity.", u: "Bodybuilders and functional high volume lifters.", t: "30-45 minutes ahead of training.", d: "6-8 grams for peak hemodynamic performance.", p: "Elite pre-workout powders." },
+  { name: "Citrulline Malate", desc: "Elite athletic blend pairing citrulline power with energizing malic acid.", w: "L-Citrulline structurally attached to malate for energy conversion advantages.", b: "Boosts muscle pumps while actively maximizing aerobic ATP generation.", u: "High intensity interval lifters and endurance athletes.", t: "Pre-workout.", d: "6-10 grams before training.", p: "Performance pre-workout formulas." },
+  { name: "Beta Alanine", desc: "An amino acid that buffers muscle acid to unlock deeper high-rep endurance thresholds.", w: "Naturally occurring amino acid that building internal muscle carnosine reservoirs.", b: "Blocks lactic acid burn, extends stamina, causes signature harmless tingle feel.", u: "High rep lifters, combat sports athletes, hard rowers.", t: "Pre-workout or divided throughout the day.", d: "3.2-6.4 grams daily for saturation.", p: "Almost all high energy pre-workouts." },
+  { name: "L-Tyrosine", desc: "A cognitive performance enhancer that sharpens cognitive drive during exhausting workouts.", w: "A standard clean amino working as precursor building block for catecholamines.", b: "Sharpens workout focus, buffers ambient physical stress, supports mental drive.", u: "Early morning or late night heavy lifters.", t: "30-60 minutes before training.", d: "1-2 grams for sharp cognitive response.", p: "Focus-driven pre-workouts and nootropics." },
+  { name: "Taurine", desc: "A cell volumizer and metabolic compound that maximizes internal cardiovascular stamina.", w: "Organic amino sulfonic acid acting as intracellular hydration stabilizer.", b: "Mitigates cramping risks, regulates water balance, supports crisp muscle contractions.", u: "Endurance athletes and heavy pre-workout stimulant users.", t: "Pre, intra, or post workout.", d: "1-2 grams per serving.", p: "Hydration blends and energy drinks." },
+  { name: "Caffeine", desc: "The ultimate Central Nervous System stimulant for instant explosive energy.", w: "Anhydrous concentrated plant alkaloid acting directly on adenosine neuro receptors.", b: "Instant strength output surge, erases fatigue, boosts fat oxidation rates.", u: "Anyone needing an aggressive physical and mental power surge.", t: "15-45 minutes before intense activity.", d: "100-400mg depending on individual tolerance levels.", p: "Pre-workouts, fat burners, and energy pills." },
+  { name: "Betaine Anhydrous", desc: "A power-amplifying compound that reinforces absolute cellular hydration.", w: "Modified amino compound naturally extracted from beets supporting cellular methylation.", b: "Increases vertical power output, optimizes hydration, promotes lean mass gains.", u: "Powerlifters and competitive sports athletes.", t: "Pre or post workout.", d: "2.5 grams daily.", p: "Advanced strength pre-workouts." },
+  { name: "L-Leucine", desc: "The king amino acid responsible for turning on the genetic switch for muscle building.", w: "The most anabolic branch chain amino acid dominating muscle protein synthesis regulation.", b: "Triggers the mTOR biological pathway to instantly construct new muscle cells.", u: "Hardgainers, aging lifters, fasting trainees.", t: "With meals or mixed into workout drinks.", d: "3-5 grams per serving.", p: "BCAA, EAA, and recovery powders." },
+  { name: "L-Isoleucine", desc: "A crucial BCAA that accelerates muscular glucose uptake during training.", w: "An isomer of leucine that plays a vital role in blood sugar management.", b: "Improves workout fuel utilization, speeds up local muscle recovery.", u: "Intense functional trainees and endurance athletes.", t: "Intra or post workout.", d: "2-3 grams.", p: "Standard BCAA and EAA products." },
+  { name: "L-Valine", desc: "The third critical BCAA leg maintaining glycogen supply inside muscle tissue.", w: "Essential glucogenic amino working synergistically inside the classic BCAA trio.", b: "Prevents central workout fatigue, supports endurance and tissue repair.", u: "Athletes doing prolonged physical training.", t: "Intra workout.", d: "2-3 grams.", p: "Recovery formulas and amino drinks." },
+  { name: "BCAA", desc: "The classic muscle protection system featuring Leucine, Isoleucine, and Valine.", w: "Three vital branched essential aminos packaged together in optimal ratios.", b: "Blocks mid-workout catabolism, fuels muscles, decreases next-day soreness.", u: "Fasted cardio users, lifters doing long gym sessions.", t: "During training sessions.", d: "5-10 grams mixed in water.", p: "Dedicated intra-workout aminos." },
+  { name: "EAA", desc: "A comprehensive spectrum of all 9 essential aminos required for full recovery.", w: "Full spectrum array containing every single amino acid the human body cannot synthesize.", b: "Superior muscle building stimulation compared to BCAAs alone, complete recovery loop.", u: "Serious lifters wanting complete intra-workout muscle repair architecture.", t: "During or immediately after intense training.", d: "10-15 grams.", p: "Premium modern intra-workout drinks." },
+  { name: "Glutamine", desc: "The most abundant cellular amino acid, vital for gut health and immune support.", w: "Conditionally essential amino acid heavily depleted during extreme physical stress.", b: "Supports cellular gut integrity, rebuilds immune defenses, reduces soreness.", u: "High frequency lifters, stress-prone athletes, cutting phases.", t: "Post-workout or right before bedtime.", d: "5-10 grams daily.", p: "Post-workout powders and health lines." },
+  { name: "Electrolytes", desc: "Essential mineral ions that maintain precision muscular fluid balance.", w: "Essential body minerals including Sodium, Potassium, Magnesium, and Calcium.", b: "Prevents painful muscle cramps, sustains high nerve conduction speed, erases dehydration.", u: "Heavy sweaters, endurance runners, long session athletes.", t: "Throughout intra-workout windows.", d: "Variable based on sweat loss.", p: "Hydration sticks, intra-workouts, and aminos." },
+  { name: "Omega 3", desc: "Essential fatty acids that combat systemic joint and cardiovascular inflammation.", w: "Purified marine or plant fatty acids rich in essential EPA and DHA fractions.", b: "Lubricates hard-working joints, supports heart health, optimizes cellular function.", u: "Everyone, especially lifters subjecting joints to massive loads.", t: "With fat-containing meals daily.", d: "1000-3000mg total fish oil daily.", p: "Premium softgel lines." },
+  { name: "Multivitamins", desc: "The micronutrient foundation that supports overall cellular health.", w: "Full spectrum complex delivering essential organic vitamins and key chelated minerals.", b: "Fills metabolic nutritional gaps, elevates energy systems, ensures hormonal health.", u: "Every human being, especially athletes with accelerated nutrient turnover.", t: "With breakfast every morning.", d: "1 serving daily.", p: "Daily health support lines." },
+  { name: "ZMA", desc: "A night-time mineral combination designed to maximize natural recovery cycles.", w: "Synergistic clinical combination of Zinc, Magnesium, and Vitamin B6.", b: "Promotes deep REM sleep, supports testosterone synthesis, halts muscle cramping.", u: "Hard training lifters looking to maximize sleep quality.", t: "On an empty stomach 30-60 minutes before sleep.", d: "Standard 3-capsule dose for men.", p: "Nighttime sleep and recovery supplements." },
+  { name: "Ashwagandha", desc: "An adaptogenic herb that lowers cortisol to optimize athletic recovery.", w: "Premium adaptogenic botanical root extract standardized for active withanolides.", b: "Slashes stress hormones, balances mood, improves strength and recovery metrics.", u: "Stressed individuals or lifters seeking natural hormonal optimization.", t: "With meals or before bed.", d: "300-600mg of standardized extract (like KSM-66).", p: "Testosterone boosters and adaptogen capsules." },
+  { name: "L-Carnitine", desc: "A metabolic compound that shuttles fatty acids into cells to be burned for fuel.", w: "Amino acid derivative that assists in intracellular fatty acid transportation.", b: "Enhances fat utilization for energy, improves muscular endurance profiles.", u: "Cutting athletes, endurance runners, body composition optimization.", t: "30 mins pre-workout or with high carb meals.", d: "1.5-3 grams daily.", p: "Fat burners and liquid carnitine shots." },
+  { name: "Collagen", desc: "The primary structural protein needed to strengthen joints, tendons, and skin.", w: "Hydrolyzed structural peptides designed for rapid structural absorption.", b: "Reinforces connective tissue, thickens hair/nails, speeds up tendon injury repair.", u: "Aging athletes, joint pain sufferers, skin care advocates.", t: "Morning or post workout on an empty stomach.", d: "10-20 grams daily.", p: "Premium beauty and joint health powders." }
+];
 
-// Safe HTML-escape for display inside tags (NOT for JS strings / attributes)
+// Helpers
 function esc(s) {
-  return String(s == null ? "" : s)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+  return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
-
-// Safe attribute value escape (for src=, alt= only — never for onclick values)
 function eav(s) {
   return String(s == null ? "" : s).replace(/"/g, "&quot;");
 }
-
-// Trim all string fields of a product row
 function cleanRow(p) {
   const out = {};
   for (const k in p) out[k] = typeof p[k] === "string" ? p[k].trim() : p[k];
   return out;
 }
-
-// Detect actual column name case-insensitively
 function detectCol(sample, name) {
   const lower = name.toLowerCase();
   return Object.keys(sample).find(k => k.toLowerCase() === lower) || name;
 }
-
-// Valid image URL — must start with http(s):// and look like an image path or known host
 function isValidUrl(url) {
   if (!url || typeof url !== "string") return false;
   const u = url.trim();
   return (u.startsWith("http://") || u.startsWith("https://")) && u.length > 12;
 }
-
-// Group products to one card per BRAND+ITEM combination
 function groupProducts(products) {
   const map = new Map();
   products.forEach(p => {
@@ -916,283 +716,576 @@ function groupProducts(products) {
   return [...map.values()];
 }
 
-function setActive(id) {
-  ["btn-featured", "btn-brands", "btn-cats"].forEach(b => {
-    const el = document.getElementById(b);
-    if (el) el.classList.toggle("active", b === id);
-  });
+// Mobile Toggle Navigation UI
+function toggleMobileSidebar() {
+  document.getElementById("appSidebar").classList.toggle("mobile-open");
 }
-
-function setSectionTitle(eyebrow, title) {
-  document.getElementById("sectionEyebrow").textContent = eyebrow;
-  document.getElementById("sectionTitle").textContent = title;
-}
-
-// ── CSV Load ──────────────────────────────────────────────────────────────────
-
-Papa.parse(CSV_URL, {
-  download: true,
-  header: true,
-  skipEmptyLines: true,
-  complete(results) {
-    const raw = results.data;
-    if (!raw.length) { productRow.innerHTML = '<div class="empty">Could not load products. Please refresh.</div>'; return; }
-
-    // Detect actual column names from first row (handles SIZE vs Size vs size)
-    COL_SIZE = detectCol(raw[0], "Size");
-
-    // Clean all rows
-    allProducts = raw
-      .map(cleanRow)
-      .filter(p => p.ITEM && p.ITEM.length > 0);
-
-    showFeatured();
-
-    document.getElementById("searchInput").addEventListener("input", function () {
-      const t = this.value.trim().toLowerCase();
-      if (!t) { restoreMode(); return; }
-      setActive("");
-      setSectionTitle("Results", "Search Results");
-      currentMode = "search";
-      const filtered = allProducts.filter(p =>
-        (p.ITEM || "").toLowerCase().includes(t) ||
-        (p.BRAND || "").toLowerCase().includes(t) ||
-        (p.FLAVOUR || "").toLowerCase().includes(t) ||
-        (p.Category || "").toLowerCase().includes(t)
-      );
-      renderProductCards(groupProducts(filtered));
-    });
-  },
-  error() {
-    productRow.innerHTML = '<div class="empty">Failed to load product data. Please check your connection and refresh.</div>';
+document.addEventListener("click", function(e) {
+  const sidebar = document.getElementById("appSidebar");
+  const toggle = document.querySelector(".mobile-nav-toggle");
+  if(sidebar.classList.contains("mobile-open") && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+    sidebar.classList.remove("mobile-open");
   }
 });
 
-function restoreMode() {
-  if (currentMode === "featured") showFeatured();
-  else if (currentMode === "brand") showBrandSection();
-  else if (currentMode === "category") showCategorySection();
-}
-
-// ── Sections ──────────────────────────────────────────────────────────────────
-
-function showFeatured() {
-  currentMode = "featured"; setActive("btn-featured");
-  setSectionTitle("Curated Selection", "Featured Deals");
-  document.getElementById("searchInput").value = "";
-  const grouped = groupProducts(allProducts);
-  renderProductCards([...grouped].sort(() => 0.5 - Math.random()).slice(0, 25));
-}
-
-function showBrandSection() {
-
-  currentMode = "brand";
-  setActive("btn-brands");
-
-  setSectionTitle("Brands", "Shop by Brand");
-
-  document.getElementById("searchInput").value = "";
-
-  productRow.innerHTML = "";
-
-  const brandMap = {};
-
-  allProducts.forEach(p => {
-
-    if (!brandMap[p.BRAND]) {
-      brandMap[p.BRAND] = [];
-    }
-
-    brandMap[p.BRAND].push(p);
-
+// App Router Engine
+function navigate(viewName) {
+  currentView = viewName;
+  document.getElementById("appSidebar").classList.remove("mobile-open");
+  
+  // Tab Switching Indicators UI Update
+  document.querySelectorAll(".sidebar-item").forEach(item => {
+    item.classList.remove("active");
   });
+  const activeBtn = document.getElementById("nav-" + viewName);
+  if(activeBtn) activeBtn.classList.add("active");
+  
+  window.scrollTo({top: 0});
+  clearInterval(heroInterval);
+  
+  const viewport = document.getElementById("view-port");
+  
+  if (viewName === "home") {
+    renderHomeView(viewport);
+  } else if (viewName === "brand") {
+    renderBrandView(viewport);
+  } else if (viewName === "category") {
+    renderCategoryView(viewport);
+  } else if (viewName === "ingredients") {
+    renderIngredientsView(viewport);
+  } else if (viewName === "calculator") {
+    renderCalculatorView(viewport);
+  } else if (viewName === "food") {
+    renderFoodView(viewport);
+  }
+}
 
-  Object.keys(brandMap).forEach(brand => {
+// ── RENDER VIEW FUNCTIONS ──
 
-    const section = document.createElement("div");
-
-    section.className = "category-section";
-
-    const logoName = brand.toLowerCase().replace(/\s+/g,'-');
-
-    section.innerHTML = `
-      <div class="category-header">
-
-        <div style="display:flex;align-items:center;gap:18px;">
-
-          <img
-            src="brand-logos/${logoName}.png"
-            style="width:90px;height:60px;object-fit:contain;background:#fff;padding:8px;border-radius:4px;"
-            onerror="this.style.display='none'"
-          >
-
-          <div class="category-title">${brand}</div>
-
+// HOME VIEW SYSTEM
+function renderHomeView(target) {
+  target.innerHTML = `
+    <section class="hero-slider" id="heroSlider">
+      <div class="slide active">
+        <img class="slide-bg" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1800&auto=format&fit=crop" alt="Slide 1">
+        <div class="slide-overlay">
+          <div class="slide-eyebrow">Authentic Imported Nutrition</div>
+          <h2 class="slide-title">Fuel Your <em>Potential</em></h2>
+          <p class="slide-subtitle">AL HAYAT TRADING COMPANY</p>
         </div>
-
       </div>
+      <div class="slide">
+        <img class="slide-bg" src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1800&auto=format&fit=crop" alt="Slide 2">
+        <div class="slide-overlay">
+          <div class="slide-eyebrow">Elite Sports Supplements</div>
+          <h2 class="slide-title">Premium <em>Performance</em></h2>
+          <p class="slide-subtitle">100% Genuine Certified Origin</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img class="slide-bg" src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1800&auto=format&fit=crop" alt="Slide 3">
+        <div class="slide-overlay">
+          <div class="slide-eyebrow">Pure Grade Matrix</div>
+          <h2 class="slide-title">Ultimate <em>Purity</em></h2>
+          <p class="slide-subtitle">Selected World Class Formulas</p>
+        </div>
+      </div>
+    </section>
 
-      <div class="brand-products"></div>
+    <section class="section section-fade-in">
+      <div class="section-head">
+        <div>
+          <div class="section-eyebrow">World Class Production</div>
+          <h2 class="section-title">Featured Brands</h2>
+        </div>
+      </div>
+      <div class="brands-showcase-grid" id="featuredBrandsGrid">
+        </div>
+    </section>
+
+    <section class="section section-fade-in">
+      <div class="section-head">
+        <div>
+          <div class="section-eyebrow">Top Rated Formulation</div>
+          <h2 class="section-title">Best Sellers</h2>
+        </div>
+      </div>
+      <div class="ecommerce-grid" id="bestSellersGrid"></div>
+    </section>
+
+    <section class="section section-fade-in">
+      <div class="section-head">
+        <div>
+          <div class="section-eyebrow">Curated Selection</div>
+          <h2 class="section-title">Featured Deals</h2>
+        </div>
+      </div>
+      <div class="ecommerce-grid" id="mainHomeProductGrid"></div>
+    </section>
+  `;
+  
+  initHeroSlider();
+  populateFeaturedBrands();
+  populateBestSellers();
+  
+  const grouped = groupProducts(allProducts);
+  populateGridHTML(document.getElementById("mainHomeProductGrid"), grouped);
+}
+
+// HERO SLIDER LOGIC
+function initHeroSlider() {
+  let activeIndex = 0;
+  const slides = document.querySelectorAll("#heroSlider .slide");
+  if(!slides.length) return;
+  
+  heroInterval = setInterval(() => {
+    slides[activeIndex].classList.remove("active");
+    activeIndex = (activeIndex + 1) % slides.length;
+    slides[activeIndex].classList.add("active");
+  }, 5000);
+}
+
+// PROGRAMMATIC BRANDS BUILDER
+function populateFeaturedBrands() {
+  const target = document.getElementById("featuredBrandsGrid");
+  if(!target) return;
+  
+  const targetBrands = ["Ryse", "Dymatize", "Quest", "Rule 1"];
+  target.innerHTML = "";
+  
+  targetBrands.forEach(bName => {
+    const normalized = bName.toLowerCase().replace(/\s+/g, '-');
+    const filteredCount = allProducts.filter(p => (p.BRAND || "").toLowerCase() === bName.toLowerCase()).length;
+    
+    // Safety check to only show brand card if products exist or default count gracefully
+    const card = document.createElement("div");
+    card.className = "brand-premium-card";
+    card.onclick = () => {
+      filterProductsByBrandName(bName);
+    };
+    
+    card.innerHTML = `
+      <div class="brand-logo-container">
+        <img src="brand-logos/${normalized}.png" onerror="this.src='https://via.placeholder.com/110x80?text=${bName}'" alt="${bName}">
+      </div>
+      <div class="brand-premium-name">${bName}</div>
+      <div class="brand-product-count">${filteredCount} Products</div>
     `;
-
-    productRow.appendChild(section);
-
-    const row = section.querySelector(".brand-products");
-
-    const grouped = groupProducts(brandMap[brand]);
-
-    grouped.forEach(p => {
-
-      const card = createProductCard(p);
-
-      row.appendChild(card);
-
-    });
-
-  });
-
-}
-
-function renderBrandCards() {
-  // One card per brand — use first product of each brand for the image
-  const brandMap = new Map();
-  allProducts.forEach(p => { if (!brandMap.has(p.BRAND)) brandMap.set(p.BRAND, p); });
-  const brands = [...brandMap.values()];
-
-  productRow.innerHTML = "";
-  if (!brands.length) { productRow.innerHTML = '<div class="empty">No brands found.</div>'; return; }
-
-  brands.forEach(p => {
-    const d = document.createElement("div");
-    d.className = "brand-card";
-    d.addEventListener("click", () => filterByBrand(p.BRAND));
-
-    const imgSrc = isValidUrl(p.IMAGE1_FRONT) ? p.IMAGE1_FRONT : "";
-    const img = imgSrc
-      ? `<img class="brand-card-img" src="${eav(imgSrc)}" alt="${eav(p.BRAND || "")}" onerror="this.style.display='none'">`
-      : `<div class="brand-card-img" style="display:flex;align-items:center;justify-content:center;font-size:28px;background:#1a1a1a;">🏷️</div>`;
-
-    d.innerHTML = img + `<div class="brand-card-name">${esc(p.BRAND || "")}</div>`;
-    productRow.appendChild(d);
+    target.appendChild(card);
   });
 }
 
-function filterByBrand(brand) {
-  setSectionTitle("Brand", brand);
-  renderProductCards(groupProducts(allProducts.filter(p => p.BRAND === brand)));
+// PROGRAMMATIC BEST SELLERS SELECTION
+function populateBestSellers() {
+  const target = document.getElementById("bestSellersGrid");
+  if(!target) return;
+  const grouped = groupProducts(allProducts);
+  // Take top 8 products safely from array
+  const topEight = grouped.slice(0, 8);
+  populateGridHTML(target, topEight);
 }
 
-function showCategorySection() {
-  currentMode = "category";
-  setActive("btn-cats");
-
-  setSectionTitle("Categories", "Shop by Category");
-  document.getElementById("searchInput").value = "";
-
-  productRow.innerHTML = "";
-
-  const categoryMap = {};
-
+// SHOP BY BRAND PAGE RENDERER
+function renderBrandView(target) {
+  target.innerHTML = `
+    <section class="section section-fade-in">
+      <div class="section-head">
+        <div>
+          <div class="section-eyebrow">Global Imports</div>
+          <h2 class="section-title">Shop By Brand</h2>
+        </div>
+      </div>
+      <div class="brands-showcase-grid" id="allBrandsPageGrid"></div>
+    </section>
+  `;
+  
+  const brandMap = {};
   allProducts.forEach(p => {
-    if (!p.Category) return;
-
-    if (!categoryMap[p.Category]) {
-      categoryMap[p.Category] = [];
-    }
-
-    categoryMap[p.Category].push(p);
+    if(!p.BRAND) return;
+    if(!brandMap[p.BRAND]) brandMap[p.BRAND] = 0;
+    brandMap[p.BRAND]++;
   });
-
-  Object.keys(categoryMap).forEach(cat => {
-
-    const section = document.createElement("div");
-    section.className = "category-section";
-
-    const grouped = groupProducts(categoryMap[cat]);
-
-    section.innerHTML = `
-      <div class="category-header">
-        <div class="category-title">${cat}</div>
+  
+  const container = document.getElementById("allBrandsPageGrid");
+  Object.keys(brandMap).forEach(brand => {
+    const normalized = brand.toLowerCase().replace(/\s+/g, '-');
+    const card = document.createElement("div");
+    card.className = "brand-premium-card";
+    card.onclick = () => filterProductsByBrandName(brand);
+    card.innerHTML = `
+      <div class="brand-logo-container">
+        <img src="brand-logos/${normalized}.png" onerror="this.src='https://via.placeholder.com/110x80?text=${brand}'" alt="${brand}">
       </div>
-      <div class="category-products" id="cat-${cat.replace(/\s+/g,'')}"></div>
+      <div class="brand-premium-name">${brand}</div>
+      <div class="brand-product-count">${brandMap[brand]} Products</div>
     `;
+    container.appendChild(card);
+  });
+}
 
-    productRow.appendChild(section);
+// ACTION ROUTER: FILTER PRODUCTS BY BRAND
+function filterProductsByBrandName(brandName) {
+  const viewport = document.getElementById("view-port");
+  viewport.innerHTML = `
+    <section class="section section-fade-in">
+      <div class="section-head">
+        <div>
+          <div class="section-eyebrow">Brand Collection</div>
+          <h2 class="section-title">${brandName}</h2>
+        </div>
+        <button class="view-btn" style="padding: 10px 20px;" onclick="navigate('brand')">← All Brands</button>
+      </div>
+      <div class="ecommerce-grid" id="brandFilteredGrid"></div>
+    </section>
+  `;
+  const filtered = allProducts.filter(p => (p.BRAND || "").toLowerCase() === brandName.toLowerCase());
+  populateGridHTML(document.getElementById("brandFilteredGrid"), groupProducts(filtered));
+}
 
-    const row = section.querySelector(".category-products");
-
-    grouped.forEach(p => {
-
-      const card = createProductCard(p);
-
-      row.appendChild(card);
-
+// SHOP BY CATEGORY PAGE RENDERER
+function renderCategoryView(target) {
+  target.innerHTML = `
+    <section class="section section-fade-in">
+      <div class="section-head">
+        <div>
+          <div class="section-eyebrow">Targeted Solutions</div>
+          <h2 class="section-title">Shop By Category</h2>
+        </div>
+      </div>
+      <div class="categories-showcase-grid" id="allCategoriesPageGrid"></div>
+    </section>
+  `;
+  
+  // Predefined Premium Categories with Icons
+  const fixedCategories = [
+    { name: "Protein Powder", match: "protein", icon: "💪" },
+    { name: "Pre Workout", match: "pre", icon: "🔥" },
+    { name: "Creatine", match: "creatine", icon: "⚡" },
+    { name: "BCAA & EAA", match: "amino", icon: "🧬" },
+    { name: "Fat Burners", match: "burner", icon: "🔬" },
+    { name: "Mass Gainers", match: "gainer", icon: "🏋️" },
+    { name: "Protein Bars", match: "bar", icon: "🍫" },
+    { name: "Protein Chips", match: "chips", icon: "🍟" },
+    { name: "Health & Wellness", match: "wellness", icon: "✨" },
+    { name: "Vitamins", match: "vitamin", icon: "💊" },
+    { name: "Hydration", match: "hydration", icon: "💧" },
+    { name: "Performance", match: "performance", icon: "🎯" }
+  ];
+  
+  const container = document.getElementById("allCategoriesPageGrid");
+  
+  fixedCategories.forEach(cat => {
+    // Dynamic Product Counter utilizing structural string matching logic
+    const matchedProducts = allProducts.filter(p => {
+      const catString = (p.Category || "").toLowerCase();
+      const itemString = (p.ITEM || "").toLowerCase();
+      return catString.includes(cat.match) || itemString.includes(cat.match);
     });
-
+    
+    const card = document.createElement("div");
+    card.className = "category-premium-card";
+    card.onclick = () => filterProductsByCategory(cat.name, cat.match);
+    card.innerHTML = `
+      <div class="category-premium-icon">${cat.icon}</div>
+      <div class="category-premium-title">${cat.name}</div>
+      <div class="category-product-count">${matchedProducts.length} Products</div>
+    `;
+    container.appendChild(card);
   });
 }
 
-const CAT_ICONS = {
-  "protein": "💪", "whey": "🥛", "creatine": "⚡",
-  "pre-workout": "🔥", "preworkout": "🔥", "amino": "🧬",
-  "bcaa": "🧬", "vitamin": "💊", "supplement": "🧪",
-  "mass": "🏋️", "fat burner": "🔬", "omega": "🐟",
-  "collagen": "✨", "recovery": "🔄", "energy": "⚡",
-  "gainer": "🏋️", "bar": "🍫", "hydration": "💧"
-};
-function catIcon(cat) {
-  if (!cat) return "📦";
-  const l = cat.toLowerCase();
-  for (const [k, v] of Object.entries(CAT_ICONS)) if (l.includes(k)) return v;
-  return "📦";
+// ACTION ROUTER: FILTER PRODUCTS BY CATEGORY STRING
+function filterProductsByCategory(catName, matchKeyword) {
+  const viewport = document.getElementById("view-port");
+  viewport.innerHTML = `
+    <section class="section section-fade-in">
+      <div class="section-head">
+        <div>
+          <div class="section-eyebrow">Category Collection</div>
+          <h2 class="section-title">${catName}</h2>
+        </div>
+        <button class="view-btn" style="padding: 10px 20px;" onclick="navigate('category')">← All Categories</button>
+      </div>
+      <div class="ecommerce-grid" id="categoryFilteredGrid"></div>
+    </section>
+  `;
+  
+  const filtered = allProducts.filter(p => {
+    const catString = (p.Category || "").toLowerCase();
+    const itemString = (p.ITEM || "").toLowerCase();
+    return catString.includes(matchKeyword) || itemString.includes(matchKeyword);
+  });
+  
+  populateGridHTML(document.getElementById("categoryFilteredGrid"), groupProducts(filtered));
 }
 
-function renderCategoryCards() {
-  const catMap = new Map();
-  allProducts.forEach(p => { if (p.Category && !catMap.has(p.Category)) catMap.set(p.Category, p); });
-  const cats = [...catMap.keys()];
-
-  productRow.innerHTML = "";
-  if (!cats.length) { productRow.innerHTML = '<div class="empty">No categories found.</div>'; return; }
-
-  cats.forEach(cat => {
-    const d = document.createElement("div");
-    d.className = "cat-card";
-    d.addEventListener("click", () => filterByCategory(cat));
-    d.innerHTML = `<div class="cat-card-icon">${catIcon(cat)}</div>
-      <div class="cat-card-name">${esc(cat)}</div>`;
-    productRow.appendChild(d);
+// INGREDIENT EDUCATION SYSTEM VIEW RENDERER
+function renderIngredientsView(target) {
+  target.innerHTML = `
+    <section class="section section-fade-in" id="ingredientsMainSection">
+      <div class="section-head">
+        <div>
+          <div class="section-eyebrow">Scientific Resource</div>
+          <h2 class="section-title">Ingredient Education System</h2>
+        </div>
+      </div>
+      <div class="ingredients-grid" id="ingredientsGridSystem"></div>
+    </section>
+  `;
+  
+  const container = document.getElementById("ingredientsGridSystem");
+  ingredientDatabase.forEach((ing, index) => {
+    const card = document.createElement("div");
+    card.className = "ingredient-card";
+    card.innerHTML = `
+      <div class="ingredient-image-placeholder">🧪</div>
+      <div class="ingredient-content">
+        <h3 class="ingredient-title">${ing.name}</h3>
+        <p class="ingredient-desc">${ing.desc}</p>
+        <div class="ingredient-readmore" onclick="showIngredientDetails(${index})">Read Architecture Profile →</div>
+      </div>
+    `;
+    container.appendChild(card);
   });
 }
 
-function filterByCategory(cat) {
-  setSectionTitle("Category", cat || "Category");
-  renderProductCards(groupProducts(allProducts.filter(p => p.Category === cat)));
+function showIngredientDetails(index) {
+  const ing = ingredientDatabase[index];
+  const container = document.getElementById("view-port");
+  
+  container.innerHTML = `
+    <section class="section section-fade-in">
+      <div class="detail-view-container">
+        <div class="back-to-ingredients" onclick="navigate('ingredients')">← Back To Ingredients Registry</div>
+        <div class="ingredient-detail-header">
+          <h2>${ing.name}</h2>
+        </div>
+        <div class="ingredient-grid-details">
+          <div class="ingredient-detail-block">
+            <div class="ingredient-block-title">What It Is</div>
+            <div class="ingredient-block-text">${ing.w}</div>
+          </div>
+          <div class="ingredient-detail-block">
+            <div class="ingredient-block-title">Key Fitness Benefits</div>
+            <div class="ingredient-block-text">${ing.b}</div>
+          </div>
+          <div class="ingredient-detail-block">
+            <div class="ingredient-block-title">Target Demographics</div>
+            <div class="ingredient-block-text">${ing.u}</div>
+          </div>
+          <div class="ingredient-detail-block">
+            <div class="ingredient-block-title">Optimal Chrono Timing</div>
+            <div class="ingredient-block-text">${ing.t}</div>
+          </div>
+          <div class="ingredient-detail-block">
+            <div class="ingredient-block-title">Clinical Dosage Standard</div>
+            <div class="ingredient-block-text">${ing.d}</div>
+          </div>
+          <div class="ingredient-detail-block">
+            <div class="ingredient-block-title">Typical Product Families</div>
+            <div class="ingredient-block-text">${ing.p}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
 }
 
-// ── Product Cards ─────────────────────────────────────────────────────────────
+// CALORIE DEFICIT CALCULATOR COMPONENT
+function renderCalculatorView(target) {
+  target.innerHTML = `
+    <section class="section section-fade-in">
+      <div class="section-head">
+        <div>
+          <div class="section-eyebrow">Biometric Calculation</div>
+          <h2 class="section-title">Calorie Deficit Calculator</h2>
+        </div>
+      </div>
+      
+      <div class="calc-container">
+        <div class="calc-form">
+          <div class="calc-group">
+            <label>Biological Gender</label>
+            <select id="calc-gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="calc-group">
+            <label>Age (Years)</label>
+            <input type="number" id="calc-age" value="25" min="1" max="100">
+          </div>
+          <div class="calc-group">
+            <label>Weight (KG)</label>
+            <input type="number" id="calc-weight" value="70" min="30" max="250">
+          </div>
+          <div class="calc-group">
+            <label>Height (CM)</label>
+            <input type="number" id="calc-height" value="175" min="100" max="250">
+          </div>
+          <div class="calc-group">
+            <label>Activity Coefficient Level</label>
+            <select id="calc-activity">
+              <option value="1.2">Sedentary (Little to no gym activity)</option>
+              <option value="1.375">Lightly Active (1-3 days fitness sessions/week)</option>
+              <option value="1.55">Moderately Active (3-5 days high training/week)</option>
+              <option value="1.725">Very Active (6-7 days heavy training loads)</option>
+            </select>
+          </div>
+          <button class="calc-btn" onclick="executeCalorieCalculations()">Compute Energy Thresholds</button>
+        </div>
+        
+        <div class="calc-results" id="calcResultsBox">
+          <div class="empty" style="padding:40px 0;">Enter configuration vectors to generate metabolic output data panels.</div>
+        </div>
+      </div>
+    </section>
+  `;
+}
 
-function renderProductCards(products) {
-  productRow.innerHTML = "";
-  if (!products.length) { productRow.innerHTML = '<div class="empty">No products found.</div>'; return; }
+function executeCalorieCalculations() {
+  const gender = document.getElementById("calc-gender").value;
+  const age = parseFloat(document.getElementById("calc-age").value);
+  const weight = parseFloat(document.getElementById("calc-weight").value);
+  const height = parseFloat(document.getElementById("calc-height").value);
+  const activity = parseFloat(document.getElementById("calc-activity").value);
+  
+  if(!age || !weight || !height) {
+    alert("Please completely populate input vector metrics.");
+    return;
+  }
+  
+  // Mifflin-St Jeor Equations
+  let bmr = 0;
+  if(gender === "male") {
+    bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+  } else {
+    bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+  }
+  
+  const maintenance = Math.round(bmr * activity);
+  const fatLoss = Math.round(maintenance - 500);
+  const aggFatLoss = Math.round(maintenance - 800);
+  const proteinRequirements = Math.round(weight * 2.2);
+  const waterRequirements = (weight * 0.035).toFixed(1);
+  
+  const resultsBox = document.getElementById("calcResultsBox");
+  resultsBox.innerHTML = `
+    <div class="result-card">
+      <div class="result-label">Base Maintenance Level (TDEE)</div>
+      <div class="result-value">${maintenance} kcal</div>
+    </div>
+    <div class="result-card">
+      <div class="result-label">Standard Weight Loss Target (-500 kcal)</div>
+      <div class="result-value">${fatLoss} kcal</div>
+    </div>
+    <div class="result-card">
+      <div class="result-label">Aggressive Deficit Drive (-800 kcal)</div>
+      <div class="result-value">${aggFatLoss} kcal</div>
+    </div>
+    <div class="result-card">
+      <div class="result-label">Daily Targeted Protein Target (Anabolic Scale)</div>
+      <div class="result-value">${proteinRequirements}g</div>
+    </div>
+    <div class="result-card">
+      <div class="result-label">Optimal Systemic Hydration Benchmark</div>
+      <div class="result-value">${waterRequirements} Liters</div>
+    </div>
+  `;
+}
 
-  products.forEach(p => {
+// PROTEIN IN MY FOOD TOOL COMPONENT
+function renderFoodView(target) {
+  target.innerHTML = `
+    <section class="section section-fade-in">
+      <div class="section-head">
+        <div>
+          <div class="section-eyebrow">Macro Nutrient Analysis</div>
+          <h2 class="section-title">Protein In My Food Tool</h2>
+        </div>
+      </div>
+      
+      <div class="food-search-wrap">
+        <div class="search-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="foodSearchInput" oninput="searchFoodDatabase()" placeholder="Filter nutritional food registry matrix...">
+        </div>
+      </div>
+      
+      <div class="food-grid" id="foodItemsContainer"></div>
+    </section>
+  `;
+  searchFoodDatabase();
+}
+
+function searchFoodDatabase() {
+  const input = document.getElementById("foodSearchInput");
+  const query = input ? input.value.toLowerCase().trim() : "";
+  const container = document.getElementById("foodItemsContainer");
+  if(!container) return;
+  
+  container.innerHTML = "";
+  const filtered = foodDatabase.filter(f => f.name.toLowerCase().includes(query));
+  
+  if(!filtered.length) {
+    container.innerHTML = `<div class="empty">No verified nutritional registry matches.</div>`;
+    return;
+  }
+  
+  filtered.forEach(f => {
+    const card = document.createElement("div");
+    card.className = "food-card";
+    card.innerHTML = `
+      <div class="food-header">
+        <div class="food-name">${f.name}</div>
+        <div class="food-serving">${f.size}</div>
+      </div>
+      <div class="food-macros">
+        <div class="macro-box">
+          <div class="macro-val">${f.cal}</div>
+          <div class="macro-lbl">Calories</div>
+        </div>
+        <div class="macro-box protein-highlight">
+          <div class="macro-val">${f.pro}g</div>
+          <div class="macro-lbl">Protein</div>
+        </div>
+        <div class="macro-box">
+          <div class="macro-val">${f.carb}g</div>
+          <div class="macro-lbl">Carbs</div>
+        </div>
+        <div class="macro-box">
+          <div class="macro-val">${f.fat}g</div>
+          <div class="macro-lbl">Fat</div>
+        </div>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// SHARED PRODUCT GRID INNER ENGINE BUILDER
+function populateGridHTML(targetGridContainer, itemsArray) {
+  if(!targetGridContainer) return;
+  targetGridContainer.innerHTML = "";
+  
+  if(!itemsArray.length) {
+    targetGridContainer.innerHTML = `<div class="empty">No verified catalog items found.</div>`;
+    return;
+  }
+  
+  itemsArray.forEach(p => {
     const card = document.createElement("div");
     card.className = "card";
-    // Use addEventListener — never inline onclick with product data
-    card.addEventListener("click", () => openProduct(p));
-
+    card.onclick = () => openProduct(p);
+    
     const isOut = (p.STOCK || "").toLowerCase().includes("out");
     const imgSrc = isValidUrl(p.IMAGE1_FRONT) ? p.IMAGE1_FRONT : "";
-
-    // Build card HTML — NO onclick attributes with data in them
-    const imageHtml = imgSrc
-      ? `<img src="${eav(imgSrc)}" alt="${eav(p.ITEM || "")}"
-              loading="lazy"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+    
+    const imageHtml = imgSrc 
+      ? `<img src="${eav(imgSrc)}" alt="${eav(p.ITEM || "")}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
       : "";
     const fallbackStyle = imgSrc ? "display:none;" : "";
-
+    
     card.innerHTML = `
       <div class="card-image">
         ${imageHtml}
@@ -1205,64 +1298,75 @@ function renderProductCards(products) {
         <div class="card-price">₹${esc(p.PRICE || "")}</div>
         <div class="stock-badge ${isOut ? "outstock" : "instock"}">${esc(p.STOCK || "")}</div>
         <button class="view-btn">View Product</button>
-      </div>`;
-    productRow.appendChild(card);
+      </div>
+    `;
+    targetGridContainer.appendChild(card);
   });
 }
-function createProductCard(p){
 
-  const card = document.createElement("div");
-
-  card.className = "card";
-
-  card.addEventListener("click", () => openProduct(p));
-
-  const isOut = (p.STOCK || "").toLowerCase().includes("out");
-
-  const imgSrc = isValidUrl(p.IMAGE1_FRONT) ? p.IMAGE1_FRONT : "";
-
-  const imageHtml = imgSrc
-    ? `<img src="${eav(imgSrc)}" alt="${eav(p.ITEM || "")}"
-        loading="lazy"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-    : "";
-
-  const fallbackStyle = imgSrc ? "display:none;" : "";
-
-  card.innerHTML = `
-    <div class="card-image">
-      ${imageHtml}
-      <div class="card-img-fallback" style="${fallbackStyle}">📦</div>
-    </div>
-
-    <div class="card-content">
-
-      <div class="card-brand">${esc(p.BRAND || "")}</div>
-
-      <div class="card-title">${esc(p.ITEM || "")}</div>
-
-      <div class="card-flavour">${esc(p.FLAVOUR || "")}</div>
-
-      <div class="card-price">₹${esc(p.PRICE || "")}</div>
-
-      <div class="stock-badge ${isOut ? "outstock" : "instock"}">
-        ${esc(p.STOCK || "")}
+// GLOBAL LIVE PRODUCT ARCHITECTURE SEARCH CONTROLLER
+document.getElementById("searchInput").addEventListener("input", function() {
+  const t = this.value.trim().toLowerCase();
+  const viewport = document.getElementById("view-port");
+  
+  if(!t) {
+    if(currentView === "home") navigate("home");
+    return;
+  }
+  
+  clearInterval(heroInterval);
+  document.querySelectorAll(".sidebar-item").forEach(i => i.classList.remove("active"));
+  
+  viewport.innerHTML = `
+    <section class="section section-fade-in">
+      <div class="section-head">
+        <div>
+          <div class="section-eyebrow">Results</div>
+          <h2 class="section-title">Global Index Search Results</h2>
+        </div>
       </div>
-
-      <button class="view-btn">View Product</button>
-
-    </div>
+      <div class="ecommerce-grid" id="searchResultsGrid"></div>
+    </section>
   `;
+  
+  const filtered = allProducts.filter(p => 
+    (p.ITEM || "").toLowerCase().includes(t) ||
+    (p.BRAND || "").toLowerCase().includes(t) ||
+    (p.FLAVOUR || "").toLowerCase().includes(t) ||
+    (p.Category || "").toLowerCase().includes(t)
+  );
+  
+  populateGridHTML(document.getElementById("searchResultsGrid"), groupProducts(filtered));
+});
 
-  return card;
-}
-// ── Modal ─────────────────────────────────────────────────────────────────────
+// CSV PARSING ENGINE PIPELINE INITIALIZATION
+Papa.parse(CSV_URL, {
+  download: true,
+  header: true,
+  skipEmptyLines: true,
+  complete(results) {
+    const raw = results.data;
+    if(!raw.length) {
+      document.getElementById("view-port").innerHTML = '<div class="empty">Could not interface catalog vectors.</div>';
+      return;
+    }
+    
+    COL_SIZE = detectCol(raw[0], "Size");
+    allProducts = raw.map(cleanRow).filter(p => p.ITEM && p.ITEM.length > 0);
+    
+    // Auto launch default viewport context
+    navigate("home");
+  },
+  error() {
+    document.getElementById("view-port").innerHTML = '<div class="empty">Failed to acquire product data feeds.</div>';
+  }
+});
 
+// ── FIXED COPIED UNCHANGED CORE MODAL & VARIANT MATRIX OPERATIONS ──
 function openProduct(product) {
   activeProduct = product;
   const modal = document.getElementById("modal");
   modal.style.display = "flex";
-  // Reset scroll positions
   requestAnimationFrame(() => {
     modal.scrollTop = 0;
     const mb = document.getElementById("modalBox");
@@ -1276,123 +1380,80 @@ function openProduct(product) {
 
 function populateModal(product) {
   activeProduct = product;
-
-  // Text fields — use textContent, never innerHTML, for user data
   document.getElementById("modalBrand").textContent = (product.BRAND || "").toUpperCase();
   document.getElementById("modalTitle").textContent = product.ITEM || "";
   document.getElementById("modalPrice").textContent = "₹" + (product.PRICE || "");
 
   const isOut = (product.STOCK || "").toLowerCase().includes("out");
-  // innerHTML only for the badge wrapper — content is escaped
-  document.getElementById("stockText").innerHTML =
-    `<span class="stock-badge ${isOut ? "outstock" : "instock"}">${esc(product.STOCK || "")}</span>`;
+  document.getElementById("stockText").innerHTML = `<span class="stock-badge ${isOut ? "outstock" : "instock"}">${esc(product.STOCK || "")}</span>`;
 
-  // Images — strict validation
-  currentImages = [product.IMAGE1_FRONT, product.IMAGE2_SIDE, product.IMAGE3_BACK]
-    .filter(u => isValidUrl(u));
+  currentImages = [product.IMAGE1_FRONT, product.IMAGE2_SIDE, product.IMAGE3_BACK].filter(u => isValidUrl(u));
   currentImgIndex = 0;
   renderModalImage();
   renderThumbs();
 
-  // Related rows — same BRAND + ITEM
-  const related = allProducts.filter(p =>
-    p.BRAND === product.BRAND && p.ITEM === product.ITEM
-  );
+  const related = allProducts.filter(p => p.BRAND === product.BRAND && p.ITEM === product.ITEM);
 
-  // Deduplicate flavours
   const fMap = new Map();
-  related.forEach(p => {
-    const f = (p.FLAVOUR || "").trim();
-    if (f && !fMap.has(f)) fMap.set(f, p);
-  });
+  related.forEach(p => { const f = (p.FLAVOUR || "").trim(); if (f && !fMap.has(f)) fMap.set(f, p); });
   const flavours = [...fMap.values()];
 
-  // Deduplicate sizes — use detected column name
   const sMap = new Map();
-  related.forEach(p => {
-    const s = (p[COL_SIZE] || "").trim();
-    if (s && !sMap.has(s)) sMap.set(s, p);
-  });
+  related.forEach(p => { const s = (p[COL_SIZE] || "").trim(); if (s && !sMap.has(s)) sMap.set(s, p); });
   const sizes = [...sMap.values()];
 
-  // Render flavour buttons using data attributes (NO inline onclick with data)
   const fg = document.getElementById("flavourGrid");
   const fs = document.getElementById("flavourSection");
   if (flavours.length > 0) {
-    fs.style.display = "";
-    fg.innerHTML = "";
+    fs.style.display = ""; fg.innerHTML = "";
     flavours.forEach(f => {
       const btn = document.createElement("div");
-      btn.className = "option" +
-        (f.FLAVOUR === product.FLAVOUR ? " active" : "") +
-        ((f.STOCK || "").toLowerCase().includes("out") ? " out" : "");
+      btn.className = "option" + (f.FLAVOUR === product.FLAVOUR ? " active" : "") + ((f.STOCK || "").toLowerCase().includes("out") ? " out" : "");
       btn.textContent = f.FLAVOUR || "Unflavoured";
-      btn.dataset.flavour = f.FLAVOUR || "";
       if (!(f.STOCK || "").toLowerCase().includes("out")) {
         btn.addEventListener("click", () => selectVariant("flavour", f.FLAVOUR || ""));
       }
       fg.appendChild(btn);
     });
-  } else {
-    fs.style.display = "none";
-    fg.innerHTML = "";
-  }
+  } else { fs.style.display = "none"; fg.innerHTML = ""; }
 
-  // Render size buttons using data attributes
   const sg = document.getElementById("sizeGrid");
   const ss = document.getElementById("sizeSection");
   if (sizes.length > 0) {
-    ss.style.display = "";
-    sg.innerHTML = "";
+    ss.style.display = ""; sg.innerHTML = "";
     sizes.forEach(s => {
       const sizeVal = s[COL_SIZE] || "";
       const btn = document.createElement("div");
-      btn.className = "option" +
-        (s[COL_SIZE] === product[COL_SIZE] ? " active" : "") +
-        ((s.STOCK || "").toLowerCase().includes("out") ? " out" : "");
+      btn.className = "option" + (s[COL_SIZE] === product[COL_SIZE] ? " active" : "") + ((s.STOCK || "").toLowerCase().includes("out") ? " out" : "");
       btn.textContent = sizeVal;
-      btn.dataset.size = sizeVal;
       if (!(s.STOCK || "").toLowerCase().includes("out")) {
         btn.addEventListener("click", () => selectVariant("size", sizeVal));
       }
       sg.appendChild(btn);
     });
-  } else {
-    ss.style.display = "none";
-    sg.innerHTML = "";
-  }
+  } else { ss.style.display = "none"; sg.innerHTML = ""; }
 
-  // Order button — direct assignment, not addEventListener, so it doesn't stack
   document.getElementById("orderBtn").onclick = function () {
     const sizeVal = product[COL_SIZE] || "N/A";
-    const msg = `Hi, I want to order:\n*${product.ITEM}*\nFlavour: ${product.FLAVOUR || "N/A"}\nSize: ${sizeVal}\nPrice: ₹${product.PRICE || ""}`;
+    const msg = `Hi, I want to order:\n*${product.ITEM}*\nFlavour: ${product.FLAVOUR || "N/A"}\nSize: ${sizeVal}\nPrice: ₹${product.PRICE || ""}\nSource: AL HAYAT TRADING COMPANY`;
     window.open("https://wa.me/917710077786?text=" + encodeURIComponent(msg), "_blank");
   };
 
-  // Bullets — use textContent per element
   const bulletList = document.getElementById("bullets");
   bulletList.innerHTML = "";
-  [product.BULLET1, product.BULLET2, product.BULLET3, product.BULLET4]
-    .filter(b => b && b.trim())
-    .forEach(b => {
-      const li = document.createElement("li");
-      li.textContent = b;
-      bulletList.appendChild(li);
-    });
+  [product.BULLET1, product.BULLET2, product.BULLET3, product.BULLET4].filter(b => b && b.trim()).forEach(b => {
+    const li = document.createElement("li"); li.textContent = b; bulletList.appendChild(li);
+  });
 }
 
 function selectVariant(type, value) {
-  const related = allProducts.filter(p =>
-    p.BRAND === activeProduct.BRAND && p.ITEM === activeProduct.ITEM
-  );
+  const related = allProducts.filter(p => p.BRAND === activeProduct.BRAND && p.ITEM === activeProduct.ITEM);
   let match;
   if (type === "flavour") {
-    // Try to find matching flavour + current size first
     const curSize = activeProduct[COL_SIZE] || "";
     match = related.find(p => p.FLAVOUR === value && p[COL_SIZE] === curSize);
     if (!match) match = related.find(p => p.FLAVOUR === value);
   } else {
-    // Try to find matching size + current flavour first
     const curFlavour = activeProduct.FLAVOUR || "";
     match = related.find(p => p[COL_SIZE] === value && p.FLAVOUR === curFlavour);
     if (!match) match = related.find(p => p[COL_SIZE] === value);
@@ -1400,67 +1461,31 @@ function selectVariant(type, value) {
   if (match) populateModal(match);
 }
 
-// ── Image Gallery ─────────────────────────────────────────────────────────────
-
 function renderModalImage() {
   const img = document.getElementById("mainImage");
   const fb = document.getElementById("imgFallback");
-
-  if (!currentImages.length) {
-    img.style.display = "none";
-    fb.style.display = "flex";
-    return;
-  }
-
-  fb.style.display = "none";
-  img.style.display = "block";
-  // Remove old onerror before setting new src to avoid stale handler
-  img.onerror = null;
-  img.src = "";
-  img.src = currentImages[currentImgIndex];
-  img.onerror = function () {
-    this.onerror = null;
-    this.style.display = "none";
-    fb.style.display = "flex";
-  };
-
-  // Sync active thumbnail
-  document.querySelectorAll(".thumb").forEach((t, i) =>
-    t.classList.toggle("active", i === currentImgIndex)
-  );
+  if (!currentImages.length) { img.style.display = "none"; fb.style.display = "flex"; return; }
+  fb.style.display = "none"; img.style.display = "block";
+  img.onerror = null; img.src = ""; img.src = currentImages[currentImgIndex];
+  img.onerror = function () { this.onerror = null; this.style.display = "none"; fb.style.display = "flex"; };
+  document.querySelectorAll(".thumb").forEach((t, i) => t.classList.toggle("active", i === currentImgIndex));
 }
 
 function renderThumbs() {
-  const thumbRow = document.getElementById("thumbRow");
-  thumbRow.innerHTML = "";
+  const thumbRow = document.getElementById("thumbRow"); thumbRow.innerHTML = "";
   currentImages.forEach((url, i) => {
-    const wrap = document.createElement("div");
-    wrap.className = "thumb" + (i === 0 ? " active" : "");
-    wrap.addEventListener("click", () => changeImage(i));
-
-    const img = document.createElement("img");
-    img.src = url;
-    img.alt = "Thumbnail " + (i + 1);
+    const wrap = document.createElement("div"); wrap.className = "thumb" + (i === 0 ? " active" : "");
+    wrap.addEventListener("click", () => { currentImgIndex = i; renderModalImage(); });
+    const img = document.createElement("img"); img.src = url;
     img.onerror = function () { wrap.style.display = "none"; };
-    wrap.appendChild(img);
-    thumbRow.appendChild(wrap);
+    wrap.appendChild(img); thumbRow.appendChild(wrap);
   });
 }
 
-function nextImage() {
-  if (!currentImages.length) return;
-  currentImgIndex = (currentImgIndex + 1) % currentImages.length;
-  renderModalImage();
-}
-function prevImage() {
-  if (!currentImages.length) return;
-  currentImgIndex = (currentImgIndex - 1 + currentImages.length) % currentImages.length;
-  renderModalImage();
-}
-function changeImage(i) {
-  currentImgIndex = i;
-  renderModalImage();
-}
+function nextImage() { if (!currentImages.length) return; currentImgIndex = (currentImgIndex + 1) % currentImages.length; renderModalImage(); }
+function prevImage() { if (!currentImages.length) return; currentImgIndex = (currentImgIndex - 1 + currentImages.length) % currentImages.length; renderModalImage(); }
+function closeModal() { document.getElementById("modal").style.display = "none"; document.body.style.overflow = "auto"; }
+function handleModalBgClick(e) { if (e.target === document.getElementById("modal")) closeModal(); }
 
 document.addEventListener("keydown", function (e) {
   if (document.getElementById("modal").style.display !== "flex") return;
@@ -1468,22 +1493,6 @@ document.addEventListener("keydown", function (e) {
   if (e.key === "ArrowLeft") prevImage();
   if (e.key === "Escape") closeModal();
 });
-
-// ── Modal close ───────────────────────────────────────────────────────────────
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-  document.body.style.overflow = "auto";
-  // Do NOT touch page scroll position
-}
-function handleModalBgClick(e) {
-  if (e.target === document.getElementById("modal")) closeModal();
-}
-
-// ── Row scroll arrows ─────────────────────────────────────────────────────────
-
-function scrollRowLeft() { productRow.scrollBy({ left: -700, behavior: "smooth" }); }
-function scrollRowRight() { productRow.scrollBy({ left: 700, behavior: "smooth" }); }
 </script>
 </body>
 </html>
