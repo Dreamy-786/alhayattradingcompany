@@ -709,12 +709,13 @@ body{font-size:14px;line-height:1.6;}
 
 /* FINAL LAYOUT FIXES */
 #productRow.section-stack{display:block!important;grid-template-columns:none!important;width:100%;}
-#productRow:not(.section-stack){display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:stretch;}
+#productRow:not(.section-stack){display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:stretch;width:100%;box-sizing:border-box;}
+#productRow:not(.section-stack) .card{width:100%;min-width:0;max-width:none;box-sizing:border-box;}
 #productRow.section-stack .category-section{display:block;width:100%;margin-bottom:56px;}
 #productRow.section-stack .brand-products,#productRow.section-stack .category-products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;width:100%;}
 #productRow.section-stack .card{width:100%;min-width:0;}
-.sidebar-subnav{display:flex;flex-direction:column;gap:2px;margin:-2px 0 8px 35px;padding-left:12px;border-left:1px solid rgba(201,168,76,.18);}
-.sidebar-subnav button{border:0;background:transparent;color:#777;text-align:left;padding:7px 6px;font:500 10px/1.3 var(--sans);letter-spacing:.2px;cursor:pointer;border-radius:4px;transition:.2s;}
+.sidebar-subnav{display:none;flex-direction:column;gap:2px;margin:-2px 0 8px 35px;padding-left:12px;border-left:1px solid rgba(201,168,76,.18);}
+.sidebar-subnav button{display:none;border:0;background:transparent;color:#777;text-align:left;padding:7px 6px;font:500 10px/1.3 var(--sans);letter-spacing:.2px;cursor:pointer;border-radius:4px;transition:.2s;}
 .sidebar-subnav button:hover{color:var(--gold2);background:rgba(201,168,76,.06);}
 .category-directory{display:block;width:100%;}
 .category-group{margin-bottom:42px;}
@@ -725,12 +726,48 @@ body{font-size:14px;line-height:1.6;}
   #productRow:not(.section-stack){grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
   #productRow.section-stack .brand-products,#productRow.section-stack .category-products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
   .category-subgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
-  .sidebar-subnav{margin-left:30px;max-height:46vh;overflow-y:auto;}
+  .sidebar-subnav{display:none!important;}
   .mobile-sidebar-toggle{top:10px;left:10px;}
   .topbar{padding-left:62px!important;}
   .modal{height:100dvh;max-height:100dvh;overflow:hidden;}
   .modal-box{height:96dvh!important;max-height:96dvh!important;display:flex;flex-direction:column;overflow:hidden;}
   .modal-right{height:auto!important;flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior:contain;}
+}
+
+
+/* FINAL PRODUCT GRID: never allow cards to shrink into vertical slivers */
+#productRow:not(.section-stack) {
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:20px !important;
+  width:100% !important;
+  min-width:0 !important;
+  box-sizing:border-box !important;
+}
+#productRow:not(.section-stack) > .card {
+  width:100% !important;
+  min-width:0 !important;
+  max-width:none !important;
+}
+#productRow.section-stack > .category-section {
+  width:100% !important;
+}
+#productRow.section-stack .brand-products,
+#productRow.section-stack .category-products {
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:20px !important;
+}
+@media(max-width:900px){
+  #productRow:not(.section-stack) {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:12px !important;
+  }
+  #productRow.section-stack .brand-products,
+  #productRow.section-stack .category-products {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:12px !important;
+  }
 }
 
 </style>
@@ -748,20 +785,7 @@ body{font-size:14px;line-height:1.6;}
     <button class="sidebar-item active" id="nav-home" onclick="navigate('home')"><span>🏠</span><b>Home</b></button>
     <button class="sidebar-item" id="nav-brand" onclick="navigate('brand')"><span>🏷️</span><b>Shop By Brand</b></button>
     <button class="sidebar-item" id="nav-category" onclick="navigate('category')"><span>📦</span><b>Shop By Category</b></button>
-    <div class="sidebar-subnav" id="categorySubnav">
-      <button onclick="filterByCategoryGroup('Protein Powder')">Protein Powder</button>
-      <button onclick="filterByCategoryGroup('Creatine')">Creatine</button>
-      <button onclick="filterByCategory('Pre Workout')">Pre Workout</button>
-      <button onclick="filterByCategory('BCAA & EAA')">BCAA &amp; EAA</button>
-      <button onclick="filterByCategory('Fat Burners')">Fat Burners</button>
-      <button onclick="filterByCategory('Mass Gainers')">Mass Gainers</button>
-      <button onclick="filterByCategory('Protein Bars')">Protein Bars</button>
-      <button onclick="filterByCategory('Protein Chips')">Protein Chips</button>
-      <button onclick="filterByCategory('Health & Wellness')">Health &amp; Wellness</button>
-      <button onclick="filterByCategory('Vitamins')">Vitamins</button>
-      <button onclick="filterByCategory('Hydration')">Hydration</button>
-      <button onclick="filterByCategory('Performance')">Performance</button>
-    </div>
+
     <button class="sidebar-item" id="nav-ingredients" onclick="navigate('ingredients')"><span>🧪</span><b>Know More About Supplements</b></button>
     <button class="sidebar-item" id="nav-calculator" onclick="navigate('calculator')"><span>🔥</span><b>Calorie Deficit Calculator</b></button>
     <button class="sidebar-item" id="nav-food" onclick="navigate('food')"><span>🍗</span><b>What's In My Food</b></button>
@@ -992,14 +1016,24 @@ function isValidUrl(url) {
   return /^(https?:\/\/|\.\.?\/|[a-zA-Z0-9_./-]+\.(?:jpg|jpeg|png|webp|avif|gif)(?:\?.*)?$)/i.test(u);
 }
 function resolveImage(src) {
-  const u = String(src || '').trim();
+  const u = String(src || '').trim().replace(/^["']|["']$/g, '');
   if (!u) return '';
   if (/^https?:\/\//i.test(u) || /^data:/i.test(u)) return u;
-  if (/^\.?\/?product-images\//i.test(u)) return u.replace(/^\.\/?/, '');
-  if (/^\.?\/?brand-logos\//i.test(u)) return u.replace(/^\.\/?/, '');
-  if (/\.(jpg|jpeg|png|webp|avif|gif)(\?.*)?$/i.test(u)) return 'product-images/' + u.replace(/^\/*/, '');
+  if (/^\.?\/?product-images\//i.test(u)) return './' + u.replace(/^\.\/?/, '');
+  if (/^\.?\/?brand-logos\//i.test(u)) return './' + u.replace(/^\.\/?/, '');
+  if (/\.(jpg|jpeg|png|webp|avif|gif)(\?.*)?$/i.test(u)) return './' + encodeURI(u.replace(/^\/+/, ''));
   return u;
 }
+function imageCandidates(src) {
+  const raw = String(src || '').trim().replace(/^["']|["']$/g, '');
+  if (!raw) return [];
+  if (/^https?:\/\//i.test(raw) || /^data:/i.test(raw)) return [raw];
+  const clean = raw.replace(/^\.\/?/, '').replace(/^\//, '');
+  const name = clean.replace(/^product-images\//i, '');
+  if (/^product-images\//i.test(clean)) return ['./' + encodeURI(clean), './' + encodeURI(name)];
+  return ['./' + encodeURI(name), './product-images/' + encodeURI(name)];
+}
+
 function rootImageFallback(src) {
   const u=String(src||'').trim();
   if (!u || /^https?:\/\//i.test(u) || /^data:/i.test(u)) return '';
@@ -1154,6 +1188,10 @@ function normalizeBrandLogoName(brand) {
 
 const BRAND_LOGO_ALIASES = {
   "rule-1": ["rule-1.png", "rule1.png"],
+  "allmax": ["allmax"],
+  "allmax-nutrition": ["allmax"],
+  "musclemeds": ["musclemeds", "muscle-meds"],
+  "muscle-meds": ["muscle-meds", "musclemeds"],
   "rule-1-protein": ["rule-1.png", "rule1.png"],
   "quest-nutrition": ["quest.png", "quest-nutrition.png"],
   "dymatize": ["dymatize.png"],
@@ -1164,18 +1202,34 @@ const BRAND_LOGO_ALIASES = {
   "dymatize-nutrition": ["dymatize.png"],
   "quest": ["quest.png"],
   "bpi": ["bpi-sports.png", "bpi.png"],
-  "rule-1": ["rule-1.png", "rule1.png"]
+  "rule-1": ["rule-1.png", "rule1.png"],
+  "allmax": ["allmax"],
+  "allmax-nutrition": ["allmax"],
+  "musclemeds": ["musclemeds", "muscle-meds"],
+  "muscle-meds": ["muscle-meds", "musclemeds"]
 };
 function brandLogoCandidates(brand) {
   const key = normalizeBrandLogoName(brand);
-  return BRAND_LOGO_ALIASES[key] || [key + ".png"];
+  const aliases = BRAND_LOGO_ALIASES[key] || [key];
+  const out = [];
+  aliases.forEach(base => {
+    const stem = base.replace(/\.(png|jpg|jpeg|webp|svg)$/i,'');
+    ['png','jpg','jpeg','webp'].forEach(ext => {
+      out.push('./brand-logos/' + encodeURI(stem + '.' + ext));
+      out.push('./' + encodeURI(stem + '.' + ext));
+    });
+  });
+  return [...new Set(out)];
 }
+
 function brandLogoHTML(brand, className="brand-card-img") {
   const candidates = brandLogoCandidates(brand);
-  const first = candidates[0];
-  const fallback = `this.dataset.i=(+this.dataset.i||0)+1; if(+this.dataset.i < ${candidates.length}) this.src='./brand-logos/${candidates[1] || first}'; else {this.style.display='none';this.nextElementSibling.style.display='flex';}`;
-  return `<img class="${className}" src="./brand-logos/${first}" alt="${eav(brand)}" data-i="0" onerror="${fallback}"><div class="brand-logo-placeholder">${esc(brand || "Brand")}</div>`;
+  return `<img class="${className}" src="${candidates[0]}" alt="${eav(brand)}"
+    data-candidates="${eav(JSON.stringify(candidates))}" data-index="0"
+    onerror="const c=JSON.parse(this.dataset.candidates);let i=Number(this.dataset.index||0)+1;if(i<c.length){this.dataset.index=i;this.src=c[i];}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">
+    <div class="brand-logo-placeholder">${esc(brand || "Brand")}</div>`;
 }
+
 
 function shuffleArray(arr) {
   const a = [...arr];
@@ -1354,6 +1408,11 @@ function renderCategoryCards() {
     'Yeast Protein','Casein','Multi Sourced Protein'
   ];
   const creatineSubs = ['Creatine Monohydrate/Micronised','Creatine HCL','Creatine Blend'];
+  const proteinCount = proteinSubs.reduce((n,c)=>n+(counts.get(c)||0),0);
+  const creatineCount = creatineSubs.reduce((n,c)=>n+(counts.get(c)||0),0);
+  counts.set('Protein Powder', proteinCount);
+  counts.set('Creatine', creatineCount);
+
   const otherCats = ['Pre Workout','BCAA & EAA','Fat Burners','Mass Gainers','Protein Bars','Protein Chips','Health & Wellness','Vitamins','Hydration','Performance'];
 
   productRow.classList.add('section-stack');
@@ -1436,10 +1495,11 @@ function renderProductCards(products) {
     const imgSrc = isValidUrl(p.IMAGE1_FRONT) ? resolveImage(p.IMAGE1_FRONT) : "";
 
     // Build card HTML — NO onclick attributes with data in them
-    const imageHtml = imgSrc
-      ? `<img src="${eav(imgSrc)}" alt="${eav(p.ITEM || "")}"
-              loading="lazy"
-              onerror="if(!this.dataset.rootFallback){this.dataset.rootFallback='1';this.src='./'+this.src.split('/').pop();}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">`
+    const candidates = imageCandidates(p.IMAGE1_FRONT);
+    const imageHtml = candidates.length
+      ? `<img src="${eav(candidates[0])}" alt="${eav(p.ITEM || "")}" loading="lazy"
+              data-img-candidates="${eav(JSON.stringify(candidates))}" data-img-index="0"
+              onerror="const c=JSON.parse(this.dataset.imgCandidates);let i=Number(this.dataset.imgIndex||0)+1;if(i<c.length){this.dataset.imgIndex=i;this.src=c[i];}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">`
       : "";
     const fallbackStyle = imgSrc ? "display:none;" : "";
 
@@ -1471,10 +1531,11 @@ function createProductCard(p){
 
   const imgSrc = isValidUrl(p.IMAGE1_FRONT) ? resolveImage(p.IMAGE1_FRONT) : "";
 
-  const imageHtml = imgSrc
-    ? `<img src="${eav(imgSrc)}" alt="${eav(p.ITEM || "")}"
-        loading="lazy"
-        onerror="if(!this.dataset.rootFallback){this.dataset.rootFallback='1';this.src='./'+this.src.split('/').pop();}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">`
+  const candidates = imageCandidates(p.IMAGE1_FRONT);
+  const imageHtml = candidates.length
+    ? `<img src="${eav(candidates[0])}" alt="${eav(p.ITEM || "")}" loading="lazy"
+        data-img-candidates="${eav(JSON.stringify(candidates))}" data-img-index="0"
+        onerror="const c=JSON.parse(this.dataset.imgCandidates);let i=Number(this.dataset.imgIndex||0)+1;if(i<c.length){this.dataset.imgIndex=i;this.src=c[i];}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">`
     : "";
 
   const fallbackStyle = imgSrc ? "display:none;" : "";
@@ -1540,7 +1601,8 @@ function populateModal(product) {
   // Images — strict validation
   currentImages = [product.IMAGE1_FRONT, product.IMAGE2_SIDE, product.IMAGE3_BACK]
     .filter(u => isValidUrl(u))
-    .map(resolveImage);
+    .map(u => imageCandidates(u)[0])
+    .filter(Boolean);
   currentImgIndex = 0;
   renderModalImage();
   renderThumbs();
@@ -1669,11 +1731,14 @@ function renderModalImage() {
   img.onerror = null;
   img.src = "";
   img.src = currentImages[currentImgIndex];
+  img.dataset.galleryFallbackIndex = "0";
   img.onerror = function () {
-    const current = String(this.src || '');
-    if (!this.dataset.rootFallback && /\/product-images\//i.test(current)) {
-      this.dataset.rootFallback = '1';
-      this.src = './' + current.split('/').pop();
+    const original = currentImages[currentImgIndex] || '';
+    const c = imageCandidates(original);
+    const idx = Number(this.dataset.galleryFallbackIndex || 0);
+    if (idx < c.length - 1) {
+      this.dataset.galleryFallbackIndex = String(idx + 1);
+      this.src = c[idx + 1];
       return;
     }
     this.onerror = null;
@@ -1698,11 +1763,13 @@ function renderThumbs() {
     const img = document.createElement("img");
     img.src = url;
     img.alt = "Thumbnail " + (i + 1);
+    img.dataset.thumbFallbackIndex = "0";
     img.onerror = function () {
-      const current = String(this.src || '');
-      if (!this.dataset.rootFallback && /\/product-images\//i.test(current)) {
-        this.dataset.rootFallback='1';
-        this.src='./'+current.split('/').pop();
+      const c = imageCandidates(url);
+      const idx = Number(this.dataset.thumbFallbackIndex || 0);
+      if (idx < c.length - 1) {
+        this.dataset.thumbFallbackIndex = String(idx + 1);
+        this.src = c[idx + 1];
         return;
       }
       wrap.style.display = "none";
