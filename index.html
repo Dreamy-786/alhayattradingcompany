@@ -695,9 +695,40 @@ button{font-family:var(--sans);}
   .footer-top{grid-template-columns:1fr;gap:28px;padding:36px 20px;}
   .footer-bottom{padding:16px 20px;flex-direction:column;gap:10px;text-align:center;}
 }
+
+/* ── SIDEBAR / TOOL SYSTEM ── */
+body{font-size:14px;line-height:1.6;}
+.topbar,.announce,.banner,.filter-bar,#mainSection,.tool-viewport,.footer{margin-left:250px;}
+.app-sidebar{position:fixed;left:0;top:0;bottom:0;width:250px;background:linear-gradient(180deg,#070707,#101010);border-right:1px solid var(--borderg);z-index:2000;padding:28px 16px 22px;display:flex;flex-direction:column;}
+.sidebar-brand{display:flex;align-items:center;gap:12px;padding:0 10px 4px;color:var(--chalk)}
+.sidebar-brand>div:last-child{display:flex;flex-direction:column}.sidebar-brand strong{font-family:var(--serif);font-size:18px;letter-spacing:2px}.sidebar-brand span{font-size:8px;letter-spacing:2.5px;color:var(--gold);margin-top:2px}.sidebar-mark{width:42px;height:42px;border:1px solid var(--borderg);border-radius:10px;display:grid;place-items:center;color:var(--gold);font-family:var(--serif);font-weight:700;background:#111}
+.sidebar-rule{height:1px;background:var(--border);margin:25px 8px 18px}.sidebar-nav{display:flex;flex-direction:column;gap:6px}.sidebar-item{width:100%;border:1px solid transparent;background:transparent;color:#a9a9a9;padding:13px 12px;border-radius:7px;display:flex;align-items:center;gap:12px;text-align:left;cursor:pointer;font:600 12px/1.35 var(--sans);letter-spacing:.35px;transition:.25s}.sidebar-item span{width:23px;text-align:center;font-size:17px}.sidebar-item:hover{color:var(--chalk);background:#151515;border-color:var(--border)}.sidebar-item.active{color:var(--gold2);background:linear-gradient(90deg,rgba(201,168,76,.13),rgba(201,168,76,.03));border-color:var(--borderg);box-shadow:inset 3px 0 var(--gold)}.sidebar-bottom{margin-top:auto;border-top:1px solid var(--border);padding:18px 10px 0;color:#686868;font-size:8px;letter-spacing:3px;line-height:2;text-transform:uppercase}.sidebar-bottom em{color:var(--gold);font-style:normal}.mobile-sidebar-toggle,.sidebar-backdrop{display:none}
+.legacy-nav-buttons{display:none}.section-stack{display:block!important}.filter-bar{padding-left:32px}.search{max-width:560px}.section{min-height:420px}.category-products,.brand-products,.row-scroll{grid-template-columns:repeat(4,minmax(0,1fr));}.cat-card-count{font-size:10px;color:#666;letter-spacing:1px;text-transform:uppercase}.tool-viewport{min-height:calc(100vh - 150px);padding:55px 42px 75px}.tool-head{max-width:900px;margin:0 auto 38px}.tool-head h2{font:600 clamp(38px,4vw,56px)/1.08 var(--serif);letter-spacing:-.7px}.tool-head p{color:#999;margin-top:12px;max-width:700px;font-size:14px}.ingredient-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.ingredient-card,.food-card,.result-card{background:linear-gradient(145deg,#151515,#0e0e0e);border:1px solid var(--border);border-radius:10px;transition:.3s}.ingredient-card{padding:20px;min-height:245px;display:flex;flex-direction:column}.ingredient-card:hover,.food-card:hover,.result-card:hover{transform:translateY(-4px);border-color:var(--borderg)}.ingredient-art{height:70px;border-radius:7px;background:#0a0a0a;display:grid;place-items:center;font-size:32px;margin-bottom:16px}.ingredient-name{font:600 19px/1.25 var(--serif);color:var(--chalk)}.ingredient-card p{color:#8e8e8e;font-size:12px;line-height:1.6;margin:9px 0 15px}.ingredient-card button{margin-top:auto;border:0;border-top:1px solid var(--border);background:none;color:var(--gold);padding:12px 0 0;text-align:left;font:600 11px var(--sans);letter-spacing:1px;cursor:pointer}.food-search{margin-top:25px;max-width:680px;position:relative}.food-search span{position:absolute;left:15px;top:10px;color:var(--gold);font-size:20px}.food-search input{width:100%;height:48px;border:1px solid var(--border2);border-radius:5px;background:#111;color:#fff;padding:0 16px 0 45px;font:500 14px var(--sans);outline:none}.food-search input:focus{border-color:var(--gold)}.food-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.food-card{padding:20px}.food-name{font:600 22px var(--serif)}.food-serving{font-size:11px;color:#777;margin:5px 0 18px}.macro-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.macro-grid div{padding:12px;background:#0a0a0a;border-radius:5px}.macro-grid b{display:block;font:600 18px var(--serif);color:var(--gold2)}.macro-grid span{font-size:9px;color:#777;text-transform:uppercase;letter-spacing:1px}.calculator-shell{display:grid;grid-template-columns:minmax(300px,460px) 1fr;gap:30px;max-width:1050px;margin:auto}.calc-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:25px;background:#111;border:1px solid var(--border);border-radius:10px}.calc-form label{font-size:10px;letter-spacing:1.5px;color:#888;text-transform:uppercase}.calc-form input,.calc-form select{width:100%;margin-top:7px;height:44px;background:#080808;border:1px solid var(--border2);border-radius:4px;color:#eee;padding:0 12px;font:500 13px var(--sans);outline:none}.calc-form button{grid-column:1/-1;height:48px;border:1px solid var(--gold);background:var(--gold);color:#090909;border-radius:4px;font:700 11px var(--sans);letter-spacing:2px;text-transform:uppercase;cursor:pointer}.calc-results{display:grid;grid-template-columns:1fr 1fr;gap:14px}.result-card{padding:24px;min-height:120px;display:flex;flex-direction:column;justify-content:space-between}.result-card span{font-size:10px;color:#888;letter-spacing:1.5px;text-transform:uppercase}.result-card strong{font:600 27px var(--serif);color:var(--gold2)}.calc-placeholder{grid-column:1/-1;padding:50px;text-align:center;color:#666;border:1px dashed var(--border2);border-radius:10px}.tool-modal-left{min-height:100%}
+@media(max-width:900px){.app-sidebar{width:285px;transform:translateX(-102%);transition:transform .3s ease;box-shadow:15px 0 40px rgba(0,0,0,.5)}.app-sidebar.mobile-open{transform:translateX(0)}.mobile-sidebar-toggle{display:grid;place-items:center;position:fixed;left:12px;top:12px;width:42px;height:42px;border:1px solid var(--borderg);background:#0b0b0b;color:var(--gold);border-radius:8px;z-index:2100;font-size:20px}.sidebar-backdrop.show{display:block;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1900}.topbar,.announce,.banner,.filter-bar,#mainSection,.tool-viewport,.footer{margin-left:0}.topbar{padding-left:65px}.filter-bar{top:68px}.section{padding:32px 14px}.section-head{margin-bottom:25px}.section-head h2{font-size:31px}.ingredient-grid,.food-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.calculator-shell{grid-template-columns:1fr}.tool-viewport{padding:38px 14px 60px}.tool-head h2{font-size:35px}.calc-form{grid-template-columns:1fr}.calc-form button{grid-column:1}.calc-results{grid-template-columns:1fr 1fr}.modal{z-index:9999}.modal-box{max-height:96dvh;height:96dvh;overflow:hidden}.modal-left{min-height:170px;height:190px}.modal-right{overflow-y:auto;max-height:none;height:calc(96dvh - 190px);padding-bottom:35px}.modal-bullets{padding-bottom:25px}.modal-bullets li{font-size:13px;line-height:1.65}.card-title{font-size:15px}.card-image{height:185px}.brand-card-name{font-size:9px}.legacy-nav-buttons{display:none}}
+
 </style>
 </head>
 <body>
+
+<!-- PREMIUM SIDEBAR -->
+<aside class="app-sidebar" id="appSidebar">
+  <div class="sidebar-brand">
+    <div class="sidebar-mark">AH</div>
+    <div><strong>AL HAYAT</strong><span>TRADING COMPANY</span></div>
+  </div>
+  <div class="sidebar-rule"></div>
+  <nav class="sidebar-nav" aria-label="Main navigation">
+    <button class="sidebar-item active" id="nav-home" onclick="navigate('home')"><span>🏠</span><b>Home</b></button>
+    <button class="sidebar-item" id="nav-brand" onclick="navigate('brand')"><span>🏷️</span><b>Shop By Brand</b></button>
+    <button class="sidebar-item" id="nav-category" onclick="navigate('category')"><span>📦</span><b>Shop By Category</b></button>
+    <button class="sidebar-item" id="nav-ingredients" onclick="navigate('ingredients')"><span>🧪</span><b>Know More About Supplements</b></button>
+    <button class="sidebar-item" id="nav-calculator" onclick="navigate('calculator')"><span>🔥</span><b>Calorie Deficit Calculator</b></button>
+    <button class="sidebar-item" id="nav-food" onclick="navigate('food')"><span>🍗</span><b>What's In My Food</b></button>
+  </nav>
+  <div class="sidebar-bottom">REAL BRANDS.<br>REAL NUTRITION.<br><em>REAL TRUST.</em></div>
+</aside>
+<button class="mobile-sidebar-toggle" aria-label="Open menu" onclick="toggleMobileSidebar()">☰</button>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleMobileSidebar()"></div>
 
 <!-- ANNOUNCE BAR -->
 <div class="announce">Free delivery on orders above ₹2,000 &nbsp;·&nbsp; Authentic imported products &nbsp;·&nbsp; Mumbai's premier sports nutrition</div>
@@ -743,11 +774,11 @@ button{font-family:var(--sans);}
 
 <!-- FILTER BAR -->
 <div class="filter-bar">
-  <button class="filter-btn active" id="btn-featured" onclick="showFeatured()">Featured Deals</button>
-  <div class="filter-sep"></div>
-  <button class="filter-btn" id="btn-brands" onclick="showBrandSection()">Shop by Brand</button>
-  <div class="filter-sep"></div>
-  <button class="filter-btn" id="btn-cats" onclick="showCategorySection()">Shop by Category</button>
+  <div class="legacy-nav-buttons" aria-hidden="true">
+    <button class="filter-btn active" id="btn-featured" onclick="showFeatured()">Featured Deals</button>
+    <button class="filter-btn" id="btn-brands" onclick="showBrandSection()">Shop by Brand</button>
+    <button class="filter-btn" id="btn-cats" onclick="showCategorySection()">Shop by Category</button>
+  </div>
   <div class="search">
     <div class="search-wrap">
       <span class="search-icon">🔍</span>
@@ -770,6 +801,8 @@ button{font-family:var(--sans);}
   </div>
   <div class="row-scroll" id="productRow"></div>
 </div>
+
+<div id="toolViewport" class="tool-viewport" style="display:none"></div>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -914,7 +947,16 @@ function detectCol(sample, name) {
 function isValidUrl(url) {
   if (!url || typeof url !== "string") return false;
   const u = url.trim();
-  return (u.startsWith("http://") || u.startsWith("https://")) && u.length > 12;
+  if (!u || /^(n\/a|na|none|null|undefined|-|no image)$/i.test(u)) return false;
+  return /^(https?:\/\/|\.\.?\/|[a-zA-Z0-9_./-]+\.(?:jpg|jpeg|png|webp|avif|gif)(?:\?.*)?$)/i.test(u);
+}
+function resolveImage(src) {
+  const u = String(src || '').trim();
+  if (!u) return '';
+  if (/^https?:\/\//i.test(u) || /^data:/i.test(u)) return u;
+  if (/^\.?\/?product-images\//i.test(u)) return u.replace(/^\.\/?/, '');
+  if (/\.(jpg|jpeg|png|webp|avif|gif)(\?.*)?$/i.test(u)) return 'product-images/' + u.replace(/^\/*/, '');
+  return u;
 }
 
 // Group products to one card per BRAND+ITEM combination
@@ -938,6 +980,62 @@ function setSectionTitle(eyebrow, title) {
   document.getElementById("sectionEyebrow").textContent = eyebrow;
   document.getElementById("sectionTitle").textContent = title;
 }
+
+// ── SIDEBAR ROUTER + EDUCATION TOOLS ─────────────────────────────────────────
+function toggleMobileSidebar(){ document.getElementById('appSidebar').classList.toggle('mobile-open'); document.getElementById('sidebarBackdrop').classList.toggle('show'); }
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('appSidebar').classList.remove('mobile-open');document.getElementById('sidebarBackdrop').classList.remove('show');}});
+function navigate(view){
+  document.querySelectorAll('.sidebar-item').forEach(x=>x.classList.remove('active'));
+  const nav=document.getElementById('nav-'+view); if(nav) nav.classList.add('active');
+  document.getElementById('appSidebar').classList.remove('mobile-open'); document.getElementById('sidebarBackdrop').classList.remove('show');
+  const banner=document.querySelector('.banner'), main=document.getElementById('mainSection'), tools=document.getElementById('toolViewport');
+  banner.style.display=view==='home'?'block':'none'; main.style.display=(view==='ingredients'||view==='calculator'||view==='food')?'none':'block'; tools.style.display=(view==='ingredients'||view==='calculator'||view==='food')?'block':'none';
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(view==='home') showFeatured();
+  else if(view==='brand') showBrandSection();
+  else if(view==='category') { renderCategoryCards(); currentMode='category-cards'; setActive('btn-cats'); setSectionTitle('Categories','Shop by Category'); document.getElementById('searchInput').value=''; }
+  else if(view==='ingredients') renderIngredientsView(tools);
+  else if(view==='calculator') renderCalculatorView(tools);
+  else if(view==='food') renderFoodView(tools);
+}
+const ingredientData = {
+  'Whey Protein Concentrate':{what:'A dairy protein containing whey protein plus naturally occurring milk components.',benefits:'Convenient high-quality protein for muscle recovery and daily protein intake.',who:'People who want an easy protein source and tolerate dairy.',time:'Any convenient time; commonly after training or between meals.',dose:'Use enough powder to provide the protein amount you need.',products:'Protein powders, blends and some protein snacks.'},
+  'Whey Protein Isolate':{what:'A whey protein processed to contain a higher proportion of protein and less lactose/fat than concentrate.',benefits:'High protein density and convenient recovery nutrition.',who:'Those wanting a lean, convenient whey option.',time:'Any time that fits your daily protein plan.',dose:'Typically 20–30 g protein per serving.',products:'Whey isolate powders and some protein blends.'},
+  'Hydrolyzed Whey Protein':{what:'Whey protein that has been partially broken into smaller peptide chains.',benefits:'Fast-digesting protein option and convenient post-workout nutrition.',who:'Athletes seeking a rapidly digesting protein product.',time:'Often used around training.',dose:'Follow the product serving size.',products:'Hydrolyzed whey and advanced protein blends.'},
+  'Casein Protein':{what:'A slow-digesting milk protein.',benefits:'Provides a sustained source of amino acids and helps make protein intake convenient.',who:'Anyone needing a slower-digesting protein option.',time:'Often used between meals or before sleep.',dose:'Follow the product serving size.',products:'Micellar casein and casein blends.'},
+  'Milk Protein':{what:'Protein derived from milk, commonly containing both casein and whey fractions.',benefits:'Balanced dairy protein for daily intake.',who:'Dairy-tolerant users looking for a complete protein source.',time:'Any convenient time.',dose:'Follow the product serving size.',products:'Milk protein powders and blends.'},
+  'Creatine Monohydrate':{what:'A well-studied form of creatine used to support high-intensity exercise performance.',benefits:'Supports strength, power and training capacity when used consistently.',who:'Adults doing resistance or high-intensity training.',time:'Daily consistency matters more than exact timing.',dose:'Common maintenance use is about 3–5 g daily.',products:'Creatine powders, capsules and pre-workouts.'},
+  'Creatine HCL':{what:'Creatine bound to hydrochloride, used in some sports supplements.',benefits:'Convenient creatine format with a concentrated serving.',who:'People who prefer this formulation.',time:'Any convenient time.',dose:'Use the manufacturer serving recommendation.',products:'Creatine HCL powders and capsules.'},
+  'L-Citrulline':{what:'An amino acid involved in nitric-oxide-related pathways.',benefits:'Commonly used to support training pumps and exercise performance.',who:'People using pre-workout or performance nutrition.',time:'Usually before training.',dose:'Product-specific; follow the label.',products:'Pre-workouts, pump products and standalone powders.'},
+  'Citrulline Malate':{what:'L-citrulline combined with malate.',benefits:'Popular pre-workout ingredient for pump and performance support.',who:'People seeking a pre-training performance ingredient.',time:'Usually before exercise.',dose:'Follow the product label.',products:'Pre-workouts and pump formulas.'},
+  'Beta Alanine':{what:'An amino acid precursor to muscle carnosine.',benefits:'Helps buffer acidity during repeated high-intensity efforts.',who:'People doing intense interval or resistance training.',time:'Daily use is generally more important than exact timing.',dose:'Follow the product label; divided doses can improve tingling tolerance.',products:'Pre-workouts and performance formulas.'},
+  'L-Tyrosine':{what:'An amino acid used to make catecholamine neurotransmitters.',benefits:'Commonly included in focus and performance formulas.',who:'People wanting a focus-oriented pre-workout ingredient.',time:'Often before demanding training or tasks.',dose:'Follow the product label.',products:'Pre-workouts and focus formulas.'},
+  'Taurine':{what:'An amino-acid-like compound found naturally in the body and foods.',benefits:'Used in hydration, energy and performance formulas.',who:'People using sports-performance products containing taurine.',time:'Varies by formula.',dose:'Follow the product label.',products:'Pre-workouts, energy and hydration products.'},
+  'Caffeine':{what:'A stimulant that increases alertness and can reduce perceived effort.',benefits:'Supports alertness and exercise performance.',who:'Adults who tolerate caffeine.',time:'Usually 30–60 minutes before training; avoid close to bedtime.',dose:'Use product guidance and account for all daily caffeine sources.',products:'Pre-workouts, energy products and fat burners.'},
+  'Betaine Anhydrous':{what:'A concentrated form of betaine used in sports nutrition.',benefits:'Used in performance formulas supporting training output.',who:'Resistance-training athletes.',time:'Often taken around training or consistently according to the product.',dose:'Follow the product label.',products:'Pre-workouts and performance products.'},
+  'L-Leucine':{what:'An essential branched-chain amino acid.',benefits:'Plays an important role in muscle protein synthesis signaling.',who:'People managing protein intake and athletes.',time:'With meals or protein-containing servings.',dose:'Usually obtained through complete protein; standalone use is product-specific.',products:'BCAA, EAA and protein products.'},
+  'L-Isoleucine':{what:'An essential branched-chain amino acid.',benefits:'Contributes to protein synthesis and energy metabolism.',who:'Athletes and people consuming sports nutrition.',time:'Usually supplied with complete protein or amino blends.',dose:'Typically obtained from food/protein products.',products:'BCAA and EAA products.'},
+  'L-Valine':{what:'An essential branched-chain amino acid.',benefits:'Supports normal protein metabolism and is part of BCAA formulas.',who:'Athletes using amino-acid products.',time:'Usually with protein or amino products.',dose:'Usually obtained from complete protein.',products:'BCAA and EAA products.'},
+  'BCAA':{what:'Branched-chain amino acids: leucine, isoleucine and valine.',benefits:'Convenient amino-acid supplementation around training.',who:'People who specifically want an amino drink.',time:'Before, during or after training.',dose:'Follow product serving size.',products:'BCAA powders and intra-workout drinks.'},
+  'EAA':{what:'Essential amino acids that the body cannot make in sufficient amounts.',benefits:'Convenient complete essential-amino support.',who:'People wanting an amino-acid drink alongside a balanced diet.',time:'Around training or between meals.',dose:'Follow product serving size.',products:'EAA powders and intra-workout products.'},
+  'Glutamine':{what:'A conditionally essential amino acid involved in nitrogen metabolism.',benefits:'Used in recovery and general sports nutrition products.',who:'People using amino-acid supplements.',time:'Timing is product-specific.',dose:'Follow the product label.',products:'Recovery, BCAA and amino products.'},
+  'Electrolytes':{what:'Minerals such as sodium, potassium and magnesium involved in fluid balance.',benefits:'Helps replace electrolytes lost through sweat.',who:'People exercising heavily or sweating substantially.',time:'Before, during or after prolonged sweaty activity.',dose:'Follow product directions and sweat needs.',products:'Hydration powders, intra-workout drinks and electrolyte tablets.'},
+  'Omega 3':{what:'Essential fatty acids, mainly EPA and DHA, commonly sourced from fish oil or algae.',benefits:'Supports normal cardiovascular and overall health.',who:'Adults whose diet is low in omega-3-rich foods.',time:'With a meal.',dose:'Follow product EPA/DHA directions.',products:'Fish oil and omega-3 capsules.'},
+  'Multivitamins':{what:'A combination of vitamins and sometimes minerals.',benefits:'Convenient nutritional coverage when dietary intake is inadequate.',who:'People who need a convenient micronutrient supplement.',time:'Often with a meal.',dose:'Follow the label.',products:'Multivitamin tablets and capsules.'},
+  'ZMA':{what:'A supplement combination commonly containing zinc, magnesium and vitamin B6.',benefits:'Provides these micronutrients when intake is insufficient.',who:'Adults whose diet may be low in these nutrients.',time:'Often taken in the evening according to label.',dose:'Follow product directions.',products:'ZMA capsules/tablets.'},
+  'Ashwagandha':{what:'An herbal ingredient traditionally used in Ayurvedic preparations.',benefits:'Commonly used in stress and wellness supplements.',who:'Adults interested in general wellness support.',time:'Depends on extract and product directions.',dose:'Follow standardized extract label.',products:'Stress, sleep and wellness formulas.'},
+  'L-Carnitine':{what:'A compound involved in transporting fatty acids into mitochondria.',benefits:'Used in sports and weight-management formulas.',who:'People using performance or body-composition supplements.',time:'Product-specific; often around training.',dose:'Follow product directions.',products:'Fat burners, carnitine liquids and capsules.'},
+  'Collagen':{what:'A structural protein found in connective tissues.',benefits:'Used to support dietary protein intake and connective-tissue wellness.',who:'Adults interested in protein and connective-tissue support.',time:'Any convenient time.',dose:'Follow product serving size.',products:'Collagen powders, drinks and protein blends.'}
+};
+function renderIngredientsView(t){
+  t.innerHTML=`<section class="tool-page"><div class="tool-head"><div class="section-eyebrow">Knowledge Library</div><h2>Know More About Supplements</h2><p>Understand the ingredients commonly found in sports nutrition and wellness products.</p></div><div class="ingredient-grid">${Object.entries(ingredientData).map(([name,d],i)=>`<article class="ingredient-card reveal"><div class="ingredient-art">${['🥛','⚡','🧬','💪','🧪','💧'][i%6]}</div><div class="ingredient-name">${esc(name)}</div><p>${esc(d.what)}</p><button onclick="openIngredient(${JSON.stringify(name).replace(/"/g,'&quot;')})">Read More →</button></article>`).join('')}</div></section>`;
+}
+function openIngredient(name){const d=ingredientData[name];if(!d)return;const modal=document.getElementById('modal');modal.style.display='flex';document.body.style.overflow='hidden';document.getElementById('modalLeft')?.classList.add('tool-modal-left');document.getElementById('modalBrand').textContent='SUPPLEMENT EDUCATION';document.getElementById('modalTitle').textContent=name;document.getElementById('modalPrice').textContent='';document.getElementById('stockText').innerHTML='';document.getElementById('flavourSection').style.display='none';document.getElementById('sizeSection').style.display='none';document.getElementById('orderBtn').style.display='none';document.getElementById('mainImage').style.display='none';document.getElementById('imgFallback').style.display='flex';document.getElementById('thumbRow').innerHTML='';document.getElementById('bullets').innerHTML=[['What It Is',d.what],['Benefits',d.benefits],['Who Should Use It',d.who],['Best Time To Take',d.time],['Common Dosage',d.dose],['Products That Usually Contain It',d.products]].map(x=>`<li><strong>${x[0]}</strong><br>${esc(x[1])}</li>`).join('');}
+const foodData=[
+ ['Eggs','2 large eggs','143','13','1','10'],['Chicken Breast','100 g cooked','165','31','0','3.6'],['Fish','100 g cooked','180','25','0','8'],['Paneer','100 g','265','18','6','20'],['Milk','250 ml','150','8','12','8'],['Greek Yogurt','200 g','146','20','7','4'],['Rice','150 g cooked','195','4','42','0.4'],['Oats','50 g dry','190','6.5','34','3.5'],['Peanut Butter','32 g','190','7','7','16'],['Almonds','28 g','164','6','6','14'],['Banana','1 medium','105','1.3','27','0.4'],['Bread','2 slices','140','6','26','2'],['Protein Bar','1 bar','200','20','20','6'],['Protein Chips','1 serving','140','20','6','4.5'],['Whey Protein','1 scoop','120','24','3','1.5'],['Quest Bar','1 bar','200','20','22','8']
+];
+function renderFoodView(t){t.innerHTML=`<section class="tool-page"><div class="tool-head"><div class="section-eyebrow">Nutrition Tool</div><h2>What's In My Food?</h2><p>Search a food to see an easy nutrition snapshot per listed serving.</p><div class="food-search"><span>⌕</span><input id="foodSearch" placeholder="Search eggs, chicken, oats, whey…"></div></div><div id="foodResults" class="food-grid"></div></section>`;const input=document.getElementById('foodSearch');const draw=()=>{const q=input.value.toLowerCase();document.getElementById('foodResults').innerHTML=foodData.filter(x=>x[0].toLowerCase().includes(q)).map(x=>`<article class="food-card"><div class="food-name">${x[0]}</div><div class="food-serving">Serving: ${x[1]}</div><div class="macro-grid"><div><b>${x[2]}</b><span>Calories</span></div><div><b>${x[3]}g</b><span>Protein</span></div><div><b>${x[4]}g</b><span>Carbs</span></div><div><b>${x[5]}g</b><span>Fat</span></div></div></article>`).join('')||'<div class="empty">No food found.</div>';};input.addEventListener('input',draw);draw();}
+function renderCalculatorView(t){t.innerHTML=`<section class="tool-page"><div class="tool-head"><div class="section-eyebrow">Personal Nutrition Tool</div><h2>Calorie Deficit Calculator</h2><p>Estimate maintenance calories, a moderate deficit, an aggressive deficit and a practical protein target.</p></div><div class="calculator-shell"><form id="calcForm" class="calc-form"><label>Gender<select id="calcGender"><option value="male">Male</option><option value="female">Female</option></select></label><label>Age<input id="calcAge" type="number" min="13" max="100" value="25"></label><label>Weight (kg)<input id="calcWeight" type="number" min="30" value="70"></label><label>Height (cm)<input id="calcHeight" type="number" min="120" value="170"></label><label>Activity Level<select id="calcActivity"><option value="1.2">Sedentary</option><option value="1.375">Lightly Active</option><option value="1.55" selected>Moderately Active</option><option value="1.725">Very Active</option><option value="1.9">Extremely Active</option></select></label><label>Goal<select id="calcGoal"><option value="fat">Fat Loss</option><option value="maintain">Maintain Weight</option><option value="gain">Muscle / Weight Gain</option></select></label><button type="submit">Calculate Results</button></form><div id="calcResults" class="calc-results"><div class="calc-placeholder">Enter your details and calculate.</div></div></div></section>`;document.getElementById('calcForm').addEventListener('submit',e=>{e.preventDefault();const g=document.getElementById('calcGender').value,a=+document.getElementById('calcAge').value,w=+document.getElementById('calcWeight').value,h=+document.getElementById('calcHeight').value,act=+document.getElementById('calcActivity').value,goal=document.getElementById('calcGoal').value;const bmr=g==='male'?10*w+6.25*h-5*a+5:10*w+6.25*h-5*a-161;const maintenance=Math.round(bmr*act),fat=Math.max(1200,maintenance-500),aggr=Math.max(1200,maintenance-750),protein=Math.round(w*(goal==='gain'?2:goal==='fat'?1.8:1.6)),water=Math.round(w*35);document.getElementById('calcResults').innerHTML=[['Maintenance',maintenance+' kcal/day'],['Fat Loss',fat+' kcal/day'],['Aggressive Fat Loss',aggr+' kcal/day'],['Protein',protein+' g/day'],['Water',(water/1000).toFixed(1)+' L/day']].map(x=>`<div class="result-card"><span>${x[0]}</span><strong>${x[1]}</strong></div>`).join('');});}
 
 // ── CSV Load ──────────────────────────────────────────────────────────────────
 
@@ -983,11 +1081,13 @@ function restoreMode() {
   if (currentMode === "featured") showFeatured();
   else if (currentMode === "brand") showBrandSection();
   else if (currentMode === "category") showCategorySection();
+  else if (currentMode === 'category-cards') { renderCategoryCards(); setSectionTitle('Categories','Shop by Category'); }
 }
 
 // ── Sections ──────────────────────────────────────────────────────────────────
 
 function showFeatured() {
+  productRow.classList.remove("section-stack");
   currentMode = "featured"; setActive("btn-featured");
   setSectionTitle("Curated Selection", "Featured Deals");
   document.getElementById("searchInput").value = "";
@@ -1011,7 +1111,11 @@ const BRAND_LOGO_ALIASES = {
   "ryse": ["ryse.png"],
   "bpi-sports": ["bpi-sports.png", "bpi.png"],
   "cellucor": ["cellucor.png"],
-  "cutler-nutrition": ["cutler-nutrition.png", "cutler.png"]
+  "cutler-nutrition": ["cutler-nutrition.png", "cutler.png"],
+  "dymatize-nutrition": ["dymatize.png"],
+  "quest": ["quest.png"],
+  "bpi": ["bpi-sports.png", "bpi.png"],
+  "rule-1": ["rule-1.png", "rule1.png"]
 };
 function brandLogoCandidates(brand) {
   const key = normalizeBrandLogoName(brand);
@@ -1020,8 +1124,8 @@ function brandLogoCandidates(brand) {
 function brandLogoHTML(brand, className="brand-card-img") {
   const candidates = brandLogoCandidates(brand);
   const first = candidates[0];
-  const fallback = `this.dataset.i=(+this.dataset.i||0)+1; if(+this.dataset.i < ${candidates.length}) this.src='brand-logos/${candidates[1] || first}'; else {this.style.display='none';this.nextElementSibling.style.display='flex';}`;
-  return `<img class="${className}" src="brand-logos/${first}" alt="${eav(brand)}" data-i="0" onerror="${fallback}"><div class="brand-logo-placeholder">${esc(brand || "Brand")}</div>`;
+  const fallback = `this.dataset.i=(+this.dataset.i||0)+1; if(+this.dataset.i < ${candidates.length}) this.src='./brand-logos/${candidates[1] || first}'; else {this.style.display='none';this.nextElementSibling.style.display='flex';}`;
+  return `<img class="${className}" src="./brand-logos/${first}" alt="${eav(brand)}" data-i="0" onerror="${fallback}"><div class="brand-logo-placeholder">${esc(brand || "Brand")}</div>`;
 }
 
 function shuffleArray(arr) {
@@ -1032,6 +1136,7 @@ function shuffleArray(arr) {
 
 function showBrandSection() {
 
+  productRow.classList.add("section-stack");
   currentMode = "brand";
   setActive("btn-brands");
 
@@ -1120,6 +1225,7 @@ function filterByBrand(brand) {
 }
 
 function showCategorySection() {
+  productRow.classList.add("section-stack");
   currentMode = "category";
   setActive("btn-cats");
 
@@ -1131,13 +1237,14 @@ function showCategorySection() {
   const categoryMap = {};
 
   allProducts.forEach(p => {
-    if (!p.Category) return;
+    const category = (p.Category || '').trim();
+    if (!category) return;
 
-    if (!categoryMap[p.Category]) {
+    if (!categoryMap[category]) {
       categoryMap[p.Category] = [];
     }
 
-    categoryMap[p.Category].push(p);
+    categoryMap[category].push(p);
   });
 
   Object.keys(categoryMap).forEach(cat => {
@@ -1185,32 +1292,28 @@ function catIcon(cat) {
 }
 
 function renderCategoryCards() {
-  const catMap = new Map();
-  allProducts.forEach(p => { if (p.Category && !catMap.has(p.Category)) catMap.set(p.Category, p); });
+  const counts = new Map();
+  allProducts.forEach(p => { const c=(p.Category||'').trim(); if(c) counts.set(c,(counts.get(c)||0)+1); });
   const categoryPriority = ["Protein Powder","Whey Protein Blend","Whey Protein Isolate","Hydrolyzed Whey Protein","Yeast Protein","Casein","Multi Sourced Protein","Pre Workout","Creatine","Creatine Monohydrate/Micronised","Creatine HCL","Creatine Blend","BCAA & EAA","Fat Burners","Mass Gainers","Protein Bars","Protein Chips","Health & Wellness","Vitamins","Hydration","Performance"];
-  const cats = [...catMap.keys()].sort((a,b) => { const ia=categoryPriority.indexOf(a), ib=categoryPriority.indexOf(b); return (ia<0?999:ia)-(ib<0?999:ib) || a.localeCompare(b); });
-
-  productRow.innerHTML = "";
-  if (!cats.length) { productRow.innerHTML = '<div class="empty">No categories found.</div>'; return; }
-
-  cats.forEach(cat => {
-    const d = document.createElement("div");
-    d.className = "cat-card";
-    d.addEventListener("click", () => filterByCategory(cat));
-    d.innerHTML = `<div class="cat-card-icon">${catIcon(cat)}</div>
-      <div class="cat-card-name">${esc(cat)}</div>`;
+  const cats = [...new Set([...categoryPriority,...counts.keys()])].sort((a,b)=>{const ia=categoryPriority.indexOf(a),ib=categoryPriority.indexOf(b);return (ia<0?999:ia)-(ib<0?999:ib)||a.localeCompare(b);});
+  productRow.classList.remove('section-stack');
+  productRow.innerHTML='';
+  cats.forEach(cat=>{
+    const d=document.createElement('div'); d.className='cat-card'; d.addEventListener('click',()=>filterByCategory(cat));
+    d.innerHTML=`<div class="cat-card-icon">${catIcon(cat)}</div><div class="cat-card-name">${esc(cat)}</div><div class="cat-card-count">${counts.get(cat)||0} ${counts.get(cat)===1?'Product':'Products'}</div>`;
     productRow.appendChild(d);
   });
 }
-
 function filterByCategory(cat) {
+  currentMode = 'category-products';
   setSectionTitle("Category", cat || "Category");
-  renderProductCards(groupProducts(allProducts.filter(p => p.Category === cat)));
+  renderProductCards(shuffleArray(groupProducts(allProducts.filter(p => (p.Category||'').trim().toLowerCase() === String(cat||'').trim().toLowerCase()))));
 }
 
 // ── Product Cards ─────────────────────────────────────────────────────────────
 
 function renderProductCards(products) {
+  productRow.classList.remove('section-stack');
   productRow.innerHTML = "";
   if (!products.length) { productRow.innerHTML = '<div class="empty">No products found.</div>'; return; }
 
@@ -1221,7 +1324,7 @@ function renderProductCards(products) {
     card.addEventListener("click", () => openProduct(p));
 
     const isOut = (p.STOCK || "").toLowerCase().includes("out");
-    const imgSrc = isValidUrl(p.IMAGE1_FRONT) ? p.IMAGE1_FRONT : "";
+    const imgSrc = isValidUrl(p.IMAGE1_FRONT) ? resolveImage(p.IMAGE1_FRONT) : "";
 
     // Build card HTML — NO onclick attributes with data in them
     const imageHtml = imgSrc
@@ -1257,7 +1360,7 @@ function createProductCard(p){
 
   const isOut = (p.STOCK || "").toLowerCase().includes("out");
 
-  const imgSrc = isValidUrl(p.IMAGE1_FRONT) ? p.IMAGE1_FRONT : "";
+  const imgSrc = isValidUrl(p.IMAGE1_FRONT) ? resolveImage(p.IMAGE1_FRONT) : "";
 
   const imageHtml = imgSrc
     ? `<img src="${eav(imgSrc)}" alt="${eav(p.ITEM || "")}"
@@ -1327,7 +1430,8 @@ function populateModal(product) {
 
   // Images — strict validation
   currentImages = [product.IMAGE1_FRONT, product.IMAGE2_SIDE, product.IMAGE3_BACK]
-    .filter(u => isValidUrl(u));
+    .filter(u => isValidUrl(u))
+    .map(resolveImage);
   currentImgIndex = 0;
   renderModalImage();
   renderThumbs();
@@ -1512,7 +1616,11 @@ document.addEventListener("keydown", function (e) {
 function closeModal() {
   document.getElementById("modal").style.display = "none";
   document.body.style.overflow = "auto";
-  // Do NOT touch page scroll position
+  document.getElementById('flavourSection').style.display='';
+  document.getElementById('sizeSection').style.display='';
+  document.getElementById('orderBtn').style.display='';
+  document.getElementById('mainImage').style.display='';
+  document.getElementById('imgFallback').style.display='none';
 }
 function handleModalBgClick(e) {
   if (e.target === document.getElementById("modal")) closeModal();
