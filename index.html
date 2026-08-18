@@ -706,6 +706,33 @@ body{font-size:14px;line-height:1.6;}
 .legacy-nav-buttons{display:none}.section-stack{display:block!important}.filter-bar{padding-left:32px}.search{max-width:560px}.section{min-height:420px}.category-products,.brand-products,.row-scroll{grid-template-columns:repeat(4,minmax(0,1fr));}.cat-card-count{font-size:10px;color:#666;letter-spacing:1px;text-transform:uppercase}.tool-viewport{min-height:calc(100vh - 150px);padding:55px 42px 75px}.tool-head{max-width:900px;margin:0 auto 38px}.tool-head h2{font:600 clamp(38px,4vw,56px)/1.08 var(--serif);letter-spacing:-.7px}.tool-head p{color:#999;margin-top:12px;max-width:700px;font-size:14px}.ingredient-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.ingredient-card,.food-card,.result-card{background:linear-gradient(145deg,#151515,#0e0e0e);border:1px solid var(--border);border-radius:10px;transition:.3s}.ingredient-card{padding:20px;min-height:245px;display:flex;flex-direction:column}.ingredient-card:hover,.food-card:hover,.result-card:hover{transform:translateY(-4px);border-color:var(--borderg)}.ingredient-art{height:70px;border-radius:7px;background:#0a0a0a;display:grid;place-items:center;font-size:32px;margin-bottom:16px}.ingredient-name{font:600 19px/1.25 var(--serif);color:var(--chalk)}.ingredient-card p{color:#8e8e8e;font-size:12px;line-height:1.6;margin:9px 0 15px}.ingredient-card button{margin-top:auto;border:0;border-top:1px solid var(--border);background:none;color:var(--gold);padding:12px 0 0;text-align:left;font:600 11px var(--sans);letter-spacing:1px;cursor:pointer}.food-search{margin-top:25px;max-width:680px;position:relative}.food-search span{position:absolute;left:15px;top:10px;color:var(--gold);font-size:20px}.food-search input{width:100%;height:48px;border:1px solid var(--border2);border-radius:5px;background:#111;color:#fff;padding:0 16px 0 45px;font:500 14px var(--sans);outline:none}.food-search input:focus{border-color:var(--gold)}.food-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.food-card{padding:20px}.food-name{font:600 22px var(--serif)}.food-serving{font-size:11px;color:#777;margin:5px 0 18px}.macro-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.macro-grid div{padding:12px;background:#0a0a0a;border-radius:5px}.macro-grid b{display:block;font:600 18px var(--serif);color:var(--gold2)}.macro-grid span{font-size:9px;color:#777;text-transform:uppercase;letter-spacing:1px}.calculator-shell{display:grid;grid-template-columns:minmax(300px,460px) 1fr;gap:30px;max-width:1050px;margin:auto}.calc-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:25px;background:#111;border:1px solid var(--border);border-radius:10px}.calc-form label{font-size:10px;letter-spacing:1.5px;color:#888;text-transform:uppercase}.calc-form input,.calc-form select{width:100%;margin-top:7px;height:44px;background:#080808;border:1px solid var(--border2);border-radius:4px;color:#eee;padding:0 12px;font:500 13px var(--sans);outline:none}.calc-form button{grid-column:1/-1;height:48px;border:1px solid var(--gold);background:var(--gold);color:#090909;border-radius:4px;font:700 11px var(--sans);letter-spacing:2px;text-transform:uppercase;cursor:pointer}.calc-results{display:grid;grid-template-columns:1fr 1fr;gap:14px}.result-card{padding:24px;min-height:120px;display:flex;flex-direction:column;justify-content:space-between}.result-card span{font-size:10px;color:#888;letter-spacing:1.5px;text-transform:uppercase}.result-card strong{font:600 27px var(--serif);color:var(--gold2)}.calc-placeholder{grid-column:1/-1;padding:50px;text-align:center;color:#666;border:1px dashed var(--border2);border-radius:10px}.tool-modal-left{min-height:100%}
 @media(max-width:900px){.app-sidebar{width:285px;transform:translateX(-102%);transition:transform .3s ease;box-shadow:15px 0 40px rgba(0,0,0,.5)}.app-sidebar.mobile-open{transform:translateX(0)}.mobile-sidebar-toggle{display:grid;place-items:center;position:fixed;left:12px;top:12px;width:42px;height:42px;border:1px solid var(--borderg);background:#0b0b0b;color:var(--gold);border-radius:8px;z-index:2100;font-size:20px}.sidebar-backdrop.show{display:block;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1900}.topbar,.announce,.banner,.filter-bar,#mainSection,.tool-viewport,.footer{margin-left:0}.topbar{padding-left:65px}.filter-bar{top:68px}.section{padding:32px 14px}.section-head{margin-bottom:25px}.section-head h2{font-size:31px}.ingredient-grid,.food-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.calculator-shell{grid-template-columns:1fr}.tool-viewport{padding:38px 14px 60px}.tool-head h2{font-size:35px}.calc-form{grid-template-columns:1fr}.calc-form button{grid-column:1}.calc-results{grid-template-columns:1fr 1fr}.modal{z-index:9999}.modal-box{max-height:96dvh;height:96dvh;overflow:hidden}.modal-left{min-height:170px;height:190px}.modal-right{overflow-y:auto;max-height:none;height:calc(96dvh - 190px);padding-bottom:35px}.modal-bullets{padding-bottom:25px}.modal-bullets li{font-size:13px;line-height:1.65}.card-title{font-size:15px}.card-image{height:185px}.brand-card-name{font-size:9px}.legacy-nav-buttons{display:none}}
 
+
+/* FINAL LAYOUT FIXES */
+#productRow.section-stack{display:block!important;grid-template-columns:none!important;width:100%;}
+#productRow:not(.section-stack){display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:stretch;}
+#productRow.section-stack .category-section{display:block;width:100%;margin-bottom:56px;}
+#productRow.section-stack .brand-products,#productRow.section-stack .category-products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;width:100%;}
+#productRow.section-stack .card{width:100%;min-width:0;}
+.sidebar-subnav{display:flex;flex-direction:column;gap:2px;margin:-2px 0 8px 35px;padding-left:12px;border-left:1px solid rgba(201,168,76,.18);}
+.sidebar-subnav button{border:0;background:transparent;color:#777;text-align:left;padding:7px 6px;font:500 10px/1.3 var(--sans);letter-spacing:.2px;cursor:pointer;border-radius:4px;transition:.2s;}
+.sidebar-subnav button:hover{color:var(--gold2);background:rgba(201,168,76,.06);}
+.category-directory{display:block;width:100%;}
+.category-group{margin-bottom:42px;}
+.category-group-title{font:600 30px/1.15 var(--serif);color:var(--chalk);margin:0 0 18px;letter-spacing:.3px;}
+.category-subgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.category-directory .cat-card{min-width:0;max-width:none;}
+@media(max-width:900px){
+  #productRow:not(.section-stack){grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+  #productRow.section-stack .brand-products,#productRow.section-stack .category-products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+  .category-subgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+  .sidebar-subnav{margin-left:30px;max-height:46vh;overflow-y:auto;}
+  .mobile-sidebar-toggle{top:10px;left:10px;}
+  .topbar{padding-left:62px!important;}
+  .modal{height:100dvh;max-height:100dvh;overflow:hidden;}
+  .modal-box{height:96dvh!important;max-height:96dvh!important;display:flex;flex-direction:column;overflow:hidden;}
+  .modal-right{height:auto!important;flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior:contain;}
+}
+
 </style>
 </head>
 <body>
@@ -721,6 +748,20 @@ body{font-size:14px;line-height:1.6;}
     <button class="sidebar-item active" id="nav-home" onclick="navigate('home')"><span>🏠</span><b>Home</b></button>
     <button class="sidebar-item" id="nav-brand" onclick="navigate('brand')"><span>🏷️</span><b>Shop By Brand</b></button>
     <button class="sidebar-item" id="nav-category" onclick="navigate('category')"><span>📦</span><b>Shop By Category</b></button>
+    <div class="sidebar-subnav" id="categorySubnav">
+      <button onclick="filterByCategoryGroup('Protein Powder')">Protein Powder</button>
+      <button onclick="filterByCategoryGroup('Creatine')">Creatine</button>
+      <button onclick="filterByCategory('Pre Workout')">Pre Workout</button>
+      <button onclick="filterByCategory('BCAA & EAA')">BCAA &amp; EAA</button>
+      <button onclick="filterByCategory('Fat Burners')">Fat Burners</button>
+      <button onclick="filterByCategory('Mass Gainers')">Mass Gainers</button>
+      <button onclick="filterByCategory('Protein Bars')">Protein Bars</button>
+      <button onclick="filterByCategory('Protein Chips')">Protein Chips</button>
+      <button onclick="filterByCategory('Health & Wellness')">Health &amp; Wellness</button>
+      <button onclick="filterByCategory('Vitamins')">Vitamins</button>
+      <button onclick="filterByCategory('Hydration')">Hydration</button>
+      <button onclick="filterByCategory('Performance')">Performance</button>
+    </div>
     <button class="sidebar-item" id="nav-ingredients" onclick="navigate('ingredients')"><span>🧪</span><b>Know More About Supplements</b></button>
     <button class="sidebar-item" id="nav-calculator" onclick="navigate('calculator')"><span>🔥</span><b>Calorie Deficit Calculator</b></button>
     <button class="sidebar-item" id="nav-food" onclick="navigate('food')"><span>🍗</span><b>What's In My Food</b></button>
@@ -955,8 +996,15 @@ function resolveImage(src) {
   if (!u) return '';
   if (/^https?:\/\//i.test(u) || /^data:/i.test(u)) return u;
   if (/^\.?\/?product-images\//i.test(u)) return u.replace(/^\.\/?/, '');
+  if (/^\.?\/?brand-logos\//i.test(u)) return u.replace(/^\.\/?/, '');
   if (/\.(jpg|jpeg|png|webp|avif|gif)(\?.*)?$/i.test(u)) return 'product-images/' + u.replace(/^\/*/, '');
   return u;
+}
+function rootImageFallback(src) {
+  const u=String(src||'').trim();
+  if (!u || /^https?:\/\//i.test(u) || /^data:/i.test(u)) return '';
+  const clean=u.split('?')[0].replace(/^\.\/?/, '').replace(/^product-images\//i,'').replace(/^\//,'');
+  return /\.(jpg|jpeg|png|webp|avif|gif)$/i.test(clean) ? clean : '';
 }
 
 // Group products to one card per BRAND+ITEM combination
@@ -1088,6 +1136,7 @@ function restoreMode() {
 
 function showFeatured() {
   productRow.classList.remove("section-stack");
+  productRow.style.display = "grid";
   currentMode = "featured"; setActive("btn-featured");
   setSectionTitle("Curated Selection", "Featured Deals");
   document.getElementById("searchInput").value = "";
@@ -1137,6 +1186,7 @@ function shuffleArray(arr) {
 function showBrandSection() {
 
   productRow.classList.add("section-stack");
+  productRow.style.display = "block";
   currentMode = "brand";
   setActive("btn-brands");
 
@@ -1226,6 +1276,7 @@ function filterByBrand(brand) {
 
 function showCategorySection() {
   productRow.classList.add("section-stack");
+  productRow.style.display = "block";
   currentMode = "category";
   setActive("btn-cats");
 
@@ -1293,20 +1344,77 @@ function catIcon(cat) {
 
 function renderCategoryCards() {
   const counts = new Map();
-  allProducts.forEach(p => { const c=(p.Category||'').trim(); if(c) counts.set(c,(counts.get(c)||0)+1); });
-  const categoryPriority = ["Protein Powder","Whey Protein Blend","Whey Protein Isolate","Hydrolyzed Whey Protein","Yeast Protein","Casein","Multi Sourced Protein","Pre Workout","Creatine","Creatine Monohydrate/Micronised","Creatine HCL","Creatine Blend","BCAA & EAA","Fat Burners","Mass Gainers","Protein Bars","Protein Chips","Health & Wellness","Vitamins","Hydration","Performance"];
-  const cats = [...new Set([...categoryPriority,...counts.keys()])].sort((a,b)=>{const ia=categoryPriority.indexOf(a),ib=categoryPriority.indexOf(b);return (ia<0?999:ia)-(ib<0?999:ib)||a.localeCompare(b);});
-  productRow.classList.remove('section-stack');
+  allProducts.forEach(p => {
+    const c=(p.Category||'').trim();
+    if(c) counts.set(c,(counts.get(c)||0)+1);
+  });
+
+  const proteinSubs = [
+    'Whey Protein Blend','Whey Protein Isolate','Hydrolyzed Whey Protein',
+    'Yeast Protein','Casein','Multi Sourced Protein'
+  ];
+  const creatineSubs = ['Creatine Monohydrate/Micronised','Creatine HCL','Creatine Blend'];
+  const otherCats = ['Pre Workout','BCAA & EAA','Fat Burners','Mass Gainers','Protein Bars','Protein Chips','Health & Wellness','Vitamins','Hydration','Performance'];
+
+  productRow.classList.add('section-stack');
+  productRow.style.display='block';
   productRow.innerHTML='';
-  cats.forEach(cat=>{
+
+  const directory=document.createElement('div');
+  directory.className='category-directory';
+
+  const addGroup=(title, subs, icon)=>{
+    const group=document.createElement('section');
+    group.className='category-group';
+    group.innerHTML=`<h3 class="category-group-title">${icon} ${esc(title)}</h3><div class="category-subgrid"></div>`;
+    const grid=group.querySelector('.category-subgrid');
+    subs.forEach(cat=>{
+      const d=document.createElement('div');
+      d.className='cat-card';
+      d.addEventListener('click',()=>filterByCategory(cat));
+      d.innerHTML=`<div class="cat-card-icon">${catIcon(cat)}</div><div class="cat-card-name">${esc(cat)}</div><div class="cat-card-count">${counts.get(cat)||0} ${counts.get(cat)===1?'Product':'Products'}</div>`;
+      grid.appendChild(d);
+    });
+    directory.appendChild(group);
+  };
+
+  addGroup('Protein Powder',proteinSubs,'🥛');
+  addGroup('Creatine',creatineSubs,'⚡');
+
+  const otherGroup=document.createElement('section');
+  otherGroup.className='category-group';
+  otherGroup.innerHTML='<h3 class="category-group-title">🧪 Other Categories</h3><div class="category-subgrid"></div>';
+  const otherGrid=otherGroup.querySelector('.category-subgrid');
+  otherCats.forEach(cat=>{
     const d=document.createElement('div'); d.className='cat-card'; d.addEventListener('click',()=>filterByCategory(cat));
     d.innerHTML=`<div class="cat-card-icon">${catIcon(cat)}</div><div class="cat-card-name">${esc(cat)}</div><div class="cat-card-count">${counts.get(cat)||0} ${counts.get(cat)===1?'Product':'Products'}</div>`;
-    productRow.appendChild(d);
+    otherGrid.appendChild(d);
   });
+  directory.appendChild(otherGroup);
+
+  // Any additional category names present in the CSV remain available automatically.
+  const known=new Set([...proteinSubs,...creatineSubs,...otherCats]);
+  const extra=[...counts.keys()].filter(c=>c && !known.has(c)).sort();
+  if(extra.length){
+    addGroup('More Categories',extra,'📦');
+  }
+  productRow.appendChild(directory);
+}
+
+function filterByCategoryGroup(parent) {
+  const map={
+    'Protein Powder':['Whey Protein Blend','Whey Protein Isolate','Hydrolyzed Whey Protein','Yeast Protein','Casein','Multi Sourced Protein'],
+    'Creatine':['Creatine Monohydrate/Micronised','Creatine HCL','Creatine Blend']
+  };
+  const names=map[parent]||[parent];
+  currentMode='category-products';
+  setSectionTitle('Category',parent);
+  const filtered=allProducts.filter(p=>names.some(n=>(p.Category||'').trim().toLowerCase()===n.toLowerCase()));
+  renderProductCards(shuffleArray(groupProducts(filtered)));
 }
 function filterByCategory(cat) {
   currentMode = 'category-products';
-  setSectionTitle("Category", cat || "Category");
+  setSectionTitle('Category', cat || 'Category');
   renderProductCards(shuffleArray(groupProducts(allProducts.filter(p => (p.Category||'').trim().toLowerCase() === String(cat||'').trim().toLowerCase()))));
 }
 
@@ -1314,6 +1422,7 @@ function filterByCategory(cat) {
 
 function renderProductCards(products) {
   productRow.classList.remove('section-stack');
+  productRow.style.display = "grid";
   productRow.innerHTML = "";
   if (!products.length) { productRow.innerHTML = '<div class="empty">No products found.</div>'; return; }
 
@@ -1330,7 +1439,7 @@ function renderProductCards(products) {
     const imageHtml = imgSrc
       ? `<img src="${eav(imgSrc)}" alt="${eav(p.ITEM || "")}"
               loading="lazy"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+              onerror="if(!this.dataset.rootFallback){this.dataset.rootFallback='1';this.src='./'+this.src.split('/').pop();}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">`
       : "";
     const fallbackStyle = imgSrc ? "display:none;" : "";
 
@@ -1365,7 +1474,7 @@ function createProductCard(p){
   const imageHtml = imgSrc
     ? `<img src="${eav(imgSrc)}" alt="${eav(p.ITEM || "")}"
         loading="lazy"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+        onerror="if(!this.dataset.rootFallback){this.dataset.rootFallback='1';this.src='./'+this.src.split('/').pop();}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">`
     : "";
 
   const fallbackStyle = imgSrc ? "display:none;" : "";
@@ -1561,6 +1670,12 @@ function renderModalImage() {
   img.src = "";
   img.src = currentImages[currentImgIndex];
   img.onerror = function () {
+    const current = String(this.src || '');
+    if (!this.dataset.rootFallback && /\/product-images\//i.test(current)) {
+      this.dataset.rootFallback = '1';
+      this.src = './' + current.split('/').pop();
+      return;
+    }
     this.onerror = null;
     this.style.display = "none";
     fb.style.display = "flex";
@@ -1583,7 +1698,15 @@ function renderThumbs() {
     const img = document.createElement("img");
     img.src = url;
     img.alt = "Thumbnail " + (i + 1);
-    img.onerror = function () { wrap.style.display = "none"; };
+    img.onerror = function () {
+      const current = String(this.src || '');
+      if (!this.dataset.rootFallback && /\/product-images\//i.test(current)) {
+        this.dataset.rootFallback='1';
+        this.src='./'+current.split('/').pop();
+        return;
+      }
+      wrap.style.display = "none";
+    };
     wrap.appendChild(img);
     thumbRow.appendChild(wrap);
   });
