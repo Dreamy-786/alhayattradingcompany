@@ -1,0 +1,18 @@
+{
+  "settings": {
+    "firmName": "Your Firm",
+    "accentWord": "Firm",
+    "tagline": "Sports nutrition, fitness gear and apparel",
+    "heroTitle": "Genuine products. Straight from our shelves.",
+    "heroSub": "Browse our full range, check live prices and send your order in a minute.",
+    "topbar": "Free delivery on orders above ₹999",
+    "phone": "+91 99999 99999",
+    "whatsappNumber": "919999999999",
+    "email": "hello@yourfirm.com",
+    "address": "Your shop address, City"
+  },
+  "products": [
+    {"id":"1","name":"Sample Whey Protein 1 kg","brand":"Sample Brand","category":"Protein","subcategory":"","price":2999,"mrp":3999,"image_url":"","image_2":"","image_3":"","image_4":"","description":"Sample product. Delete it from the admin page.","weight_size":"1 kg","flavour":"Chocolate","rating":4.5,"stock":"yes","featured":"yes"},
+    {"id":"2","name":"Sample Creatine 250 g","brand":"Sample Brand","category":"Creatine","subcategory":"","price":899,"mrp":1199,"image_url":"","image_2":"","image_3":"","image_4":"","description":"Sample product. Delete it from the admin page.","weight_size":"250 g","flavour":"Unflavoured","rating":4.6,"stock":"yes","featured":""}
+  ]
+}
