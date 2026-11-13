@@ -19,6 +19,25 @@
       "image_3": "",
       "image_4": "",
       "id": "1"
+    },
+    {
+      "name": "BPI 1MR Vortex Pre-Workout for Energy, Focus & Pumps, 30 Servings",
+      "brand": "BPI Sports",
+      "category": "Pre-Workout",
+      "subcategory": "Mild Pre-Workout",
+      "price": 1600,
+      "mrp": 3299,
+      "weight_size": "450 Grams",
+      "flavour": "Blue Lemonade",
+      "rating": 4.5,
+      "stock": "yes",
+      "featured": "yes",
+      "description": "Powerful pre-workout formula crafted for explosive energy and focus. Helps support endurance, workout intensity, and training performance. Designed for athletes seeking enhanced pumps and gym motivation. Refreshing Blue Lemonade flavor delivers an energizing pre-workout experience",
+      "image_url": "images/p1794605113938j941.jpg",
+      "image_2": "images/p1794605125088el26.jpg",
+      "image_3": "images/p1794605118709vv75.jpg",
+      "image_4": "images/p1794605129906am0b.jpg",
+      "id": "2"
     }
   ]
 }
