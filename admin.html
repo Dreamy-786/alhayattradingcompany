@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Store Admin</title>
+<style>
+:root{--bg:#f4f5f8;--card:#fff;--ink:#161a2e;--muted:#5d6479;--line:#dfe3ec;--accent:#e4572e;--good:#1c8a5a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:16px}
+h1{font-size:20px;margin:0}
+h2{font-size:17px;margin:0 0 12px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{border:1px solid var(--line);background:var(--card);padding:8px 14px;border-radius:8px;font-weight:600;cursor:pointer}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+label{display:block;font-weight:600;font-size:13px;margin-bottom:4px}
+input,select,textarea{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff;color:var(--ink)}
+textarea{min-height:90px;resize:vertical}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.full{grid-column:1/-1}
+button.btn{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:10px 18px;font-weight:600;cursor:pointer}
+button.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--line)}
+button.btn.del{background:#fff;color:#b3261e;border:1px solid #e6b7b3}
+button:disabled{opacity:.5;cursor:not-allowed}
+.row{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.row img,.ph{width:52px;height:52px;object-fit:contain;background:#eef0f5;border-radius:8px}
+.row .meta{color:var(--muted);font-size:13px}
+.row .acts{display:flex;gap:6px}
+.imgs{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.slot{border:1px dashed var(--line);border-radius:10px;padding:8px;text-align:center}
+.slot .pv{aspect-ratio:1/1;background:#eef0f5;border-radius:8px;display:grid;place-items:center;overflow:hidden;color:var(--muted);font-size:12px;margin-bottom:6px}
+.slot .pv img{width:100%;height:100%;object-fit:contain}
+.slot input[type=file]{font-size:12px;padding:4px}
+.slot small{display:block;color:var(--muted)}
+.msg{padding:10px 12px;border-radius:8px;margin-bottom:12px;background:#e6f4ec;color:#14633f}
+.msg.err{background:#fbe9e7;color:#b3261e}
+.hint{color:var(--muted);font-size:12px;margin-top:4px}
+#connect{max-width:520px;margin:8vh auto}
+details{margin-top:12px}
+details ol{padding-left:18px;margin:8px 0}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<div id="connect" class="card">
+  <h1>Store admin</h1>
+  <p class="hint">Connect this page to your website's GitHub repository. Your details stay in this browser only.</p>
+  <div id="connectMsg"></div>
+  <div class="grid">
+    <div><label for="c_owner">GitHub username</label><input id="c_owner" autocomplete="off"></div>
+    <div><label for="c_repo">Repository name</label><input id="c_repo" autocomplete="off"></div>
+    <div><label for="c_branch">Branch</label><input id="c_branch" value="main"></div>
+    <div class="full"><label for="c_token">Access token</label><input id="c_token" type="password" autocomplete="off" placeholder="github_pat_..."></div>
+  </div>
+  <p><button class="btn" id="connectBtn" style="width:100%">Connect</button></p>
+  <details>
+    <summary>How do I get an access token?</summary>
+    <ol>
+      <li>Sign in to GitHub, click your photo → Settings.</li>
+      <li>Scroll down on the left to Developer settings → Personal access tokens → Fine-grained tokens → Generate new token.</li>
+      <li>Give it any name. Set Expiration to the longest you can.</li>
+      <li>Under "Repository access" choose Only select repositories and pick your website repository.</li>
+      <li>Under Permissions → Repository permissions, set <b>Contents</b> to <b>Read and write</b>.</li>
+      <li>Click Generate token, copy it and paste it above. GitHub shows it only once.</li>
+    </ol>
+    <p class="hint">Anyone who opens this page still cannot change your website without the token. Do not share the token.</p>
+  </details>
+</div>
+
+<div id="app" class="wrap" hidden>
+  <div class="bar">
+    <h1>Store admin</h1>
+    <div class="tabs">
+      <button id="tabProducts" class="on">Products</button>
+      <button id="tabSettings">Business details</button>
+      <button id="viewSite" class="alt" style="display:none"></button>
+      <button id="disconnect">Disconnect</button>
+    </div>
+  </div>
+  <div id="msg"></div>
+
+  <section id="viewProducts">
+    <div class="card" id="listCard">
+      <div class="bar" style="margin-bottom:8px">
+        <h2 style="margin:0">All products (<span id="pcount">0</span>)</h2>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <input id="filter" placeholder="Search" style="width:180px">
+          <button class="btn" id="newBtn">Add product</button>
+        </div>
+      </div>
+      <div id="list"></div>
+    </div>
+
+    <div class="card" id="formCard" hidden>
+      <h2 id="formTitle">Add product</h2>
+      <div class="grid">
+        <div class="full"><label for="f_name">Product name *</label><input id="f_name"></div>
+        <div><label for="f_brand">Brand</label><input id="f_brand"></div>
+        <div><label for="f_category">Category *</label><input id="f_category" list="catlist"><datalist id="catlist"></datalist></div>
+        <div><label for="f_subcategory">Sub category</label><input id="f_subcategory"></div>
+        <div><label for="f_price">Selling price *</label><input id="f_price" type="number" min="0" step="any"></div>
+        <div><label for="f_mrp">MRP (before discount)</label><input id="f_mrp" type="number" min="0" step="any"></div>
+        <div><label for="f_weight_size">Size or weight</label><input id="f_weight_size" placeholder="1 kg, 60 caps, UK 8"></div>
+        <div><label for="f_flavour">Flavour or colour</label><input id="f_flavour"></div>
+        <div><label for="f_rating">Rating (0 to 5)</label><input id="f_rating" type="number" min="0" max="5" step="0.1"></div>
+        <div><label for="f_stock">Availability</label><select id="f_stock"><option value="yes">In stock</option><option value="no">Sold out</option></select></div>
+        <div><label for="f_featured">Show first on site</label><select id="f_featured"><option value="">No</option><option value="yes">Yes</option></select></div>
+        <div class="full"><label for="f_description">Description</label><textarea id="f_description"></textarea></div>
+      </div>
+      <h2 style="margin-top:16px">Photos</h2>
+      <div class="imgs" id="imgs"></div>
+      <p class="hint">Photos are resized automatically and saved in the images folder of your repository. The first photo is the main one.</p>
+      <p style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn" id="saveBtn">Save product</button>
+        <button class="btn alt" id="cancelBtn">Cancel</button>
+      </p>
+    </div>
+  </section>
+
+  <section id="viewSettings" hidden>
+    <div class="card">
+      <h2>Business details</h2>
+      <div class="grid">
+        <div><label for="s_firmName">Business name</label><input id="s_firmName"></div>
+        <div><label for="s_accentWord">Word shown in colour</label><input id="s_accentWord"><div class="hint">Optional. Must appear in the name.</div></div>
+        <div><label for="s_phone">Phone number</label><input id="s_phone"></div>
+        <div><label for="s_whatsappNumber">WhatsApp number for orders</label><input id="s_whatsappNumber" placeholder="919999999999"><div class="hint">Country code first, digits only.</div></div>
+        <div><label for="s_email">Email</label><input id="s_email" type="email"></div>
+        <div><label for="s_topbar">Top banner text</label><input id="s_topbar" placeholder="Free delivery above Rs. 999"></div>
+        <div class="full"><label for="s_address">Address</label><textarea id="s_address" style="min-height:70px"></textarea></div>
+        <div class="full"><label for="s_tagline">Short description (footer)</label><input id="s_tagline"></div>
+        <div class="full"><label for="s_heroTitle">Homepage headline</label><input id="s_heroTitle"></div>
+        <div class="full"><label for="s_heroSub">Homepage sub text</label><input id="s_heroSub"></div>
+      </div>
+      <p><button class="btn" id="saveSettingsBtn">Save details</button></p>
+    </div>
+  </section>
+</div>
+
+<script>
+var CFG = {owner:'', repo:'', branch:'main', token:''};
+var DATA_PATH = 'data/site.json';
+var data = {settings:{}, products:[]}, sha = null, editing = null, photos = {}, previews = {};
+var SLOTS = ['image_url','image_2','image_3','image_4'];
+var FIELDS = ['name','brand','category','subcategory','price','mrp','weight_size','flavour','rating','stock','featured','description'];
+var SKEYS = ['firmName','accentWord','phone','whatsappNumber','email','topbar','address','tagline','heroTitle','heroSub'];
+
+function $(s){return document.querySelector(s)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function flash(text, err){
+  $('#msg').innerHTML = '<div class="msg'+(err?' err':'')+'">'+esc(text)+'</div>';
+  if(!err) setTimeout(function(){$('#msg').innerHTML=''}, 6000);
+  window.scrollTo(0,0);
+}
+
+/* ---------- GitHub helpers ---------- */
+function gh(path, opts){
+  opts = opts || {};
+  return fetch('https://api.github.com' + path, {
+    method: opts.method || 'GET',
+    body: opts.body ? JSON.stringify(opts.body) : undefined,
+    cache: 'no-store',
+    headers: {
+      'Accept': 'application/vnd.github+json',
+      'Authorization': 'Bearer ' + CFG.token,
+      'X-GitHub-Api-Version': '2022-11-28'
+    }
+  }).then(function(r){
+    if(r.ok) return r.status === 204 ? null : r.json();
+    return r.json().catch(function(){return {}}).then(function(j){
+      var m = j.message || ('GitHub error ' + r.status);
+      if(r.status === 401) m = 'GitHub did not accept the token. Check that it is copied fully and has not expired.';
+      if(r.status === 403 && /resource not accessible/i.test(m)) m = 'The token has no write access. Set Contents to Read and write for this repository.';
+      var e = new Error(m); e.status = r.status; throw e;
+    });
+  });
+}
+function enc(str){ var b = new TextEncoder().encode(str), bin = ''; b.forEach(function(x){bin += String.fromCharCode(x)}); return btoa(bin); }
+function dec(b64){ var bin = atob(b64.replace(/\s/g,'')), a = new Uint8Array(bin.length); for(var i=0;i<bin.length;i++) a[i]=bin.charCodeAt(i); return new TextDecoder().decode(a); }
+function repoPath(p){ return '/repos/' + encodeURIComponent(CFG.owner) + '/' + encodeURIComponent(CFG.repo) + '/contents/' + p.split('/').map(encodeURIComponent).join('/'); }
+
+function loadData(){
+  return gh(repoPath(DATA_PATH) + '?ref=' + encodeURIComponent(CFG.branch)).then(function(f){
+    sha = f.sha;
+    var d = JSON.parse(dec(f.content));
+    data = { settings: d.settings || {}, products: d.products || [] };
+  }, function(e){
+    if(e.status === 404){ sha = null; data = {settings:{}, products:[]}; return; }
+    throw e;
+  });
+}
+function saveData(message){
+  var body = { message: message, content: enc(JSON.stringify(data, null, 2) + '\n'), branch: CFG.branch };
+  if(sha) body.sha = sha;
+  return gh(repoPath(DATA_PATH), {method:'PUT', body: body}).then(function(r){
+    sha = r.content.sha;
+  }, function(e){
+    if(e.status === 409 || e.status === 422){
+      return loadData().then(function(){
+        renderList(); fillSettings(); closeForm();
+        throw new Error('Your data was changed somewhere else. It has been reloaded, so please make your change again.');
+      });
+    }
+    throw e;
+  });
+}
+
+/* ---------- connect ---------- */
+function prefill(){
+  var saved = null;
+  try{ saved = JSON.parse(localStorage.getItem('storeAdminCfg') || 'null'); }catch(e){}
+  if(saved){ CFG = saved; }
+  else if(/\.github\.io$/.test(location.hostname)){
+    CFG.owner = location.hostname.split('.')[0];
+    var seg = location.pathname.split('/').filter(Boolean);
+    CFG.repo = (seg.length && seg[0] !== 'admin') ? seg[0] : location.hostname;
+  }
+  $('#c_owner').value = CFG.owner; $('#c_repo').value = CFG.repo;
+  $('#c_branch').value = CFG.branch || 'main'; $('#c_token').value = CFG.token || '';
+  if(saved && saved.token) connect();
+}
+function connect(){
+  CFG = { owner: $('#c_owner').value.trim(), repo: $('#c_repo').value.trim(),
+          branch: $('#c_branch').value.trim() || 'main', token: $('#c_token').value.trim() };
+  if(!CFG.owner || !CFG.repo || !CFG.token){ $('#connectMsg').innerHTML = '<div class="msg err">Fill in all the fields.</div>'; return; }
+  $('#connectBtn').disabled = true;
+  loadData().then(function(){
+    try{ localStorage.setItem('storeAdminCfg', JSON.stringify(CFG)); }catch(e){}
+    $('#connect').hidden = true; $('#app').hidden = false;
+    var site = 'https://' + CFG.owner + '.github.io/' + (CFG.repo.toLowerCase() === (CFG.owner + '.github.io').toLowerCase() ? '' : CFG.repo + '/');
+    var v = $('#viewSite'); v.style.display = ''; v.textContent = 'View website';
+    v.onclick = function(){ window.open(site, '_blank', 'noopener'); };
+    renderList(); fillSettings();
+  }).catch(function(e){
+    var m = e.message; if(e.status === 404) m = 'Repository not found. Check the username and repository name, and that the token has access to it.';
+    $('#connectMsg').innerHTML = '<div class="msg err">' + esc(m) + '</div>';
+  }).then(function(){ $('#connectBtn').disabled = false; });
+}
+$('#connectBtn').onclick = connect;
+$('#c_token').onkeydown = function(e){ if(e.key === 'Enter') connect(); };
+$('#disconnect').onclick = function(){
+  try{ localStorage.removeItem('storeAdminCfg'); }catch(e){}
+  CFG.token = ''; $('#c_token').value = ''; $('#app').hidden = true; $('#connect').hidden = false;
+};
+
+/* ---------- tabs ---------- */
+function tab(w){
+  $('#viewProducts').hidden = w !== 'p'; $('#viewSettings').hidden = w !== 's';
+  $('#tabProducts').className = w === 'p' ? 'on' : ''; $('#tabSettings').className = w === 's' ? 'on' : '';
+}
+$('#tabProducts').onclick = function(){tab('p')};
+$('#tabSettings').onclick = function(){tab('s')};
+
+/* ---------- images ---------- */
+function imgSrc(p){
+  if(!p) return '';
+  if(/^https?:|^data:|^blob:/.test(p)) return p;
+  if(previews[p]) return previews[p];
+  return 'https://raw.githubusercontent.com/' + CFG.owner + '/' + CFG.repo + '/' + CFG.branch + '/' + p;
+}
+function resize(file){
+  return new Promise(function(res, rej){
+    var img = new Image(), u = URL.createObjectURL(file);
+    img.onload = function(){
+      var s = Math.min(1, 1200 / Math.max(img.width, img.height));
+      var w = Math.round(img.width * s), h = Math.round(img.height * s);
+      var c = document.createElement('canvas'); c.width = w; c.height = h;
+      var x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, w, h); x.drawImage(img, 0, 0, w, h);
+      URL.revokeObjectURL(u);
+      var url = c.toDataURL('image/jpeg', 0.85);
+      res({ b64: url.split(',')[1], preview: url });
+    };
+    img.onerror = function(){ rej(new Error('That file is not an image')); };
+    img.src = u;
+  });
+}
+function uploadImage(b64){
+  var path = 'images/p' + Date.now() + Math.random().toString(36).slice(2, 6) + '.jpg';
+  return gh(repoPath(path), {method:'PUT', body:{ message:'Add product photo', content:b64, branch:CFG.branch }}).then(function(){ return path; });
+}
+function deleteImage(path){
+  if(!/^images\//.test(path)) return Promise.resolve();
+  return gh(repoPath(path) + '?ref=' + encodeURIComponent(CFG.branch)).then(function(f){
+    return gh(repoPath(path), {method:'DELETE', body:{ message:'Remove product photo', sha:f.sha, branch:CFG.branch }});
+  }).catch(function(){});
+}
+
+/* ---------- product list ---------- */
+function renderList(){
+  var q = $('#filter').value.toLowerCase();
+  var list = data.products.filter(function(p){ return !q || (p.name + ' ' + p.brand + ' ' + p.category).toLowerCase().indexOf(q) >= 0; });
+  $('#pcount').textContent = data.products.length;
+  $('#list').innerHTML = list.length ? list.map(function(p){
+    var img = p.image_url ? '<img src="' + esc(imgSrc(p.image_url)) + '" alt="">' : '<div class="ph"></div>';
+    return '<div class="row">' + img + '<div><strong>' + esc(p.name) + '</strong><div class="meta">' + esc(p.brand) + ' · ' + esc(p.category) + ' · Rs. ' + esc(p.price) + ' · ' + (String(p.stock).toLowerCase() === 'no' ? 'Sold out' : 'In stock') + '</div></div>' +
+      '<div class="acts"><button class="btn alt" data-edit="' + esc(p.id) + '">Edit</button><button class="btn del" data-del="' + esc(p.id) + '">Delete</button></div></div>';
+  }).join('') : '<p class="hint">No products yet. Click "Add product" to start.</p>';
+  var cats = {}; data.products.forEach(function(p){ if(p.category) cats[p.category] = 1; });
+  $('#catlist').innerHTML = Object.keys(cats).map(function(c){ return '<option value="' + esc(c) + '">'; }).join('');
+}
+$('#filter').oninput = renderList;
+$('#list').onclick = function(e){
+  var b = e.target.closest('button'); if(!b) return;
+  if(b.dataset.edit) openForm(b.dataset.edit);
+  if(b.dataset.del){
+    if(!b.dataset.armed){
+      b.dataset.armed = '1'; b.textContent = 'Confirm delete';
+      setTimeout(function(){ b.dataset.armed = ''; b.textContent = 'Delete'; }, 3000);
+      return;
+    }
+    var id = b.dataset.del;
+    var p = data.products.find(function(x){ return String(x.id) === id; });
+    data.products = data.products.filter(function(x){ return String(x.id) !== id; });
+    b.disabled = true;
+    saveData('Delete product: ' + (p ? p.name : id)).then(function(){
+      renderList(); flash('Product deleted. Your website updates in 1 to 2 minutes.');
+      if(p) SLOTS.forEach(function(s){ if(p[s]) deleteImage(p[s]); });
+    }).catch(function(er){ flash(er.message, true); });
+  }
+};
+
+/* ---------- product form ---------- */
+function openForm(id){
+  var p = id ? data.products.find(function(x){ return String(x.id) === String(id); }) : null;
+  editing = p ? String(p.id) : null;
+  $('#formTitle').textContent = p ? 'Edit product' : 'Add product';
+  FIELDS.forEach(function(f){
+    var v = p ? p[f] : '';
+    if(f === 'stock' && !v) v = 'yes';
+    $('#f_' + f).value = v == null ? '' : v;
+  });
+  photos = {}; SLOTS.forEach(function(s){ photos[s] = p ? (p[s] || '') : ''; });
+  renderSlots();
+  $('#formCard').hidden = false; $('#listCard').hidden = true; window.scrollTo(0,0);
+}
+function closeForm(){ $('#formCard').hidden = true; $('#listCard').hidden = false; }
+$('#newBtn').onclick = function(){ openForm(null); };
+$('#cancelBtn').onclick = closeForm;
+
+function renderSlots(){
+  $('#imgs').innerHTML = SLOTS.map(function(s, i){
+    var u = photos[s];
+    return '<div class="slot"><div class="pv">' + (u ? '<img src="' + esc(imgSrc(u)) + '" alt="">' : 'Photo ' + (i + 1)) + '</div>' +
+      '<input type="file" accept="image/*" data-slot="' + s + '">' +
+      (u ? '<button class="btn alt" style="padding:4px 10px;margin-top:6px" data-rm="' + s + '">Remove</button>' : '') +
+      '<small id="st_' + s + '"></small></div>';
+  }).join('');
+}
+$('#imgs').onchange = function(e){
+  var inp = e.target; if(!inp.dataset.slot || !inp.files[0]) return;
+  var slot = inp.dataset.slot, st = $('#st_' + slot);
+  st.textContent = 'Uploading...'; $('#saveBtn').disabled = true;
+  resize(inp.files[0]).then(function(r){
+    return uploadImage(r.b64).then(function(path){ previews[path] = r.preview; photos[slot] = path; renderSlots(); });
+  }).catch(function(er){ st.textContent = er.message; }).then(function(){ $('#saveBtn').disabled = false; });
+};
+$('#imgs').onclick = function(e){
+  var b = e.target.closest('button'); if(b && b.dataset.rm){ photos[b.dataset.rm] = ''; renderSlots(); }
+};
+$('#saveBtn').onclick = function(){
+  var p = {};
+  FIELDS.forEach(function(f){ p[f] = $('#f_' + f).value.trim(); });
+  if(!p.name || !p.category || !(parseFloat(p.price) > 0)){ flash('Name, category and a selling price are required.', true); return; }
+  p.price = parseFloat(p.price); p.mrp = p.mrp ? parseFloat(p.mrp) : p.price;
+  p.rating = p.rating ? parseFloat(p.rating) : '';
+  var list = SLOTS.map(function(s){ return photos[s]; }).filter(Boolean);
+  SLOTS.forEach(function(s, i){ p[s] = list[i] || ''; });
+  var idx = editing ? data.products.findIndex(function(x){ return String(x.id) === editing; }) : -1;
+  var oldPhotos = idx >= 0 ? SLOTS.map(function(s){ return data.products[idx][s]; }).filter(Boolean) : [];
+  if(idx >= 0){ p.id = editing; data.products[idx] = p; }
+  else {
+    var max = 0; data.products.forEach(function(x){ max = Math.max(max, Number(x.id) || 0); });
+    p.id = String(max + 1); data.products.push(p);
+  }
+  $('#saveBtn').disabled = true;
+  saveData((idx >= 0 ? 'Update product: ' : 'Add product: ') + p.name).then(function(){
+    renderList(); closeForm(); flash('Saved. Your website updates in 1 to 2 minutes.');
+    oldPhotos.forEach(function(o){ if(list.indexOf(o) < 0) deleteImage(o); });
+  }).catch(function(er){ flash(er.message, true); }).then(function(){ $('#saveBtn').disabled = false; });
+};
+
+/* ---------- business details ---------- */
+function fillSettings(){ SKEYS.forEach(function(k){ $('#s_' + k).value = data.settings[k] || ''; }); }
+$('#saveSettingsBtn').onclick = function(){
+  SKEYS.forEach(function(k){ data.settings[k] = $('#s_' + k).value.trim(); });
+  data.settings.whatsappNumber = (data.settings.whatsappNumber || '').replace(/\D/g, '');
+  $('#saveSettingsBtn').disabled = true;
+  saveData('Update business details').then(function(){ fillSettings(); flash('Saved. Your website updates in 1 to 2 minutes.'); })
+    .catch(function(er){ flash(er.message, true); })
+    .then(function(){ $('#saveSettingsBtn').disabled = false; });
+};
+
+prefill();
+</script>
+</body>
+</html>
