@@ -299,6 +299,50 @@
         }
       ],
       "id": "7"
+    },
+    {
+      "name": "BPI Sports Bulk Muscle XL Mass Gainer for Size & Strength",
+      "brand": "BPI Sports",
+      "category": "Weight Gainers",
+      "subcategory": "Muscle Mass Gainer",
+      "rating": 4,
+      "featured": "yes",
+      "description": "Take your fitness journey to the next level with BPI Sports Bulk Muscle XL Advanced Mass Weight Gainer—a powerful formula designed for individuals who struggle to gain weight and build muscle mass. This high-calorie mass gainer provides a balanced combination of protein and carbohydrates to help you achieve your bulking goals faster. Whether you’re a beginner, athlete, or hard gainer, this formula supports muscle growth, strength, and recovery. With its smooth mixability and delicious chocolate flavour, it’s easy to consume daily—making it a convenient addition to your fitness routine. Use it post-workout or between meals to maximize calorie intake and support consistent muscle gains.",
+      "images": [
+        "images/p1794669167983ogtw.jpg",
+        "images/p17946691752577kss.jpg",
+        "images/p1794669185899pmgb.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "1 KG",
+          "flavour": "Chocolate",
+          "price": 1000,
+          "mrp": 1699,
+          "stock": "yes",
+          "image": "images/p1794669112326mczi.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "3 KG",
+          "flavour": "Chocolate",
+          "price": 2300,
+          "mrp": 4599,
+          "stock": "yes",
+          "image": "images/p1794669137556q3lk.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "5 KG",
+          "flavour": "Chocolate",
+          "price": 3000,
+          "mrp": 7299,
+          "stock": "yes",
+          "image": "images/p179466915378919rr.jpg"
+        }
+      ],
+      "id": "8"
     }
   ],
   "reviews": [
