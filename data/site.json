@@ -914,6 +914,32 @@
         }
       ],
       "id": "17"
+    },
+    {
+      "name": "BPI Liver Detox Daily Wellness Support Formula",
+      "brand": "BPI Sports",
+      "category": "Amino Acids & Hydrations",
+      "subcategory": "Liver Support",
+      "rating": 3.5,
+      "featured": "yes",
+      "description": "BPI Sports Liver Detox is a comprehensive liver support supplement formulated for athletes, fitness enthusiasts, and individuals exposed to daily toxins. Your liver plays a crucial role in filtering toxins, metabolizing nutrients, and supporting overall health. This advanced formula combines powerful ingredients like N-Acetyl Cysteine (NAC), Milk Thistle extract, Dandelion extract, and essential vitamins to help cleanse, protect, and optimize liver performance. These ingredients are widely known to support glutathione production and reduce oxidative stress, which are essential for liver health. Regular use helps promote detoxification, improve metabolism, and support faster recovery—making it ideal for those with intense training routines or high-stress lifestyles.",
+      "images": [
+        "images/p1794687206898uf1n.jpg",
+        "images/p179468721989118k9.jpg",
+        "images/p1794687229847k5qz.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "60 Tablets",
+          "flavour": "",
+          "price": 899,
+          "mrp": 1799,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "18"
     }
   ],
   "reviews": [
