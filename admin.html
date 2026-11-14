@@ -9,9 +9,10 @@
 :root{--bg:#f4f5f8;--card:#fff;--ink:#161a2e;--muted:#5d6479;--line:#dfe3ec;--accent:#e4572e;--good:#1c8a5a}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-.wrap{max-width:1000px;margin:0 auto;padding:16px}
+.wrap{max-width:1040px;margin:0 auto;padding:16px}
 h1{font-size:20px;margin:0}
 h2{font-size:17px;margin:0 0 12px}
+h3{font-size:15px;margin:0 0 8px}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
 .tabs{display:flex;gap:6px;flex-wrap:wrap}
 .tabs button{border:1px solid var(--line);background:var(--card);padding:8px 14px;border-radius:8px;font-weight:600;cursor:pointer}
@@ -25,6 +26,7 @@ textarea{min-height:90px;resize:vertical}
 button.btn{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:10px 18px;font-weight:600;cursor:pointer}
 button.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--line)}
 button.btn.del{background:#fff;color:#b3261e;border:1px solid #e6b7b3}
+button.btn.sm{padding:6px 12px}
 button:disabled{opacity:.5;cursor:not-allowed}
 .row{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
 .row img,.ph{width:52px;height:52px;object-fit:contain;background:#eef0f5;border-radius:8px}
@@ -42,7 +44,19 @@ button:disabled{opacity:.5;cursor:not-allowed}
 #connect{max-width:520px;margin:8vh auto}
 details{margin-top:12px}
 details ol{padding-left:18px;margin:8px 0}
+.gen{background:#f7f8fb;border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:12px}
+.vhead,.vrow{display:grid;grid-template-columns:1.2fr 1.2fr .8fr .8fr .9fr 52px 34px;gap:8px;align-items:center}
+.vhead{font-size:12px;font-weight:700;color:var(--muted);margin-bottom:4px}
+.vrow{margin-bottom:8px}
+.vph{width:44px;height:44px;border:1px dashed var(--line);border-radius:8px;display:grid;place-items:center;overflow:hidden;cursor:pointer;background:#eef0f5;color:var(--muted);font-size:20px;position:relative}
+.vph img{width:100%;height:100%;object-fit:cover}
+.vx{width:34px;height:38px;border:1px solid #e6b7b3;background:#fff;color:#b3261e;border-radius:8px;cursor:pointer}
+.rv{padding:12px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:10px}
 [hidden]{display:none!important}
+@media (max-width:720px){
+  .vhead{display:none}
+  .vrow{grid-template-columns:1fr 1fr 1fr;padding:10px;border:1px solid var(--line);border-radius:10px}
+}
 </style>
 </head>
 <body>
@@ -61,14 +75,13 @@ details ol{padding-left:18px;margin:8px 0}
   <details>
     <summary>How do I get an access token?</summary>
     <ol>
-      <li>Sign in to GitHub, click your photo → Settings.</li>
-      <li>Scroll down on the left to Developer settings → Personal access tokens → Fine-grained tokens → Generate new token.</li>
-      <li>Give it any name. Set Expiration to the longest you can.</li>
+      <li>Sign in to GitHub, click your photo, then Settings.</li>
+      <li>Scroll down on the left to Developer settings, then Personal access tokens, then Fine-grained tokens, then Generate new token.</li>
+      <li>Give it any name and set Expiration to the longest you can.</li>
       <li>Under "Repository access" choose Only select repositories and pick your website repository.</li>
-      <li>Under Permissions → Repository permissions, set <b>Contents</b> to <b>Read and write</b>.</li>
-      <li>Click Generate token, copy it and paste it above. GitHub shows it only once.</li>
+      <li>Under Permissions, Repository permissions, set <b>Contents</b> to <b>Read and write</b>.</li>
+      <li>Click Generate token and paste it above. GitHub shows it only once. Never share it with anyone.</li>
     </ol>
-    <p class="hint">Anyone who opens this page still cannot change your website without the token. Do not share the token.</p>
   </details>
 </div>
 
@@ -77,8 +90,9 @@ details ol{padding-left:18px;margin:8px 0}
     <h1>Store admin</h1>
     <div class="tabs">
       <button id="tabProducts" class="on">Products</button>
+      <button id="tabReviews">Reviews</button>
       <button id="tabSettings">Business details</button>
-      <button id="viewSite" class="alt" style="display:none"></button>
+      <button id="viewSite" style="display:none"></button>
       <button id="disconnect">Disconnect</button>
     </div>
   </div>
@@ -103,22 +117,50 @@ details ol{padding-left:18px;margin:8px 0}
         <div><label for="f_brand">Brand</label><input id="f_brand"></div>
         <div><label for="f_category">Category *</label><input id="f_category" list="catlist"><datalist id="catlist"></datalist></div>
         <div><label for="f_subcategory">Sub category</label><input id="f_subcategory"></div>
-        <div><label for="f_price">Selling price *</label><input id="f_price" type="number" min="0" step="any"></div>
-        <div><label for="f_mrp">MRP (before discount)</label><input id="f_mrp" type="number" min="0" step="any"></div>
-        <div><label for="f_weight_size">Size or weight</label><input id="f_weight_size" placeholder="1 kg, 60 caps, UK 8"></div>
-        <div><label for="f_flavour">Flavour or colour</label><input id="f_flavour"></div>
         <div><label for="f_rating">Rating (0 to 5)</label><input id="f_rating" type="number" min="0" max="5" step="0.1"></div>
-        <div><label for="f_stock">Availability</label><select id="f_stock"><option value="yes">In stock</option><option value="no">Sold out</option></select></div>
         <div><label for="f_featured">Show first on site</label><select id="f_featured"><option value="">No</option><option value="yes">Yes</option></select></div>
         <div class="full"><label for="f_description">Description</label><textarea id="f_description"></textarea></div>
       </div>
-      <h2 style="margin-top:16px">Photos</h2>
+
+      <h2 style="margin-top:18px">Sizes, flavours and prices</h2>
+      <p class="hint" style="margin-top:-6px">Each row is one thing a customer can buy. A product with one size and one flavour needs only one row.</p>
+      <div class="gen">
+        <h3>Create many rows at once</h3>
+        <div class="grid">
+          <div><label for="g_sizes">Sizes (separate with commas)</label><input id="g_sizes" placeholder="1 kg, 2 kg, 4 kg"></div>
+          <div><label for="g_flavs">Flavours (separate with commas)</label><input id="g_flavs" placeholder="Chocolate, Vanilla, Mango"></div>
+          <div><label for="g_price">Starting price</label><input id="g_price" type="number" min="0" step="any"></div>
+          <div><label for="g_mrp">Starting MRP</label><input id="g_mrp" type="number" min="0" step="any"></div>
+        </div>
+        <p style="margin:10px 0 0"><button class="btn alt sm" id="genBtn" type="button">Create every size and flavour combination</button></p>
+        <p class="hint">Example: 3 sizes and 4 flavours makes 12 rows. Then change the price of each size below.</p>
+      </div>
+      <div class="vhead"><span>Size</span><span>Flavour or colour</span><span>Price *</span><span>MRP</span><span>Stock</span><span>Photo</span><span></span></div>
+      <div id="vlist"></div>
+      <button class="btn alt sm" id="addVar" type="button">Add one row</button>
+
+      <h2 style="margin-top:18px">Product photos</h2>
       <div class="imgs" id="imgs"></div>
-      <p class="hint">Photos are resized automatically and saved in the images folder of your repository. The first photo is the main one.</p>
+      <p class="hint">Photos are resized automatically and saved in the images folder of your repository. The first photo is the main one. A photo on a flavour row shows when that flavour is picked.</p>
       <p style="display:flex;gap:8px;flex-wrap:wrap">
         <button class="btn" id="saveBtn">Save product</button>
         <button class="btn alt" id="cancelBtn">Cancel</button>
       </p>
+    </div>
+  </section>
+
+  <section id="viewReviews" hidden>
+    <div class="card">
+      <h2>Reviews</h2>
+      <p class="hint" style="margin-top:-6px">If Google reviews are connected in Business details, the site shows those live. The reviews below are shown only when the Google connection is not set up. Add only real reviews from your customers.</p>
+      <div id="rvList"></div>
+      <h3 style="margin-top:16px">Add a review</h3>
+      <div class="grid">
+        <div><label for="r_name">Customer name</label><input id="r_name"></div>
+        <div><label for="r_rating">Stars</label><select id="r_rating"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></div>
+        <div class="full"><label for="r_text">What they wrote</label><textarea id="r_text"></textarea></div>
+      </div>
+      <p><button class="btn" id="rvAdd">Add review</button></p>
     </div>
   </section>
 
@@ -127,15 +169,23 @@ details ol{padding-left:18px;margin:8px 0}
       <h2>Business details</h2>
       <div class="grid">
         <div><label for="s_firmName">Business name</label><input id="s_firmName"></div>
-        <div><label for="s_accentWord">Word shown in colour</label><input id="s_accentWord"><div class="hint">Optional. Must appear in the name.</div></div>
         <div><label for="s_phone">Phone number</label><input id="s_phone"></div>
         <div><label for="s_whatsappNumber">WhatsApp number for orders</label><input id="s_whatsappNumber" placeholder="919999999999"><div class="hint">Country code first, digits only.</div></div>
         <div><label for="s_email">Email</label><input id="s_email" type="email"></div>
+        <div><label for="s_instagram">Instagram username or link</label><input id="s_instagram" placeholder="alhayat_fitness"></div>
         <div><label for="s_topbar">Top banner text</label><input id="s_topbar" placeholder="Free delivery above Rs. 999"></div>
         <div class="full"><label for="s_address">Address</label><textarea id="s_address" style="min-height:70px"></textarea></div>
+        <div class="full"><label for="s_hours">Opening hours</label><input id="s_hours" placeholder="Mon to Sat, 9 am to 9 pm"></div>
         <div class="full"><label for="s_tagline">Short description (footer)</label><input id="s_tagline"></div>
-        <div class="full"><label for="s_heroTitle">Homepage headline</label><input id="s_heroTitle"></div>
+        <div class="full"><label for="s_heroTitle">Homepage headline</label><input id="s_heroTitle"><div class="hint">Use two short sentences. The last sentence shows in colour.</div></div>
         <div class="full"><label for="s_heroSub">Homepage sub text</label><input id="s_heroSub"></div>
+      </div>
+      <h2 style="margin-top:20px">Google Maps and reviews</h2>
+      <div class="grid">
+        <div class="full"><label for="s_mapsUrl">Google Maps link to your shop</label><input id="s_mapsUrl" placeholder="https://maps.app.goo.gl/..."><div class="hint">In Google Maps open your shop, click Share, then Copy link.</div></div>
+        <div class="full"><label for="s_mapsEmbed">Map to show on the website (embed code)</label><textarea id="s_mapsEmbed" style="min-height:70px" placeholder='<iframe src="https://www.google.com/maps/embed?pb=..."></iframe>'></textarea><div class="hint">In Google Maps open your shop, click Share, then Embed a map, then Copy HTML and paste it here. If left empty, the map is made from your address.</div></div>
+        <div><label for="s_placeId">Google Place ID</label><input id="s_placeId" placeholder="ChIJ..."><div class="hint">Find it at developers.google.com/maps/documentation/places/web-service/place-id (search your shop name).</div></div>
+        <div><label for="s_googleApiKey">Google API key</label><input id="s_googleApiKey" placeholder="AIza..."><div class="hint">Needed to show your Google reviews live. See the setup notes. Restrict the key to your website address.</div></div>
       </div>
       <p><button class="btn" id="saveSettingsBtn">Save details</button></p>
     </div>
@@ -145,10 +195,9 @@ details ol{padding-left:18px;margin:8px 0}
 <script>
 var CFG = {owner:'', repo:'', branch:'main', token:''};
 var DATA_PATH = 'data/site.json';
-var data = {settings:{}, products:[]}, sha = null, editing = null, photos = {}, previews = {};
-var SLOTS = ['image_url','image_2','image_3','image_4'];
-var FIELDS = ['name','brand','category','subcategory','price','mrp','weight_size','flavour','rating','stock','featured','description'];
-var SKEYS = ['firmName','accentWord','phone','whatsappNumber','email','topbar','address','tagline','heroTitle','heroSub'];
+var data = {settings:{}, products:[], reviews:[]}, sha = null, editing = null, PH = [], V = [], previews = {}, vcounter = 0;
+var FIELDS = ['name','brand','category','subcategory','rating','featured','description'];
+var SKEYS = ['firmName','phone','whatsappNumber','email','instagram','topbar','address','hours','tagline','heroTitle','heroSub','mapsUrl','mapsEmbed','placeId','googleApiKey'];
 
 function $(s){return document.querySelector(s)}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
@@ -165,11 +214,7 @@ function gh(path, opts){
     method: opts.method || 'GET',
     body: opts.body ? JSON.stringify(opts.body) : undefined,
     cache: 'no-store',
-    headers: {
-      'Accept': 'application/vnd.github+json',
-      'Authorization': 'Bearer ' + CFG.token,
-      'X-GitHub-Api-Version': '2022-11-28'
-    }
+    headers: {'Accept':'application/vnd.github+json','Authorization':'Bearer ' + CFG.token,'X-GitHub-Api-Version':'2022-11-28'}
   }).then(function(r){
     if(r.ok) return r.status === 204 ? null : r.json();
     return r.json().catch(function(){return {}}).then(function(j){
@@ -188,9 +233,9 @@ function loadData(){
   return gh(repoPath(DATA_PATH) + '?ref=' + encodeURIComponent(CFG.branch)).then(function(f){
     sha = f.sha;
     var d = JSON.parse(dec(f.content));
-    data = { settings: d.settings || {}, products: d.products || [] };
+    data = { settings: d.settings || {}, products: d.products || [], reviews: d.reviews || [] };
   }, function(e){
-    if(e.status === 404){ sha = null; data = {settings:{}, products:[]}; return; }
+    if(e.status === 404){ sha = null; data = {settings:{}, products:[], reviews:[]}; return; }
     throw e;
   });
 }
@@ -202,7 +247,7 @@ function saveData(message){
   }, function(e){
     if(e.status === 409 || e.status === 422){
       return loadData().then(function(){
-        renderList(); fillSettings(); closeForm();
+        renderList(); fillSettings(); renderReviews(); closeForm();
         throw new Error('Your data was changed somewhere else. It has been reloaded, so please make your change again.');
       });
     }
@@ -218,7 +263,7 @@ function prefill(){
   else if(/\.github\.io$/.test(location.hostname)){
     CFG.owner = location.hostname.split('.')[0];
     var seg = location.pathname.split('/').filter(Boolean);
-    CFG.repo = (seg.length && seg[0] !== 'admin') ? seg[0] : location.hostname;
+    CFG.repo = (seg.length && !/^admin/i.test(seg[0])) ? seg[0] : location.hostname;
   }
   $('#c_owner').value = CFG.owner; $('#c_repo').value = CFG.repo;
   $('#c_branch').value = CFG.branch || 'main'; $('#c_token').value = CFG.token || '';
@@ -235,7 +280,7 @@ function connect(){
     var site = 'https://' + CFG.owner + '.github.io/' + (CFG.repo.toLowerCase() === (CFG.owner + '.github.io').toLowerCase() ? '' : CFG.repo + '/');
     var v = $('#viewSite'); v.style.display = ''; v.textContent = 'View website';
     v.onclick = function(){ window.open(site, '_blank', 'noopener'); };
-    renderList(); fillSettings();
+    renderList(); fillSettings(); renderReviews();
   }).catch(function(e){
     var m = e.message; if(e.status === 404) m = 'Repository not found. Check the username and repository name, and that the token has access to it.';
     $('#connectMsg').innerHTML = '<div class="msg err">' + esc(m) + '</div>';
@@ -250,10 +295,11 @@ $('#disconnect').onclick = function(){
 
 /* ---------- tabs ---------- */
 function tab(w){
-  $('#viewProducts').hidden = w !== 'p'; $('#viewSettings').hidden = w !== 's';
-  $('#tabProducts').className = w === 'p' ? 'on' : ''; $('#tabSettings').className = w === 's' ? 'on' : '';
+  $('#viewProducts').hidden = w !== 'p'; $('#viewReviews').hidden = w !== 'r'; $('#viewSettings').hidden = w !== 's';
+  $('#tabProducts').className = w === 'p' ? 'on' : ''; $('#tabReviews').className = w === 'r' ? 'on' : ''; $('#tabSettings').className = w === 's' ? 'on' : '';
 }
 $('#tabProducts').onclick = function(){tab('p')};
+$('#tabReviews').onclick = function(){tab('r')};
 $('#tabSettings').onclick = function(){tab('s')};
 
 /* ---------- images ---------- */
@@ -284,20 +330,35 @@ function uploadImage(b64){
   return gh(repoPath(path), {method:'PUT', body:{ message:'Add product photo', content:b64, branch:CFG.branch }}).then(function(){ return path; });
 }
 function deleteImage(path){
-  if(!/^images\//.test(path)) return Promise.resolve();
+  if(!/^images\/p\d/.test(path)) return Promise.resolve();   /* never touches logo files */
   return gh(repoPath(path) + '?ref=' + encodeURIComponent(CFG.branch)).then(function(f){
     return gh(repoPath(path), {method:'DELETE', body:{ message:'Remove product photo', sha:f.sha, branch:CFG.branch }});
   }).catch(function(){});
 }
 
+/* ---------- legacy helpers (old products had one size, one flavour, one price) ---------- */
+function imagesOf(p){ return Array.isArray(p.images) ? p.images.slice() : [p.image_url,p.image_2,p.image_3,p.image_4].filter(Boolean); }
+function variantsOf(p){
+  if(Array.isArray(p.variants) && p.variants.length) return p.variants.map(function(v){ return {vid:v.vid, size:v.size||'', flavour:v.flavour||'', price:v.price, mrp:v.mrp, stock:v.stock||'yes', image:v.image||''}; });
+  return [{vid:'0', size:p.weight_size||'', flavour:p.flavour||'', price:p.price, mrp:p.mrp, stock:p.stock||'yes', image:''}];
+}
+function allImages(p){ return imagesOf(p).concat(variantsOf(p).map(function(v){return v.image}).filter(Boolean)); }
+
 /* ---------- product list ---------- */
+function priceText(p){
+  var vs = variantsOf(p).map(function(v){return parseFloat(v.price)||0}).filter(Boolean);
+  if(!vs.length) return '';
+  var lo = Math.min.apply(null, vs), hi = Math.max.apply(null, vs);
+  return lo === hi ? 'Rs. ' + lo : 'Rs. ' + lo + ' to ' + hi;
+}
 function renderList(){
   var q = $('#filter').value.toLowerCase();
   var list = data.products.filter(function(p){ return !q || (p.name + ' ' + p.brand + ' ' + p.category).toLowerCase().indexOf(q) >= 0; });
   $('#pcount').textContent = data.products.length;
   $('#list').innerHTML = list.length ? list.map(function(p){
-    var img = p.image_url ? '<img src="' + esc(imgSrc(p.image_url)) + '" alt="">' : '<div class="ph"></div>';
-    return '<div class="row">' + img + '<div><strong>' + esc(p.name) + '</strong><div class="meta">' + esc(p.brand) + ' · ' + esc(p.category) + ' · Rs. ' + esc(p.price) + ' · ' + (String(p.stock).toLowerCase() === 'no' ? 'Sold out' : 'In stock') + '</div></div>' +
+    var first = imagesOf(p)[0], n = variantsOf(p).length;
+    var img = first ? '<img src="' + esc(imgSrc(first)) + '" alt="">' : '<div class="ph"></div>';
+    return '<div class="row">' + img + '<div><strong>' + esc(p.name) + '</strong><div class="meta">' + esc(p.brand) + ' · ' + esc(p.category) + ' · ' + esc(priceText(p)) + ' · ' + n + (n === 1 ? ' option' : ' options') + '</div></div>' +
       '<div class="acts"><button class="btn alt" data-edit="' + esc(p.id) + '">Edit</button><button class="btn del" data-del="' + esc(p.id) + '">Delete</button></div></div>';
   }).join('') : '<p class="hint">No products yet. Click "Add product" to start.</p>';
   var cats = {}; data.products.forEach(function(p){ if(p.category) cats[p.category] = 1; });
@@ -319,7 +380,7 @@ $('#list').onclick = function(e){
     b.disabled = true;
     saveData('Delete product: ' + (p ? p.name : id)).then(function(){
       renderList(); flash('Product deleted. Your website updates in 1 to 2 minutes.');
-      if(p) SLOTS.forEach(function(s){ if(p[s]) deleteImage(p[s]); });
+      if(p) allImages(p).forEach(deleteImage);
     }).catch(function(er){ flash(er.message, true); });
   }
 };
@@ -329,59 +390,145 @@ function openForm(id){
   var p = id ? data.products.find(function(x){ return String(x.id) === String(id); }) : null;
   editing = p ? String(p.id) : null;
   $('#formTitle').textContent = p ? 'Edit product' : 'Add product';
-  FIELDS.forEach(function(f){
-    var v = p ? p[f] : '';
-    if(f === 'stock' && !v) v = 'yes';
-    $('#f_' + f).value = v == null ? '' : v;
-  });
-  photos = {}; SLOTS.forEach(function(s){ photos[s] = p ? (p[s] || '') : ''; });
-  renderSlots();
+  FIELDS.forEach(function(f){ var v = p ? p[f] : ''; $('#f_' + f).value = v == null ? '' : v; });
+  PH = p ? imagesOf(p) : [];
+  V = p ? variantsOf(p) : [{size:'', flavour:'', price:'', mrp:'', stock:'yes', image:''}];
+  ['g_sizes','g_flavs','g_price','g_mrp'].forEach(function(i){ $('#' + i).value = ''; });
+  renderSlots(); renderVariants();
   $('#formCard').hidden = false; $('#listCard').hidden = true; window.scrollTo(0,0);
 }
 function closeForm(){ $('#formCard').hidden = true; $('#listCard').hidden = false; }
 $('#newBtn').onclick = function(){ openForm(null); };
 $('#cancelBtn').onclick = closeForm;
 
+/* photos (up to 5) */
 function renderSlots(){
-  $('#imgs').innerHTML = SLOTS.map(function(s, i){
-    var u = photos[s];
-    return '<div class="slot"><div class="pv">' + (u ? '<img src="' + esc(imgSrc(u)) + '" alt="">' : 'Photo ' + (i + 1)) + '</div>' +
-      '<input type="file" accept="image/*" data-slot="' + s + '">' +
-      (u ? '<button class="btn alt" style="padding:4px 10px;margin-top:6px" data-rm="' + s + '">Remove</button>' : '') +
-      '<small id="st_' + s + '"></small></div>';
-  }).join('');
+  var html = '';
+  for(var i = 0; i < 5; i++){
+    var u = PH[i];
+    html += '<div class="slot"><div class="pv">' + (u ? '<img src="' + esc(imgSrc(u)) + '" alt="">' : 'Photo ' + (i + 1)) + '</div>' +
+      '<input type="file" accept="image/*" data-slot="' + i + '" aria-label="Upload photo ' + (i + 1) + '">' +
+      (u ? '<button class="btn alt sm" style="margin-top:6px" data-rm="' + i + '">Remove</button>' : '') +
+      '<small id="st_' + i + '"></small></div>';
+  }
+  $('#imgs').innerHTML = html;
 }
 $('#imgs').onchange = function(e){
-  var inp = e.target; if(!inp.dataset.slot || !inp.files[0]) return;
-  var slot = inp.dataset.slot, st = $('#st_' + slot);
+  var inp = e.target; if(inp.dataset.slot === undefined || !inp.files[0]) return;
+  var slot = +inp.dataset.slot, st = $('#st_' + slot);
   st.textContent = 'Uploading...'; $('#saveBtn').disabled = true;
   resize(inp.files[0]).then(function(r){
-    return uploadImage(r.b64).then(function(path){ previews[path] = r.preview; photos[slot] = path; renderSlots(); });
+    return uploadImage(r.b64).then(function(path){ previews[path] = r.preview; PH[Math.min(slot, PH.length)] = path; PH = PH.filter(Boolean); renderSlots(); });
   }).catch(function(er){ st.textContent = er.message; }).then(function(){ $('#saveBtn').disabled = false; });
 };
 $('#imgs').onclick = function(e){
-  var b = e.target.closest('button'); if(b && b.dataset.rm){ photos[b.dataset.rm] = ''; renderSlots(); }
+  var b = e.target.closest('button'); if(b && b.dataset.rm !== undefined){ PH.splice(+b.dataset.rm, 1); renderSlots(); }
 };
+
+/* variants */
+function renderVariants(){
+  $('#vlist').innerHTML = V.map(function(v, i){
+    return '<div class="vrow">' +
+      '<input data-i="' + i + '" data-f="size" value="' + esc(v.size) + '" placeholder="1 kg" aria-label="Size">' +
+      '<input data-i="' + i + '" data-f="flavour" value="' + esc(v.flavour) + '" placeholder="Chocolate" aria-label="Flavour or colour">' +
+      '<input data-i="' + i + '" data-f="price" type="number" min="0" step="any" value="' + esc(v.price) + '" placeholder="Price" aria-label="Price">' +
+      '<input data-i="' + i + '" data-f="mrp" type="number" min="0" step="any" value="' + esc(v.mrp) + '" placeholder="MRP" aria-label="MRP">' +
+      '<select data-i="' + i + '" data-f="stock" aria-label="Stock"><option value="yes"' + (String(v.stock).toLowerCase() === 'no' ? '' : ' selected') + '>In stock</option><option value="no"' + (String(v.stock).toLowerCase() === 'no' ? ' selected' : '') + '>Sold out</option></select>' +
+      '<label class="vph" title="Photo for this row">' + (v.image ? '<img src="' + esc(imgSrc(v.image)) + '" alt="">' : '+') + '<input type="file" accept="image/*" data-vphoto="' + i + '" hidden></label>' +
+      '<button class="vx" data-vrm="' + i + '" aria-label="Remove row" type="button">✕</button></div>';
+  }).join('');
+}
+$('#vlist').oninput = function(e){
+  var t = e.target; if(t.dataset.i === undefined) return;
+  V[+t.dataset.i][t.dataset.f] = t.value;
+};
+$('#vlist').onchange = function(e){
+  var t = e.target;
+  if(t.dataset.i !== undefined && t.tagName === 'SELECT'){ V[+t.dataset.i][t.dataset.f] = t.value; return; }
+  if(t.dataset.vphoto !== undefined && t.files[0]){
+    var i = +t.dataset.vphoto; $('#saveBtn').disabled = true;
+    resize(t.files[0]).then(function(r){
+      return uploadImage(r.b64).then(function(path){ previews[path] = r.preview; V[i].image = path; renderVariants(); });
+    }).catch(function(er){ flash(er.message, true); }).then(function(){ $('#saveBtn').disabled = false; });
+  }
+};
+$('#vlist').onclick = function(e){
+  var b = e.target.closest('button'); if(!b || b.dataset.vrm === undefined) return;
+  V.splice(+b.dataset.vrm, 1); if(!V.length) V.push({size:'', flavour:'', price:'', mrp:'', stock:'yes', image:''}); renderVariants();
+};
+$('#addVar').onclick = function(){ V.push({size:'', flavour:'', price:'', mrp:'', stock:'yes', image:''}); renderVariants(); };
+function split(s){ return String(s || '').split(',').map(function(x){ return x.trim(); }).filter(Boolean); }
+$('#genBtn').onclick = function(){
+  var sizes = split($('#g_sizes').value), flavs = split($('#g_flavs').value);
+  if(!sizes.length && !flavs.length){ flash('Type at least one size or one flavour first.', true); return; }
+  var S = sizes.length ? sizes : [''], F = flavs.length ? flavs : [''];
+  var price = $('#g_price').value, mrp = $('#g_mrp').value;
+  V = V.filter(function(v){ return v.size || v.flavour || v.price; });
+  S.forEach(function(s){ F.forEach(function(f){
+    var dup = V.some(function(v){ return String(v.size).toLowerCase() === s.toLowerCase() && String(v.flavour).toLowerCase() === f.toLowerCase(); });
+    if(!dup) V.push({size:s, flavour:f, price:price, mrp:mrp, stock:'yes', image:''});
+  }); });
+  renderVariants();
+};
+
 $('#saveBtn').onclick = function(){
   var p = {};
   FIELDS.forEach(function(f){ p[f] = $('#f_' + f).value.trim(); });
-  if(!p.name || !p.category || !(parseFloat(p.price) > 0)){ flash('Name, category and a selling price are required.', true); return; }
-  p.price = parseFloat(p.price); p.mrp = p.mrp ? parseFloat(p.mrp) : p.price;
+  if(!p.name || !p.category){ flash('Product name and category are required.', true); return; }
   p.rating = p.rating ? parseFloat(p.rating) : '';
-  var list = SLOTS.map(function(s){ return photos[s]; }).filter(Boolean);
-  SLOTS.forEach(function(s, i){ p[s] = list[i] || ''; });
+  var vs = V.filter(function(v){ return v.size || v.flavour || v.price; }).map(function(v){
+    return {vid: v.vid, size:String(v.size||'').trim(), flavour:String(v.flavour||'').trim(), price:parseFloat(v.price), mrp:parseFloat(v.mrp), stock:v.stock || 'yes', image:v.image || ''};
+  });
+  if(!vs.length || vs.some(function(v){ return !(v.price > 0); })){ flash('Every row needs a price above 0.', true); return; }
+  var seen = {};
+  for(var k = 0; k < vs.length; k++){
+    var key = (vs[k].size + '|' + vs[k].flavour).toLowerCase();
+    if(seen[key]){ flash('Two rows have the same size and flavour: ' + (vs[k].size || 'no size') + ', ' + (vs[k].flavour || 'no flavour') + '.', true); return; }
+    seen[key] = 1;
+  }
+  var maxv = -1; vs.forEach(function(v){ var n = parseInt(v.vid, 10); if(!isNaN(n) && n > maxv) maxv = n; });
+  vs.forEach(function(v){
+    if(v.vid == null || v.vid === ''){ maxv++; v.vid = String(maxv); }
+    if(!(v.mrp >= v.price)) v.mrp = v.price;
+  });
+  p.images = PH.filter(Boolean); p.variants = vs;
   var idx = editing ? data.products.findIndex(function(x){ return String(x.id) === editing; }) : -1;
-  var oldPhotos = idx >= 0 ? SLOTS.map(function(s){ return data.products[idx][s]; }).filter(Boolean) : [];
+  var old = idx >= 0 ? allImages(data.products[idx]) : [];
   if(idx >= 0){ p.id = editing; data.products[idx] = p; }
   else {
     var max = 0; data.products.forEach(function(x){ max = Math.max(max, Number(x.id) || 0); });
     p.id = String(max + 1); data.products.push(p);
   }
+  var keep = allImages(p);
   $('#saveBtn').disabled = true;
   saveData((idx >= 0 ? 'Update product: ' : 'Add product: ') + p.name).then(function(){
     renderList(); closeForm(); flash('Saved. Your website updates in 1 to 2 minutes.');
-    oldPhotos.forEach(function(o){ if(list.indexOf(o) < 0) deleteImage(o); });
+    old.forEach(function(o){ if(keep.indexOf(o) < 0) deleteImage(o); });
   }).catch(function(er){ flash(er.message, true); }).then(function(){ $('#saveBtn').disabled = false; });
+};
+
+/* ---------- reviews ---------- */
+function renderReviews(){
+  var list = data.reviews || [];
+  $('#rvList').innerHTML = list.length ? list.map(function(r, i){
+    return '<div class="rv"><div><strong>' + esc(r.name) + '</strong> <span style="color:#e0a000">' + '★'.repeat(Math.round(r.rating || 5)) + '</span><div class="hint" style="font-size:13px;color:var(--ink)">' + esc(r.text) + '</div></div>' +
+      '<div><button class="btn del sm" data-rvdel="' + i + '">Delete</button></div></div>';
+  }).join('') : '<p class="hint">No reviews added yet.</p>';
+}
+$('#rvList').onclick = function(e){
+  var b = e.target.closest('button'); if(!b || b.dataset.rvdel === undefined) return;
+  if(!b.dataset.armed){ b.dataset.armed = '1'; b.textContent = 'Confirm'; setTimeout(function(){ b.dataset.armed = ''; b.textContent = 'Delete'; }, 3000); return; }
+  data.reviews.splice(+b.dataset.rvdel, 1);
+  saveData('Delete review').then(function(){ renderReviews(); flash('Review deleted.'); }).catch(function(er){ flash(er.message, true); });
+};
+$('#rvAdd').onclick = function(){
+  var name = $('#r_name').value.trim(), text = $('#r_text').value.trim();
+  if(!name || !text){ flash('Enter the customer name and what they wrote.', true); return; }
+  data.reviews = data.reviews || [];
+  data.reviews.push({name: name, rating: parseInt($('#r_rating').value, 10), text: text});
+  $('#rvAdd').disabled = true;
+  saveData('Add review').then(function(){ $('#r_name').value = ''; $('#r_text').value = ''; renderReviews(); flash('Review added. Your website updates in 1 to 2 minutes.'); })
+    .catch(function(er){ flash(er.message, true); }).then(function(){ $('#rvAdd').disabled = false; });
 };
 
 /* ---------- business details ---------- */
