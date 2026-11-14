@@ -1079,6 +1079,33 @@
         }
       ],
       "id": "23"
+    },
+    {
+      "name": "BPI Sports Glutamine Recovery & Muscle Support Formula",
+      "brand": "BPI Sports",
+      "category": "Amino Acids & Hydrations",
+      "subcategory": "Glutamine",
+      "rating": 4,
+      "featured": "yes",
+      "description": "L-Glutamine is an amino acid that is known for helping to improve muscle recovery and endurance. Athletes and bodybuilders supplement with L-Glutamine because it may help to reduce fatigue during and after workouts and may decrease muscle soreness afterwards. L-Glutamine may help to improve overall health and wellness by boosting the immune system and improving gut health.",
+      "images": [
+        "images/p1794688676037fham.jpg",
+        "images/p1794688678863qavj.jpg",
+        "images/p1794688686838gyga.jpg",
+        "images/p1794688694893ok86.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "price": 999,
+          "mrp": 1799,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "24"
     }
   ],
   "reviews": [
