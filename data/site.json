@@ -1045,6 +1045,40 @@
         }
       ],
       "id": "22"
+    },
+    {
+      "name": "BPI Sports Citrulline Malate Nitric Oxide & Pump Support",
+      "brand": "BPI Sports",
+      "category": "Pre-Workout",
+      "subcategory": "Performance Amino Acids",
+      "rating": 4,
+      "featured": "yes",
+      "description": "Citrulline Malate contains fast absorbing L-Citrulline Malate Amino Acid in each serving for rapid absorption rate with faster results in building strength and endurance. It is extracted from a vegan source and helps facilitate increased flow of blood and nutrients to muscles, leading to bigger muscle growth.",
+      "images": [
+        "images/p1794688431413t1av.jpg",
+        "images/p1794688439876xrmh.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "90 Grams",
+          "flavour": "",
+          "price": 599,
+          "mrp": 1099,
+          "stock": "yes",
+          "image": "images/p1794688421246l0ny.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "180 Grams",
+          "flavour": "",
+          "price": 1198,
+          "mrp": 2199,
+          "stock": "yes",
+          "image": "images/p1794688448779hpog.jpg"
+        }
+      ],
+      "id": "23"
     }
   ],
   "reviews": [
