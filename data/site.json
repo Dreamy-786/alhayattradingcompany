@@ -96,6 +96,52 @@
         }
       ],
       "id": "3"
+    },
+    {
+      "name": "Alpha Mind Stay Young Healthy Aging & Wellness Formula",
+      "brand": "ALPHA MIND GLOBAL",
+      "category": "Collagen",
+      "subcategory": "",
+      "rating": 3.6,
+      "featured": "yes",
+      "description": "✨ Meet ALPHA STAY YOUNG — your daily collagen upgrade! ✨\nPowered by 7,000 mg Hydrolyzed Marine Collagen per serving, with Glutathione, Rosehips, Biotin, Niacin & MCT — formulated for those who want to make beauty & wellness part of their everyday routine. 💎\n🥄 30 Servings | 300g\n💙 Premium Hydrolyzed Marine Collagen\n✨ Added Glutathione & Rosehips\nPick your flavour before your favourite sells out. 👀",
+      "images": [
+        "images/p17946564989622gyv.jpg",
+        "images/p1794656506596d4nl.jpg",
+        "images/p17946565139531tgw.jpg",
+        "images/p1794656523222ppus.jpg",
+        "images/p1794656531677e9nx.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "300 Grams",
+          "flavour": "Alphonso Mango",
+          "price": 2300,
+          "mrp": 3499,
+          "stock": "yes",
+          "image": "images/p1794656601371hlbw.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "300 Grams",
+          "flavour": "Iced Frappe",
+          "price": 2300,
+          "mrp": 3499,
+          "stock": "yes",
+          "image": "images/p1794656543342atzp.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "300 Grams",
+          "flavour": "Mint Mojito",
+          "price": 2300,
+          "mrp": 3499,
+          "stock": "yes",
+          "image": "images/p1794656634766dgwq.jpg"
+        }
+      ],
+      "id": "4"
     }
   ],
   "reviews": []
