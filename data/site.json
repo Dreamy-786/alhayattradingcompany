@@ -1106,6 +1106,32 @@
         }
       ],
       "id": "24"
+    },
+    {
+      "name": "BPI Sports Micronized Creatine Strength & Performance Formula",
+      "brand": "BPI Sports",
+      "category": "Creatine",
+      "subcategory": "Creatine Monohydrate",
+      "rating": 3.9,
+      "featured": "yes",
+      "description": "BPI Sports Micronized Creatine aids athletes in achieving speed and energy especially during high intensity workouts. BPI Sports Creatine contains a micronized form of Creatine Monohydrate, which makes it smaller and easier for the body to digest and faster release to the muscles.",
+      "images": [
+        "images/p17946888145857w95.jpg",
+        "images/p1794688821832w0kd.jpg",
+        "images/p179468883265539xe.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "300 Grams",
+          "flavour": "",
+          "price": 700,
+          "mrp": 1899,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "25"
     }
   ],
   "reviews": [
