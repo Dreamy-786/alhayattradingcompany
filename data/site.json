@@ -1,5 +1,16 @@
 {
-  "settings": {},
+  "settings": {
+    "firmName": "AL HAYAT TRADING COMPANY",
+    "accentWord": "",
+    "phone": "77100 77786",
+    "whatsappNumber": "917710077786",
+    "email": "alhayattrading786@gmail.com",
+    "topbar": "Free delivery on orders above ₹2999",
+    "address": "Shop no.6, Kohinoor Co-Operative Housing Society Ltd, Momin Nagar, Jogeshwari West, Mumbai, Maharashtra 400102",
+    "tagline": "",
+    "heroTitle": "",
+    "heroSub": ""
+  },
   "products": [
     {
       "name": "Nutrex Research Anabol Hardcore Muscle Building & Strength Support Formula",
