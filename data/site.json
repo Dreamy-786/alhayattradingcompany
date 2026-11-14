@@ -887,6 +887,32 @@
         }
       ],
       "id": "16"
+    },
+    {
+      "name": "BPI L-Glutathione Reduced Antioxidant Support Formula",
+      "brand": "BPI Sports",
+      "category": "Amino Acids & Hydrations",
+      "subcategory": "Antioxidants",
+      "rating": 4,
+      "featured": "yes",
+      "description": "BPI Sports L-Glutathione Reduced is a scientifically formulated nutraceutical designed to support skin health, hydration, and overall wellness. This advanced formula combines the antioxidant power of L-Glutathione with Hyaluronic Acid, Vitamin E, and Biotin to help maintain youthful, glowing skin. Glutathione is known for its role in combating oxidative stress, while Hyaluronic Acid helps retain skin moisture and improve elasticity. Vitamin E and Biotin further support skin nourishment and beauty from within. Ideal for individuals looking to support skin clarity, hydration, and graceful ageing, this formula offers a convenient daily solution in easy-to-swallow capsules.",
+      "images": [
+        "images/p1794686990115c8m2.jpg",
+        "images/p17946869971317r37.jpg",
+        "images/p1794687006299f9b6.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "30 Capsules",
+          "flavour": "",
+          "price": 799,
+          "mrp": 1299,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "17"
     }
   ],
   "reviews": [
