@@ -142,6 +142,28 @@
         }
       ],
       "id": "4"
+    },
+    {
+      "name": "Bio-Quest Omega 3 Fish Oil Heart & Wellness Support",
+      "brand": "Bio-Quest Pharma",
+      "category": "Omega-3",
+      "subcategory": "Triple Strength Fish Oil",
+      "rating": 3.9,
+      "featured": "yes",
+      "description": "Premium omega-3 formula designed to support overall wellness and active lifestyles. Provides essential fatty acids as part of a balanced nutrition routine. Supports daily health and wellness goals with convenient softgel servings. Easy-to-use formula suitable for long-term supplementation.",
+      "images": [],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "60 Softgels",
+          "flavour": "Unflavored",
+          "price": 800,
+          "mrp": 1999,
+          "stock": "yes",
+          "image": "images/p1794657004564ezug.jpg"
+        }
+      ],
+      "id": "5"
     }
   ],
   "reviews": []
