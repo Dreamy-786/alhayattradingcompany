@@ -2,397 +2,888 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Your Firm Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Al Hayat | Your Fitness Your Future</title>
+<link rel="icon" href="images/logo-dark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: sticky header with search, hero strip, filter bar, product grid, detail modal, cart drawer */
+/* Layout: black header + hero with logo, light shop, black tools band, white reviews, grey contact, black footer */
 :root{
-  --bg:#f6f7f9; --surface:#ffffff; --ink:#161a2e; --muted:#5d6479; --line:#e2e5ec;
-  --accent:#e4572e; --accent-ink:#ffffff; --good:#1c8a5a; --chip:#eceef4;
-  --font-display:'Space Grotesk',system-ui,sans-serif; --font-body:'Inter',system-ui,sans-serif;
+  --black:#000; --ink:#111216; --ink-2:#1a1c23; --paper:#fff; --bg:#f3f4f6; --line:#e2e4ea; --muted:#5f6778;
+  --accent:#f08a5d; --accent-deep:#c4492a; --good:#157a4f; --chip:#eceef2;
+  --font-display:'Barlow Condensed','Arial Narrow',Impact,sans-serif; --font-body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0f1220; --surface:#181c30; --ink:#eef0f8; --muted:#9aa1b8; --line:#2a3050;
-  --accent:#ff6a3d; --accent-ink:#1a0d08; --good:#44c58b; --chip:#232845; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0f1220; --surface:#181c30; --ink:#eef0f8; --muted:#9aa1b8; --line:#2a3050;
-  --accent:#ff6a3d; --accent-ink:#1a0d08; --good:#44c58b; --chip:#232845; color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 var(--font-body)}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 var(--font-body);-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
-button{font:inherit;color:inherit;cursor:pointer}
 a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+input,select,textarea{font:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+[hidden]{display:none!important}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 h1,h2,h3{font-family:var(--font-display);margin:0;text-wrap:balance}
+h2{font-weight:800;font-size:clamp(34px,5vw,52px);text-transform:uppercase;line-height:.98;letter-spacing:.005em}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:10px}
+.eyebrow::before{content:"";width:28px;height:3px;background:var(--accent)}
+.dark .eyebrow,.hero .eyebrow{color:var(--accent)}
+.sec{padding-block:68px;scroll-margin-top:120px}
+.sec.white{background:var(--paper)}
+.sec.dark{background:var(--black);color:#fff}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.sec-head p{margin:10px 0 0;color:var(--muted);max-width:56ch}
+.dark .sec-head p{color:#a9afbf}
 
-.topbar{background:var(--ink);color:var(--bg);font-size:13px;text-align:center;padding:7px 12px}
-header.site{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
-.head-row{display:flex;align-items:center;gap:16px;padding-block:12px}
-.brand{font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
-.brand b{color:var(--accent)}
-.search{flex:1;min-width:0;position:relative}
-.search input{width:100%;height:42px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:0 14px;font:inherit}
-.icon-btn{height:42px;padding:0 14px;border:1px solid var(--line);background:var(--surface);border-radius:8px;display:flex;align-items:center;gap:8px;font-weight:500}
-.icon-btn .count{background:var(--accent);color:var(--accent-ink);border-radius:99px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px;padding:0 6px}
-nav.cats{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:thin}
-nav.cats button{border:0;background:transparent;padding:6px 12px;border-radius:99px;white-space:nowrap;color:var(--muted);font-weight:500}
-nav.cats button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 22px;border-radius:8px;border:2px solid var(--accent);background:var(--accent);color:#1a0b05;font-weight:700;text-decoration:none;font-size:15px;white-space:nowrap}
+.btn:hover:not(:disabled){background:#ff9d73;border-color:#ff9d73}
+.btn.ghost{background:transparent;color:inherit;border-color:currentColor}
+.btn.ghost:hover:not(:disabled){background:rgba(127,127,127,.15);border-color:currentColor}
+.btn.dark{background:var(--black);border-color:var(--black);color:#fff}
+.btn.dark:hover:not(:disabled){background:#222;border-color:#222}
+.btn.sm{height:38px;padding:0 14px;font-size:14px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
 
-.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;padding-block:24px}
-.hero-main{background:var(--ink);color:var(--bg);border-radius:14px;padding:36px;display:flex;flex-direction:column;gap:14px;justify-content:center;min-height:240px}
-.hero-main h1{font-size:clamp(28px,4vw,44px);line-height:1.05;letter-spacing:-.02em}
-.hero-main p{margin:0;max-width:46ch;opacity:.8}
-.btn{display:inline-flex;align-items:center;justify-content:center;height:42px;padding:0 20px;border-radius:8px;border:0;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none;width:max-content}
-.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
-.trust{display:grid;gap:12px;align-content:center}
-.trust div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
-.trust strong{display:block;font-family:var(--font-display)}
-.trust span{color:var(--muted);font-size:13px}
+.topbar{background:var(--accent);color:#1a0b05;font-weight:600;font-size:13px;text-align:center;padding:7px 12px}
+header.site{position:sticky;top:0;z-index:30;background:var(--black);color:#fff;border-bottom:1px solid #1d1e24}
+.head-row{display:flex;align-items:center;gap:18px;min-height:74px;flex-wrap:wrap}
+.logo img{height:58px;width:auto}
+nav.main{display:flex;gap:2px;margin-left:auto}
+nav.main a{color:#d6d9e2;text-decoration:none;font-weight:500;font-size:14px;padding:9px 12px;border-radius:8px;white-space:nowrap}
+nav.main a:hover{color:#fff;background:#1c1d23}
+.head-actions{display:flex;gap:8px;align-items:center}
+.icon-link{width:42px;height:42px;display:grid;place-items:center;border-radius:8px;border:1px solid #2a2c35;color:#fff}
+.icon-link:hover{border-color:var(--accent);color:var(--accent)}
+.cart-btn{height:42px;padding:0 14px;display:flex;align-items:center;gap:8px;border-radius:8px;border:1px solid #2a2c35;background:transparent;color:#fff;font-weight:600}
+.cart-btn:hover{border-color:var(--accent)}
+.cart-btn .count{background:var(--accent);color:#1a0b05;border-radius:99px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px;font-weight:700;padding:0 6px}
+svg.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
-.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding-block:8px 16px}
-.tools .left{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-select{height:38px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:0 10px;font:inherit;max-width:100%}
-.result-count{color:var(--muted);font-size:14px}
+.hero{background:var(--black);color:#fff;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:24px;align-items:center;padding-block:44px 52px}
+.hero h1{font-weight:800;font-size:clamp(52px,8vw,104px);line-height:.92;text-transform:uppercase;letter-spacing:-.005em;margin:6px 0 18px}
+.hero h1 em{display:block;font-style:normal;color:var(--accent)}
+.hero p.lead{font-size:18px;color:#bcc1cf;max-width:46ch;margin:0 0 26px}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.trust{list-style:none;padding:0;margin:34px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:560px}
+.trust li{border-top:2px solid #2a2c35;padding-top:10px}
+.trust b{display:block;font-family:var(--font-display);font-size:19px;text-transform:uppercase;letter-spacing:.02em}
+.trust span{font-size:13px;color:#9aa0b0}
+.hero-art{position:relative;display:grid;place-items:center}
+.hero-art::before{content:"";position:absolute;inset:6%;background:radial-gradient(closest-side,rgba(240,138,93,.38),rgba(240,138,93,0));}
+.hero-art img{position:relative;width:min(520px,100%);mix-blend-mode:screen}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;padding-bottom:48px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.pills{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:14px;scrollbar-width:thin}
+.pills button{border:1px solid var(--line);background:#fff;padding:8px 16px;border-radius:99px;white-space:nowrap;font-weight:600;font-size:14px;color:var(--muted)}
+.pills button:hover{border-color:var(--ink);color:var(--ink)}
+.pills button[aria-pressed="true"]{background:var(--black);border-color:var(--black);color:#fff}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:18px}
+.toolbar .search{flex:1 1 240px;min-width:0}
+.toolbar input,.toolbar select{height:44px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:8px;padding:0 12px;width:100%}
+.toolbar select{width:auto;max-width:100%}
+.result-count{color:var(--muted);font-size:14px;margin-left:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(224px,1fr));gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(10,12,20,.1)}
 .card .img{position:relative;aspect-ratio:1/1;background:var(--chip);border:0;padding:0;width:100%}
 .card .img img{width:100%;height:100%;object-fit:contain}
-.badge{position:absolute;top:10px;left:10px;background:var(--accent);color:var(--accent-ink);font-size:12px;font-weight:600;padding:3px 8px;border-radius:6px}
-.badge.out{background:var(--ink);color:var(--bg)}
-.card .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
-.brand-tag{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-.card h3{font-size:15px;line-height:1.3;font-weight:500;cursor:pointer;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.badge{position:absolute;top:10px;left:10px;background:var(--black);color:#fff;font-size:12px;font-weight:700;padding:4px 9px;border-radius:6px;letter-spacing:.02em}
+.badge.out{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.card .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}
+.brand-tag{font-size:11px;font-weight:700;color:var(--accent-deep);text-transform:uppercase;letter-spacing:.1em}
+.card h3{font-family:var(--font-body);font-size:15px;line-height:1.35;font-weight:600;cursor:pointer;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .meta{font-size:13px;color:var(--muted)}
-.price-row{display:flex;gap:8px;align-items:baseline;margin-top:auto;padding-top:6px;flex-wrap:wrap}
-.price{font-family:var(--font-display);font-weight:700;font-size:18px;font-variant-numeric:tabular-nums}
+.rating{color:var(--good);font-size:13px;font-weight:700}
+.price-row{display:flex;gap:8px;align-items:baseline;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.price{font-family:var(--font-display);font-weight:800;font-size:26px;line-height:1;font-variant-numeric:tabular-nums}
+.price small{font-family:var(--font-body);font-size:12px;font-weight:500;color:var(--muted)}
 .mrp{color:var(--muted);text-decoration:line-through;font-size:13px;font-variant-numeric:tabular-nums}
-.rating{color:var(--good);font-size:13px;font-weight:600}
-.add{margin-top:8px;height:38px;border-radius:8px;border:1px solid var(--ink);background:transparent;font-weight:600}
-.add:hover:not(:disabled){background:var(--ink);color:var(--bg)}
-.add:disabled{opacity:.45;cursor:not-allowed}
+.add{margin-top:10px;height:42px;border-radius:8px;border:2px solid var(--black);background:transparent;font-weight:700}
+.add:hover:not(:disabled){background:var(--black);color:#fff}
+.add:disabled{opacity:.4;cursor:not-allowed}
 .empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:60px 0}
 
-dialog{border:0;padding:0;background:var(--surface);color:var(--ink);border-radius:14px;max-width:min(920px,calc(100vw - 24px));width:100%;max-height:calc(100vh - 24px)}
-dialog::backdrop{background:rgba(10,12,24,.6)}
-.detail{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:24px;position:relative}
-.detail .gallery{min-width:0}
-.detail .main-img{aspect-ratio:1/1;background:var(--chip);border-radius:10px;display:grid;place-items:center}
+dialog{border:0;padding:0;background:#fff;color:var(--ink);border-radius:14px;max-width:min(940px,calc(100vw - 20px));width:100%;max-height:calc(100vh - 20px);overflow:auto}
+dialog::backdrop{background:rgba(5,6,12,.65)}
+.detail{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:26px;position:relative}
+.detail .main-img{aspect-ratio:1/1;background:var(--chip);border-radius:10px;display:grid;place-items:center;overflow:hidden}
 .detail .main-img img{width:100%;height:100%;object-fit:contain}
 .thumbs{display:flex;gap:8px;margin-top:10px;overflow-x:auto}
-.thumbs button{width:60px;height:60px;border:1px solid var(--line);border-radius:8px;padding:2px;background:var(--chip);flex:none}
+.thumbs button{width:62px;height:62px;border:1px solid var(--line);border-radius:8px;padding:2px;background:var(--chip);flex:none}
 .thumbs button[aria-current="true"]{border-color:var(--accent);border-width:2px}
 .thumbs img{width:100%;height:100%;object-fit:contain}
-.info{display:flex;flex-direction:column;gap:10px;min-width:0}
-.info h2{font-size:24px;line-height:1.15}
-.info .desc{color:var(--muted);white-space:pre-line}
-.specs{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14px;margin:0}
-.specs dt{color:var(--muted)}.specs dd{margin:0}
-.close{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:99px;border:1px solid var(--line);background:var(--surface);z-index:2}
-.drawer{margin:0 0 0 auto;max-width:420px;height:100vh;max-height:100vh;border-radius:0;display:flex;flex-direction:column}
+.info{display:flex;flex-direction:column;gap:12px;min-width:0}
+.info h2{font-size:34px;line-height:1.02}
+.optgroup .lab{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.optgroup .lab b{color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:8px;padding:8px 14px;font-weight:600;font-size:14px}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--black);border-color:var(--black);color:#fff}
+.chip.na{border-style:dashed;color:var(--muted)}
+.chip.out{text-decoration:line-through;color:var(--muted)}
+.chip.on.out{color:#bbb}
+.desc{color:var(--muted);white-space:pre-line}
+.close{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:99px;border:1px solid var(--line);background:#fff;z-index:2;font-size:16px}
+.wa-link{font-size:14px;color:var(--accent-deep);font-weight:600}
+.drawer{margin:0 0 0 auto;max-width:430px;height:100vh;max-height:100vh;border-radius:0;flex-direction:column}
 .drawer[open]{display:flex}
 .drawer header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
-.drawer .items{flex:1;overflow:auto;padding:8px 20px}
-.line{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
-.line img{width:56px;height:56px;object-fit:contain;background:var(--chip);border-radius:8px}
-.qty{display:flex;align-items:center;gap:6px;margin-top:4px}
-.qty button{width:26px;height:26px;border-radius:6px;border:1px solid var(--line);background:var(--surface)}
-.drawer footer{padding:16px 20px;border-top:1px solid var(--line);display:grid;gap:10px}
-.drawer input{height:40px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:0 12px;font:inherit;width:100%}
-.total{display:flex;justify-content:space-between;font-weight:600;font-size:17px}
-.note{font-size:12px;color:var(--muted)}
-footer.site{background:var(--ink);color:var(--bg);padding-block:32px;font-size:14px}
-footer.site .cols{display:flex;gap:32px;flex-wrap:wrap;justify-content:space-between}
-footer.site p{margin:4px 0;opacity:.8}
-.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:8px;z-index:50;font-size:14px}
-@media (max-width:820px){
-  .hero{grid-template-columns:1fr}.detail{grid-template-columns:1fr;padding:16px}
-  .hero-main{padding:24px}.icon-btn .label{display:none}
-  .head-row{flex-wrap:wrap}.brand{order:1}.search{order:3;flex-basis:100%}.cart-btn{order:2;margin-left:auto}
-  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+.drawer header h2{font-size:28px}
+.drawer header .close{position:static}
+.drawer .items{flex:1;overflow:auto;padding:6px 20px}
+.line{display:grid;grid-template-columns:58px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.line img{width:58px;height:58px;object-fit:contain;background:var(--chip);border-radius:8px}
+.line .nm{font-weight:600;font-size:14px;line-height:1.3}
+.qty{display:flex;align-items:center;gap:8px;margin-top:6px}
+.qty button{width:28px;height:28px;border-radius:6px;border:1px solid var(--line);background:#fff;font-weight:700}
+.drawer footer{padding:16px 20px calc(16px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);display:grid;gap:10px}
+.drawer input{height:44px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:8px;padding:0 12px;width:100%}
+.total{display:flex;justify-content:space-between;font-weight:700;font-size:18px}
+.note{font-size:12px;color:var(--muted);margin:0}
+
+/* tools */
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.tool{background:var(--ink);border:1px solid #262833;border-radius:14px;padding:26px;min-width:0}
+.tool h3{font-size:30px;font-weight:800;text-transform:uppercase;letter-spacing:.01em;margin-bottom:4px}
+.tool .sub{color:#a9afbf;font-size:14px;margin:0 0 18px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fgrid .full{grid-column:1/-1}
+.tool label,.tool .lab{display:block;font-size:12px;font-weight:600;color:#a9afbf;letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px}
+.tool input,.tool select{width:100%;height:44px;background:#0a0b0f;border:1px solid #2e3142;border-radius:8px;color:#fff;padding:0 12px;min-width:0}
+.tool select option,.tool select optgroup{background:#0a0b0f;color:#fff}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #2e3142;border-radius:8px;overflow:hidden}
+.seg button{height:42px;border:0;background:#0a0b0f;color:#a9afbf;font-weight:600}
+.seg button.on{background:var(--accent);color:#1a0b05}
+.inline{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tool .btn{width:100%;margin-top:6px}
+.err{background:#3a1713;border:1px solid #6e2a22;color:#ffb4a8;border-radius:8px;padding:10px 12px;font-size:14px;margin-top:12px}
+.res{margin-top:22px;border-top:1px solid #262833;padding-top:20px}
+.bmi-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.bmi-num{font-family:var(--font-display);font-weight:800;font-size:76px;line-height:.9}
+.pill{display:inline-block;padding:5px 14px;border-radius:99px;font-weight:700;font-size:13px;color:#10110f}
+.gauge{margin:18px 0 6px;position:relative;height:12px;border-radius:99px;display:flex;overflow:visible}
+.gauge i{display:block;height:100%}
+.gauge i:first-child{border-radius:99px 0 0 99px}
+.gauge i:nth-child(4){border-radius:0 99px 99px 0}
+.gauge .mk{position:absolute;top:-6px;width:4px;height:24px;background:#fff;border-radius:2px;box-shadow:0 0 0 2px #000;transform:translateX(-50%)}
+.gl{display:flex;justify-content:space-between;font-size:11px;color:#9aa0b0;margin-bottom:16px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{background:#0a0b0f;border:1px solid #262833;border-radius:10px;padding:12px 14px}
+.stat b{display:block;font-family:var(--font-display);font-size:28px;font-weight:700;line-height:1.1}
+.stat span{font-size:12px;color:#9aa0b0}
+.fine{font-size:12px;color:#8b91a1;margin:14px 0 0}
+.flist{margin-top:16px;display:grid;gap:0}
+.fl{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #262833}
+.fl .n{font-weight:600;font-size:14px}.fl .q{font-size:12px;color:#9aa0b0}
+.fl b{font-family:var(--font-display);font-size:22px;color:var(--accent)}
+.fl button{background:transparent;border:1px solid #2e3142;color:#a9afbf;width:30px;height:30px;border-radius:6px}
+.ptotal{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px}
+.ptotal b{font-family:var(--font-display);font-size:44px;font-weight:800;line-height:1}
+.prog{height:12px;background:#0a0b0f;border:1px solid #262833;border-radius:99px;overflow:hidden;margin:10px 0 6px}
+.prog i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.tip{background:#1d1510;border:1px solid #4a2f21;border-radius:10px;padding:12px 14px;font-size:14px;margin-top:12px;color:#f3d3c3}
+.tip a{color:var(--accent);font-weight:700}
+
+/* reviews */
+.rev-head{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
+.rev-score{display:flex;align-items:center;gap:14px;background:var(--bg);border-radius:12px;padding:12px 18px}
+.rev-score b{font-family:var(--font-display);font-size:52px;font-weight:800;line-height:1}
+.stars{color:#f0a21a;letter-spacing:2px;font-size:16px;white-space:nowrap}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.rev{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.rev .who{display:flex;align-items:center;gap:10px}
+.av{width:38px;height:38px;border-radius:99px;background:var(--black);color:#fff;display:grid;place-items:center;font-weight:700;overflow:hidden;flex:none}
+.av img{width:100%;height:100%;object-fit:cover}
+.rev .when{font-size:12px;color:var(--muted)}
+.rev p{margin:0;color:#33384a;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+.rev-empty{background:var(--bg);border-radius:12px;padding:28px;text-align:center;color:var(--muted)}
+.src{font-size:12px;color:var(--muted);margin-top:14px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1.25fr;gap:24px;align-items:stretch}
+.cinfo{display:grid;gap:12px;align-content:start}
+.ci{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.ci .k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep)}
+.ci div.v{font-weight:600;white-space:pre-line;overflow-wrap:anywhere}
+.mapbox{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff;min-height:340px;height:100%}
+.mapbox iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
+.cta-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+
+footer.site{background:var(--black);color:#fff;padding-block:40px calc(28px + env(safe-area-inset-bottom,0px))}
+.fcols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
+footer.site img{height:80px;width:auto;margin-bottom:10px}
+footer.site p{margin:4px 0;color:#a9afbf;font-size:14px}
+footer.site h4{font-family:var(--font-display);font-size:18px;text-transform:uppercase;letter-spacing:.06em;margin:0 0 8px}
+footer.site a{text-decoration:none;color:#d6d9e2}
+footer.site a:hover{color:var(--accent)}
+.copy{border-top:1px solid #1f2027;margin-top:26px;padding-top:16px;font-size:12px;color:#8b91a1}
+.wa-float{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:25;background:#25d366;color:#06220f;height:50px;padding:0 18px;border-radius:99px;display:flex;align-items:center;gap:8px;font-weight:700;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--black);color:#fff;padding:10px 18px;border-radius:8px;z-index:60;font-size:14px;border:1px solid #333}
+
+@media (max-width:900px){
+  nav.main{order:3;flex-basis:100%;margin:0;overflow-x:auto;padding-bottom:8px}
+  .head-actions{margin-left:auto}
+  .logo img{height:50px}
+  .hero-grid{grid-template-columns:1fr;padding-block:28px 36px}
+  .hero-art{order:-1;max-width:340px;margin:0 auto}
+  .tools,.contact,.fcols{grid-template-columns:1fr}
+  .detail{grid-template-columns:1fr;padding:16px}
+  .sec{padding-block:48px}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (max-width:560px){
+  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .card .body{padding:10px 12px 12px}
+  .price{font-size:22px}
+  .trust{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .trust span{display:none}
+  .tool{padding:18px}
+  .wa-float span{display:none}.wa-float{width:50px;padding:0;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
 </style>
 </head>
-<body>
+<body id="top">
 
-<div class="topbar" id="topbar"></div>
+<div class="topbar" id="topbar" hidden></div>
+
 <header class="site">
-  <div class="wrap">
-    <div class="head-row">
-      <a class="brand" href="#" id="brand"></a>
-      <div class="search"><input id="q" type="search" placeholder="Search products, brands, flavours" aria-label="Search products"></div>
-      <button class="icon-btn cart-btn" id="cartBtn" aria-label="Open cart"><span class="label">Cart</span><span class="count" id="cartCount">0</span></button>
+  <div class="wrap head-row">
+    <a class="logo" href="#top" aria-label="Home"><img src="images/logo-dark.png" alt="Al Hayat logo" id="logoImg"></a>
+    <nav class="main" aria-label="Main">
+      <a href="#shop">Shop</a>
+      <a href="#bmi">BMI &amp; calories</a>
+      <a href="#protein">Protein counter</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Find us</a>
+    </nav>
+    <div class="head-actions">
+      <a class="icon-link" id="igLink" href="#" target="_blank" rel="noopener" aria-label="Instagram" hidden>
+        <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg>
+      </a>
+      <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M3 4h2l2.2 11h10.6L20 7H6.2"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg>
+        <span class="count" id="cartCount">0</span>
+      </button>
     </div>
-    <nav class="cats" id="cats" aria-label="Categories"></nav>
   </div>
 </header>
 
-<main class="wrap">
-  <section class="hero">
-    <div class="hero-main">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow" id="heroEyebrow">Supplements, gear and apparel</span>
       <h1 id="heroTitle"></h1>
-      <p id="heroSub"></p>
-      <a class="btn" href="#shop">Shop now</a>
-    </div>
-    <div class="trust" id="trust"></div>
-  </section>
-
-  <section id="shop">
-    <div class="tools">
-      <div class="left">
-        <select id="brand-filter" aria-label="Filter by brand"></select>
-        <select id="sort" aria-label="Sort">
-          <option value="featured">Featured first</option>
-          <option value="low">Price: low to high</option>
-          <option value="high">Price: high to low</option>
-          <option value="disc">Biggest discount</option>
-          <option value="name">Name A to Z</option>
-        </select>
+      <p class="lead" id="heroSub"></p>
+      <div class="cta-row">
+        <a class="btn" href="#shop">Shop now</a>
+        <a class="btn ghost" href="#bmi">Free BMI calculator</a>
       </div>
+      <ul class="trust" id="trust"></ul>
+    </div>
+    <div class="hero-art"><img src="images/logo-dark.png" alt="" id="heroImg"></div>
+  </div>
+</section>
+
+<section class="sec" id="shop">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">The store</span><h2>Shop the range</h2></div>
+    </div>
+    <div class="pills" id="cats" aria-label="Categories"></div>
+    <div class="toolbar">
+      <div class="search"><input id="q" type="search" placeholder="Search products, brands or flavours" aria-label="Search products"></div>
+      <select id="brand-filter" aria-label="Filter by brand"></select>
+      <select id="sort" aria-label="Sort">
+        <option value="featured">Featured first</option>
+        <option value="low">Price: low to high</option>
+        <option value="high">Price: high to low</option>
+        <option value="disc">Biggest discount</option>
+        <option value="name">Name A to Z</option>
+      </select>
       <span class="result-count" id="count"></span>
     </div>
-    <div class="grid" id="grid"></div>
-  </section>
-</main>
+    <div class="grid" id="grid"><div class="empty">Loading products...</div></div>
+  </div>
+</section>
+
+<section class="sec dark" id="tools">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Free tools</span><h2>Know your numbers</h2></div>
+      <p>Work out your BMI, daily calories and protein target, then count the protein in your meals.</p>
+    </div>
+    <div class="tools">
+
+      <div class="tool" id="bmi" style="scroll-margin-top:120px">
+        <h3>BMI &amp; calorie calculator</h3>
+        <p class="sub">Body mass index, daily calories and a protein target for your goal.</p>
+        <div class="fgrid">
+          <div class="full"><span class="lab">Gender</span>
+            <div class="seg" id="b_gender" role="group" aria-label="Gender"><button type="button" data-g="male" class="on">Male</button><button type="button" data-g="female">Female</button></div></div>
+          <div><label for="b_age">Age (years)</label><input id="b_age" type="number" inputmode="numeric" min="15" max="100" placeholder="25"></div>
+          <div><label for="b_kg">Weight (kg)</label><input id="b_kg" type="number" inputmode="decimal" min="20" max="300" step="0.1" placeholder="70"></div>
+          <div class="full"><label for="b_unit">Height</label>
+            <div class="inline" style="grid-template-columns:110px 1fr">
+              <select id="b_unit" aria-label="Height unit"><option value="cm">cm</option><option value="ft">ft + in</option></select>
+              <div id="b_cmbox"><input id="b_cm" type="number" inputmode="decimal" min="100" max="250" placeholder="170" aria-label="Height in centimetres"></div>
+              <div id="b_ftbox" class="inline" hidden><input id="b_ft" type="number" inputmode="numeric" min="3" max="8" placeholder="5 ft" aria-label="Feet"><input id="b_in" type="number" inputmode="decimal" min="0" max="11.9" placeholder="7 in" aria-label="Inches"></div>
+            </div></div>
+          <div><label for="b_act">Activity level</label>
+            <select id="b_act">
+              <option value="1.2">Desk job, little exercise</option>
+              <option value="1.375" selected>Light, 1 to 3 days a week</option>
+              <option value="1.55">Moderate, 3 to 5 days a week</option>
+              <option value="1.725">Hard, 6 to 7 days a week</option>
+            </select></div>
+          <div><label for="b_goal">Goal</label>
+            <select id="b_goal">
+              <option value="lose">Lose fat</option>
+              <option value="maintain" selected>Stay the same</option>
+              <option value="gain">Build muscle</option>
+            </select></div>
+        </div>
+        <button class="btn" id="bmiBtn" type="button" style="margin-top:16px">Calculate</button>
+        <div id="bmiErr" class="err" hidden></div>
+        <div id="bmiRes" class="res" hidden></div>
+      </div>
+
+      <div class="tool" id="protein" style="scroll-margin-top:120px">
+        <h3>Protein in your food</h3>
+        <p class="sub">Add what you eat in a day and see how much protein you get.</p>
+        <div class="fgrid">
+          <div class="full"><label for="p_goal">Your daily protein goal (g)</label><input id="p_goal" type="number" inputmode="numeric" min="0" placeholder="Fill in the BMI calculator, or type a goal"></div>
+          <div class="full"><label for="p_food">Food</label><select id="p_food"></select></div>
+          <div><label for="p_qty">Quantity</label><input id="p_qty" type="number" inputmode="decimal" min="0" step="any" value="1"></div>
+          <div><label for="p_unit">Unit</label><select id="p_unit"></select></div>
+        </div>
+        <button class="btn" id="pAdd" type="button" style="margin-top:16px">Add food</button>
+        <div id="pRes" hidden>
+          <div class="flist" id="pList"></div>
+          <div class="ptotal"><span>Total protein</span><b id="pTotal">0 g</b></div>
+          <div class="meta" id="pKcal" style="color:#9aa0b0;font-size:13px"></div>
+          <div class="prog" id="pProgWrap" hidden><i id="pProg"></i></div>
+          <div class="meta" id="pProgTxt" style="color:#a9afbf;font-size:13px"></div>
+          <div class="tip" id="pTip" hidden></div>
+          <button class="btn ghost sm" id="pClear" type="button" style="margin-top:14px;width:auto">Clear list</button>
+        </div>
+        <p class="fine">Values are typical averages per 100 g, cooked weight unless stated. Packed foods and supplements vary by brand, so check the label.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="sec white" id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Reviews</span><h2>What customers say</h2></div>
+      <div class="cta-links" id="revLinks"></div>
+    </div>
+    <div class="rev-head" id="revHead" hidden></div>
+    <div class="rev-grid" id="revGrid"></div>
+    <p class="src" id="revSrc"></p>
+  </div>
+</section>
+
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">Visit us</span><h2>Find the store</h2></div></div>
+    <div class="contact">
+      <div class="cinfo" id="cinfo"></div>
+      <div class="mapbox" id="mapbox"></div>
+    </div>
+  </div>
+</section>
 
 <footer class="site">
-  <div class="wrap cols">
-    <div><strong id="fName"></strong><p id="fAbout"></p></div>
-    <div><strong>Contact</strong><p id="fContact"></p></div>
+  <div class="wrap">
+    <div class="fcols">
+      <div><img src="images/logo-dark.png" alt="" id="fLogo"><p id="fAbout"></p></div>
+      <div><h4>Explore</h4><p><a href="#shop">Shop</a></p><p><a href="#bmi">BMI &amp; calories</a></p><p><a href="#protein">Protein counter</a></p><p><a href="#reviews">Reviews</a></p></div>
+      <div><h4>Contact</h4><div id="fContact"></div></div>
+    </div>
+    <div class="copy" id="copy"></div>
   </div>
 </footer>
 
+<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" hidden>
+  <svg class="ic" viewBox="0 0 24 24"><path d="M4 20l1.3-4.2A8 8 0 1 1 8.4 18.8z"/></svg><span>WhatsApp</span>
+</a>
+
 <dialog id="detail"></dialog>
 <dialog id="cart" class="drawer">
-  <header><h2 style="font-size:20px">Your cart</h2><button class="close" style="position:static" id="cartClose" aria-label="Close cart">✕</button></header>
+  <header><h2>Your cart</h2><button class="close" id="cartClose" aria-label="Close cart">✕</button></header>
   <div class="items" id="cartItems"></div>
   <footer>
     <div class="total"><span>Total</span><span id="cartTotal"></span></div>
     <input id="custName" placeholder="Your name" aria-label="Your name">
     <input id="custPhone" placeholder="Phone number" inputmode="tel" aria-label="Phone number">
     <button class="btn" id="sendOrder" style="width:100%">Send order on WhatsApp</button>
-    <p class="note">Your order goes to us as a WhatsApp message. We confirm stock, delivery and payment with you.</p>
+    <p class="note">Your order opens as a WhatsApp message to us. We confirm stock, delivery and payment with you.</p>
   </footer>
 </dialog>
 
 <script>
-/* ======================= SETTINGS: edit this block ======================= */
+/* Defaults. Everything here can be changed from the admin page (Business details). */
 const CONFIG = {
-  firmName: "Your Firm",            // shown in header and footer
-  accentWord: "Firm",               // part of the name shown in the accent colour (optional)
-  tagline: "Sports nutrition, fitness gear and apparel",
-  heroTitle: "Genuine products. Straight from our shelves.",
-  heroSub: "Browse our full range, check live prices and send your order in a minute.",
-  topbar: "Free delivery on orders above ₹999",
-  trust: [
-    ["100% authentic", "Sourced directly from brands and importers"],
-    ["Fast dispatch", "Orders packed within 24 hours"],
-    ["Easy support", "Reach us on WhatsApp or phone"]
-  ],
+  firmName: "Al Hayat",
+  tagline: "Your fitness your future",
+  heroTitle: "Your fitness. Your future.",
+  heroSub: "Authentic supplements, gym gear and apparel at honest prices. Order in a minute on WhatsApp.",
+  topbar: "",
+  phone: "", whatsappNumber: "", email: "", address: "", hours: "",
+  instagram: "",      // username or full link
+  mapsUrl: "",        // your Google Maps share link
+  mapsEmbed: "",      // Google Maps "Embed a map" code or its src link
+  placeId: "",        // Google Place ID, for live Google reviews
+  googleApiKey: "",   // Google API key (restricted to your website address)
   currency: "₹",
-  whatsappNumber: "919999999999",   // country code + number, digits only
-  phone: "+91 99999 99999",
-  email: "hello@yourfirm.com",
-  address: "Your shop address, City",
-  dataUrl: "data/site.json"   // written by your admin page, do not change
+  dataUrl: "data/site.json",
+  trust: [["100% authentic","Sourced from brands and importers"],["Fast dispatch","Packed within 24 hours"],["Easy support","Reach us on WhatsApp"]]
 };
-/* ========================================================================= */
-
-const SAMPLE = [
- {id:"1",name:"Whey Protein Blend 1 kg",brand:"Sample Brand",category:"Protein",price:2999,mrp:3999,description:"24 g protein per scoop.\nMixes easily, no clumps.",weight_size:"1 kg",flavour:"Chocolate",rating:4.5,stock:"yes",featured:"yes"},
- {id:"2",name:"Micronized Creatine Monohydrate 250 g",brand:"Sample Brand",category:"Creatine",price:899,mrp:1199,description:"Unflavoured, 83 servings.",weight_size:"250 g",flavour:"Unflavoured",rating:4.6,stock:"yes",featured:"yes"},
- {id:"3",name:"Pre-Workout 30 Servings",brand:"Demo Labs",category:"Pre Workout",price:1799,mrp:2299,description:"Caffeine and citrulline blend.",weight_size:"30 servings",flavour:"Green Apple",rating:4.2,stock:"yes"},
- {id:"4",name:"Omega 3 Fish Oil 60 Caps",brand:"Demo Labs",category:"Vitamins",price:549,mrp:699,description:"1000 mg per capsule.",weight_size:"60 caps",rating:4.7,stock:"yes"},
- {id:"5",name:"Weight Gainer 3 kg",brand:"Sample Brand",category:"Gainers",price:2499,mrp:2499,description:"High calorie mass formula.",weight_size:"3 kg",flavour:"Vanilla",rating:4.1,stock:"no"},
- {id:"6",name:"Adjustable Dumbbell Pair 20 kg",brand:"Iron Works",category:"Fitness",price:3199,mrp:4499,description:"Quick-lock plates, rubber grip.",weight_size:"20 kg",rating:4.4,stock:"yes",featured:"yes"},
- {id:"7",name:"Yoga Mat 6 mm",brand:"Iron Works",category:"Fitness",price:699,mrp:999,description:"Non-slip, dual layer.",weight_size:"6 mm",rating:4.3,stock:"yes"},
- {id:"8",name:"Running Shoes Pro",brand:"Stride",category:"Footwear",price:3499,mrp:4999,description:"Cushioned daily trainer.",weight_size:"UK 6 to 11",rating:4.5,stock:"yes"}
-];
 
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const money = n => CONFIG.currency + Number(n).toLocaleString("en-IN");
-const PALETTE = ["#f2c9b8","#c9d8f0","#d3ead6","#f0e3b5","#e0d0ee","#bfe3e6"];
+const num = v => { const n = parseFloat(String(v ?? "").replace(/[^0-9.]/g, "")); return isNaN(n) ? 0 : n; };
+const money = n => CONFIG.currency + Number(n).toLocaleString("en-IN", {maximumFractionDigits: 2});
+const stars = r => "★".repeat(Math.round(r)) + "☆".repeat(5 - Math.round(r));
 
-let products = [], cart = {}, state = {q:"", cat:"All", brand:"All", sort:"featured"};
-try { cart = JSON.parse(localStorage.getItem("cart") || "{}"); } catch(e){ cart = {}; }
-const saveCart = () => { try { localStorage.setItem("cart", JSON.stringify(cart)); } catch(e){} };
+let DATA = {settings:{}, products:[], reviews:[]};
+let products = [], cart = {}, state = {q:"", cat:"All", brand:"All", sort:"featured"}, loadFailed = false;
+try { cart = JSON.parse(localStorage.getItem("cart2") || "{}"); } catch(e){ cart = {}; }
+const saveCart = () => { try { localStorage.setItem("cart2", JSON.stringify(cart)); } catch(e){} };
 
-/* ---------- data loading ---------- */
-const driveToImg = u => String(u||"").trim();
-const num = v => { const n = parseFloat(String(v??"").replace(/[^0-9.]/g,"")); return isNaN(n) ? 0 : n; };
-function normalize(r, i){
-  const imgs = [r.image_url, r.image_2, r.image_3, r.image_4, ...(r.images ? r.images.split("|") : [])].map(driveToImg).filter(Boolean);
-  const price = num(r.price), mrp = num(r.mrp) || price;
-  const stock = String(r.stock ?? "yes").trim().toLowerCase();
+/* ================= products ================= */
+const isOut = v => ["no","0","out","out of stock","false"].includes(String(v ?? "yes").trim().toLowerCase());
+function normProduct(r, i){
+  const images = (Array.isArray(r.images) ? r.images : [r.image_url, r.image_2, r.image_3, r.image_4]).filter(Boolean).map(String);
+  const raw = Array.isArray(r.variants) && r.variants.length ? r.variants
+    : [{size: r.weight_size || r.size || "", flavour: r.flavour || "", price: r.price, mrp: r.mrp, stock: r.stock}];
+  const variants = raw.map((v, j) => {
+    const price = num(v.price);
+    return {vid: String(v.vid ?? j), size: String(v.size || "").trim(), flavour: String(v.flavour || "").trim(),
+      price, mrp: Math.max(num(v.mrp) || price, price), inStock: !isOut(v.stock), img: v.image || ""};
+  }).filter(v => v.price > 0);
+  if(!r.name || !variants.length) return null;
+  const pool = variants.filter(v => v.inStock);
+  const use = pool.length ? pool : variants;
+  const cheapest = use.reduce((a, b) => b.price < a.price ? b : a);
+  const disc = v => v.mrp > v.price ? Math.round((1 - v.price / v.mrp) * 100) : 0;
   return {
-    id: String(r.id || i+1), name: r.name || "", brand: r.brand || "", category: r.category || "Other",
-    subcategory: r.subcategory || "", price, mrp: Math.max(mrp, price), imgs,
-    description: r.description || "", size: r.weight_size || r.size || "", flavour: r.flavour || "",
-    rating: num(r.rating), inStock: !["no","0","out","out of stock","false"].includes(stock),
-    featured: ["yes","true","1","y"].includes(String(r.featured||"").trim().toLowerCase())
+    id: String(r.id ?? i + 1), name: String(r.name), brand: r.brand || "", category: r.category || "Other",
+    description: r.description || "", rating: num(r.rating), featured: ["yes","true","1","y"].includes(String(r.featured || "").toLowerCase()),
+    images, variants, cheapest,
+    sizes: [...new Set(variants.map(v => v.size).filter(Boolean))],
+    flavours: [...new Set(variants.map(v => v.flavour).filter(Boolean))],
+    minPrice: Math.min(...use.map(v => v.price)), maxPrice: Math.max(...use.map(v => v.price)),
+    maxDisc: Math.max(...use.map(disc)), allOut: !pool.length
   };
 }
-async function loadProducts(){
-  try{
-    const res = await fetch(CONFIG.dataUrl + "?v=" + Date.now(), {cache:"no-store"});
-    if(!res.ok) throw new Error(res.status);
-    const data = await res.json();
-    Object.entries(data.settings || {}).forEach(([k,v]) => { if(v !== "" && v != null) CONFIG[k] = String(v); });
-    return (data.products || []).map(normalize).filter(p => p.name && p.price > 0);
-  }catch(e){
-    console.warn("Could not load data/site.json, showing sample products.", e);
-    return SAMPLE.map(normalize);
-  }
-}
-
-/* ---------- images ---------- */
+const discOf = v => v.mrp > v.price ? Math.round((1 - v.price / v.mrp) * 100) : 0;
 function placeholder(p){
-  const c = PALETTE[(p.name.length + p.category.length) % PALETTE.length];
-  const t = esc((p.brand || p.name).slice(0,14));
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect width="400" height="400" fill="${c}"/><rect x="130" y="90" width="140" height="220" rx="18" fill="#161a2e" opacity=".85"/><rect x="130" y="150" width="140" height="70" fill="#e4572e"/><text x="200" y="195" text-anchor="middle" font-family="Arial" font-weight="700" font-size="20" fill="#fff">${t}</text></svg>`;
+  const t = esc((p.brand || p.name).slice(0, 14).toUpperCase());
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect width="400" height="400" fill="#1a1c23"/><rect x="60" y="188" width="280" height="24" rx="12" fill="#3a3d4a"/><rect x="92" y="130" width="34" height="140" rx="8" fill="#f08a5d"/><rect x="274" y="130" width="34" height="140" rx="8" fill="#f08a5d"/><text x="200" y="330" text-anchor="middle" font-family="Arial" font-weight="700" font-size="22" fill="#fff" letter-spacing="3">${t}</text></svg>`;
   return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
 }
-const imgs = p => p.imgs.length ? p.imgs : [placeholder(p)];
-const imgTag = (p, src, alt) => `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" onerror="this.onerror=null;this.src='${placeholder(p).replace(/'/g,"%27")}'">`;
+const imgTag = (p, src, alt, eager) => `<img src="${esc(src)}" alt="${esc(alt)}" ${eager ? "" : 'loading="lazy"'} onerror="this.onerror=null;this.src='${placeholder(p).replace(/'/g, "%27")}'">`;
+const mainImg = p => p.images[0] || p.cheapest.img || placeholder(p);
 
-/* ---------- rendering ---------- */
-const disc = p => p.mrp > p.price ? Math.round((1 - p.price/p.mrp)*100) : 0;
 function visible(){
   const q = state.q.trim().toLowerCase();
-  let list = products.filter(p =>
-    (state.cat==="All" || p.category===state.cat) &&
-    (state.brand==="All" || p.brand===state.brand) &&
-    (!q || [p.name,p.brand,p.category,p.flavour,p.description].join(" ").toLowerCase().includes(q)));
+  const list = products.filter(p =>
+    (state.cat === "All" || p.category === state.cat) && (state.brand === "All" || p.brand === state.brand) &&
+    (!q || [p.name, p.brand, p.category, p.description, p.flavours.join(" "), p.sizes.join(" ")].join(" ").toLowerCase().includes(q)));
   const s = state.sort;
-  list.sort((a,b) =>
-    s==="low" ? a.price-b.price : s==="high" ? b.price-a.price :
-    s==="disc" ? disc(b)-disc(a) : s==="name" ? a.name.localeCompare(b.name) :
-    (b.featured-a.featured) || a.name.localeCompare(b.name));
+  list.sort((a, b) => s === "low" ? a.minPrice - b.minPrice : s === "high" ? b.minPrice - a.minPrice :
+    s === "disc" ? b.maxDisc - a.maxDisc : s === "name" ? a.name.localeCompare(b.name) :
+    (b.featured - a.featured) || a.name.localeCompare(b.name));
   return list;
 }
 function renderCats(){
   const cats = ["All", ...new Set(products.map(p => p.category))];
-  $("#cats").innerHTML = cats.map(c => `<button data-cat="${esc(c)}" aria-pressed="${c===state.cat}">${esc(c)}</button>`).join("");
+  $("#cats").innerHTML = cats.map(c => `<button data-cat="${esc(c)}" aria-pressed="${c === state.cat}">${esc(c)}</button>`).join("");
   const brands = ["All", ...new Set(products.map(p => p.brand).filter(Boolean))];
-  $("#brand-filter").innerHTML = brands.map(b => `<option value="${esc(b)}">${b==="All"?"All brands":esc(b)}</option>`).join("");
+  $("#brand-filter").innerHTML = brands.map(b => `<option value="${esc(b)}">${b === "All" ? "All brands" : esc(b)}</option>`).join("");
   $("#brand-filter").value = state.brand;
 }
 function renderGrid(){
+  if(loadFailed){ $("#grid").innerHTML = `<div class="empty">Products could not be loaded. Please refresh the page.</div>`; $("#count").textContent = ""; return; }
   const list = visible();
-  $("#count").textContent = list.length + (list.length===1 ? " product" : " products");
+  $("#count").textContent = list.length + (list.length === 1 ? " product" : " products");
   $("#grid").innerHTML = list.length ? list.map(p => {
-    const d = disc(p);
+    const multi = p.variants.length > 1, d = discOf(p.cheapest);
+    const bits = []; if(p.sizes.length > 1) bits.push(p.sizes.length + " sizes"); if(p.flavours.length > 1) bits.push(p.flavours.length + " flavours");
+    const single = [p.sizes[0], p.flavours[0]].filter(Boolean).join(" · ");
+    const btn = p.allOut ? `<button class="add" disabled>Sold out</button>`
+      : multi ? `<button class="add" data-open="${esc(p.id)}">Choose options</button>`
+      : `<button class="add" data-add="${esc(p.id + "~" + p.cheapest.vid)}">Add to cart</button>`;
     return `<article class="card">
-      <button class="img" data-open="${esc(p.id)}" aria-label="View ${esc(p.name)}">
-        ${imgTag(p, imgs(p)[0], p.name)}
-        ${!p.inStock ? '<span class="badge out">Sold out</span>' : d ? `<span class="badge">${d}% off</span>` : ""}
-      </button>
+      <button class="img" data-open="${esc(p.id)}" aria-label="View ${esc(p.name)}">${imgTag(p, mainImg(p), p.name)}
+        ${p.allOut ? '<span class="badge out">Sold out</span>' : d ? `<span class="badge">${d}% off</span>` : ""}</button>
       <div class="body">
         <span class="brand-tag">${esc(p.brand)}</span>
         <h3 data-open="${esc(p.id)}">${esc(p.name)}</h3>
-        <span class="meta">${esc([p.size,p.flavour].filter(Boolean).join(" · "))}</span>
+        <span class="meta">${esc(multi ? bits.join(" · ") : single)}</span>
         ${p.rating ? `<span class="rating">★ ${p.rating.toFixed(1)}</span>` : ""}
-        <div class="price-row"><span class="price">${money(p.price)}</span>${d ? `<span class="mrp">${money(p.mrp)}</span>` : ""}</div>
-        <button class="add" data-add="${esc(p.id)}" ${p.inStock?"":"disabled"}>${p.inStock?"Add to cart":"Sold out"}</button>
+        <div class="price-row"><span class="price">${p.minPrice !== p.maxPrice ? "<small>From</small> " : ""}${money(p.minPrice)}</span>${d && !multi ? `<span class="mrp">${money(p.cheapest.mrp)}</span>` : ""}</div>
+        ${btn}
       </div></article>`;
   }).join("") : `<div class="empty">No products match. Try a different search or category.</div>`;
 }
+
+/* ================= product detail with variants ================= */
+let D = null;
+function curVariant(){ return D.p.variants.find(v => v.size === D.size && v.flavour === D.flav) || D.p.variants[0]; }
 function openDetail(id){
-  const p = products.find(x => x.id===id); if(!p) return;
-  const list = imgs(p), d = disc(p);
+  const p = products.find(x => x.id === id); if(!p) return;
+  const v0 = p.variants.find(v => v.inStock) || p.variants[0];
+  D = {p, size: v0.size, flav: v0.flavour, img: 0};
+  renderDetail(); $("#detail").showModal();
+}
+function pickSize(s){
+  D.size = s; D.img = 0;
+  if(!D.p.variants.some(v => v.size === s && v.flavour === D.flav)){
+    const m = D.p.variants.filter(v => v.size === s); D.flav = (m.find(v => v.inStock) || m[0]).flavour;
+  }
+}
+function pickFlav(f){
+  D.flav = f; D.img = 0;
+  if(!D.p.variants.some(v => v.size === D.size && v.flavour === f)){
+    const m = D.p.variants.filter(v => v.flavour === f); D.size = (m.find(v => v.inStock) || m[0]).size;
+  }
+}
+function renderDetail(){
+  const p = D.p, v = curVariant(), d = discOf(v);
+  const list = [...(v.img ? [v.img] : []), ...p.images.filter(x => x !== v.img)];
+  const shown = list.length ? list : [placeholder(p)];
+  if(D.img >= shown.length) D.img = 0;
+  const group = (label, kind, values, cur) => values.length > 1 ? `<div class="optgroup"><div class="lab">${label}: <b>${esc(cur)}</b></div><div class="chips">` +
+    values.map(val => {
+      const match = p.variants.find(x => kind === "size" ? (x.size === val && x.flavour === D.flav) : (x.flavour === val && x.size === D.size));
+      const cls = ["chip", val === cur ? "on" : "", !match ? "na" : "", match && !match.inStock ? "out" : ""].join(" ");
+      return `<button class="${cls}" data-${kind === "size" ? "size" : "flav"}="${esc(val)}">${esc(val)}</button>`;
+    }).join("") + `</div></div>` : "";
+  const spec = [p.sizes.length === 1 ? "Size: " + p.sizes[0] : "", p.flavours.length === 1 ? "Flavour: " + p.flavours[0] : ""].filter(Boolean).join("  ·  ");
+  const waMsg = `Hi, I'm interested in ${p.name}${[v.size, v.flavour].filter(Boolean).length ? " (" + [v.size, v.flavour].filter(Boolean).join(", ") + ")" : ""}.`;
   $("#detail").innerHTML = `<div class="detail">
     <button class="close" data-close="detail" aria-label="Close">✕</button>
-    <div class="gallery"><div class="main-img" id="mainImg">${imgTag(p, list[0], p.name)}</div>
-      ${list.length>1 ? `<div class="thumbs">${list.map((s,i)=>`<button data-thumb="${i}" aria-current="${i===0}" aria-label="Image ${i+1}">${imgTag(p,s,"")}</button>`).join("")}</div>` : ""}</div>
+    <div class="gallery"><div class="main-img">${imgTag(p, shown[D.img], p.name, true)}</div>
+      ${shown.length > 1 ? `<div class="thumbs">${shown.map((s, i) => `<button data-thumb="${i}" aria-current="${i === D.img}" aria-label="Photo ${i + 1}">${imgTag(p, s, "")}</button>`).join("")}</div>` : ""}</div>
     <div class="info">
       <span class="brand-tag">${esc(p.brand)} · ${esc(p.category)}</span>
       <h2>${esc(p.name)}</h2>
       ${p.rating ? `<span class="rating">★ ${p.rating.toFixed(1)}</span>` : ""}
-      <div class="price-row"><span class="price" style="font-size:26px">${money(p.price)}</span>${d?`<span class="mrp">${money(p.mrp)}</span><span class="rating">${d}% off</span>`:""}</div>
-      <dl class="specs">${p.size?`<dt>Size</dt><dd>${esc(p.size)}</dd>`:""}${p.flavour?`<dt>Flavour</dt><dd>${esc(p.flavour)}</dd>`:""}<dt>Availability</dt><dd>${p.inStock?"In stock":"Sold out"}</dd></dl>
+      <div class="price-row" style="margin:0;padding:0"><span class="price" style="font-size:38px">${money(v.price)}</span>${d ? `<span class="mrp">${money(v.mrp)}</span><span class="rating">${d}% off</span>` : ""}</div>
+      ${group("Size", "size", p.sizes, D.size)}
+      ${group("Flavour", "flav", p.flavours, D.flav)}
+      ${spec ? `<div class="meta">${esc(spec)}</div>` : ""}
+      <div class="meta">${v.inStock ? '<b style="color:var(--good)">In stock</b>' : "<b>Sold out</b>"}</div>
       <div class="desc">${esc(p.description)}</div>
-      <button class="btn" data-add="${esc(p.id)}" ${p.inStock?"":"disabled"} style="margin-top:auto;width:100%">${p.inStock?"Add to cart":"Sold out"}</button>
+      <button class="btn" data-add="${esc(p.id + "~" + v.vid)}" ${v.inStock ? "" : "disabled"} style="width:100%;margin-top:auto">${v.inStock ? "Add to cart" : "Sold out"}</button>
+      ${CONFIG.whatsappNumber ? `<a class="wa-link" target="_blank" rel="noopener" href="https://wa.me/${esc(CONFIG.whatsappNumber)}?text=${encodeURIComponent(waMsg)}">Ask about this on WhatsApp</a>` : ""}
     </div></div>`;
-  $("#detail").dataset.imgs = JSON.stringify(list);
-  $("#detail").showModal();
 }
 
-/* ---------- cart ---------- */
-function cartLines(){ return Object.entries(cart).map(([id,q]) => ({p: products.find(x=>x.id===id), q})).filter(l => l.p); }
+/* ================= cart ================= */
+function findLine(key){
+  const [pid, vid] = key.split("~");
+  const p = products.find(x => x.id === pid); if(!p) return null;
+  const v = p.variants.find(x => x.vid === vid); return v ? {p, v} : null;
+}
+const cartLines = () => Object.entries(cart).map(([k, q]) => ({key: k, q, ...(findLine(k) || {})})).filter(l => l.p);
+const lineLabel = v => [v.size, v.flavour].filter(Boolean).join(", ");
 function renderCart(){
   const lines = cartLines();
-  const count = lines.reduce((s,l)=>s+l.q,0), total = lines.reduce((s,l)=>s+l.q*l.p.price,0);
-  $("#cartCount").textContent = count;
-  $("#cartTotal").textContent = money(total);
-  $("#cartItems").innerHTML = lines.length ? lines.map(({p,q}) => `<div class="line">
-    ${imgTag(p, imgs(p)[0], p.name)}
-    <div><div style="font-weight:500;font-size:14px">${esc(p.name)}</div>
-      <div class="qty"><button data-dec="${esc(p.id)}" aria-label="Decrease">−</button><span>${q}</span><button data-inc="${esc(p.id)}" aria-label="Increase">+</button></div></div>
-    <strong>${money(p.price*q)}</strong></div>`).join("") : `<p class="empty" style="padding:40px 0">Your cart is empty.</p>`;
+  const count = lines.reduce((s, l) => s + l.q, 0), total = lines.reduce((s, l) => s + l.q * l.v.price, 0);
+  $("#cartCount").textContent = count; $("#cartTotal").textContent = money(total);
+  $("#cartItems").innerHTML = lines.length ? lines.map(({key, q, p, v}) => `<div class="line">
+    ${imgTag(p, v.img || p.images[0] || placeholder(p), p.name)}
+    <div><div class="nm">${esc(p.name)}</div>${lineLabel(v) ? `<div class="meta">${esc(lineLabel(v))}</div>` : ""}
+      <div class="qty"><button data-dec="${esc(key)}" aria-label="Decrease">−</button><span>${q}</span><button data-inc="${esc(key)}" aria-label="Increase">+</button></div></div>
+    <strong>${money(v.price * q)}</strong></div>`).join("") : `<p class="empty" style="padding:40px 0">Your cart is empty.</p>`;
   $("#sendOrder").disabled = !lines.length;
 }
-function toast(msg){
-  const t = document.createElement("div"); t.className="toast"; t.textContent=msg; document.body.appendChild(t);
-  setTimeout(()=>t.remove(), 1800);
-}
-function addToCart(id){
-  cart[id] = (cart[id]||0) + 1; saveCart(); renderCart(); toast("Added to cart");
-}
-function changeQty(id, d){
-  cart[id] = (cart[id]||0) + d; if(cart[id] <= 0) delete cart[id]; saveCart(); renderCart();
-}
+function toast(msg){ const t = document.createElement("div"); t.className = "toast"; t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 1800); }
+function addToCart(key){ const l = findLine(key); if(!l || !l.v.inStock) return; cart[key] = (cart[key] || 0) + 1; saveCart(); renderCart(); toast("Added to cart"); }
+function changeQty(key, d){ cart[key] = (cart[key] || 0) + d; if(cart[key] <= 0) delete cart[key]; saveCart(); renderCart(); }
 function sendOrder(){
   const lines = cartLines(); if(!lines.length) return;
+  if(!CONFIG.whatsappNumber){ toast("WhatsApp number is not set yet"); return; }
   const name = $("#custName").value.trim(), phone = $("#custPhone").value.trim();
-  const total = lines.reduce((s,l)=>s+l.q*l.p.price,0);
+  const total = lines.reduce((s, l) => s + l.q * l.v.price, 0);
   const text = `New order from ${CONFIG.firmName} website\n\n` +
-    lines.map((l,i)=>`${i+1}. ${l.p.name} x ${l.q} = ${money(l.p.price*l.q)}`).join("\n") +
-    `\n\nTotal: ${money(total)}\nName: ${name||"-"}\nPhone: ${phone||"-"}`;
+    lines.map((l, i) => `${i + 1}. ${l.p.name}${lineLabel(l.v) ? " (" + lineLabel(l.v) + ")" : ""} x ${l.q} = ${money(l.v.price * l.q)}`).join("\n") +
+    `\n\nTotal: ${money(total)}\nName: ${name || "-"}\nPhone: ${phone || "-"}`;
   window.open("https://wa.me/" + CONFIG.whatsappNumber + "?text=" + encodeURIComponent(text), "_blank", "noopener");
 }
 
-/* ---------- events ---------- */
-document.addEventListener("click", e => {
-  const t = e.target.closest("[data-cat],[data-open],[data-add],[data-inc],[data-dec],[data-thumb],[data-close]"); if(!t) return;
-  if(t.dataset.cat !== undefined){ state.cat = t.dataset.cat; renderCats(); renderGrid(); }
-  else if(t.dataset.open !== undefined) openDetail(t.dataset.open);
-  else if(t.dataset.add !== undefined) addToCart(t.dataset.add);
-  else if(t.dataset.inc !== undefined) changeQty(t.dataset.inc, 1);
-  else if(t.dataset.dec !== undefined) changeQty(t.dataset.dec, -1);
-  else if(t.dataset.thumb !== undefined){
-    const list = JSON.parse($("#detail").dataset.imgs), i = +t.dataset.thumb;
-    const p = products.find(x => imgs(x)[0]===list[0]) || products[0];
-    $("#mainImg").innerHTML = imgTag(p, list[i], "");
-    document.querySelectorAll(".thumbs button").forEach((b,j)=>b.setAttribute("aria-current", j===i));
+/* ================= BMI + calories ================= */
+let gender = "male", autoGoal = true;
+function bmiCalc(){
+  const err = $("#bmiErr"), res = $("#bmiRes"); err.hidden = true;
+  const age = num($("#b_age").value), kg = num($("#b_kg").value);
+  const h = $("#b_unit").value === "cm" ? num($("#b_cm").value) : (num($("#b_ft").value) * 12 + num($("#b_in").value)) * 2.54;
+  if(!(age >= 15 && age <= 100)){ return fail("Enter an age between 15 and 100."); }
+  if(!(h >= 100 && h <= 250)){ return fail("Enter a height between 100 and 250 cm (3 ft 3 in to 8 ft 2 in)."); }
+  if(!(kg >= 20 && kg <= 300)){ return fail("Enter a weight between 20 and 300 kg."); }
+  function fail(m){ err.textContent = m; err.hidden = false; res.hidden = true; }
+  const m = h / 100, bmi = kg / (m * m);
+  const lo = 18.5 * m * m, hi = 24.9 * m * m;
+  const cat = bmi < 18.5 ? ["Underweight", "#5aa9e6"] : bmi < 25 ? ["Healthy weight", "#3fb67a"] : bmi < 30 ? ["Overweight", "#e7b23e"] : ["Obese", "#e0543f"];
+  const bmr = 10 * kg + 6.25 * h - 5 * age + (gender === "male" ? 5 : -161);
+  const tdee = bmr * num($("#b_act").value);
+  const goal = $("#b_goal").value;
+  const floor = gender === "male" ? 1500 : 1200;
+  const target = goal === "lose" ? Math.max(tdee - 500, floor) : goal === "gain" ? tdee + 300 : tdee;
+  const r10 = x => Math.round(x / 10) * 10;
+  const [pl, ph] = goal === "lose" ? [1.8, 2.2] : goal === "gain" ? [1.6, 2.2] : [1.2, 1.6];
+  const refKg = bmi >= 30 ? hi : kg;
+  const pLo = Math.round(refKg * pl), pHi = Math.round(refKg * ph);
+  const pos = Math.min(100, Math.max(0, (bmi - 14) / 26 * 100));
+  res.innerHTML = `
+    <div class="bmi-top"><div class="bmi-num">${bmi.toFixed(1)}</div><div><span class="pill" style="background:${cat[1]}">${cat[0]}</span><div class="meta" style="color:#a9afbf;margin-top:6px">Healthy range for your height: ${lo.toFixed(1)} to ${hi.toFixed(1)} kg</div></div></div>
+    <div class="gauge"><i style="width:17.3%;background:#5aa9e6"></i><i style="width:25%;background:#3fb67a"></i><i style="width:19.2%;background:#e7b23e"></i><i style="width:38.5%;background:#e0543f"></i><span class="mk" style="left:${pos}%"></span></div>
+    <div class="gl"><span>Under 18.5</span><span>18.5 to 24.9</span><span>25 to 29.9</span><span>30 and above</span></div>
+    <div class="stats">
+      <div class="stat"><b>${r10(bmr)}</b><span>kcal/day at rest (BMR)</span></div>
+      <div class="stat"><b>${r10(tdee)}</b><span>kcal/day to maintain weight</span></div>
+      <div class="stat"><b>${r10(target)}</b><span>kcal/day for your goal</span></div>
+      <div class="stat"><b>${pLo} to ${pHi} g</b><span>protein per day</span></div>
+    </div>
+    <p class="fine">BMI is a general screening number and does not show muscle or body fat. For Indian adults, health risk begins to rise from a BMI of 23. ${age < 18 ? "Under 18, adult BMI ranges are only a rough guide. " : ""}${bmi >= 30 ? "Protein is based on a healthy weight for your height. " : ""}This is general information, not medical advice. See a doctor or dietitian for a personal plan.</p>
+    <a class="btn ghost sm" href="#protein" style="width:auto;margin-top:10px">Count my protein</a>`;
+  res.hidden = false;
+  const g = $("#p_goal");
+  if(autoGoal || !g.value){ g.value = Math.round((pLo + pHi) / 2); autoGoal = true; renderProtein(); }
+}
+
+/* ================= protein counter ================= */
+/* name, protein g per 100 g, kcal per 100 g, optional unit [label, grams] */
+const FOODS = {
+  "Eggs, chicken and fish": [
+    ["Egg, whole (boiled)", 13, 155, ["egg", 50]],
+    ["Egg white", 10.9, 52, ["egg white", 33]],
+    ["Chicken breast, cooked", 31, 165, ["piece", 120]],
+    ["Mutton, cooked (lean)", 25, 250, ["serving", 100]],
+    ["Fish, cooked (average)", 22, 140, ["fillet", 120]],
+    ["Tuna in water, canned", 24, 116, ["small tin", 100]]],
+  "Dairy": [
+    ["Paneer", 18, 265, ["cube", 20]],
+    ["Milk, toned", 3.1, 58, ["glass", 250]],
+    ["Curd (dahi)", 3.5, 61, ["katori", 100]],
+    ["Greek yogurt", 10, 59, ["cup", 170]]],
+  "Dals, soya and nuts": [
+    ["Soya chunks, dry", 52, 345, ["serving", 30]],
+    ["Tofu", 8, 76, ["slice", 85]],
+    ["Dal, cooked (moong or toor)", 7, 110, ["katori", 150]],
+    ["Rajma, cooked", 8.7, 127, ["katori", 150]],
+    ["Chole (chickpeas), cooked", 8.9, 164, ["katori", 150]],
+    ["Moong sprouts", 3, 30, ["katori", 100]],
+    ["Roasted chana", 20, 370, ["handful", 30]],
+    ["Sattu", 20, 370, ["tbsp", 15]],
+    ["Peanuts", 26, 567, ["handful", 30]],
+    ["Almonds", 21, 579, ["handful", 30]],
+    ["Peanut butter", 25, 588, ["tbsp", 16]]],
+  "Grains and bread": [
+    ["Roti / chapati", 10, 300, ["roti", 40]],
+    ["Rice, cooked", 2.7, 130, ["katori", 150]],
+    ["Oats, dry", 13, 379, ["serving", 40]],
+    ["Bread, whole wheat", 12, 250, ["slice", 30]],
+    ["Quinoa, cooked", 4.4, 120, ["katori", 150]]],
+  "Supplements": [
+    ["Whey protein powder", 80, 400, ["scoop", 30]]]
+};
+const FLAT = []; Object.values(FOODS).forEach(g => g.forEach(f => FLAT.push(f)));
+let eaten = [];
+function initProtein(){
+  $("#p_food").innerHTML = Object.entries(FOODS).map(([g, list]) => `<optgroup label="${esc(g)}">` +
+    list.map(f => `<option value="${FLAT.indexOf(f)}">${esc(f[0])}</option>`).join("") + `</optgroup>`).join("");
+  foodChanged();
+}
+function foodChanged(){
+  const f = FLAT[+$("#p_food").value], u = f[3];
+  $("#p_unit").innerHTML = `<option value="u">${esc(u[0])} (${u[1]} g)</option><option value="g">grams</option>`;
+  $("#p_qty").value = 1;
+}
+function unitChanged(){
+  const q = num($("#p_qty").value);
+  if($("#p_unit").value === "g" && q < 10) $("#p_qty").value = 100;
+  if($("#p_unit").value === "u" && q > 20) $("#p_qty").value = 1;
+}
+function addFood(){
+  const f = FLAT[+$("#p_food").value], q = num($("#p_qty").value); if(!(q > 0)) return;
+  const useUnit = $("#p_unit").value === "u", grams = useUnit ? q * f[3][1] : q;
+  eaten.push({name: f[0], label: useUnit ? `${q} × ${f[3][0]} (${Math.round(grams)} g)` : `${q} g`, protein: grams * f[1] / 100, kcal: grams * f[2] / 100});
+  renderProtein();
+}
+function renderProtein(){
+  $("#pRes").hidden = !eaten.length && !num($("#p_goal").value);
+  $("#pList").innerHTML = eaten.map((e, i) => `<div class="fl"><div><div class="n">${esc(e.name)}</div><div class="q">${esc(e.label)}</div></div><b>${e.protein.toFixed(1)} g</b><button data-rmfood="${i}" aria-label="Remove ${esc(e.name)}">✕</button></div>`).join("");
+  const tp = eaten.reduce((s, e) => s + e.protein, 0), tk = eaten.reduce((s, e) => s + e.kcal, 0);
+  $("#pTotal").textContent = tp.toFixed(1) + " g";
+  $("#pKcal").textContent = eaten.length ? "About " + Math.round(tk) + " kcal from these foods" : "";
+  $("#pClear").hidden = !eaten.length;
+  const goal = num($("#p_goal").value);
+  $("#pProgWrap").hidden = !goal;
+  const tip = $("#pTip"); tip.hidden = true; $("#pProgTxt").textContent = "";
+  if(goal){
+    $("#pProg").style.width = Math.min(100, tp / goal * 100) + "%";
+    const gap = goal - tp;
+    $("#pProgTxt").textContent = gap > 0 ? `${Math.round(tp)} of ${Math.round(goal)} g, ${Math.round(gap)} g to go` : `Goal reached: ${Math.round(tp)} of ${Math.round(goal)} g`;
+    if(gap > 5 && eaten.length){
+      tip.hidden = false;
+      tip.innerHTML = `You are ${Math.round(gap)} g short. One scoop of whey gives about 24 g. <a href="#shop" data-shopcat="protein">Browse protein products</a>`;
+    }
   }
-  else if(t.dataset.close) $("#"+t.dataset.close).close();
+}
+
+/* ================= reviews ================= */
+function loadMaps(key){
+  return new Promise((res, rej) => {
+    if(window.google && google.maps && google.maps.importLibrary) return res();
+    window.__mapsReady = () => res();
+    const s = document.createElement("script");
+    s.src = "https://maps.googleapis.com/maps/api/js?key=" + encodeURIComponent(key) + "&loading=async&v=weekly&callback=__mapsReady";
+    s.onerror = () => rej(new Error("Google Maps could not load"));
+    document.head.appendChild(s);
+    setTimeout(() => rej(new Error("Google Maps timed out")), 12000);
+  });
+}
+async function fetchGoogleReviews(){
+  await loadMaps(CONFIG.googleApiKey);
+  const {Place} = await google.maps.importLibrary("places");
+  const place = new Place({id: CONFIG.placeId});
+  await place.fetchFields({fields: ["displayName", "rating", "userRatingCount", "reviews"]});
+  return {
+    rating: place.rating, count: place.userRatingCount,
+    reviews: (place.reviews || []).map(r => ({
+      name: (r.authorAttribution && r.authorAttribution.displayName) || "Google user",
+      photo: (r.authorAttribution && r.authorAttribution.photoURI) || "",
+      rating: r.rating, text: r.text || "", when: r.relativePublishTimeDescription || ""}))
+  };
+}
+const reviewCard = r => `<article class="rev"><div class="who"><span class="av">${r.photo ? `<img src="${esc(r.photo)}" alt="" referrerpolicy="no-referrer">` : esc((r.name || "?").trim().charAt(0).toUpperCase())}</span>
+  <div><strong>${esc(r.name)}</strong><div class="when">${esc(r.when || "")}</div></div></div>
+  <div class="stars" aria-label="${r.rating} out of 5">${stars(r.rating)}</div>${r.text ? `<p>${esc(r.text)}</p>` : ""}</article>`;
+function reviewLinks(){
+  const out = [];
+  if(CONFIG.placeId) out.push(`<a class="btn sm" target="_blank" rel="noopener" href="https://search.google.com/local/writereview?placeid=${encodeURIComponent(CONFIG.placeId)}">Write a review on Google</a>`);
+  const all = CONFIG.mapsUrl || (CONFIG.placeId ? "https://search.google.com/local/reviews?placeid=" + encodeURIComponent(CONFIG.placeId) : "");
+  if(all) out.push(`<a class="btn sm dark" target="_blank" rel="noopener" href="${esc(all)}">${CONFIG.placeId ? "See all reviews" : "Open in Google Maps"}</a>`);
+  $("#revLinks").innerHTML = out.join("");
+}
+async function loadReviews(){
+  reviewLinks();
+  let g = null;
+  if(CONFIG.placeId && CONFIG.googleApiKey){
+    try{ g = await fetchGoogleReviews(); }catch(e){ console.warn("Google reviews not loaded:", e.message); }
+  }
+  const manual = (DATA.reviews || []).filter(r => r && r.text && r.name).map(r => ({name: r.name, rating: num(r.rating) || 5, text: r.text, when: r.when || ""}));
+  const list = g && g.reviews.length ? g.reviews : manual;
+  if(g && g.rating){
+    $("#revHead").hidden = false;
+    $("#revHead").innerHTML = `<div class="rev-score"><b>${Number(g.rating).toFixed(1)}</b><div><div class="stars">${stars(g.rating)}</div><div class="meta">${g.count ? "Based on " + g.count + " Google reviews" : "Google rating"}</div></div></div>`;
+  }
+  if(list.length){
+    $("#revGrid").innerHTML = list.slice(0, 6).map(reviewCard).join("");
+    $("#revSrc").textContent = g && g.reviews.length ? "Reviews are shown live from Google Maps." : "";
+  } else {
+    $("#revGrid").innerHTML = `<div class="rev-empty" style="grid-column:1/-1">No reviews to show yet. Shopped with us? Tell others about it on Google.</div>`;
+  }
+}
+
+/* ================= contact, footer, social ================= */
+function igUrl(v){ v = (v || "").trim(); if(!v) return ""; if(/^https?:/i.test(v)) return v; return "https://www.instagram.com/" + v.replace(/^@/, "").replace(/\/$/, "") + "/"; }
+function igName(v){ const m = (v || "").match(/instagram\.com\/([^/?#]+)/i); return "@" + (m ? m[1] : String(v).trim().replace(/^@/, "")); }
+function mapsLink(){ return CONFIG.mapsUrl || (CONFIG.address ? "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(CONFIG.address) : ""); }
+function embedSrc(){
+  let e = (CONFIG.mapsEmbed || "").trim(); const m = e.match(/src=["']([^"']+)["']/i); if(m) e = m[1];
+  if(e && /^https:\/\/(www\.)?google\.[a-z.]+\/maps|^https:\/\/maps\.google\./i.test(e)) return e;
+  if(CONFIG.address) return "https://maps.google.com/maps?q=" + encodeURIComponent(CONFIG.address) + "&output=embed";
+  return "";
+}
+function applyConfig(){
+  const C = CONFIG;
+  document.title = C.firmName + " | " + C.tagline;
+  $("#logoImg").alt = C.firmName + " logo";
+  if(C.topbar){ $("#topbar").textContent = C.topbar; $("#topbar").hidden = false; }
+  const parts = (C.heroTitle.match(/[^.!?]+[.!?]*/g) || [C.heroTitle]).map(s => s.trim()).filter(Boolean);
+  $("#heroTitle").innerHTML = parts.length > 1 ? esc(parts.slice(0, -1).join(" ")) + " <em>" + esc(parts[parts.length - 1]) + "</em>" : esc(parts[0] || C.firmName);
+  $("#heroSub").textContent = C.heroSub;
+  $("#trust").innerHTML = C.trust.map(([a, b]) => `<li><b>${esc(a)}</b><span>${esc(b)}</span></li>`).join("");
+  const ig = igUrl(C.instagram);
+  if(ig){ const a = $("#igLink"); a.href = ig; a.hidden = false; }
+  if(C.whatsappNumber){ const w = $("#waFloat"); w.href = "https://wa.me/" + C.whatsappNumber + "?text=" + encodeURIComponent("Hi, I have a question about your products."); w.hidden = false; }
+
+  const items = [];
+  if(C.address) items.push(["Address", esc(C.address)]);
+  if(C.hours) items.push(["Opening hours", esc(C.hours)]);
+  if(C.phone) items.push(["Phone", `<a href="tel:${esc(C.phone.replace(/[^+\d]/g, ""))}">${esc(C.phone)}</a>`]);
+  if(C.email) items.push(["Email", `<a href="mailto:${esc(C.email)}">${esc(C.email)}</a>`]);
+  if(ig) items.push(["Instagram", `<a href="${esc(ig)}" target="_blank" rel="noopener">${esc(igName(C.instagram))}</a>`]);
+  const links = [];
+  if(mapsLink()) links.push(`<a class="btn dark sm" target="_blank" rel="noopener" href="${esc(mapsLink())}">Get directions</a>`);
+  if(C.whatsappNumber) links.push(`<a class="btn sm" target="_blank" rel="noopener" href="https://wa.me/${esc(C.whatsappNumber)}">Chat on WhatsApp</a>`);
+  if(ig) links.push(`<a class="btn ghost sm" target="_blank" rel="noopener" href="${esc(ig)}">Follow on Instagram</a>`);
+  $("#cinfo").innerHTML = (items.map(([k, v]) => `<div class="ci"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("") || `<div class="ci"><div class="v">Contact details will appear here.</div></div>`) +
+    (links.length ? `<div class="cta-links">${links.join("")}</div>` : "");
+  const src = embedSrc();
+  $("#mapbox").innerHTML = src ? `<iframe src="${esc(src)}" title="Map to ${esc(C.firmName)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>` : "";
+  $("#mapbox").hidden = !src;
+  if(!src) document.querySelector(".contact").style.gridTemplateColumns = "1fr";
+
+  $("#fAbout").textContent = C.tagline;
+  $("#fContact").innerHTML = [C.phone && `<p>${esc(C.phone)}</p>`, C.email && `<p>${esc(C.email)}</p>`, C.address && `<p>${esc(C.address)}</p>`, ig && `<p><a href="${esc(ig)}" target="_blank" rel="noopener">${esc(igName(C.instagram))}</a></p>`].filter(Boolean).join("");
+  $("#copy").textContent = "© " + new Date().getFullYear() + " " + C.firmName + ". All rights reserved.";
+}
+
+/* ================= events ================= */
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-cat],[data-open],[data-add],[data-inc],[data-dec],[data-thumb],[data-close],[data-size],[data-flav],[data-g],[data-rmfood],[data-shopcat]"); if(!t) return;
+  const d = t.dataset;
+  if(d.cat !== undefined){ state.cat = d.cat; renderCats(); renderGrid(); }
+  else if(d.open !== undefined) openDetail(d.open);
+  else if(d.add !== undefined) addToCart(d.add);
+  else if(d.inc !== undefined) changeQty(d.inc, 1);
+  else if(d.dec !== undefined) changeQty(d.dec, -1);
+  else if(d.thumb !== undefined){ D.img = +d.thumb; renderDetail(); }
+  else if(d.size !== undefined){ pickSize(d.size); renderDetail(); }
+  else if(d.flav !== undefined){ pickFlav(d.flav); renderDetail(); }
+  else if(d.close) $("#" + d.close).close();
+  else if(d.g){ gender = d.g; document.querySelectorAll("#b_gender button").forEach(b => b.classList.toggle("on", b.dataset.g === gender)); }
+  else if(d.rmfood !== undefined){ eaten.splice(+d.rmfood, 1); renderProtein(); }
+  else if(d.shopcat !== undefined){ const c = [...new Set(products.map(p => p.category))].find(x => /protein/i.test(x)); if(c){ state.cat = c; renderCats(); renderGrid(); } }
 });
-["detail","cart"].forEach(id => $("#"+id).addEventListener("click", e => { if(e.target.id===id) e.target.close(); }));
+["detail", "cart"].forEach(id => $("#" + id).addEventListener("click", e => { if(e.target.id === id) e.target.close(); }));
 $("#q").addEventListener("input", e => { state.q = e.target.value; renderGrid(); });
 $("#sort").addEventListener("change", e => { state.sort = e.target.value; renderGrid(); });
 $("#brand-filter").addEventListener("change", e => { state.brand = e.target.value; renderGrid(); });
 $("#cartBtn").addEventListener("click", () => { renderCart(); $("#cart").showModal(); });
 $("#cartClose").addEventListener("click", () => $("#cart").close());
 $("#sendOrder").addEventListener("click", sendOrder);
+$("#bmiBtn").addEventListener("click", bmiCalc);
+$("#b_unit").addEventListener("change", e => { const cm = e.target.value === "cm"; $("#b_cmbox").hidden = !cm; $("#b_ftbox").hidden = cm; });
+document.querySelectorAll("#bmi input").forEach(i => i.addEventListener("keydown", e => { if(e.key === "Enter") bmiCalc(); }));
+$("#p_food").addEventListener("change", foodChanged);
+$("#p_unit").addEventListener("change", unitChanged);
+$("#pAdd").addEventListener("click", addFood);
+$("#pClear").addEventListener("click", () => { eaten = []; renderProtein(); });
+$("#p_goal").addEventListener("input", () => { autoGoal = false; renderProtein(); });
 
-/* ---------- boot ---------- */
+/* ================= boot ================= */
 (async function(){
-  products = await loadProducts();
-  document.title = CONFIG.firmName + " Store";
-  const n = CONFIG.firmName, w = CONFIG.accentWord;
-  $("#brand").innerHTML = w && n.includes(w) ? esc(n).replace(esc(w), `<b>${esc(w)}</b>`) : esc(n);
-  $("#topbar").textContent = CONFIG.topbar; if(!CONFIG.topbar) $("#topbar").hidden = true;
-  $("#heroTitle").textContent = CONFIG.heroTitle; $("#heroSub").textContent = CONFIG.heroSub;
-  $("#trust").innerHTML = CONFIG.trust.map(([a,b]) => `<div><strong>${esc(a)}</strong><span>${esc(b)}</span></div>`).join("");
-  $("#fName").textContent = n; $("#fAbout").textContent = CONFIG.tagline;
-  $("#fContact").innerHTML = [CONFIG.phone, CONFIG.email, CONFIG.address].filter(Boolean).map(esc).join("<br>");
-  renderCats(); renderGrid(); renderCart();
+  initProtein();
+  try{
+    const res = await fetch(CONFIG.dataUrl + "?v=" + Date.now(), {cache: "no-store"});
+    if(!res.ok) throw new Error(res.status);
+    DATA = await res.json();
+    Object.entries(DATA.settings || {}).forEach(([k, v]) => { if(v !== "" && v != null && k in CONFIG && k !== "trust") CONFIG[k] = String(v); });
+    products = (DATA.products || []).map(normProduct).filter(Boolean);
+  }catch(e){ console.warn("Could not load data/site.json", e); loadFailed = true; }
+  applyConfig(); renderCats(); renderGrid(); renderCart(); loadReviews();
 })();
 </script>
 </body>
