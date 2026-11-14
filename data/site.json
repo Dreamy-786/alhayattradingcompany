@@ -343,6 +343,68 @@
         }
       ],
       "id": "8"
+    },
+    {
+      "name": "BPI Sports CLA + Carnitine Performance Support Formula",
+      "brand": "BPI Sports",
+      "category": "Fat Burner",
+      "subcategory": "Carnitine",
+      "rating": 4.8,
+      "featured": "yes",
+      "description": "BPI Sports can help you reach your goals – whatever they may be! We look beyond the supplements and products, getting straight to the core of what helps you succeed. We’re with you from the start to the finish with training plans, nutrition tips and supplements that work as hard as you do. Carnitine is a fat transporter that takes freed-up fat cells to the mitochondria where they are burned for energy. CLA helps curb lipoprotein lipase (LPL), which may prevent future fat storage. On a diet, your body has a tendency to break down muscle. By acting as an alternative energy source, CLA helps preserve muscle mass. Unlike other weight loss formulas, CLA + Carnitine contains no caffeine, so you can take it any time of day without worrying about the jitters or a crash. Muscle is your metabolic engine – the more muscle you have, the more calories your body is able to burn. By helping to preserve lean muscle mass, conjugated linoleic acid (CLA) may help boost metabolism.",
+      "images": [
+        "images/p1794669424119mjdz.jpg",
+        "images/p17946694332387txk.jpg",
+        "images/p1794669446917p2p2.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "300 Grams",
+          "flavour": "Blueberry",
+          "price": 2000,
+          "mrp": 3799,
+          "stock": "yes",
+          "image": "images/p1794669382019txq0.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "300 Grams",
+          "flavour": "Citrus Mojito",
+          "price": 2000,
+          "mrp": 3799,
+          "stock": "yes",
+          "image": "images/p1794669421018zbtw.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "300 Grams",
+          "flavour": "Fruit Punch",
+          "price": 2000,
+          "mrp": 3799,
+          "stock": "yes",
+          "image": "images/p179466939587417bk.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "300 Grams",
+          "flavour": "Orange",
+          "price": 2000,
+          "mrp": 3799,
+          "stock": "yes",
+          "image": "images/p17946694146717mjs.jpg"
+        },
+        {
+          "vid": "4",
+          "size": "300 Grams",
+          "flavour": "Watermelon",
+          "price": 2000,
+          "mrp": 3799,
+          "stock": "yes",
+          "image": "images/p179466940732706t9.jpg"
+        }
+      ],
+      "id": "9"
     }
   ],
   "reviews": [
