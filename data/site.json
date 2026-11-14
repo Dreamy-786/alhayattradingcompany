@@ -55,6 +55,61 @@
       "image_3": "images/p1794605118709vv75.jpg",
       "image_4": "images/p1794605129906am0b.jpg",
       "id": "2"
+    },
+    {
+      "name": "BPI 1MR Vortex Pre-Workout for Energy, Focus & Pumps",
+      "brand": "BPI Sports",
+      "category": "Pre-Workout",
+      "subcategory": "Mild Pre-Workout",
+      "rating": 4.4,
+      "featured": "yes",
+      "description": "Powerful pre-workout formula crafted for explosive energy and focus. Helps support endurance, workout intensity, and training performance. Designed for athletes seeking enhanced pumps and gym motivation.",
+      "images": [
+        "images/p1794655396073i04q.jpg",
+        "images/p17946554047403jue.jpg",
+        "images/p1794655410839f12k.jpg",
+        "images/p17946554204139nkd.jpg",
+        "images/p17946554306331273.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "450 Grams",
+          "flavour": "Lychee",
+          "price": 1600,
+          "mrp": 3200,
+          "stock": "yes",
+          "image": "images/p1794655351478koyo.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "450 Grams",
+          "flavour": "Blue Lemonade",
+          "price": 1600,
+          "mrp": 3200,
+          "stock": "yes",
+          "image": "images/p1794655382404i5y2.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "450 Grams",
+          "flavour": "Piña Colada",
+          "price": 1600,
+          "mrp": 3200,
+          "stock": "yes",
+          "image": "images/p17946553693879hxi.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "450 Grams",
+          "flavour": "Pink Guava",
+          "price": 1600,
+          "mrp": 3200,
+          "stock": "yes",
+          "image": "images/p1794655400492hjsd.jpg"
+        }
+      ],
+      "id": "3"
     }
   ],
   "reviews": []
