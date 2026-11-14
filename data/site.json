@@ -567,6 +567,49 @@
         }
       ],
       "id": "11"
+    },
+    {
+      "name": "BPI Sports L-Arginine Nitric Oxide & Pump Support",
+      "brand": "BPI Sports",
+      "category": "Amino Acids & Hydrations",
+      "subcategory": "L-Arginine",
+      "rating": 4.6,
+      "featured": "yes",
+      "description": "BPI Sports L-Arginine Tablets are formulated to support nitric oxide production, helping enhance blood flow and workout performance. L-Arginine is a well-known amino acid that plays a key role in nitric oxide synthesis, which supports improved circulation and nutrient delivery to muscles. This makes it a popular choice among fitness enthusiasts looking to enhance pump, endurance, and overall training output. With 1000 mg per tablet, this supplement is designed for convenient daily use and can be easily incorporated into your fitness routine.",
+      "images": [
+        "images/p17946850587933uc9.jpg",
+        "images/p1794685071203abpl.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "90 Tablets",
+          "flavour": "",
+          "price": 999,
+          "mrp": 2099,
+          "stock": "yes",
+          "image": "images/p1794685019079ousq.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "90 Grams",
+          "flavour": "",
+          "price": 599,
+          "mrp": 1099,
+          "stock": "yes",
+          "image": "images/p1794685041168jp3y.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "180 Grams",
+          "flavour": "",
+          "price": 1099,
+          "mrp": 1999,
+          "stock": "yes",
+          "image": "images/p1794685028531435b.jpg"
+        }
+      ],
+      "id": "12"
     }
   ],
   "reviews": [
