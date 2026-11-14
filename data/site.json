@@ -476,6 +476,97 @@
         }
       ],
       "id": "10"
+    },
+    {
+      "name": "BPI Sports ISO HD Whey Protein Isolate for Lean Muscle & Fast Recovery",
+      "brand": "BPI Sports",
+      "category": "Proteins",
+      "subcategory": "Whey Protein Isolate",
+      "rating": 4.1,
+      "featured": "yes",
+      "description": "BPI Sports ISO HD 100% Whey Protein Isolate is a premium protein supplement formulated for athletes, gym enthusiasts and active individuals looking to increase their daily protein intake. Each serving delivers 25g of high-quality whey protein isolate, along with 12g Essential Amino Acids (EAAs) and 5.6g Branched Chain Amino Acids (BCAAs) to support lean muscle growth, muscle maintenance and post-workout recovery. The fast-absorbing whey isolate is designed to provide high-quality protein with zero added sugar, making it an excellent choice for lean muscle support and everyday fitness nutrition. Its smooth-mixing formula offers a rich taste and convenient preparation, whether mixed with water or milk. Ideal for strength training, resistance workouts and active lifestyles, ISO HD helps meet daily protein requirements while supporting muscle recovery and overall performance. Manufactured with quality ingredients and designed for consistent nutrition, BPI Sports ISO HD is a dependable protein supplement for anyone pursuing their fitness goals.",
+      "images": [
+        "images/p17946844794995878.jpg",
+        "images/p1794684491888t42y.jpg",
+        "images/p17946845066840ggf.jpg",
+        "images/p1794684520271z5e6.jpg",
+        "images/p1794684533686jr8r.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "5 Pounds",
+          "flavour": "Royal Chocolate",
+          "price": 7500,
+          "mrp": 15399,
+          "stock": "yes",
+          "image": "images/p179468434242952js.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "5 Pounds",
+          "flavour": "Mango Ice Cream",
+          "price": 7500,
+          "mrp": 15399,
+          "stock": "yes",
+          "image": "images/p17946843610618nk9.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "5 Pounds",
+          "flavour": "Choco Pineapple",
+          "price": 7500,
+          "mrp": 15399,
+          "stock": "yes",
+          "image": "images/p1794684369796gwbe.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "5 Pounds",
+          "flavour": "Cafe Mocha",
+          "price": 7500,
+          "mrp": 15399,
+          "stock": "yes",
+          "image": "images/p17946843819007c9l.jpg"
+        },
+        {
+          "vid": "4",
+          "size": "2 KG",
+          "flavour": "Chocolate Lava Cake",
+          "price": 6600,
+          "mrp": 13999,
+          "stock": "yes",
+          "image": "images/p17946843961021a5z.jpg"
+        },
+        {
+          "vid": "5",
+          "size": "2 KG",
+          "flavour": "Classic Cold Coffee",
+          "price": 6600,
+          "mrp": 13999,
+          "stock": "yes",
+          "image": "images/p17946844509805usk.jpg"
+        },
+        {
+          "vid": "6",
+          "size": "1 KG",
+          "flavour": "Chocolate Lava Cake",
+          "price": 3400,
+          "mrp": 7999,
+          "stock": "yes",
+          "image": "images/p1794684436172vkfs.jpg"
+        },
+        {
+          "vid": "7",
+          "size": "1 KG",
+          "flavour": "Classic Cold Coffee",
+          "price": 3400,
+          "mrp": 7999,
+          "stock": "yes",
+          "image": "images/p1794684465673pred.jpg"
+        }
+      ],
+      "id": "11"
     }
   ],
   "reviews": [
