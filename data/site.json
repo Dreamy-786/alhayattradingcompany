@@ -833,6 +833,34 @@
         }
       ],
       "id": "14"
+    },
+    {
+      "name": "BPI Best Test Testosterone Support Formula",
+      "brand": "BPI Sports",
+      "category": "Muscle Builder",
+      "subcategory": "Testosterone Support",
+      "rating": 4,
+      "featured": "yes",
+      "description": "POWER. STAMINA. ENERGY. Other boosters may leave ya hangin' but BEST TEST is designed to deliver a firm boost; in the gym and the bedroom! BPI's Best Test is a powerful Booster. Formulated to support muscle growth, athletic performance, mood throughout the day, and overall health. With an efficacious dose of four powerhouse ingredients: ashwagandha, tongkat ali, fadogia and zinc in an easy to take tablet form, Best Test is the perfect supplement for athletes looking to take it to the next level. Each bottle has a one-month supply to keep you at your Best! Best Test is formulated for: --> Male Libido Enhancement --> Promote Physical Strength and Growth --> Increase Testosterone Levels",
+      "images": [
+        "images/p1794686618974xo8f.jpg",
+        "images/p1794686627362kn9l.jpg",
+        "images/p1794686630664wpz3.jpg",
+        "images/p1794686651690eqma.jpg",
+        "images/p1794686655286t6u0.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "60 Tablets",
+          "flavour": "",
+          "price": 899,
+          "mrp": 1699,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "15"
     }
   ],
   "reviews": [
