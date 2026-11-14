@@ -164,6 +164,97 @@
         }
       ],
       "id": "5"
+    },
+    {
+      "name": "BPI Sports Best BCAA Recovery & Endurance Formula",
+      "brand": "BPI Sports",
+      "category": "Amino Acids & Hydrations",
+      "subcategory": "BCAA",
+      "rating": 4.3,
+      "featured": "yes",
+      "description": "**BPI SPORTS BEST BCAA – ADVANCED BRANCHED CHAIN AMINO ACID SUPPLEMENT FOR MUSCLE RECOVERY & WORKOUT PERFORMANCE**\n\nTake your training to the next level with **BPI Sports Best BCAA**, an advanced Branched Chain Amino Acid (BCAA) supplement designed for fitness enthusiasts, athletes and strength-training enthusiasts. Featuring 5g of BCAAs per serving, Best BCAA delivers the three essential branched-chain amino acids – L-Leucine, L-Isoleucine and L-Valine – to support muscle recovery, muscle maintenance and workout performance.\n\n**5G BCAA AMINO ACID FORMULA:** Each serving provides 5g of BCAAs, featuring the three essential amino acids Leucine, Isoleucine and Valine. These amino acids play important roles in muscle protein synthesis and muscle maintenance, making Best BCAA a valuable addition to your workout nutrition routine.\n\n**MUSCLE RECOVERY & MUSCLE SUPPORT:** Designed to complement intense resistance training, weightlifting, bodybuilding and endurance workouts. BPI Sports Best BCAA provides essential amino acid support to help maintain muscle and support post-workout recovery.\n\n**PRE, INTRA & POST-WORKOUT NUTRITION:** Conveniently incorporate BCAA powder into your training routine. Consume before, during or after exercise to complement your daily sports nutrition and fitness goals.\n\n**ADVANCED BCAA FORMULA WITH CLA:** Features a BCAA blend alongside Omega-6 fatty acids and Conjugated Linoleic Acid (CLA), offering additional nutritional support in a performance-oriented amino acid supplement.\n\n**REFRESHING FLAVOURS & EASY MIXABILITY:** Enjoy a refreshing amino acid drink as part of your daily workout routine. Simply mix one serving with cold water and enjoy.\n\n**WHY CHOOSE BPI SPORTS BEST BCAA?**\n\n- 5g Branched Chain Amino Acids per serving.\n- Contains L-Leucine, L-Isoleucine and L-Valine.\n- Supports muscle recovery and muscle maintenance.\n- Designed for pre-workout, intra-workout and post-workout use.\n- Includes an Omega-6 Fatty Acid and CLA blend.\n- Suitable for bodybuilding, strength training, gym workouts and endurance training.\n\n**DIRECTIONS FOR USE:** Mix 1 serving (1 scoop) with approximately 250 ml of cold water. Consume before, during or after your workout, as directed on the product label.\n\n**MAKE EVERY WORKOUT COUNT WITH BPI SPORTS BEST BCAA.**",
+      "images": [
+        "images/p1794657591257wur3.jpg",
+        "images/p17946576012356eg5.jpg",
+        "images/p1794657604586kh7s.jpg",
+        "images/p1794657613472y7ez.jpg",
+        "images/p17946576187431umv.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "300 Grams",
+          "flavour": "Blueberry",
+          "price": 1200,
+          "mrp": 2699,
+          "stock": "yes",
+          "image": "images/p1794657493024r8z8.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "300 Grams",
+          "flavour": "Cherry Lemonade",
+          "price": 1200,
+          "mrp": 2699,
+          "stock": "no",
+          "image": "images/p1794657539963yun8.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "300 Grams",
+          "flavour": "Cola",
+          "price": 1200,
+          "mrp": 2699,
+          "stock": "yes",
+          "image": "images/p1794657508937gbaq.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "300 Grams",
+          "flavour": "Fruit Punch",
+          "price": 1200,
+          "mrp": 2699,
+          "stock": "yes",
+          "image": "images/p1794657524575dbtl.jpg"
+        },
+        {
+          "vid": "4",
+          "size": "300 Grams",
+          "flavour": "Green Apple",
+          "price": 1200,
+          "mrp": 2699,
+          "stock": "yes",
+          "image": "images/p1794657549744qlq3.jpg"
+        },
+        {
+          "vid": "5",
+          "size": "300 Grams",
+          "flavour": "Guava",
+          "price": 1200,
+          "mrp": 2699,
+          "stock": "yes",
+          "image": "images/p17946575634363h73.jpg"
+        },
+        {
+          "vid": "6",
+          "size": "300 Grams",
+          "flavour": "Orange",
+          "price": 1200,
+          "mrp": 2699,
+          "stock": "yes",
+          "image": "images/p1794657576194gg31.jpg"
+        },
+        {
+          "vid": "7",
+          "size": "300 Grams",
+          "flavour": "Watermelon",
+          "price": 1200,
+          "mrp": 2699,
+          "stock": "yes",
+          "image": "images/p1794657587204y9pb.jpg"
+        }
+      ],
+      "id": "6"
     }
   ],
   "reviews": []
