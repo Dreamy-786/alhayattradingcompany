@@ -663,6 +663,176 @@
         }
       ],
       "id": "13"
+    },
+    {
+      "name": "BPI Sports Whey HD Protein for Lean Muscle & Recovery",
+      "brand": "BPI Sports",
+      "category": "Proteins",
+      "subcategory": "Whey Protein Blend",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "BPI Sports Whey HD is an ultra-premium whey protein powder designed for athletes, gym-goers and fitness enthusiasts looking for a convenient way to increase daily protein intake. Each 37g serving provides 25g protein, approximately 12g EAA and 5.4g BCAA, making it suitable for strength training, bodybuilding, muscle-building programs, workout recovery and everyday fitness nutrition. The 4kg bucket provides approximately 108 servings, making it a practical choice for regular whey protein supplementation. The formula can be mixed with chilled water and prepared by shaking, blending or stirring. BPI Sports Whey HD is available in multiple flavours, allowing you to choose your preferred taste while keeping the same protein-focused formula.",
+      "images": [
+        "images/p1794686398275qmj7.jpg",
+        "images/p1794686408930fjoc.jpg",
+        "images/p1794686412088swgw.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "1 KG",
+          "flavour": "American Ice Cream",
+          "price": 2899,
+          "mrp": 5299,
+          "stock": "yes",
+          "image": "images/p1794685755349793y.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "1 KG",
+          "flavour": "Chocolate Delight",
+          "price": 2899,
+          "mrp": 5299,
+          "stock": "yes",
+          "image": "images/p1794685785404zdqp.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "1 KG",
+          "flavour": "Classic Cold Coffee",
+          "price": 2899,
+          "mrp": 5299,
+          "stock": "yes",
+          "image": "images/p1794685991567hcwi.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "1 KG",
+          "flavour": "Cookies & Cream",
+          "price": 2899,
+          "mrp": 5299,
+          "stock": "yes",
+          "image": "images/p1794686019241f2wj.jpg"
+        },
+        {
+          "vid": "4",
+          "size": "1 KG",
+          "flavour": "Alphonso Mango",
+          "price": 2899,
+          "mrp": 5299,
+          "stock": "yes",
+          "image": "images/p1794686008026blft.jpg"
+        },
+        {
+          "vid": "5",
+          "size": "1 KG",
+          "flavour": "Cafe Mocha",
+          "price": 2899,
+          "mrp": 5299,
+          "stock": "yes",
+          "image": "images/p1794686055802w3tz.jpg"
+        },
+        {
+          "vid": "6",
+          "size": "1 KG",
+          "flavour": "Classic Chocolate",
+          "price": 2899,
+          "mrp": 5299,
+          "stock": "yes",
+          "image": "images/p1794686036553c8y2.jpg"
+        },
+        {
+          "vid": "7",
+          "size": "2 KG",
+          "flavour": "American Ice Cream",
+          "price": 5299,
+          "mrp": 9999,
+          "stock": "yes",
+          "image": "images/p1794686071388avj3.jpg"
+        },
+        {
+          "vid": "8",
+          "size": "2 KG",
+          "flavour": "Chocolate Delight",
+          "price": 5299,
+          "mrp": 9999,
+          "stock": "yes",
+          "image": "images/p1794686084463xwun.jpg"
+        },
+        {
+          "vid": "9",
+          "size": "2 KG",
+          "flavour": "Classic Cold Coffee",
+          "price": 5299,
+          "mrp": 9999,
+          "stock": "yes",
+          "image": "images/p1794686098986zw1x.jpg"
+        },
+        {
+          "vid": "10",
+          "size": "2 KG",
+          "flavour": "Cookies & Cream",
+          "price": 5299,
+          "mrp": 9999,
+          "stock": "yes",
+          "image": "images/p17946862323822r7p.jpg"
+        },
+        {
+          "vid": "11",
+          "size": "2 KG",
+          "flavour": "Alphonso Mango",
+          "price": 5299,
+          "mrp": 9999,
+          "stock": "yes",
+          "image": "images/p1794686244649jun7.jpg"
+        },
+        {
+          "vid": "12",
+          "size": "2 KG",
+          "flavour": "Cafe Mocha",
+          "price": 5299,
+          "mrp": 9999,
+          "stock": "yes",
+          "image": "images/p17946862581150qkl.jpg"
+        },
+        {
+          "vid": "13",
+          "size": "2 KG",
+          "flavour": "Classic Chocolate",
+          "price": 5299,
+          "mrp": 9999,
+          "stock": "yes",
+          "image": "images/p1794686269755gs8r.jpg"
+        },
+        {
+          "vid": "14",
+          "size": "4 KG",
+          "flavour": "Mix Flavour (Variety Pack)",
+          "price": 9000,
+          "mrp": 18999,
+          "stock": "yes",
+          "image": "images/p1794686360694vkdh.jpg"
+        },
+        {
+          "vid": "15",
+          "size": "4 KG",
+          "flavour": "Cafe Mocha",
+          "price": 9000,
+          "mrp": 18999,
+          "stock": "yes",
+          "image": "images/p17946863747977617.jpg"
+        },
+        {
+          "vid": "16",
+          "size": "4 KG",
+          "flavour": "Classic Chocolate",
+          "price": 9000,
+          "mrp": 18999,
+          "stock": "yes",
+          "image": "images/p1794686388532unmz.jpg"
+        }
+      ],
+      "id": "14"
     }
   ],
   "reviews": [
