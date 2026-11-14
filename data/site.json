@@ -255,6 +255,50 @@
         }
       ],
       "id": "6"
+    },
+    {
+      "name": "BPI Sports Best Protein for Lean Muscle Growth & Recovery",
+      "brand": "BPI Sports",
+      "category": "Proteins",
+      "subcategory": "Whey Protein Blend",
+      "rating": 4.1,
+      "featured": "yes",
+      "description": "BPI Sports Best Protein is a protein supplement formulated to support muscle building, recovery, and daily protein intake needs. Each scoop delivers 24g of protein from a blend of whey protein isolate and whey protein concentrate. The formula also provides essential amino acids (EAAs) and branched-chain amino acids (BCAAs). It is designed for individuals looking to add a convenient protein source to their daily routine.",
+      "images": [
+        "images/p1794668870050t72i.jpg",
+        "images/p1794668891180470e.jpg",
+        "images/p1794668899690aasn.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "5 Pounds",
+          "flavour": "Swiss Chocolate",
+          "price": 6000,
+          "mrp": 11499,
+          "stock": "yes",
+          "image": "images/p17946688476035ug0.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "5 Pounds",
+          "flavour": "Cashew & Cream",
+          "price": 6000,
+          "mrp": 11499,
+          "stock": "yes",
+          "image": "images/p17946688653546x4o.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "5 Pounds",
+          "flavour": "Cafe Mocha",
+          "price": 6000,
+          "mrp": 11499,
+          "stock": "yes",
+          "image": "images/p17946688580176iia.jpg"
+        }
+      ],
+      "id": "7"
     }
   ],
   "reviews": [
