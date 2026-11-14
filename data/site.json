@@ -1019,6 +1019,32 @@
         }
       ],
       "id": "21"
+    },
+    {
+      "name": "BPI Sports Beta Alanine Endurance & Performance Support Formula",
+      "brand": "BPI Sports",
+      "category": "Pre-Workout",
+      "subcategory": "Performance Amino Acids",
+      "rating": 4,
+      "featured": "yes",
+      "description": "Beta Alanine is one of the vital amino acids that may show an increase in the concentration of Carnosine in the muscles which Reduces Fatigue. Consumption of beta-alanine helps enhance the endurance during your workouts by keeping you active and energized for the longer duration",
+      "images": [
+        "images/p1794688183047fcl5.jpg",
+        "images/p17946881903207myz.jpg",
+        "images/p179468819923927es.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "180 Grams",
+          "flavour": "",
+          "price": 899,
+          "mrp": 1699,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "22"
     }
   ],
   "reviews": [
