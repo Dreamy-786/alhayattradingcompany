@@ -62,7 +62,7 @@
           "vid": "0",
           "size": "450 Grams",
           "flavour": "Lychee",
-          "price": 1600,
+          "price": 1500,
           "mrp": 3299,
           "stock": "yes",
           "image": "images/p1794655351478koyo.jpg"
@@ -71,7 +71,7 @@
           "vid": "1",
           "size": "450 Grams",
           "flavour": "Blue Lemonade",
-          "price": 1600,
+          "price": 1500,
           "mrp": 3299,
           "stock": "yes",
           "image": "images/p1794655382404i5y2.jpg"
@@ -80,7 +80,7 @@
           "vid": "2",
           "size": "450 Grams",
           "flavour": "Piña Colada",
-          "price": 1600,
+          "price": 1500,
           "mrp": 3299,
           "stock": "yes",
           "image": "images/p17946553693879hxi.jpg"
@@ -89,7 +89,7 @@
           "vid": "3",
           "size": "450 Grams",
           "flavour": "Pink Guava",
-          "price": 1600,
+          "price": 1500,
           "mrp": 3299,
           "stock": "yes",
           "image": "images/p1794655400492hjsd.jpg"
