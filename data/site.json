@@ -1158,6 +1158,32 @@
         }
       ],
       "id": "26"
+    },
+    {
+      "name": "BPI ZMA Recovery & Performance Support Formula",
+      "brand": "BPI Sports",
+      "category": "Muscle Builder",
+      "subcategory": "Multivitamins & Minerals",
+      "rating": 4,
+      "featured": "yes",
+      "description": "BPI Sports ZMA is a mineral supplement designed to support recovery, strength and overall wellness for active individuals. The formula combines zinc, magnesium and vitamin B6, nutrients that play important roles in muscle function, metabolism and recovery. Magnesium helps support muscle relaxation and energy production, while zinc contributes to immune support, protein synthesis and tissue repair. Vitamin B6 assists the body in utilizing nutrients and supports normal metabolic function. ZMA supplements are often used before bedtime as part of a nightly recovery routine, helping support restful sleep and overnight muscle recovery after demanding workouts. With 90 capsules per bottle, BPI Sports ZMA offers a convenient way to support daily mineral intake and help maintain performance and recovery for those with active lifestyles.",
+      "images": [
+        "images/p179468932145222z4.jpg",
+        "images/p1794689327003cu13.jpg",
+        "images/p1794689332802puk7.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "90 Capsules",
+          "flavour": "",
+          "price": 799,
+          "mrp": 1599,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "27"
     }
   ],
   "reviews": [
