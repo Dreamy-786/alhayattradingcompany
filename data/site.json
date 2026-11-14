@@ -1132,6 +1132,32 @@
         }
       ],
       "id": "25"
+    },
+    {
+      "name": "BPI Sports Roxy Lean Energy & Active Lifestyle Support Formula",
+      "brand": "BPI Sports",
+      "category": "Fat Burner",
+      "subcategory": "",
+      "rating": 3.7,
+      "featured": "yes",
+      "description": "BPI Sports RoxyLean is a high-performance thermogenic fat burner designed for individuals looking to achieve a lean and shredded physique. This advanced formula works by increasing metabolism, boosting energy levels, and enhancing focus to support both fat loss and workout performance. With a powerful blend of ingredients including caffeine anhydrous, herbal extracts, and bioactive compounds, RoxyLean helps promote calorie burning, suppress appetite, and improve mental clarity. It is ideal for those following a calorie-controlled diet and intense training routine. Whether you're cutting, leaning out, or improving definition, RoxyLean provides the support needed to stay energized, focused, and consistent with your fitness goals.",
+      "images": [
+        "images/p1794689044610dco6.jpg",
+        "images/p179468905285530rg.jpg",
+        "images/p1794689059814t6pn.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "60 Capsules",
+          "flavour": "",
+          "price": 999,
+          "mrp": 1699,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "26"
     }
   ],
   "reviews": [
