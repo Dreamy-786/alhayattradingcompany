@@ -992,6 +992,33 @@
         }
       ],
       "id": "20"
+    },
+    {
+      "name": "BPI Sports Omega 3 Fish Oil Heart & Wellness Support",
+      "brand": "BPI Sports",
+      "category": "Omega-3",
+      "subcategory": "Triple Strength Fish Oil",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "Support your daily health with BPI Sports Omega 3 Fish Oil Softgels, designed to provide essential fatty acids that your body needs but cannot produce on its own. Each softgel delivers a potent 2000mg of fish oil, including EPA (Eicosapentaenoic Acid) and DHA (Docosahexaenoic Acid), which are known to support heart, brain, and eye health. This formula is ideal for individuals looking to improve overall wellness, support cardiovascular function, and maintain cognitive performance. With just one softgel per day, it’s a simple and effective addition to your daily routine. Manufactured in a GMP-certified facility, this product ensures quality, purity, and safety in every serving.",
+      "images": [
+        "images/p1794688025938g940.jpg",
+        "images/p1794688032929x0cb.jpg",
+        "images/p1794688039132ofhw.jpg",
+        "images/p17946880455347bc8.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "60 Softgels",
+          "flavour": "",
+          "price": 600,
+          "mrp": 1999,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "21"
     }
   ],
   "reviews": [
