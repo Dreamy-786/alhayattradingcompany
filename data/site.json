@@ -405,6 +405,77 @@
         }
       ],
       "id": "9"
+    },
+    {
+      "name": "BPI Sports Best EAA Essential Amino Acids Powder with 9 EAAs, 5g BCAAs (2:1:1 Ratio), Electrolytes & Taurine for Muscle Recovery and Lean Muscle Support, 300g, 30 Servings",
+      "brand": "BPI Sports",
+      "category": "Amino Acids & Hydrations",
+      "subcategory": "EAA",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "BPI SPORTS BEST EAA – COMPLETE ESSENTIAL AMINO ACIDS WITH BCAAs & ELECTROLYTE HYDRATION SUPPORT\n\nTake your workout nutrition to the next level with BPI Sports Best EAA, an advanced Essential Amino Acid supplement formulated for athletes, bodybuilders, gym enthusiasts and individuals focused on lean muscle support and workout recovery.\n\nUnlike conventional BCAA supplements that provide only three branched-chain amino acids, BPI Sports Best EAA delivers a comprehensive profile of all 9 Essential Amino Acids (EAAs), combined with a powerful 5g BCAA blend, Taurine, Coconut Water Powder and Himalayan Pink Salt. Every serving is designed to complement your training and daily sports nutrition routine.\n\n1. COMPLETE 9 ESSENTIAL AMINO ACID FORMULA\n\nProvides all nine essential amino acids that the body cannot produce on its own and must obtain through diet or supplementation. Includes L-Leucine, L-Isoleucine, L-Valine, L-Threonine, L-Lysine, L-Phenylalanine, L-Tryptophan, DL-Methionine and L-Histidine.\n\n2. 5,000MG BCAA BLEND – 2:1:1 RATIO\n\nEach 10g serving delivers 5g of Branched Chain Amino Acids, comprising:\n- L-Leucine – 2,500mg\n- L-Isoleucine – 1,250mg\n- L-Valine – 1,250mg\n\nA leucine-focused 2:1:1 BCAA ratio to complement your muscle-building and recovery nutrition.\n\n3. 7,150MG TOTAL ESSENTIAL AMINO ACIDS\n\nGo beyond conventional BCAA supplementation with 7.15g of essential amino acids per serving, combining the three BCAAs with six additional essential amino acids for a complete nine-EAA profile.\n\n4. ELECTROLYTE & HYDRATION SUPPORT BLEND\n\nEnhanced with:\n- Taurine – 300mg\n- Coconut Water Powder – 300mg\n- Himalayan Pink Salt – 200mg\n\nAn additional hydration-focused blend to complement your workout nutrition and training routine.\n\n5. SUPPORTS LEAN MUSCLE & MUSCLE RECOVERY\n\nEssential amino acids play an important role in muscle protein synthesis. BPI Sports Best EAA provides comprehensive amino acid support to complement resistance training, bodybuilding, strength training and endurance workouts.\n\n6. ZERO SUGAR & REFRESHING FLAVOURS\n\nEnjoy your essential amino acid drink with 0g total sugar, 0g added sugar and just 8 calories per serving. Available in refreshing flavours, including Blue Raspberry, Citrus Mojito, Fruit Punch, Green Apple, Orange and Watermelon.\n\n7. PRE-WORKOUT, INTRA-WORKOUT & POST-WORKOUT\n\nConveniently incorporate BPI Sports Best EAA into your daily workout routine. Consume before, during or after exercise to complement your sports nutrition goals.\n\nDIRECTIONS FOR USE:\nTake 1 heaped scoop (approximately 10g). Mix with 250ml of cold water and shake well before consumption. Consume one serving daily or as suggested by your healthcare professional.\n\nCHOOSE COMPLETE AMINO ACID NUTRITION. CHOOSE BPI SPORTS BEST EAA.",
+      "images": [
+        "images/p179467093544644zl.jpg",
+        "images/p1794670941812nuhs.jpg",
+        "images/p17946709526236ze7.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "300 Grams",
+          "flavour": "Blue Raspberry",
+          "price": 1349,
+          "mrp": 2899,
+          "stock": "yes",
+          "image": "images/p1794670886685o9d7.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "300 Grams",
+          "flavour": "Citrus Mojito",
+          "price": 1349,
+          "mrp": 2899,
+          "stock": "yes",
+          "image": "images/p179467089725907yq.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "300 Grams",
+          "flavour": "Fruit Punch",
+          "price": 1349,
+          "mrp": 2899,
+          "stock": "yes",
+          "image": "images/p1794670903843bgzw.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "300 Grams",
+          "flavour": "Green Apple",
+          "price": 1349,
+          "mrp": 2899,
+          "stock": "yes",
+          "image": "images/p1794670913970tjny.jpg"
+        },
+        {
+          "vid": "4",
+          "size": "300 Grams",
+          "flavour": "Orange",
+          "price": 1349,
+          "mrp": 2899,
+          "stock": "yes",
+          "image": "images/p1794670920475g9vu.jpg"
+        },
+        {
+          "vid": "5",
+          "size": "300 Grams",
+          "flavour": "Watermelon",
+          "price": 1349,
+          "mrp": 2899,
+          "stock": "yes",
+          "image": "images/p1794670929005o06r.jpg"
+        }
+      ],
+      "id": "10"
     }
   ],
   "reviews": [
