@@ -610,6 +610,59 @@
         }
       ],
       "id": "12"
+    },
+    {
+      "name": "BPI Liquid Carnitine Energy & Performance Support, 4000mg",
+      "brand": "BPI Sports",
+      "category": "Fat Burner",
+      "subcategory": "L-Carntine",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "BPI Sports L-Carnitine Liquid 4000mg BPI Sports L-Carnitine Liquid 4000mg is a concentrated liquid L-Carnitine supplement formulated for fitness enthusiasts and active lifestyles. Each 15ml serving delivers 4,000mg of L-Carnitine, making this a high-potency liquid L-Carnitine formula for those looking for a convenient way to include L-Carnitine in their daily supplement routine. The formula also provides 5mg of pantothenic acid Vitamin B5 per serving. HIGH-POTENCY L-CARNITINE 4,000mg L-Carnitine per serving 15ml serving size 30 servings per bottle 450ml net content 5mg Vitamin B5 per serving Concentrated liquid formula FOR FITNESS & TRAINING ROUTINES L-Carnitine liquid can be conveniently incorporated into a fitness, exercise and nutrition routine. It can be used around workouts according to your preferred supplementation schedule and the product directions. CONVENIENT LIQUID FORM Instead of capsules or tablets, BPI Sports L-Carnitine comes in a concentrated liquid format that allows you to measure a 15ml serving directly from the bottle. FLAVOURS Available in: Lychee Tangy Orange Pina Colada Pink Lemonade",
+      "images": [
+        "images/p1794685312616odvy.jpg",
+        "images/p1794685320758fu9w.jpg",
+        "images/p17946853282458g1u.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "Piña Colada",
+          "price": 1200,
+          "mrp": 3199,
+          "stock": "yes",
+          "image": "images/p1794685267904grzs.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "",
+          "flavour": "Pink Lemonade",
+          "price": 1200,
+          "mrp": 3199,
+          "stock": "yes",
+          "image": "images/p1794685283770ceyy.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "",
+          "flavour": "Tangy Orange",
+          "price": 1200,
+          "mrp": 3199,
+          "stock": "yes",
+          "image": "images/p1794685306218ggdh.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "",
+          "flavour": "Lychee",
+          "price": 1200,
+          "mrp": 3199,
+          "stock": "yes",
+          "image": "images/p1794685297439oe47.jpg"
+        }
+      ],
+      "id": "13"
     }
   ],
   "reviews": [
