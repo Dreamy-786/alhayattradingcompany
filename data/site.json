@@ -257,5 +257,11 @@
       "id": "6"
     }
   ],
-  "reviews": []
+  "reviews": [
+    {
+      "name": "Fahad Khan",
+      "rating": 5,
+      "text": "Really loved their Service and Authenticity. Farooque is extremely helpful"
+    }
+  ]
 }
