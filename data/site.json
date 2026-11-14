@@ -966,6 +966,32 @@
         }
       ],
       "id": "19"
+    },
+    {
+      "name": "BPI Sports NAC 1000mg N-Acetyl L-Cysteine Capsules | Liver Detox & Antioxidant Support | Supports Glutathione Production | Respiratory Health | 60 Vegetarian Capsules (30 Servings)",
+      "brand": "BPI Sports",
+      "category": "Muscle Builder",
+      "subcategory": "Antioxidants",
+      "rating": 4,
+      "featured": "yes",
+      "description": "Support your body's natural defense system with BPI Sports NAC 1000mg. Each serving delivers 1000mg of N-Acetyl L-Cysteine (NAC), a precursor to glutathione, one of the body's most important antioxidants. Designed to support liver wellness, antioxidant protection, respiratory health, and overall cellular function, these easy-to-swallow vegetarian capsules fit seamlessly into your daily wellness routine. Whether you're focused on recovery, detox support, or maintaining overall health, BPI Sports NAC offers a high-quality formula trusted by athletes and health-conscious individuals alike.",
+      "images": [
+        "images/p1794687912288v95v.jpg",
+        "images/p1794687920044lagf.jpg",
+        "images/p179468792807094xc.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "60 Capsules",
+          "flavour": "",
+          "price": 799,
+          "mrp": 1399,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "20"
     }
   ],
   "reviews": [
