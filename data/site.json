@@ -940,6 +940,32 @@
         }
       ],
       "id": "18"
+    },
+    {
+      "name": "BPI Multivitamin Daily Health & Wellness Formula",
+      "brand": "BPI Sports",
+      "category": "Muscle Builder",
+      "subcategory": "Multivitamins & Minerals",
+      "rating": 4.2,
+      "featured": "yes",
+      "description": "BPI Multivitamin is a complete vitamin, mineral and energy multivitamin with added vital Nutrients. BPI Multivitamin offers athlete’s solid support for nutrient deficiencies they may need and helps in improving endurance, performance and strength.",
+      "images": [
+        "images/p1794687606162anvi.jpg",
+        "images/p1794687614418fnb6.jpg",
+        "images/p1794687626817102j.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "60 Tablets",
+          "flavour": "",
+          "price": 699,
+          "mrp": 1899,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "19"
     }
   ],
   "reviews": [
