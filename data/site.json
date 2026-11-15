@@ -1274,6 +1274,34 @@
         }
       ],
       "id": "29"
+    },
+    {
+      "name": "Bull Pharm Whey Protein Isolate for Lean Muscle & Fast Recovery",
+      "brand": "BPI Sports",
+      "category": "Proteins",
+      "subcategory": "Whey Protein Isolate",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "BullPharm Whey Protein Isolate is sourced from happy grass-fed cows that have not been fed with and antibiotics, recombinant bovine growth hormones (rBGH), or bovine somatotropin (BST). Each serving delivers 25 grams of 98.5% lactose free crossflow micro filtered whey, a delicious way to wellness.Made with high-quality, micro-filtered whey protein isolate containing important immunoglobulins, which helps to give the immune system a supporting boost. Whey is also a rich and source of branched chain amino acids (BCAAs) and glutamic acid.Made with exceptional raw materials to produce premium-quality, supplements for maximum bioavailability and absorption to help achieve the desired health benefits. Each ingredient in our formulas has undergone tests to verify that they are free of microbes, pollutants, and heavy metals. Our supplements are subjected to stringent examinations for potency, uniformity, disintegration and dissolution.",
+      "images": [
+        "images/p1794743390539lrnq.jpg",
+        "images/p1794743397265o14m.jpg",
+        "images/p1794743404206s0bh.jpg",
+        "images/p17947434140697g0u.jpg",
+        "images/p1794743420259q2ij.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "4.44 Pounds",
+          "flavour": "Rich Chocolate",
+          "price": 10999,
+          "mrp": 19999,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "30"
     }
   ],
   "reviews": [
