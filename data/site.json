@@ -1337,6 +1337,34 @@
         }
       ],
       "id": "31"
+    },
+    {
+      "name": "Bull Shred Active Lifestyle & Performance Support Formula",
+      "brand": "Bull Pharm",
+      "category": "Fat Burner",
+      "subcategory": "",
+      "rating": 3.5,
+      "featured": "yes",
+      "description": "Stay in shape in and outside of the gym with BULLSHRED. BULLPHARM’s appetite regulating and muscle-preserving features will help keep you in shape, even during a period of limited exercise. Its unique Keto friendly, Thermogenic weight loss formula puts it above other fat burners by helping men and women burn fat for energy while preserving muscle.The hand-selected premium ingredients in BullShred helps you maintain a steady energy throughout any activity, Curbs Appetite, raise your mental focus at work or in the gym, and keep your mood elevated while you go about your day. Third-party tested fat burner made exclusively with premium ingredients including green coffee bean extract, green tea extract, Acetyl L Carnitine and Yohimbe Bark Extract to help burn stubborn belly & abdominal fat. Unlike the other guys, BULLSHRED has zero artificial substances, zero synthetic additives, zero preservatives. BULLSHRED is Natural Thermogenic weight loss supplement to support a specialized diet program. All BULL PHARM products are made at cGMP facility with the highest standards. Bull Pharm prides itself on the highest quality ingredients. BULL PHARM products are manufactured at FDA approved Facility. BULL PHARM products are FSSAI India Approved. When you order Bull Pharm products, you are getting an unparalleled product quality.",
+      "images": [
+        "images/p17947439521173k4g.jpg",
+        "images/p1794743960270xkq6.jpg",
+        "images/p17947439680070qpa.jpg",
+        "images/p17947439755714xrc.jpg",
+        "images/p1794743981200q3me.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "60 Capsules",
+          "flavour": "",
+          "price": 1499,
+          "mrp": 2499,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "32"
     }
   ],
   "reviews": [
