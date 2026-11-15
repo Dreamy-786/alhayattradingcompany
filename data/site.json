@@ -1383,7 +1383,7 @@
       "variants": [
         {
           "vid": "0",
-          "size": "90 Grams",
+          "size": "90 Grams/30 Servings",
           "flavour": "",
           "price": 499,
           "mrp": 999,
@@ -1392,7 +1392,7 @@
         },
         {
           "vid": "1",
-          "size": "300 Grams",
+          "size": "300 Grams/100 Servings",
           "flavour": "",
           "price": 1099,
           "mrp": 1999,
