@@ -316,7 +316,7 @@
       "variants": [
         {
           "vid": "0",
-          "size": "1 KG",
+          "size": "1 KG/ 4 Servings",
           "flavour": "Chocolate",
           "price": 999,
           "mrp": 1699,
@@ -325,7 +325,7 @@
         },
         {
           "vid": "1",
-          "size": "3 KG",
+          "size": "3 KG/ 14 Servings",
           "flavour": "Chocolate",
           "price": 2299,
           "mrp": 4599,
@@ -334,7 +334,7 @@
         },
         {
           "vid": "2",
-          "size": "5 KG",
+          "size": "5 KG/ 23 Servings",
           "flavour": "Chocolate",
           "price": 2999,
           "mrp": 7299,
