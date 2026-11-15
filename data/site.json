@@ -1510,6 +1510,33 @@
         }
       ],
       "id": "36"
+    },
+    {
+      "name": "Bull Pharm O2 Surge Endurance & Performance Support Formula. 120 Capsues",
+      "brand": "Bull Pharm",
+      "category": "Pre-Workout",
+      "subcategory": "Endurance & Performance",
+      "rating": 3.7,
+      "featured": "yes",
+      "description": "Ignite your endurance with BULL PHARM’s O2 SURGE — the ultimate performance amplifier.\nFormulated with Chromium, Ashwagandha, Rhodiola, Cordyceps, and Beta-Alanine, this powerhouse blend boosts oxygen utilization and delays fatigue.\nActigin® and ATPro® Matrix work synergistically to enhance stamina, strength, and VO₂ max for peak athletic output.\nExperience explosive energy, sharper focus, and faster recovery with every serving.\nBacked by science and built for champions, O2 SURGE fuels your body to go harder, longer, and stronger.\nUnleash your inner beast — train beyond limits with BULL PHARM.",
+      "images": [
+        "images/p1794772069346q5zm.jpg",
+        "images/p1794772074017ui5i.jpg",
+        "images/p1794772078679wlvp.jpg",
+        "images/p1794772084500puhl.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "price": 2949,
+          "mrp": 4999,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "37"
     }
   ],
   "reviews": [
