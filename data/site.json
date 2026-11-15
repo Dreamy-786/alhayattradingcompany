@@ -1184,6 +1184,52 @@
         }
       ],
       "id": "27"
+    },
+    {
+      "name": "Bull Pharm 100% Whey Protein for Lean Muscle & Recovery",
+      "brand": "Bull Pharm",
+      "category": "Proteins",
+      "subcategory": "Whey Protein Blend",
+      "rating": 4.8,
+      "featured": "yes",
+      "description": "BULLPHARM 100% Whey Protein is healthier cold processed, non-denatured and free of synthetic growth hormones (no rBGH or rBST) and is higher in key nutrients. BullPharm 100 % Whey Protein is Gluten Free, Soy Free, Non-GMO and yet tastes so great.BULLPHARM 100% WHEY PROTEIN is unique blend of whey protein isolate, concentrate and hydrolysate making it desired Protein for men and women wanting to stimulate muscle growth, manage weight and enhance recovery. Each scoop of BULLPHARM 100% Whey Protein contains 23g Protein, 4.6g BCAAs (branched-chain amino acids) and no added sugars. Trusted by athletes, fitness enthusiasts and daily grinders everywhere, our whey is crafted for everyone’s lifestyle.Scientific research indicates that adding 100% whey protein to your daily regimen will help raise your metabolic rate, improve glucose tolerance and allow you to achieve healthier and fit body faster with its naturally occurring immunoglobulins, lactoferrin, and protein cofactors. BULLPHARM 100% WHEY PROTEIN assures desired transformation with its highest quality standards.All BULL PHARM products are made at cGMP facility with the highest Manufacturing standards. Bull Pharm prides itself on the highest quality ingredients. BULL PHARM products are manufactured at FDA approved Facility. BULL PHARM products are FSSAI India Approved. When you order Bull Pharm products, you are getting an unparalleled product quality1 Scoop in 6 oz. or 2 Scoops in 12 oz. of Cold Water or Skimmed Milk. Use between Meals or After Workout.",
+      "images": [
+        "images/p1794742531545zvmh.jpg",
+        "images/p1794742539836th55.jpg",
+        "images/p1794742547340vxnv.jpg",
+        "images/p17947425568476tbj.jpg",
+        "images/p1794742566649swub.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "5 Pounds",
+          "flavour": "Rich Chocolate",
+          "price": 7299,
+          "mrp": 11999,
+          "stock": "yes",
+          "image": "images/p17947425208509yu2.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "5 Pounds",
+          "flavour": "Mocha Cappuccino",
+          "price": 7299,
+          "mrp": 11999,
+          "stock": "yes",
+          "image": "images/p1794742676912kuc2.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "5 Pounds",
+          "flavour": "Strawberry Caramel",
+          "price": 7299,
+          "mrp": 11999,
+          "stock": "yes",
+          "image": "images/p1794742387294a9vz.jpg"
+        }
+      ],
+      "id": "28"
     }
   ],
   "reviews": [
