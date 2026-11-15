@@ -1455,6 +1455,34 @@
         }
       ],
       "id": "34"
+    },
+    {
+      "name": "Bull Pharm L-Glutamine Recovery & Muscle Support Formula, 60 Servings",
+      "brand": "Bull Pharm",
+      "category": "Amino Acids & Hydrations",
+      "subcategory": "Glutamine",
+      "rating": 4,
+      "featured": "yes",
+      "description": "BULL PHARM PURE L-GLUTAMINE delivers pharmaceutical-grade, micronized glutamine for faster recovery and peak muscle performance.\nAs the body’s most abundant amino acid, L-Glutamine fuels muscle repair, supports immune health, and reduces post-workout fatigue.\nEach serving provides 5g of fermented glutamine for maximum purity and absorption.\nDesigned for athletes pushing limits and lifters chasing consistent progress.\nUnflavoured, clean, and filler-free — stack it seamlessly with your favourite BULL PHARM supplements.\nTrain harder, recover faster, and stay unstoppable with PURE L-GLUTAMINE.",
+      "images": [
+        "images/p1794770921411kslp.jpg",
+        "images/p17947709284026wc6.jpg",
+        "images/p1794770935382i4zf.jpg",
+        "images/p1794770941342twsp.jpg",
+        "images/p1794770949831pz5p.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "price": 1399,
+          "mrp": 2999,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "35"
     }
   ],
   "reviews": [
