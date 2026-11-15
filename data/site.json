@@ -1365,6 +1365,42 @@
         }
       ],
       "id": "32"
+    },
+    {
+      "name": "Bull Pharm Creatine Monohydrate Strength & Performance Formula",
+      "brand": "Bull Pharm",
+      "category": "Creatine",
+      "subcategory": "Creatine Monohydrate",
+      "rating": 4.9,
+      "featured": "yes",
+      "description": "Unleash your true strength with BULL PHARM Creatine Monohydrate.\nFormulated for serious athletes, this pure-grade, micronized creatine fuels explosive power, faster recovery, and muscle growth.\nEach serving delivers 3g of clean, filler-free performance — third-party tested for purity and quality.\nBacked by science, trusted by athletes, and designed to elevate every rep.\nWhether you’re chasing strength, speed, or size, BULL PHARM keeps you performing at your peak.\nTrain harder. Recover faster. Dominate with BULL PHARM.",
+      "images": [
+        "images/p1794770294555kikb.jpg",
+        "images/p1794770301583jp1r.jpg",
+        "images/p1794770307863hvz9.jpg",
+        "images/p1794770313192mnqs.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "90 Grams",
+          "flavour": "",
+          "price": 499,
+          "mrp": 999,
+          "stock": "yes",
+          "image": "images/p1794770279005d157.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "300 Grams",
+          "flavour": "",
+          "price": 1099,
+          "mrp": 1999,
+          "stock": "yes",
+          "image": "images/p1794770287405zjqy.jpg"
+        }
+      ],
+      "id": "33"
     }
   ],
   "reviews": [
