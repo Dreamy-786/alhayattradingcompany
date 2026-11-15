@@ -1483,6 +1483,33 @@
         }
       ],
       "id": "35"
+    },
+    {
+      "name": "Bull Pharm Citrulline Di Malate Nitric Oxide & Pump Support, 83 Servings",
+      "brand": "Bull Pharm",
+      "category": "Pre-Workout",
+      "subcategory": "Performance Amino Acids",
+      "rating": 4,
+      "featured": "yes",
+      "description": "Unleash your inner strength with BULL PHARM L-CITRULLINE DL-MALATE 2:1.\nFormulated to amplify nitric oxide production, this powerhouse combo boosts blood flow, endurance, and muscle performance.\nEach serving delivers 3000 mg of pure pump-enhancing fuel — 2000 mg L-Citrulline and 1000 mg DL-Malate.\nTrain harder, recover faster, and stay unstoppable with science-backed intensity in every scoop.\nClean label, gluten-free, and third-party lab tested for uncompromising quality.\nIdeal for athletes craving more energy, power, and sustained performance.\nBULL PHARM — Fuel Your Drive. Dominate Every Rep.",
+      "images": [
+        "images/p179477128200536dw.jpg",
+        "images/p1794771289050p6ux.jpg",
+        "images/p1794771294767of9g.jpg",
+        "images/p1794771301307roli.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "price": 1999,
+          "mrp": 2999,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "36"
     }
   ],
   "reviews": [
