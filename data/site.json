@@ -1563,6 +1563,34 @@
         }
       ],
       "id": "38"
+    },
+    {
+      "name": "BULL PHARM Androbol Advanced Muscle Growth & Performance Support",
+      "brand": "Bull Pharm",
+      "category": "Muscle Builder",
+      "subcategory": "Anabolic Support",
+      "rating": 4.9,
+      "featured": "yes",
+      "description": "BULL PHARM ANDROBOL is a next-generation anabolic support formula built for serious lifters.\nPowered by 6-Keto-Diosgenin Acetate, Dicyclopentanone, and 5a-Hydroxy Laxogenin Acetate, it helps amplify strength, muscle density, and recovery.\nExperience enhanced lean muscle growth and performance without hormonal disruption.\nDesigned for athletes who want hard, dry gains and superior endurance.\nUnleash your body’s full anabolic potential with science-backed precision.\nBull Pharm Androbol — Fuel the Power Within.",
+      "images": [
+        "images/p1794772505657mpyr.jpg",
+        "images/p1794772508703w5b3.jpg",
+        "images/p1794772515390i157.jpg",
+        "images/p1794772522821k73k.jpg",
+        "images/p17947725313242md3.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "price": 2899,
+          "mrp": 5999,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "39"
     }
   ],
   "reviews": [
