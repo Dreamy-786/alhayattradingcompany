@@ -318,7 +318,7 @@
           "vid": "0",
           "size": "1 KG",
           "flavour": "Chocolate",
-          "price": 1000,
+          "price": 999,
           "mrp": 1699,
           "stock": "yes",
           "image": "images/p1794669112326mczi.jpg"
@@ -327,7 +327,7 @@
           "vid": "1",
           "size": "3 KG",
           "flavour": "Chocolate",
-          "price": 2300,
+          "price": 2299,
           "mrp": 4599,
           "stock": "yes",
           "image": "images/p1794669137556q3lk.jpg"
@@ -336,7 +336,7 @@
           "vid": "2",
           "size": "5 KG",
           "flavour": "Chocolate",
-          "price": 3000,
+          "price": 2999,
           "mrp": 7299,
           "stock": "yes",
           "image": "images/p179466915378919rr.jpg"
