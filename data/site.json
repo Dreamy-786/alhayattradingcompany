@@ -1537,6 +1537,32 @@
         }
       ],
       "id": "37"
+    },
+    {
+      "name": "Bull Pharm Muscle Gainer for Size, Strength & Recovery",
+      "brand": "Bull Pharm",
+      "category": "Weight Gainers",
+      "subcategory": "Lean Mass Gainer",
+      "rating": 4.7,
+      "featured": "yes",
+      "description": "Build Serious Size with BULL PHARM MUSCLE GAINER—the ultimate high-calorie formula for rapid muscle growth and strength.\nEnriched with Creatine Monohydrate, L-Glutamine, and MCTs, this advanced blend fuels intense workouts and faster recovery.\nDesigned to increase lean mass, boost endurance, and support muscle repair, it delivers clean calories without unnecessary sugars or fillers.\nPerfect for hard gainers, each scoop powers your body with sustained energy and premium nutrition.\nBULL PHARM MUSCLE GAINER helps you recover quicker, lift heavier, and grow stronger every day.\nFuel your transformation — Train. Grow. Dominate.",
+      "images": [
+        "images/p1794772279748ev2f.jpg",
+        "images/p17947722853113ft8.jpg",
+        "images/p1794772297713i7vi.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "6 Pounds / 27 Servings",
+          "flavour": "Chocolate",
+          "price": 3299,
+          "mrp": 4599,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "38"
     }
   ],
   "reviews": [
