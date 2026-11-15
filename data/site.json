@@ -1401,6 +1401,60 @@
         }
       ],
       "id": "33"
+    },
+    {
+      "name": "Bull Pharm Essential Aminos Recovery & Hydration Formula, 30 Servings",
+      "brand": "Bull Pharm",
+      "category": "Amino Acids & Hydrations",
+      "subcategory": "EAA",
+      "rating": 4.8,
+      "featured": "yes",
+      "description": "Fuel your performance with BULL PHARM Essential Aminos — the ultimate blend of EAA, BCAA, and electrolytes for muscle recovery, endurance, and hydration.\nEach scoop delivers 7.5g of Essential Amino Acids and 5g of Branched-Chain Aminos to help build lean muscle and reduce fatigue.\nInfused with Coconut Water Powder and Himalayan Pink Salt, it replenishes lost electrolytes and keeps you energized through every rep.\nScientifically formulated for rapid absorption and clean recovery.\nStay hydrated, stay strong — power every workout with BULL PHARM Essential Aminos.",
+      "images": [
+        "images/p1794770685693qg3d.jpg",
+        "images/p1794770693646o7as.jpg",
+        "images/p1794770700394cf3o.jpg",
+        "images/p1794770709406rt55.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "Refreshing Cola",
+          "price": 2099,
+          "mrp": 3499,
+          "stock": "yes",
+          "image": "images/p1794770652880vjut.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "",
+          "flavour": "Raspberry Lemonade",
+          "price": 2099,
+          "mrp": 3499,
+          "stock": "yes",
+          "image": "images/p17947706688869y24.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "",
+          "flavour": "Cranberry Grape",
+          "price": 2099,
+          "mrp": 3499,
+          "stock": "yes",
+          "image": "images/p1794770661015mwz0.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "",
+          "flavour": "Cherry Limeade",
+          "price": 2099,
+          "mrp": 3499,
+          "stock": "yes",
+          "image": "images/p17947706808225ng8.jpg"
+        }
+      ],
+      "id": "34"
     }
   ],
   "reviews": [
