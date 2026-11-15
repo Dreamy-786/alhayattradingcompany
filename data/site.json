@@ -1230,6 +1230,50 @@
         }
       ],
       "id": "28"
+    },
+    {
+      "name": "BULL PHARM CREAOX Creatine Monohydrate Powder",
+      "brand": "Bull Pharm",
+      "category": "Creatine",
+      "subcategory": "Creatine Monohydrate",
+      "rating": 3.6,
+      "featured": "yes",
+      "description": "Bring flavour to your daily creatine routine with BULL PHARM CREAOX Creatine Monohydrate Powder.\n\nEach 5 g serving combines 3,000 mg creatine monohydrate with 500 mg taurine, 500 mg coconut water powder and 50 mg vitamin C. Clearly listed quantities help you know exactly what goes into every scoop.\n\nEach 250 g tub delivers 50 servings, with 2 kcal and 0 g total sugars per serving as declared on the label. Choose from Mandarin Orange, Mint Mojito and Raspberry Lemonade to find the flavour that fits your routine.\n\nTo prepare, mix one 5 g scoop with 250 ml of water or your preferred beverage. Shake well and consume according to the label directions. Maintain consistent daily intake and stay well hydrated.\n\nFor adults aged 18 years and above. Do not exceed one serving daily. Not for medicinal use or as a sole source of nutrition. Follow all warnings on the product label. Store in a cool, dry place, out of reach of children.",
+      "images": [
+        "images/p1794743137018cist.jpg",
+        "images/p1794743143049abak.jpg",
+        "images/p1794743149595k4tj.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "Mandarin Orange",
+          "price": 1099,
+          "mrp": 1449,
+          "stock": "yes",
+          "image": "images/p1794743095600nmee.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "",
+          "flavour": "Mint Mojito",
+          "price": 1099,
+          "mrp": 1449,
+          "stock": "yes",
+          "image": "images/p1794743111628l8rl.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "",
+          "flavour": "Raspberry Lemonade",
+          "price": 1099,
+          "mrp": 1449,
+          "stock": "yes",
+          "image": "images/p1794743120667ib5s.jpg"
+        }
+      ],
+      "id": "29"
     }
   ],
   "reviews": [
