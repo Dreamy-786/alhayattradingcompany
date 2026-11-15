@@ -497,7 +497,7 @@
           "vid": "0",
           "size": "5 Pounds",
           "flavour": "Royal Chocolate",
-          "price": 7500,
+          "price": 7499,
           "mrp": 15399,
           "stock": "yes",
           "image": "images/p179468434242952js.jpg"
@@ -506,7 +506,7 @@
           "vid": "1",
           "size": "5 Pounds",
           "flavour": "Mango Ice Cream",
-          "price": 7500,
+          "price": 7499,
           "mrp": 15399,
           "stock": "yes",
           "image": "images/p17946843610618nk9.jpg"
@@ -515,7 +515,7 @@
           "vid": "2",
           "size": "5 Pounds",
           "flavour": "Choco Pineapple",
-          "price": 7500,
+          "price": 7499,
           "mrp": 15399,
           "stock": "yes",
           "image": "images/p1794684369796gwbe.jpg"
@@ -524,7 +524,7 @@
           "vid": "3",
           "size": "5 Pounds",
           "flavour": "Cafe Mocha",
-          "price": 7500,
+          "price": 7499,
           "mrp": 15399,
           "stock": "yes",
           "image": "images/p17946843819007c9l.jpg"
@@ -533,7 +533,7 @@
           "vid": "4",
           "size": "2 KG",
           "flavour": "Chocolate Lava Cake",
-          "price": 6600,
+          "price": 6599,
           "mrp": 13999,
           "stock": "yes",
           "image": "images/p17946843961021a5z.jpg"
@@ -542,7 +542,7 @@
           "vid": "5",
           "size": "2 KG",
           "flavour": "Classic Cold Coffee",
-          "price": 6600,
+          "price": 6599,
           "mrp": 13999,
           "stock": "yes",
           "image": "images/p17946844509805usk.jpg"
@@ -551,7 +551,7 @@
           "vid": "6",
           "size": "1 KG",
           "flavour": "Chocolate Lava Cake",
-          "price": 3400,
+          "price": 3399,
           "mrp": 7999,
           "stock": "yes",
           "image": "images/p1794684436172vkfs.jpg"
@@ -560,7 +560,7 @@
           "vid": "7",
           "size": "1 KG",
           "flavour": "Classic Cold Coffee",
-          "price": 3400,
+          "price": 3399,
           "mrp": 7999,
           "stock": "yes",
           "image": "images/p1794684465673pred.jpg"
