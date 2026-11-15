@@ -495,7 +495,7 @@
       "variants": [
         {
           "vid": "0",
-          "size": "5 Pounds",
+          "size": "5 Pounds / 69 Servings",
           "flavour": "Royal Chocolate",
           "price": 7499,
           "mrp": 15399,
@@ -504,7 +504,7 @@
         },
         {
           "vid": "1",
-          "size": "5 Pounds",
+          "size": "5 Pounds / 69 Servings",
           "flavour": "Mango Ice Cream",
           "price": 7499,
           "mrp": 15399,
@@ -513,7 +513,7 @@
         },
         {
           "vid": "2",
-          "size": "5 Pounds",
+          "size": "5 Pounds / 69 Servings",
           "flavour": "Choco Pineapple",
           "price": 7499,
           "mrp": 15399,
@@ -522,7 +522,7 @@
         },
         {
           "vid": "3",
-          "size": "5 Pounds",
+          "size": "5 Pounds / 69 Servings",
           "flavour": "Cafe Mocha",
           "price": 7499,
           "mrp": 15399,
@@ -531,7 +531,7 @@
         },
         {
           "vid": "4",
-          "size": "2 KG",
+          "size": "2 KG / 62 Servings",
           "flavour": "Chocolate Lava Cake",
           "price": 6599,
           "mrp": 13999,
@@ -540,7 +540,7 @@
         },
         {
           "vid": "5",
-          "size": "2 KG",
+          "size": "2 KG / 62 Servings",
           "flavour": "Classic Cold Coffee",
           "price": 6599,
           "mrp": 13999,
@@ -549,7 +549,7 @@
         },
         {
           "vid": "6",
-          "size": "1 KG",
+          "size": "1 KG / 31 Servings",
           "flavour": "Chocolate Lava Cake",
           "price": 3399,
           "mrp": 7999,
@@ -558,7 +558,7 @@
         },
         {
           "vid": "7",
-          "size": "1 KG",
+          "size": "1 KG / 31 Servings",
           "flavour": "Classic Cold Coffee",
           "price": 3399,
           "mrp": 7999,
