@@ -1302,6 +1302,41 @@
         }
       ],
       "id": "30"
+    },
+    {
+      "name": "Bull Pharm Bull Mass Weight Gainer for Size & Strength",
+      "brand": "Bull Pharm",
+      "category": "Weight Gainers",
+      "subcategory": "Lean Mass Gainer",
+      "rating": 4,
+      "featured": "yes",
+      "description": "BULL PHARM BULL MASS is your ultimate muscle-building powerhouse, crafted for those who train to dominate.\nEngineered to support rapid mass gain, strength, and recovery, it fuels your body for maximum performance.\nEach serving delivers high-quality nutrition to help you build lean size and power efficiently.\nDesigned for athletes and hard gainers who refuse to settle for average.\nBULL MASS amplifies muscle growth, endurance, and post-workout recovery.\nTrain harder, grow stronger, and unleash your full potential with elite performance formula Strength Redefined.",
+      "images": [
+        "images/p179474371002608v3.jpg",
+        "images/p1794743723456dv4i.jpg",
+        "images/p17947437309596jie.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "6 Pounds",
+          "flavour": "Rich Chocolate",
+          "price": 2999,
+          "mrp": 4599,
+          "stock": "yes",
+          "image": "images/p1794743688959dm0i.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "6 Pounds",
+          "flavour": "Mocha Cappuccino",
+          "price": 2999,
+          "mrp": 4599,
+          "stock": "yes",
+          "image": "images/p1794743701921z4vo.jpg"
+        }
+      ],
+      "id": "31"
     }
   ],
   "reviews": [
