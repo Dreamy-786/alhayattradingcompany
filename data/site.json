@@ -362,7 +362,7 @@
           "vid": "0",
           "size": "300 Grams",
           "flavour": "Blueberry",
-          "price": 2000,
+          "price": 1998,
           "mrp": 3799,
           "stock": "yes",
           "image": "images/p1794669382019txq0.jpg"
@@ -371,7 +371,7 @@
           "vid": "1",
           "size": "300 Grams",
           "flavour": "Citrus Mojito",
-          "price": 2000,
+          "price": 1999,
           "mrp": 3799,
           "stock": "yes",
           "image": "images/p1794669421018zbtw.jpg"
@@ -380,7 +380,7 @@
           "vid": "2",
           "size": "300 Grams",
           "flavour": "Fruit Punch",
-          "price": 2000,
+          "price": 1999,
           "mrp": 3799,
           "stock": "yes",
           "image": "images/p179466939587417bk.jpg"
@@ -389,7 +389,7 @@
           "vid": "3",
           "size": "300 Grams",
           "flavour": "Orange",
-          "price": 2000,
+          "price": 1999,
           "mrp": 3799,
           "stock": "yes",
           "image": "images/p17946694146717mjs.jpg"
@@ -398,7 +398,7 @@
           "vid": "4",
           "size": "300 Grams",
           "flavour": "Watermelon",
-          "price": 2000,
+          "price": 1999,
           "mrp": 3799,
           "stock": "yes",
           "image": "images/p179466940732706t9.jpg"
