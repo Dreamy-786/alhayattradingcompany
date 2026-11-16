@@ -1888,6 +1888,59 @@
         }
       ],
       "id": "48"
+    },
+    {
+      "name": "Cutler Nutrition Generate Recovery & Performance Formula, 30 Servings",
+      "brand": "Cutler Nutrition",
+      "category": "Amino Acids & Hydrations",
+      "subcategory": "EAA",
+      "rating": 3.5,
+      "featured": "yes",
+      "description": "Cutler Nutrition Generate is not your everyday branched amino acid (BCAA) supplement, but rather features all nine essential amino acids (EAA) to help stimulate muscle growth and enhance recovery.",
+      "images": [
+        "images/p17948475638999el9.jpg",
+        "images/p1794847575104nef5.jpg",
+        "images/p1794847585484e4xt.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "Peach Lemonade",
+          "price": 1499,
+          "mrp": 3199,
+          "stock": "yes",
+          "image": "images/p1794847546565a7pz.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "",
+          "flavour": "Pineapple Orange",
+          "price": 1499,
+          "mrp": 3199,
+          "stock": "yes",
+          "image": "images/p1794847611823r7h7.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "",
+          "flavour": "Rainbow Candy",
+          "price": 1499,
+          "mrp": 3199,
+          "stock": "yes",
+          "image": "images/p1794847554928my1h.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "",
+          "flavour": "Watermelon",
+          "price": 1499,
+          "mrp": 3199,
+          "stock": "yes",
+          "image": "images/p1794847589582nb8w.jpg"
+        }
+      ],
+      "id": "49"
     }
   ],
   "reviews": [
