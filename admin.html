@@ -51,6 +51,18 @@ details ol{padding-left:18px;margin:8px 0}
 .vph{width:44px;height:44px;border:1px dashed var(--line);border-radius:8px;display:grid;place-items:center;overflow:hidden;cursor:pointer;background:#eef0f5;color:var(--muted);font-size:20px;position:relative}
 .vph img{width:100%;height:100%;object-fit:cover}
 .vx{width:34px;height:38px;border:1px solid #e6b7b3;background:#fff;color:#b3261e;border-radius:8px;cursor:pointer}
+.sh .sel{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)}
+.sh .sel img{width:44px;height:44px;object-fit:contain;background:#eef0f5;border-radius:6px}
+.sh .sel .acts{display:flex;gap:4px}
+.sh .sel .acts button{border:1px solid var(--line);background:#fff;border-radius:6px;padding:4px 9px;cursor:pointer}
+.sh .addrow{display:flex;gap:8px;margin-top:10px}
+.sh .top{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end;margin-bottom:8px}
+.chk{display:flex;align-items:center;gap:6px;font-weight:600;white-space:nowrap}
+.chk input{width:auto}
+.cr{display:grid;grid-template-columns:70px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.cr .cth{width:70px;height:54px;background:#eef0f5;border-radius:6px;display:grid;place-items:center;overflow:hidden;font-weight:700;color:var(--accent)}
+.cr .cth img{width:100%;height:100%;object-fit:contain}
+.prog{font-size:13px;color:var(--muted);margin-top:8px}
 .rv{padding:12px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:10px}
 [hidden]{display:none!important}
 @media (max-width:720px){
@@ -90,7 +102,9 @@ details ol{padding-left:18px;margin:8px 0}
     <h1>Store admin</h1>
     <div class="tabs">
       <button id="tabProducts" class="on">Products</button>
+      <button id="tabHome">Home page</button>
       <button id="tabReviews">Reviews</button>
+      <button id="tabCerts">Certificates</button>
       <button id="tabSettings">Business details</button>
       <button id="viewSite" style="display:none"></button>
       <button id="disconnect">Disconnect</button>
@@ -141,7 +155,7 @@ details ol{padding-left:18px;margin:8px 0}
 
       <h2 style="margin-top:18px">Product photos</h2>
       <div class="imgs" id="imgs"></div>
-      <p class="hint">Photos are resized automatically and saved in the images folder of your repository. The first photo is the main one. A photo on a flavour row shows when that flavour is picked.</p>
+      <p class="hint">Photos can be JPG, PNG, WebP or AVIF. They are made square with white borders so every product card looks the same, and saved in the images folder of your repository. The first photo is the main one. A photo on a flavour row shows when that flavour is picked.</p>
       <p style="display:flex;gap:8px;flex-wrap:wrap">
         <button class="btn" id="saveBtn">Save product</button>
         <button class="btn alt" id="cancelBtn">Cancel</button>
@@ -149,10 +163,40 @@ details ol{padding-left:18px;margin:8px 0}
     </div>
   </section>
 
+  <section id="viewHome" hidden>
+    <div class="card">
+      <h2>Home page rows</h2>
+      <p class="hint" style="margin-top:-6px">These are the sideways rows on your homepage. Choose which products show in each row and in what order. Customers can tap See all to open the full row. Untick Show to hide a row. A row with no products is hidden automatically.</p>
+      <div id="shelfList"></div>
+      <p><button class="btn" id="saveShelves">Save home page rows</button></p>
+    </div>
+    <div class="card">
+      <h2>Share links</h2>
+      <p class="hint" style="margin-top:-6px">Every product has its own link, like <b id="exLink">your-site/p/1/</b>. When someone opens it, they see that product with photos, sizes and prices. For a nice picture preview when the link is pasted in WhatsApp, a small page is created for each product. This happens automatically when you save a product. Press the button once now so your existing products get one too.</p>
+      <p><button class="btn alt" id="mkShare">Create share links for all products</button></p>
+      <div class="prog" id="shareProg"></div>
+    </div>
+  </section>
+
+  <section id="viewCerts" hidden>
+    <div class="card">
+      <h2>Brand authorisation certificates</h2>
+      <p class="hint" style="margin-top:-6px">Upload the certificates or letters the brands gave you. They appear in an Authorised section on your website. Photos (JPG, PNG, WebP, AVIF) and PDF files both work.</p>
+      <div id="certList"></div>
+      <h3 style="margin-top:16px">Add a certificate</h3>
+      <div class="grid">
+        <div><label for="ce_brand">Brand name *</label><input id="ce_brand" placeholder="Optimum Nutrition"></div>
+        <div><label for="ce_title">Title (optional)</label><input id="ce_title" placeholder="Authorised dealer 2026"></div>
+        <div class="full"><label for="ce_file">Certificate file *</label><input id="ce_file" type="file" accept="image/*,application/pdf,.pdf,.avif"></div>
+      </div>
+      <p><button class="btn" id="ceAdd">Upload certificate</button></p>
+    </div>
+  </section>
+
   <section id="viewReviews" hidden>
     <div class="card">
       <h2>Reviews</h2>
-      <p class="hint" style="margin-top:-6px">If Google reviews are connected in Business details, the site shows those live. The reviews below are shown only when the Google connection is not set up. Add only real reviews from your customers.</p>
+      <p class="hint" style="margin-top:-6px">If Google reviews are connected in Business details, the site shows those live. The reviews below are shown only when the Google connection is not set up. Add only real reviews from your customers. New reviews are added at the top and show first on the website.</p>
       <div id="rvList"></div>
       <h3 style="margin-top:16px">Add a review</h3>
       <div class="grid">
@@ -160,7 +204,7 @@ details ol{padding-left:18px;margin:8px 0}
         <div><label for="r_rating">Stars</label><select id="r_rating"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></div>
         <div class="full"><label for="r_text">What they wrote</label><textarea id="r_text"></textarea></div>
       </div>
-      <p><button class="btn" id="rvAdd">Add review</button></p>
+      <p><button class="btn" id="rvAdd">Add review (shows first)</button></p>
     </div>
   </section>
 
@@ -173,7 +217,8 @@ details ol{padding-left:18px;margin:8px 0}
         <div><label for="s_whatsappNumber">WhatsApp number for orders</label><input id="s_whatsappNumber" placeholder="919999999999"><div class="hint">Country code first, digits only.</div></div>
         <div><label for="s_email">Email</label><input id="s_email" type="email"></div>
         <div><label for="s_instagram">Instagram username or link</label><input id="s_instagram" placeholder="alhayat_fitness"></div>
-        <div><label for="s_topbar">Top banner text</label><input id="s_topbar" placeholder="Free delivery above Rs. 999"></div>
+        <div class="full"><label for="s_announcements">Moving top banner (one message per line)</label><textarea id="s_announcements" style="min-height:90px" placeholder="Free delivery above Rs. 999&#10;100% authentic products&#10;Call us on 99999 99999"></textarea><div class="hint">These scroll across the top of your website. Leave empty to hide the banner.</div></div>
+        <div class="full"><label for="s_categoryOrder">Order of categories on the website (optional)</label><input id="s_categoryOrder" placeholder="Protein, Creatine, Pre-workout, Vitamins"><div class="hint">Type category names separated by commas. Categories not listed come after, A to Z.</div></div>
         <div class="full"><label for="s_address">Address</label><textarea id="s_address" style="min-height:70px"></textarea></div>
         <div class="full"><label for="s_hours">Opening hours</label><input id="s_hours" placeholder="Mon to Sat, 9 am to 9 pm"></div>
         <div class="full"><label for="s_tagline">Short description (footer)</label><input id="s_tagline"></div>
@@ -195,9 +240,9 @@ details ol{padding-left:18px;margin:8px 0}
 <script>
 var CFG = {owner:'', repo:'', branch:'main', token:''};
 var DATA_PATH = 'data/site.json';
-var data = {settings:{}, products:[], reviews:[]}, sha = null, editing = null, PH = [], V = [], previews = {}, vcounter = 0;
+var data = {settings:{}, products:[], reviews:[], shelves:null, certificates:[]}, SITE = '', SH = [], sha = null, editing = null, PH = [], V = [], previews = {}, vcounter = 0;
 var FIELDS = ['name','brand','category','subcategory','rating','featured','description'];
-var SKEYS = ['firmName','phone','whatsappNumber','email','instagram','topbar','address','hours','tagline','heroTitle','heroSub','mapsUrl','mapsEmbed','placeId','googleApiKey'];
+var SKEYS = ['firmName','phone','whatsappNumber','email','instagram','announcements','categoryOrder','address','hours','tagline','heroTitle','heroSub','mapsUrl','mapsEmbed','placeId','googleApiKey'];
 
 function $(s){return document.querySelector(s)}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
@@ -233,9 +278,10 @@ function loadData(){
   return gh(repoPath(DATA_PATH) + '?ref=' + encodeURIComponent(CFG.branch)).then(function(f){
     sha = f.sha;
     var d = JSON.parse(dec(f.content));
-    data = { settings: d.settings || {}, products: d.products || [], reviews: d.reviews || [] };
+    d.settings = d.settings || {}; d.products = d.products || []; d.reviews = d.reviews || []; d.certificates = d.certificates || []; if(!Array.isArray(d.shelves)) d.shelves = null;
+    data = d;
   }, function(e){
-    if(e.status === 404){ sha = null; data = {settings:{}, products:[], reviews:[]}; return; }
+    if(e.status === 404){ sha = null; data = {settings:{}, products:[], reviews:[], shelves:null, certificates:[]}; return; }
     throw e;
   });
 }
@@ -247,7 +293,7 @@ function saveData(message){
   }, function(e){
     if(e.status === 409 || e.status === 422){
       return loadData().then(function(){
-        renderList(); fillSettings(); renderReviews(); closeForm();
+        renderList(); fillSettings(); renderReviews(); renderCerts(); initShelves(); closeForm();
         throw new Error('Your data was changed somewhere else. It has been reloaded, so please make your change again.');
       });
     }
@@ -280,7 +326,8 @@ function connect(){
     var site = 'https://' + CFG.owner + '.github.io/' + (CFG.repo.toLowerCase() === (CFG.owner + '.github.io').toLowerCase() ? '' : CFG.repo + '/');
     var v = $('#viewSite'); v.style.display = ''; v.textContent = 'View website';
     v.onclick = function(){ window.open(site, '_blank', 'noopener'); };
-    renderList(); fillSettings(); renderReviews();
+    SITE = site; $('#exLink').textContent = site + 'p/1/';
+    renderList(); fillSettings(); renderReviews(); renderCerts(); initShelves();
   }).catch(function(e){
     var m = e.message; if(e.status === 404) m = 'Repository not found. Check the username and repository name, and that the token has access to it.';
     $('#connectMsg').innerHTML = '<div class="msg err">' + esc(m) + '</div>';
@@ -295,9 +342,11 @@ $('#disconnect').onclick = function(){
 
 /* ---------- tabs ---------- */
 function tab(w){
-  $('#viewProducts').hidden = w !== 'p'; $('#viewReviews').hidden = w !== 'r'; $('#viewSettings').hidden = w !== 's';
-  $('#tabProducts').className = w === 'p' ? 'on' : ''; $('#tabReviews').className = w === 'r' ? 'on' : ''; $('#tabSettings').className = w === 's' ? 'on' : '';
+  var m = {p:['viewProducts','tabProducts'], h:['viewHome','tabHome'], r:['viewReviews','tabReviews'], c:['viewCerts','tabCerts'], s:['viewSettings','tabSettings']};
+  Object.keys(m).forEach(function(k){ $('#' + m[k][0]).hidden = k !== w; $('#' + m[k][1]).className = k === w ? 'on' : ''; });
 }
+$('#tabHome').onclick = function(){tab('h')};
+$('#tabCerts').onclick = function(){tab('c')};
 $('#tabProducts').onclick = function(){tab('p')};
 $('#tabReviews').onclick = function(){tab('r')};
 $('#tabSettings').onclick = function(){tab('s')};
@@ -309,28 +358,36 @@ function imgSrc(p){
   if(previews[p]) return previews[p];
   return 'https://raw.githubusercontent.com/' + CFG.owner + '/' + CFG.repo + '/' + CFG.branch + '/' + p;
 }
-function resize(file){
+/* square = true: every photo becomes the same square with white borders, so all cards look equal */
+function resize(file, square){
   return new Promise(function(res, rej){
     var img = new Image(), u = URL.createObjectURL(file);
     img.onload = function(){
-      var s = Math.min(1, 1200 / Math.max(img.width, img.height));
-      var w = Math.round(img.width * s), h = Math.round(img.height * s);
-      var c = document.createElement('canvas'); c.width = w; c.height = h;
-      var x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, w, h); x.drawImage(img, 0, 0, w, h);
+      var c = document.createElement('canvas'), x, w, h;
+      if(square){
+        var S = 1000, k = Math.min(S / img.width, S / img.height, 1.6);
+        w = Math.round(img.width * k); h = Math.round(img.height * k);
+        c.width = S; c.height = S; x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, S, S);
+        x.drawImage(img, Math.round((S - w) / 2), Math.round((S - h) / 2), w, h);
+      } else {
+        var s = Math.min(1, 1800 / Math.max(img.width, img.height));
+        w = Math.round(img.width * s); h = Math.round(img.height * s);
+        c.width = w; c.height = h; x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, w, h); x.drawImage(img, 0, 0, w, h);
+      }
       URL.revokeObjectURL(u);
       var url = c.toDataURL('image/jpeg', 0.85);
       res({ b64: url.split(',')[1], preview: url });
     };
-    img.onerror = function(){ rej(new Error('That file is not an image')); };
+    img.onerror = function(){ rej(new Error('That file could not be read as an image. Try JPG, PNG, WebP or AVIF, and use an up to date browser.')); };
     img.src = u;
   });
 }
-function uploadImage(b64){
-  var path = 'images/p' + Date.now() + Math.random().toString(36).slice(2, 6) + '.jpg';
+function uploadImage(b64, prefix, ext){
+  var path = 'images/' + (prefix || 'p') + Date.now() + Math.random().toString(36).slice(2, 6) + '.' + (ext || 'jpg');
   return gh(repoPath(path), {method:'PUT', body:{ message:'Add product photo', content:b64, branch:CFG.branch }}).then(function(){ return path; });
 }
 function deleteImage(path){
-  if(!/^images\/p\d/.test(path)) return Promise.resolve();   /* never touches logo files */
+  if(!/^images\/(p|cert)\d/.test(path)) return Promise.resolve();   /* never touches logo files */
   return gh(repoPath(path) + '?ref=' + encodeURIComponent(CFG.branch)).then(function(f){
     return gh(repoPath(path), {method:'DELETE', body:{ message:'Remove product photo', sha:f.sha, branch:CFG.branch }});
   }).catch(function(){});
@@ -380,7 +437,7 @@ $('#list').onclick = function(e){
     b.disabled = true;
     saveData('Delete product: ' + (p ? p.name : id)).then(function(){
       renderList(); flash('Product deleted. Your website updates in 1 to 2 minutes.');
-      if(p) allImages(p).forEach(deleteImage);
+      if(p){ allImages(p).forEach(deleteImage); removeShare(p.id); }
     }).catch(function(er){ flash(er.message, true); });
   }
 };
@@ -417,7 +474,7 @@ $('#imgs').onchange = function(e){
   var inp = e.target; if(inp.dataset.slot === undefined || !inp.files[0]) return;
   var slot = +inp.dataset.slot, st = $('#st_' + slot);
   st.textContent = 'Uploading...'; $('#saveBtn').disabled = true;
-  resize(inp.files[0]).then(function(r){
+  resize(inp.files[0], true).then(function(r){
     return uploadImage(r.b64).then(function(path){ previews[path] = r.preview; PH[Math.min(slot, PH.length)] = path; PH = PH.filter(Boolean); renderSlots(); });
   }).catch(function(er){ st.textContent = er.message; }).then(function(){ $('#saveBtn').disabled = false; });
 };
@@ -447,7 +504,7 @@ $('#vlist').onchange = function(e){
   if(t.dataset.i !== undefined && t.tagName === 'SELECT'){ V[+t.dataset.i][t.dataset.f] = t.value; return; }
   if(t.dataset.vphoto !== undefined && t.files[0]){
     var i = +t.dataset.vphoto; $('#saveBtn').disabled = true;
-    resize(t.files[0]).then(function(r){
+    resize(t.files[0], true).then(function(r){
       return uploadImage(r.b64).then(function(path){ previews[path] = r.preview; V[i].image = path; renderVariants(); });
     }).catch(function(er){ flash(er.message, true); }).then(function(){ $('#saveBtn').disabled = false; });
   }
@@ -504,6 +561,7 @@ $('#saveBtn').onclick = function(){
   saveData((idx >= 0 ? 'Update product: ' : 'Add product: ') + p.name).then(function(){
     renderList(); closeForm(); flash('Saved. Your website updates in 1 to 2 minutes.');
     old.forEach(function(o){ if(keep.indexOf(o) < 0) deleteImage(o); });
+    writeShare(p).catch(function(){});
   }).catch(function(er){ flash(er.message, true); }).then(function(){ $('#saveBtn').disabled = false; });
 };
 
@@ -512,11 +570,17 @@ function renderReviews(){
   var list = data.reviews || [];
   $('#rvList').innerHTML = list.length ? list.map(function(r, i){
     return '<div class="rv"><div><strong>' + esc(r.name) + '</strong> <span style="color:#e0a000">' + '★'.repeat(Math.round(r.rating || 5)) + '</span><div class="hint" style="font-size:13px;color:var(--ink)">' + esc(r.text) + '</div></div>' +
-      '<div><button class="btn del sm" data-rvdel="' + i + '">Delete</button></div></div>';
+      '<div style="display:flex;gap:6px">' + (i > 0 ? '<button class="btn alt sm" data-rvtop="' + i + '">Move to top</button>' : '') + '<button class="btn del sm" data-rvdel="' + i + '">Delete</button></div></div>';
   }).join('') : '<p class="hint">No reviews added yet.</p>';
 }
 $('#rvList').onclick = function(e){
-  var b = e.target.closest('button'); if(!b || b.dataset.rvdel === undefined) return;
+  var b = e.target.closest('button'); if(!b) return;
+  if(b.dataset.rvtop !== undefined){
+    var it = data.reviews.splice(+b.dataset.rvtop, 1)[0]; data.reviews.unshift(it); b.disabled = true;
+    saveData('Move review to top').then(function(){ renderReviews(); flash('Moved to top.'); }).catch(function(er){ flash(er.message, true); });
+    return;
+  }
+  if(b.dataset.rvdel === undefined) return;
   if(!b.dataset.armed){ b.dataset.armed = '1'; b.textContent = 'Confirm'; setTimeout(function(){ b.dataset.armed = ''; b.textContent = 'Delete'; }, 3000); return; }
   data.reviews.splice(+b.dataset.rvdel, 1);
   saveData('Delete review').then(function(){ renderReviews(); flash('Review deleted.'); }).catch(function(er){ flash(er.message, true); });
@@ -525,7 +589,7 @@ $('#rvAdd').onclick = function(){
   var name = $('#r_name').value.trim(), text = $('#r_text').value.trim();
   if(!name || !text){ flash('Enter the customer name and what they wrote.', true); return; }
   data.reviews = data.reviews || [];
-  data.reviews.push({name: name, rating: parseInt($('#r_rating').value, 10), text: text});
+  data.reviews.unshift({name: name, rating: parseInt($('#r_rating').value, 10), text: text});
   $('#rvAdd').disabled = true;
   saveData('Add review').then(function(){ $('#r_name').value = ''; $('#r_text').value = ''; renderReviews(); flash('Review added. Your website updates in 1 to 2 minutes.'); })
     .catch(function(er){ flash(er.message, true); }).then(function(){ $('#rvAdd').disabled = false; });
@@ -540,6 +604,151 @@ $('#saveSettingsBtn').onclick = function(){
   saveData('Update business details').then(function(){ fillSettings(); flash('Saved. Your website updates in 1 to 2 minutes.'); })
     .catch(function(er){ flash(er.message, true); })
     .then(function(){ $('#saveSettingsBtn').disabled = false; });
+};
+
+/* ---------- home page rows ---------- */
+var SHELF_DEFAULTS = [['featured','Featured offers'],['best','Best sellers'],['star','Star product'],['new','New arrivals'],['budget','Budget picks']];
+function initShelves(){
+  var cur = Array.isArray(data.shelves) ? data.shelves : [];
+  SH = SHELF_DEFAULTS.map(function(d){
+    var f = cur.find(function(x){ return x.id === d[0]; });
+    if(f) return {id:f.id, title:f.title || d[1], enabled:f.enabled !== false, products:(f.products || []).map(String)};
+    var pre = d[0] === 'featured' && !cur.length ? data.products.filter(function(p){ return String(p.featured).toLowerCase() === 'yes'; }).map(function(p){ return String(p.id); }) : [];
+    return {id:d[0], title:d[1], enabled:true, products:pre};
+  });
+  cur.forEach(function(x){ if(!SHELF_DEFAULTS.some(function(d){ return d[0] === x.id; })) SH.push({id:x.id, title:x.title, enabled:x.enabled !== false, products:(x.products || []).map(String)}); });
+  renderShelves();
+}
+function prod(id){ return data.products.find(function(p){ return String(p.id) === String(id); }); }
+function renderShelves(){
+  $('#shelfList').innerHTML = SH.map(function(s, si){
+    var sel = s.products.filter(function(id){ return prod(id); });
+    var opts = data.products.filter(function(p){ return sel.indexOf(String(p.id)) < 0; }).map(function(p){ return '<option value="' + esc(p.id) + '">' + esc(p.name) + '</option>'; }).join('');
+    return '<div class="card sh" data-si="' + si + '"><div class="top"><div><label>Row title</label><input data-stitle="' + si + '" value="' + esc(s.title) + '"></div>' +
+      '<label class="chk"><input type="checkbox" data-sen="' + si + '"' + (s.enabled ? ' checked' : '') + '> Show on website</label></div>' +
+      (sel.length ? sel.map(function(id, k){ var p = prod(id), im = imagesOf(p)[0];
+        return '<div class="sel">' + (im ? '<img src="' + esc(imgSrc(im)) + '" alt="">' : '<div class="ph" style="width:44px;height:44px"></div>') + '<div>' + esc(p.name) + '</div>' +
+          '<div class="acts"><button data-sup="' + si + ',' + k + '" aria-label="Move up">↑</button><button data-sdn="' + si + ',' + k + '" aria-label="Move down">↓</button><button data-srm="' + si + ',' + k + '" aria-label="Remove">✕</button></div></div>'; }).join('')
+        : '<p class="hint">No products in this row yet.</p>') +
+      '<div class="addrow"><select data-spick="' + si + '"><option value="">Add a product...</option>' + opts + '</select><button class="btn alt sm" data-sadd="' + si + '">Add</button></div></div>';
+  }).join('');
+}
+$('#shelfList').oninput = function(e){
+  var t = e.target; if(t.dataset.stitle !== undefined) SH[+t.dataset.stitle].title = t.value;
+};
+$('#shelfList').onchange = function(e){
+  var t = e.target; if(t.dataset.sen !== undefined) SH[+t.dataset.sen].enabled = t.checked;
+};
+$('#shelfList').onclick = function(e){
+  var b = e.target.closest('button'); if(!b) return;
+  var d = b.dataset, a;
+  if(d.sadd !== undefined){
+    var sel = b.parentElement.querySelector('select'); if(!sel.value) return;
+    SH[+d.sadd].products.push(String(sel.value)); renderShelves(); return;
+  }
+  a = (d.sup || d.sdn || d.srm); if(a === undefined) return;
+  a = a.split(','); var s = SH[+a[0]], k = +a[1], arr = s.products.filter(function(id){ return prod(id); }); s.products = arr;
+  if(d.srm !== undefined) arr.splice(k, 1);
+  else if(d.sup !== undefined && k > 0){ var t1 = arr[k]; arr[k] = arr[k - 1]; arr[k - 1] = t1; }
+  else if(d.sdn !== undefined && k < arr.length - 1){ var t2 = arr[k]; arr[k] = arr[k + 1]; arr[k + 1] = t2; }
+  renderShelves();
+};
+$('#saveShelves').onclick = function(){
+  data.shelves = SH.map(function(s){ return {id:s.id, title:(s.title || '').trim() || s.id, enabled:s.enabled, products:s.products.filter(function(id){ return prod(id); })}; });
+  $('#saveShelves').disabled = true;
+  saveData('Update home page rows').then(function(){ flash('Saved. Your website updates in 1 to 2 minutes.'); })
+    .catch(function(er){ flash(er.message, true); }).then(function(){ $('#saveShelves').disabled = false; });
+};
+
+/* ---------- share pages (one small page per product, for picture previews in WhatsApp) ---------- */
+function wait(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+function sharePage(p){
+  var vs = variantsOf(p).map(function(v){ return parseFloat(v.price) || 0; }).filter(Boolean);
+  var lo = vs.length ? Math.min.apply(null, vs) : 0;
+  var many = variantsOf(p).length > 1;
+  var desc = (p.brand ? p.brand + '. ' : '') + (lo ? (many ? 'From Rs. ' : 'Rs. ') + lo + '. ' : '') + String(p.description || '').replace(/\s+/g, ' ').slice(0, 140);
+  var first = imagesOf(p)[0] || variantsOf(p).map(function(v){ return v.image; }).filter(Boolean)[0] || '';
+  var img = first ? (/^https?:/.test(first) ? first : SITE + first) : '';
+  var title = (data.settings.firmName || 'Our store') + ' | ' + p.name;
+  var url = SITE + 'p/' + encodeURIComponent(p.id) + '/';
+  var home = SITE + '#product-' + encodeURIComponent(p.id);
+  return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
+    '<title>' + esc(title) + '</title><meta name="description" content="' + esc(desc) + '">' +
+    '<meta property="og:type" content="product"><meta property="og:title" content="' + esc(p.name) + '"><meta property="og:description" content="' + esc(desc) + '">' +
+    '<meta property="og:url" content="' + esc(url) + '">' + (img ? '<meta property="og:image" content="' + esc(img) + '"><meta name="twitter:card" content="summary_large_image">' : '') +
+    '<meta http-equiv="refresh" content="0;url=' + esc(home) + '"><link rel="canonical" href="' + esc(url) + '"></head><body style="font-family:sans-serif;padding:24px">' +
+    '<p>Opening ' + esc(p.name) + '... <a href="' + esc(home) + '">Tap here if nothing happens</a></p><script>location.replace(' + JSON.stringify(home) + ')<\/script></body></html>\n';
+}
+function writeShare(p, quiet){
+  var path = 'p/' + p.id + '/index.html', html = sharePage(p);
+  return gh(repoPath(path) + '?ref=' + encodeURIComponent(CFG.branch)).then(function(f){
+    if(dec(f.content) === html) return 'same';
+    return gh(repoPath(path), {method:'PUT', body:{message:'Update share page: ' + p.name, content:enc(html), sha:f.sha, branch:CFG.branch}}).then(function(){ return 'updated'; });
+  }, function(e){
+    if(e.status !== 404) throw e;
+    return gh(repoPath(path), {method:'PUT', body:{message:'Add share page: ' + p.name, content:enc(html), branch:CFG.branch}}).then(function(){ return 'created'; });
+  });
+}
+function removeShare(id){
+  var path = 'p/' + id + '/index.html';
+  return gh(repoPath(path) + '?ref=' + encodeURIComponent(CFG.branch)).then(function(f){
+    return gh(repoPath(path), {method:'DELETE', body:{message:'Remove share page', sha:f.sha, branch:CFG.branch}});
+  }).catch(function(){});
+}
+$('#mkShare').onclick = function(){
+  var list = data.products.slice(), i = 0, made = 0, same = 0, bad = 0, btn = $('#mkShare');
+  if(!list.length){ $('#shareProg').textContent = 'No products yet.'; return; }
+  btn.disabled = true;
+  (function next(){
+    if(i >= list.length){
+      $('#shareProg').textContent = 'Done. ' + made + ' created or updated, ' + same + ' already up to date' + (bad ? ', ' + bad + ' failed (press the button again).' : '.');
+      btn.disabled = false; return;
+    }
+    $('#shareProg').textContent = 'Working: ' + (i + 1) + ' of ' + list.length + '...';
+    writeShare(list[i]).then(function(r){ if(r === 'same') same++; else made++; }, function(){ bad++; })
+      .then(function(){ i++; return wait(700); }).then(next);
+  })();
+};
+
+/* ---------- certificates ---------- */
+function renderCerts(){
+  var list = data.certificates || [];
+  $('#certList').innerHTML = list.length ? list.map(function(c, i){
+    var th = c.type === 'pdf' ? '<div class="cth">PDF</div>' : '<div class="cth"><img src="' + esc(imgSrc(c.file)) + '" alt=""></div>';
+    return '<div class="cr">' + th + '<div><strong>' + esc(c.brand) + '</strong><div class="meta" style="color:var(--muted)">' + esc(c.title || '') + '</div></div>' +
+      '<div class="acts" style="display:flex;gap:6px"><button class="btn alt sm" data-cup="' + i + '">↑</button><button class="btn del sm" data-cdel="' + i + '">Delete</button></div></div>';
+  }).join('') : '<p class="hint">No certificates added yet.</p>';
+}
+$('#certList').onclick = function(e){
+  var b = e.target.closest('button'); if(!b) return;
+  if(b.dataset.cup !== undefined){
+    var k = +b.dataset.cup; if(k < 1) return;
+    var t = data.certificates[k]; data.certificates[k] = data.certificates[k - 1]; data.certificates[k - 1] = t;
+    saveData('Reorder certificates').then(renderCerts).catch(function(er){ flash(er.message, true); }); return;
+  }
+  if(b.dataset.cdel === undefined) return;
+  if(!b.dataset.armed){ b.dataset.armed = '1'; b.textContent = 'Confirm'; setTimeout(function(){ b.dataset.armed = ''; b.textContent = 'Delete'; }, 3000); return; }
+  var c = data.certificates.splice(+b.dataset.cdel, 1)[0];
+  saveData('Delete certificate: ' + c.brand).then(function(){ renderCerts(); flash('Certificate deleted.'); deleteImage(c.file); }).catch(function(er){ flash(er.message, true); });
+};
+function fileB64(file){
+  return new Promise(function(res, rej){ var r = new FileReader(); r.onload = function(){ res(String(r.result).split(',')[1]); }; r.onerror = function(){ rej(new Error('Could not read the file')); }; r.readAsDataURL(file); });
+}
+$('#ceAdd').onclick = function(){
+  var brand = $('#ce_brand').value.trim(), title = $('#ce_title').value.trim(), f = $('#ce_file').files[0];
+  if(!brand || !f){ flash('Enter the brand name and choose a file.', true); return; }
+  var isPdf = f.type === 'application/pdf' || /\.pdf$/i.test(f.name);
+  if(isPdf && f.size > 12 * 1024 * 1024){ flash('That PDF is larger than 12 MB. Please use a smaller file.', true); return; }
+  $('#ceAdd').disabled = true; $('#ceAdd').textContent = 'Uploading...';
+  var job = isPdf ? fileB64(f).then(function(b){ return uploadImage(b, 'cert', 'pdf'); })
+                  : resize(f, false).then(function(r){ return uploadImage(r.b64, 'cert', 'jpg').then(function(path){ previews[path] = r.preview; return path; }); });
+  job.then(function(path){
+    data.certificates = data.certificates || [];
+    data.certificates.push({id:'c' + Date.now(), brand:brand, title:title, type:isPdf ? 'pdf' : 'image', file:path});
+    return saveData('Add certificate: ' + brand);
+  }).then(function(){ $('#ce_brand').value = ''; $('#ce_title').value = ''; $('#ce_file').value = ''; renderCerts(); flash('Certificate added. Your website updates in 1 to 2 minutes.'); })
+    .catch(function(er){ flash(er.message, true); })
+    .then(function(){ $('#ceAdd').disabled = false; $('#ceAdd').textContent = 'Upload certificate'; });
 };
 
 prefill();
