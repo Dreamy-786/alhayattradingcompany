@@ -2341,7 +2341,15 @@
       "text": "-"
     }
   ],
-  "certificates": [],
+  "certificates": [
+    {
+      "id": "c1794848781609",
+      "brand": "BPI Sports & CON-CRĒT",
+      "title": "Authorised Online & Offline Distributor",
+      "type": "image",
+      "file": "images/cert1794848778861yug0.jpg"
+    }
+  ],
   "shelves": [
     {
       "id": "featured",
