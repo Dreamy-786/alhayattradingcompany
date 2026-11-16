@@ -1683,6 +1683,33 @@
         }
       ],
       "id": "42"
+    },
+    {
+      "name": "Bull Pharm Marine Collagen Beauty & Wellness Support Formula",
+      "brand": "Bull Pharm",
+      "category": "Collagen",
+      "subcategory": "Marine Collagen",
+      "rating": 4,
+      "featured": "yes",
+      "description": "BULL PHARM – MARINE COLLAGEN delivers pure hydrolyzed Type I & III Marine Collagen, enhanced with Hyaluronic Acid, Biotin, Vitamin C, and Glutathione for complete skin and joint nourishment.\nRebuild your skin’s firmness, elasticity, and glow from within while strengthening hair, nails, and connective tissues.\nFormulated for superior absorption, it supports smoother skin, stronger joints, and youthful vitality.\nBacked by science and crafted with zero fillers, it’s your clean, high-performance beauty and wellness fuel.\nStay strong, radiant, and ageless — powered by BULL PHARM’s uncompromising purity and precision.",
+      "images": [
+        "images/p1794845139611rgj5.jpg",
+        "images/p1794845148160tmca.jpg",
+        "images/p1794845153197htos.jpg",
+        "images/p1794845158958z3vq.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "price": 1999,
+          "mrp": 2999,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "43"
     }
   ],
   "reviews": [
