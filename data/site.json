@@ -1791,6 +1791,59 @@
         }
       ],
       "id": "46"
+    },
+    {
+      "name": "Con-Cret Creatine HCl Strength & Performance Formula, 60 Servings",
+      "brand": "CON-CRĒT",
+      "category": "Creatine",
+      "subcategory": "Creatine HCL",
+      "rating": 5,
+      "featured": "yes",
+      "description": "CON-CRĒT® Flavored Creatine HCl transformed the sports nutrition category and is more soluble than all other creatine derivatives. Because of Micro-Dosing®, CON-CRĒT® provides all the benefits of creatine without the unpleasant side effects*. \n\nMicro-Dosing is based on your body weight and workout intensity. Your body needs creatine to build muscle, energize your cells, and strengthen your immune system.\n\nCON-CRĒT® is stackable with any pre-workout supplement.",
+      "images": [
+        "images/p1794846504217v2hq.jpg",
+        "images/p1794846517439t4tx.jpg",
+        "images/p1794846530357fv6m.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "Lemon Lime",
+          "price": 1799,
+          "mrp": 2999,
+          "stock": "yes",
+          "image": "images/p17948464651469fcx.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "",
+          "flavour": "Raspberry",
+          "price": 1799,
+          "mrp": 2999,
+          "stock": "yes",
+          "image": "images/p17948464952984sv3.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "",
+          "flavour": "Pineapple",
+          "price": 1799,
+          "mrp": 2999,
+          "stock": "yes",
+          "image": "images/p1794846480631429b.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "",
+          "flavour": "Unflavoured",
+          "price": 1799,
+          "mrp": 2999,
+          "stock": "yes",
+          "image": "images/p17948464893002ghm.jpg"
+        }
+      ],
+      "id": "47"
     }
   ],
   "reviews": [
