@@ -2073,6 +2073,50 @@
         }
       ],
       "id": "52"
+    },
+    {
+      "name": "Cutler Nutrition Total Whey Protein for Lean Muscle & Recovery",
+      "brand": "Cutler Nutrition",
+      "category": "Proteins",
+      "subcategory": "Whey Protein Blend",
+      "rating": 4.6,
+      "featured": "yes",
+      "description": "Premium protein formula designed to support lean muscle growth and recovery. Provides high-quality protein for post-workout nutrition and daily protein goals. Supports strength, muscle repair, and active lifestyle performance.",
+      "images": [
+        "images/p1794848651560mhzf.jpg",
+        "images/p1794848659266a2rz.jpg",
+        "images/p179484867143791ck.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "2 KG",
+          "flavour": "Chocolate Coffee",
+          "price": 5199,
+          "mrp": 9999,
+          "stock": "yes",
+          "image": "images/p1794848647265gmlm.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "2 KG",
+          "flavour": "Gourmet Vanilla",
+          "price": 5199,
+          "mrp": 9999,
+          "stock": "yes",
+          "image": ""
+        },
+        {
+          "vid": "2",
+          "size": "2 KG",
+          "flavour": "Strawberry Milkshake",
+          "price": 5199,
+          "mrp": 9999,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "53"
     }
   ],
   "reviews": [
