@@ -1994,6 +1994,50 @@
         }
       ],
       "id": "50"
+    },
+    {
+      "name": "Cutler Nutrition Total ISO Whey Isolate for Lean Muscle & Recovery, 66 Servings",
+      "brand": "Cutler Nutrition",
+      "category": "Proteins",
+      "subcategory": "Whey Protein Isolate",
+      "rating": 4.7,
+      "featured": "yes",
+      "description": "Cutler Nutrition TOTAL ISO delivers 100% premium whey isolate protein, designed to meet the needs of any athlete. Whether you’re looking to build lean muscle or add high-quality protein to your diet, TOTAL ISO has you covered. Perfect for anytime, anywhere use, this versatile protein can be consumed pre-workout, post-workout, or as a snack throughout the day. Enjoy it as a shake or mix it into your favorite recipes to hit your daily protein goals and fuel your performance.*",
+      "images": [
+        "images/p1794848086243gezn.jpg",
+        "images/p17948480957186pb3.jpg",
+        "images/p1794848105436o4o0.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "2 KG",
+          "flavour": "Chocolate Coffee",
+          "price": 6599,
+          "mrp": 13999,
+          "stock": "yes",
+          "image": "images/p1794848057015ysvi.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "2 KG",
+          "flavour": "Gourmet Vanilla",
+          "price": 6599,
+          "mrp": 13999,
+          "stock": "yes",
+          "image": "images/p17948480680307oyb.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "2 KG",
+          "flavour": "Strawberry Milkshake",
+          "price": 6599,
+          "mrp": 13999,
+          "stock": "yes",
+          "image": "images/p1794848115773rhro.jpg"
+        }
+      ],
+      "id": "51"
     }
   ],
   "reviews": [
