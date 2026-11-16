@@ -1737,6 +1737,33 @@
         }
       ],
       "id": "44"
+    },
+    {
+      "name": "BULL PHARM Bull Support – Advanced Liver, Kidney & Heart Support Supplement, 60 Capsules",
+      "brand": "Bull Pharm",
+      "category": "Vitamins & Health",
+      "subcategory": "Organ Support",
+      "rating": 4,
+      "featured": "yes",
+      "description": "Keep your body performing at its best with BULL SUPPORT, the ultimate total organ protection formula from BULL PHARM.\nPowered by Celery Seed Extract, Grape Seed Extract, Hawthorn Berry, Milk Thistle, N-Acetyl-L-Cysteine, Saw Palmetto, and Vitamin B6, this advanced blend promotes liver, kidney, and heart health.\nIt helps detoxify, strengthen, and protect your vital organs for optimal performance and recovery.\nFormulated for athletes and active individuals, BULL SUPPORT ensures your system stays as strong as your training.\nBacked by science. Built for endurance. Designed for total wellness.",
+      "images": [
+        "images/p1794845562237e2we.jpg",
+        "images/p1794845570240a4by.jpg",
+        "images/p1794845577736a88j.jpg",
+        "images/p1794845585833i4fc.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "price": 1800,
+          "mrp": 3499,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "45"
     }
   ],
   "reviews": [
