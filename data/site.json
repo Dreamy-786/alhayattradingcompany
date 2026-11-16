@@ -1764,6 +1764,33 @@
         }
       ],
       "id": "45"
+    },
+    {
+      "name": "Bull Pharm Omega 3 Fish Oil Heart & Wellness Support, 100 Softgels",
+      "brand": "Bull Pharm",
+      "category": "Omega-3",
+      "subcategory": "Triple Strength Fish Oil",
+      "rating": 4.8,
+      "featured": "yes",
+      "description": "BULL PHARM OMEGA-3 delivers triple-strength purity for superior heart, brain, and joint health. Formulated with high-potency Fish Oil, EPA, and DHA, it promotes cardiovascular wellness, mental clarity, and balanced cholesterol levels. Each softgel provides 3X the Omega-3 power of standard supplements for optimal absorption and results. Sustainably sourced and molecularly refined, it ensures quality you can trust. Elevate your daily performance and vitality with BULL PHARM’s Omega-3 – where science meets strength.",
+      "images": [
+        "images/p1794846048465zlop.jpg",
+        "images/p1794846056997ajqx.jpg",
+        "images/p1794846065178b641.jpg",
+        "images/p17948460732605uhi.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "price": 1499,
+          "mrp": 2498,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "46"
     }
   ],
   "reviews": [
