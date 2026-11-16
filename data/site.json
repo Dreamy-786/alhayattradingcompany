@@ -1619,6 +1619,43 @@
         }
       ],
       "id": "40"
+    },
+    {
+      "name": "Bull Pharm Inferno Pre-Workout for Energy, Focus & Pumps, 30 Servings",
+      "brand": "Bull Pharm",
+      "category": "Pre-Workout",
+      "subcategory": "Pump Pre-Workout",
+      "rating": 4,
+      "featured": "yes",
+      "description": "Unleash your inner beast with BULL PHARM’s BULL INFERNO — the ultimate pre-workout engineered for unstoppable energy, razor-sharp focus, and explosive performance.\nPowered by Fermented L-Citrulline, Beta-Alanine, and Natural Caffeine, it ignites nitric oxide production for insane pumps and endurance.\nN-Acetyl-L-Carnitine and Tyrosine fuel mental clarity and laser focus, while Mucuna Pruriens and Choline Bitartrate enhance motivation and mind-muscle connection.\nEvery scoop sets your training on fire — no crash, no compromise, just raw intensity.\nBULL INFERNO isn’t just a pre-workout — it’s your gateway to peak power, performance, and dominance.",
+      "images": [
+        "images/p1794843984576ok7l.jpg",
+        "images/p1794844011839krev.jpg",
+        "images/p17948440049342rrh.jpg",
+        "images/p1794844020496pisi.jpg",
+        "images/p1794844036338kxqh.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "Refreshing Cola",
+          "price": 2099,
+          "mrp": 3499,
+          "stock": "yes",
+          "image": "images/p1794843967221sf3z.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "",
+          "flavour": "Mint Mojito",
+          "price": 2099,
+          "mrp": 3499,
+          "stock": "yes",
+          "image": "images/p1794843975286zr7f.jpg"
+        }
+      ],
+      "id": "41"
     }
   ],
   "reviews": [
