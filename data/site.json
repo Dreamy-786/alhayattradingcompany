@@ -1844,6 +1844,50 @@
         }
       ],
       "id": "47"
+    },
+    {
+      "name": "Cutler Nutrition Amplify 2.0 Pre-Workout Energy & Focus Formula, 40 Servings",
+      "brand": "Cutler Nutrition",
+      "category": "Pre-Workout",
+      "subcategory": "Stim-Free",
+      "rating": 4,
+      "featured": "yes",
+      "description": "Cutler Nutrition Amplify 2.0 is a cutting-edge stimulant-free pre-workout that features a cunning blend of nitric oxide enhancing ingredients, cellular hydration aids, and electrolytes to improve every workout.",
+      "images": [
+        "images/p1794847257909enuj.jpg",
+        "images/p1794847267241z6ra.jpg",
+        "images/p1794847277431q9zj.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "Strawberry Freeze",
+          "price": 1399,
+          "mrp": 2999,
+          "stock": "yes",
+          "image": "images/p1794847241901aaj0.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "",
+          "flavour": "Sour Lemonade",
+          "price": 1399,
+          "mrp": 2999,
+          "stock": "yes",
+          "image": "images/p1794847249813bt3c.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "",
+          "flavour": "Peach Mango",
+          "price": 1399,
+          "mrp": 2999,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "48"
     }
   ],
   "reviews": [
