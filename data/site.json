@@ -1710,6 +1710,33 @@
         }
       ],
       "id": "43"
+    },
+    {
+      "name": "Bull Pharm Vita Men Daily Multivitamin Support",
+      "brand": "Bull Pharm",
+      "category": "Vitamins & Health",
+      "subcategory": "Multivitamins & Minerals",
+      "rating": 4.8,
+      "featured": "yes",
+      "description": "Fuel your day with BULL VITAMEN, the ultimate daily multivitamin engineered for active men.\nPacked with 28 essential vitamins, minerals, and enzymes, it boosts energy, metabolism, and immunity.\nHigh in antioxidants to combat stress and support peak performance.\nFormulated to enhance muscle function, heart health, and mental focus.\nStay strong, stay sharp — BULL VITAMEN powers the man you are.",
+      "images": [
+        "images/p1794845329506x1or.jpg",
+        "images/p17948453377707yp1.jpg",
+        "images/p1794845344260lila.jpg",
+        "images/p17948453532598e0u.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "price": 1099,
+          "mrp": 1999,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "44"
     }
   ],
   "reviews": [
