@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Opening...</title></head>
+<body style="font-family:sans-serif;padding:24px">
+<p id="m">Page not found. <a id="h" href="./">Go to the store</a></p>
+<script>
+/* A product link like /p/12/ that has no share page yet is sent to the store with that product open. */
+(function(){
+  var m = location.pathname.match(/^(.*?\/)p\/([^\/]+)\/?(?:index\.html)?$/);
+  if(m) location.replace(m[1] + '#product-' + m[2]);
+})();
+</script></body></html>
