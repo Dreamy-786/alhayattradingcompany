@@ -1842,5 +1842,38 @@
       "rating": 5,
       "text": "-"
     }
+  ],
+  "certificates": [],
+  "shelves": [
+    {
+      "id": "featured",
+      "title": "Featured offers",
+      "enabled": true,
+      "products": []
+    },
+    {
+      "id": "best",
+      "title": "Best sellers",
+      "enabled": true,
+      "products": []
+    },
+    {
+      "id": "star",
+      "title": "Star product",
+      "enabled": true,
+      "products": []
+    },
+    {
+      "id": "new",
+      "title": "New arrivals",
+      "enabled": true,
+      "products": []
+    },
+    {
+      "id": "budget",
+      "title": "Budget picks",
+      "enabled": true,
+      "products": []
+    }
   ]
 }
