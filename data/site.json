@@ -2154,6 +2154,41 @@
         }
       ],
       "id": "54"
+    },
+    {
+      "name": "Kevin Levrone Shaboom Pump Pre-Workout for Pumps & Performance, 44 Servings",
+      "brand": "Kevin Levrone Signature Series",
+      "category": "Pre-Workout",
+      "subcategory": "Stim-Based Pre-Workout",
+      "rating": 3,
+      "featured": "yes",
+      "description": "Produces animalistic energy and super human skin-stretching muscular pumps during every workout. Full blown muscle volumizer & energy booster, with 2500mg beta-alinine & 2000mg citruline – malate Increases physical performance in successive bursts of short-term, high intensity exercise.SHAABOOM PUMP was created for one simple reason: to produce animalistic energy and superhuman skin-stretching muscular pumps during each and every workout. There is nothing quite like the feeling of an amazing workout when your muscles suddenly start to engorge with blood, and you look like you’re wearing a kid’s t-shirt, as veins start protruding like a road map.s Benefit Increase Your Performance. Hits like the first time every time. Energy hits quickly and lasts longer. Ingredients citrulline malate, beta-alanine, creatine monohydrate, L-arginine alpha-ketoglutarate (AKG), anti-caking agent (silicon dioxide), caffeine, rice starch, red beet juice concentrate4, flavoring, sweeteners (sucralose, acesulfame K), color [E160a1,3,5, (E133, E102*)2].",
+      "images": [
+        "images/p1794904035648cw9k.jpg",
+        "images/p1794904040303pdcr.jpg",
+        "images/p17949040423878q3y.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "Fruit Punch",
+          "price": 1699,
+          "mrp": 3940,
+          "stock": "yes",
+          "image": "images/p1794904030599avym.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "",
+          "flavour": "Watermelon",
+          "price": 1699,
+          "mrp": 3940,
+          "stock": "yes",
+          "image": "images/p17949040639141j6i.jpg"
+        }
+      ],
+      "id": "55"
     }
   ],
   "reviews": [
