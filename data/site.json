@@ -2763,6 +2763,78 @@
           "mrp": 10999,
           "stock": "yes",
           "image": "images/p17949326968486g6j.jpg"
+        },
+        {
+          "vid": "6",
+          "size": "5 Pounds / 68 Servings",
+          "flavour": "Birthday Cake",
+          "price": 10699,
+          "mrp": 14999,
+          "stock": "yes",
+          "image": "images/p1794932877750dj6o.jpg"
+        },
+        {
+          "vid": "7",
+          "size": "5 Pounds / 66 Servings",
+          "flavour": "Cafe Mocha",
+          "price": 10699,
+          "mrp": 14999,
+          "stock": "yes",
+          "image": "images/p17949329059291zqt.jpg"
+        },
+        {
+          "vid": "8",
+          "size": "5 Pounds / 67 Servings",
+          "flavour": "Campfire Smores",
+          "price": 10699,
+          "mrp": 14999,
+          "stock": "yes",
+          "image": "images/p1794932997671qu4t.jpg"
+        },
+        {
+          "vid": "9",
+          "size": "5 Pounds / 65 Servings",
+          "flavour": "Chocolate Fudge",
+          "price": 10699,
+          "mrp": 14999,
+          "stock": "yes",
+          "image": "images/p1794933045219slya.jpg"
+        },
+        {
+          "vid": "10",
+          "size": "5 Pounds / 66 Servings",
+          "flavour": "Cookies & Creme",
+          "price": 106999,
+          "mrp": 106999,
+          "stock": "yes",
+          "image": "images/p1794933091705w23u.jpg"
+        },
+        {
+          "vid": "11",
+          "size": "5 Pounds / 67 Servings",
+          "flavour": "Pistachio Ice Cream",
+          "price": 10699,
+          "mrp": 14999,
+          "stock": "yes",
+          "image": "images/p17949331380413ibc.jpg"
+        },
+        {
+          "vid": "12",
+          "size": "5 Pounds / 67 Servings",
+          "flavour": "Strawberry Banana",
+          "price": 10699,
+          "mrp": 14999,
+          "stock": "yes",
+          "image": "images/p17949331830240gi8.jpg"
+        },
+        {
+          "vid": "13",
+          "size": "5 Pounds / 68 Servings",
+          "flavour": "Vanilla Ice Cream",
+          "price": 10699,
+          "mrp": 14999,
+          "stock": "yes",
+          "image": "images/p1794933217931aav3.jpg"
         }
       ],
       "id": "65"
