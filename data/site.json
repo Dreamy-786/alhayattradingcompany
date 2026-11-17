@@ -2614,6 +2614,59 @@
         }
       ],
       "id": "62"
+    },
+    {
+      "name": "Redcon1 Total War Pre Workout, 60 Servings",
+      "brand": "Redcon1",
+      "category": "Pre-Workout",
+      "subcategory": "Stim-Based Pre-Workout",
+      "rating": 3,
+      "featured": "yes",
+      "description": "Redcon1 Total War is a pre-workout like no other. If you are looking to take your training intensity to the extreme then you need to be looking at adding Total War to your pre-workout routine. Total War combines the strongest compounds to provide the user with an all in one pre-workout that offers intense energy, Lazor focus and skin splitting muscle pumps. Total War is not for the faint-hearted and will leave you smashing through plateaus and buzzing to get to the gym after taking a scoop! Redcon Total War is designed for anyone who takes their training seriously, undergoes strenuous, intense workouts and needs a pre-workout to get them through the toughest of workouts with blistering energy as well as a decent pump blend to provide you with a stim and pump based pre-workouts.",
+      "images": [
+        "images/p1794931839465nf9g.jpg",
+        "images/p1794931845624aei9.jpg",
+        "images/p17949318511988xeq.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "Blue Lemonade",
+          "price": 1899,
+          "mrp": 4099,
+          "stock": "yes",
+          "image": "images/p17949318551515o1r.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "",
+          "flavour": "Rainbow Candy",
+          "price": 1899,
+          "mrp": 4099,
+          "stock": "yes",
+          "image": "images/p17949319143791ewq.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "",
+          "flavour": "Sour Gummy Bear",
+          "price": 1899,
+          "mrp": 4099,
+          "stock": "yes",
+          "image": "images/p1794931860335937r.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "",
+          "flavour": "Strawberry Kiwi",
+          "price": 1899,
+          "mrp": 4099,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "63"
     }
   ],
   "reviews": [
