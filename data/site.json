@@ -2362,6 +2362,61 @@
         }
       ],
       "id": "58"
+    },
+    {
+      "name": "PR Supplements \"ISOLATE\" Lean Muscle & Recovery, Low Sugar, Easy Digesting",
+      "brand": "PR Supplements",
+      "category": "Proteins",
+      "subcategory": "Whey Protein Isolate",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "PR Supplements Larry Wheels Isolate is a premium whey protein isolate designed for fitness enthusiasts, athletes and bodybuilders seeking high-quality protein. Every serving provides approximately 27g of protein along with naturally occurring essential amino acids to help support muscle maintenance and recovery after training. The fast-absorbing isolate formula mixes easily with water or milk, making it convenient for post-workout or daily protein intake. With low sugar and fat, Larry Wheels Isolate is suitable for individuals looking to increase protein intake while supporting lean muscle goals. Available in multiple delicious flavors, this protein combines quality ingredients with great taste for everyday use.",
+      "images": [
+        "images/p1794911781031as2x.jpg",
+        "images/p1794911788367qr9u.jpg",
+        "images/p1794911796980mrrv.jpg",
+        "images/p17949118042403piw.jpg",
+        "images/p1794911812427znjx.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "4.92 Pounds / 65 Servings",
+          "flavour": "Chocolate",
+          "price": 7199,
+          "mrp": 13999,
+          "stock": "yes",
+          "image": "images/p1794911740718buxu.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "4.92 Pounds / 65 Servings",
+          "flavour": "Bounty Chocolate",
+          "price": 7199,
+          "mrp": 13999,
+          "stock": "yes",
+          "image": "images/p1794911751993jnu4.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "4.92 Pounds / 65 Servings",
+          "flavour": "Mango",
+          "price": 7199,
+          "mrp": 13999,
+          "stock": "yes",
+          "image": "images/p1794911818677uenw.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "4.92 Pounds / 65 Servings",
+          "flavour": "Cafe Mocha",
+          "price": 7199,
+          "mrp": 13999,
+          "stock": "yes",
+          "image": "images/p17949117672177ol1.jpg"
+        }
+      ],
+      "id": "59"
     }
   ],
   "reviews": [
