@@ -2253,6 +2253,60 @@
         }
       ],
       "id": "56"
+    },
+    {
+      "name": "PR Supplements \"BCAA\" Recovery & Hydration Support Formula, 30 Servings",
+      "brand": "PR Supplements",
+      "category": "Amino Acids & Hydrations",
+      "subcategory": "BCAA",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "LARRY WHEELS SIGNATURE BCAA FORMULA – PR Supplements Larry Wheels BCAA Powder features a scientifically balanced 2:1:1 ratio of L-Leucine, L-Isoleucine & L-Valine to support muscle recovery, lean muscle maintenance and workout performance.\nSUPPORTS MUSCLE RECOVERY & ENDURANCE – Designed for athletes, bodybuilders, powerlifters and fitness enthusiasts to help support post-workout recovery and reduce muscle breakdown during intense training sessions.\nIDEAL PRE, INTRA & POST WORKOUT DRINK – Mixes instantly with water and is suitable before, during or after workouts, helping support hydration, amino acid intake and daily sports nutrition goals.\nAPPROX. 30 SERVINGS PER CONTAINER – Each 210g container provides approximately 30 servings of premium BCAA powder, making it an excellent choice for everyday gym training and active lifestyles.\nDELICIOUS BLUEBERRY FLAVOUR – Enjoy a refreshing Blueberry flavoured BCAA drink with easy mixability, making it convenient to stay consistent with your workout nutrition routine.",
+      "images": [
+        "images/p17949103664569y2o.jpg",
+        "images/p1794910374604v5c0.jpg",
+        "images/p1794910382482zu02.jpg",
+        "images/p1794910393928rp4j.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "210 Grams",
+          "flavour": "Blueberry",
+          "price": 999,
+          "mrp": 2899,
+          "stock": "yes",
+          "image": "images/p1794910303479pnd8.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "210 Grams",
+          "flavour": "Lemon Lime",
+          "price": 999,
+          "mrp": 2899,
+          "stock": "yes",
+          "image": "images/p17949103212977f4q.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "210 Grams",
+          "flavour": "Orange",
+          "price": 999,
+          "mrp": 2899,
+          "stock": "yes",
+          "image": "images/p1794910337937y5yn.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "210 Grams",
+          "flavour": "Watermelon Strawberry",
+          "price": 999,
+          "mrp": 2899,
+          "stock": "yes",
+          "image": "images/p1794910348588y8x5.jpg"
+        }
+      ],
+      "id": "57"
     }
   ],
   "reviews": [
