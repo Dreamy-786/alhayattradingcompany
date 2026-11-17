@@ -2417,6 +2417,97 @@
         }
       ],
       "id": "59"
+    },
+    {
+      "name": "PR Supplements Whey Protein for Lean Muscle & Recovery",
+      "brand": "PR Supplements",
+      "category": "Proteins",
+      "subcategory": "Whey Protein Blend",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "TRAIN LIKE LARRY WHEELS – PR Supplements Whey Protein delivers 24g of premium-quality protein per serving to support lean muscle growth, muscle recovery, strength, and daily protein requirements for athletes, bodybuilders, and fitness enthusiasts.\nHIGH-QUALITY WHEY PROTEIN FORMULA – Made with a blend of Whey Protein Isolate and Whey Protein Concentrate, this fast-mixing formula provides essential amino acids to help support post-workout recovery and muscle maintenance.\nVERSATILE DAILY PROTEIN – Ideal after workouts, between meals, or anytime you need extra protein. Mixes easily with water or milk and is suitable for strength training, weightlifting, bodybuilding, powerlifting, and active lifestyles.",
+      "images": [
+        "images/p1794912258457tmfv.jpg",
+        "images/p1794912270738osjb.jpg",
+        "images/p1794912280481w4nu.jpg",
+        "images/p179491229348224x5.jpg",
+        "images/p1794912304956to03.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "5.24 Pounds / 70 Servings",
+          "flavour": "Chocolate",
+          "price": 6299,
+          "mrp": 11999,
+          "stock": "yes",
+          "image": "images/p17949121349273p15.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "5.24 Pounds / 70 Servings",
+          "flavour": "Chocolate Banana",
+          "price": 6299,
+          "mrp": 11999,
+          "stock": "yes",
+          "image": "images/p1794912147457m2yc.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "5.24 Pounds / 70 Servings",
+          "flavour": "Mango",
+          "price": 6299,
+          "mrp": 11999,
+          "stock": "yes",
+          "image": "images/p1794912162167b542.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "5.24 Pounds / 70 Servings",
+          "flavour": "Milky Desert",
+          "price": 6299,
+          "mrp": 11999,
+          "stock": "yes",
+          "image": "images/p1794912175180dyih.jpg"
+        },
+        {
+          "vid": "4",
+          "size": "2.62 Pounds / 35 Servings",
+          "flavour": "Chocolate",
+          "price": 3499,
+          "mrp": 6499,
+          "stock": "yes",
+          "image": "images/p179491220410848mx.jpg"
+        },
+        {
+          "vid": "5",
+          "size": "2.62 Pounds / 35 Servings",
+          "flavour": "Chocolate Banana",
+          "price": 3499,
+          "mrp": 6499,
+          "stock": "yes",
+          "image": "images/p1794912227004qgpu.jpg"
+        },
+        {
+          "vid": "6",
+          "size": "2.62 Pounds / 35 Servings",
+          "flavour": "Mango",
+          "price": 3499,
+          "mrp": 6499,
+          "stock": "yes",
+          "image": "images/p1794912240684b9x1.jpg"
+        },
+        {
+          "vid": "7",
+          "size": "2.62 Pounds / 35 Servings",
+          "flavour": "Milky Desert",
+          "price": 3499,
+          "mrp": 6499,
+          "stock": "yes",
+          "image": "images/p1794912249050dcz7.jpg"
+        }
+      ],
+      "id": "60"
     }
   ],
   "reviews": [
