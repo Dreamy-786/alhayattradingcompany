@@ -2965,6 +2965,34 @@
         }
       ],
       "id": "66"
+    },
+    {
+      "name": "Rule 1 Men's Daily Multi, 90 Tablets, 30 Day Supply",
+      "brand": "Rule One Proteins",
+      "category": "Vitamins & Health",
+      "subcategory": "Multivitamins & Minerals",
+      "rating": 4,
+      "featured": "yes",
+      "description": "We created Men's Multi Active Lifestyle to support the needs of highly active men. With over 50 ingredients, 24 vitamins and minerals, and a host of supporting compounds, this daily goes way beyond your typical grocery store multi.^\n\nMen's Multi\nWHAT IT IS\n\nMen's High-Potency Multivitamin\nMen's Multi Active Lifestyle is formulated to support men's general health and wellness with essential micronutrients.^",
+      "images": [
+        "images/p1794934206319ftr0.jpg",
+        "images/p1794934212274rbus.jpg",
+        "images/p1794934218232g2wj.jpg",
+        "images/p17949342276549niq.jpg",
+        "images/p17949342403848ky8.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "price": 1799,
+          "mrp": 2999,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "67"
     }
   ],
   "reviews": [
