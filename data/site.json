@@ -2189,6 +2189,70 @@
         }
       ],
       "id": "55"
+    },
+    {
+      "name": "MuscleSport Lean Whey ISO Hydro Premium Protein for Lean Muscle & Recovery",
+      "brand": "Musclesport",
+      "category": "Proteins",
+      "subcategory": "Hydrolyzed Whey Protein + L-Carnitine",
+      "rating": 4.6,
+      "featured": "yes",
+      "description": "LEAN WHEY REVOLUTION –  Lean Whey provides 25g of protein per serving, including over 12.5g Essential Amino Acids (EAA), from ultra-pure, cold-flow, micro-filtered whey protein isolate and whey protein hydrolysate.\nTHE CLEAN WHEY – Lean Whey Revolution is low calorie, low carb, and low fat, making it the perfect protein shake for all goals; healthy for men and women.\nLEAN MUSCLE MATRIX – Lean Whey Revolution features support with ingredients like L-Carnitine, CLA, and MCTs to promote lean gains, muscle protein synthesis, and recovery.",
+      "images": [
+        "images/p1794909942722tt2i.jpg",
+        "images/p1794909947827byjb.jpg",
+        "images/p1794909953664h71p.jpg",
+        "images/p1794909958429k5k8.jpg",
+        "images/p1794909964238p07j.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "2 Pounds",
+          "flavour": "Chocolate Ice Cream",
+          "price": 7799,
+          "mrp": 9999,
+          "stock": "no",
+          "image": "images/p1794908593617drxm.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "2 Pounds",
+          "flavour": "Chocolate Peanut Butter",
+          "price": 7799,
+          "mrp": 9999,
+          "stock": "yes",
+          "image": "images/p1794909843436ik1n.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "2 Pounds",
+          "flavour": "Cookies & Cream",
+          "price": 7799,
+          "mrp": 9999,
+          "stock": "yes",
+          "image": "images/p1794909891117skse.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "2 Pounds",
+          "flavour": "Protella",
+          "price": 7799,
+          "mrp": 9999,
+          "stock": "yes",
+          "image": "images/p1794908669396kgvp.jpg"
+        },
+        {
+          "vid": "4",
+          "size": "2 Pounds",
+          "flavour": "Vanilla Ice Cream",
+          "price": 7799,
+          "mrp": 9999,
+          "stock": "yes",
+          "image": "images/p1794909934351qhb5.jpg"
+        }
+      ],
+      "id": "56"
     }
   ],
   "reviews": [
