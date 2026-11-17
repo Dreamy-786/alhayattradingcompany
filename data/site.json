@@ -2508,6 +2508,59 @@
         }
       ],
       "id": "60"
+    },
+    {
+      "name": "PR Supplements \"PRE WORKOUT\" Pre Workout, 30 Servings",
+      "brand": "PR Supplements",
+      "category": "Pre-Workout",
+      "subcategory": "Stim-Based Pre-Workout",
+      "rating": 4,
+      "featured": "yes",
+      "description": "PRE WORKOUT SUPPLEMENT FOR GYM & TRAINING: PR Supplements Larry Wheels Pre Workout is a multi ingredient pre workout powder formulated with Caffeine, Beta-Alanine, L-Citrulline, Creatine HCL, AAKG, Betaine, Taurine, L-Tyrosine, L-Theanine and Electrolytes.\n200MG CAFFEINE PRE WORKOUT: Each 13g serving provides 200mg Caffeine Anhydrous along with L-Tyrosine, L-Theanine and Green Tea, making it a convenient Caffeine Pre Workout powder for your training routine.\n4G BETA ALANINE & 3.5G L CITRULLINE: Every serving delivers 4000mg Beta Alanine, 3500mg L-Citrulline and 1500mg Arginine Alpha Ketoglutarate (AAKG) in one Pre Workout formula.\nCREATINE HCL PRE WORKOUT WITH 30 SERVINGS: Each serving contains 1250mg Creatine HCL, with 390g of Watermelon flavoured powder providing 30 servings at 13g per serving.\nCOMPLETE PRE WORKOUT FORMULA: Includes 500mg Betaine Anhydrous, 500mg Taurine, 200mg L-Tyrosine, 100mg L-Theanine, 350mg Electrolyte Blend + Vitamins C, B6 and B12 for a Comprehensive training-day Supplement.",
+      "images": [
+        "images/p17949127817377zaq.jpg",
+        "images/p1794912789491rxd4.jpg",
+        "images/p1794912796676brn6.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "390 Grams",
+          "flavour": "Watermelon",
+          "price": 1249,
+          "mrp": 2999,
+          "stock": "yes",
+          "image": "images/p1794912748224k2em.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "390 Grams",
+          "flavour": "Blueraspberry",
+          "price": 1249,
+          "mrp": 2999,
+          "stock": "yes",
+          "image": "images/p17949127570926r6g.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "390 Grams",
+          "flavour": "Larry's Punch",
+          "price": 1249,
+          "mrp": 2999,
+          "stock": "yes",
+          "image": "images/p1794912765681g29u.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "390 Grams",
+          "flavour": "Lemonade",
+          "price": 1249,
+          "mrp": 2999,
+          "stock": "yes",
+          "image": "images/p1794912775856mmxj.jpg"
+        }
+      ],
+      "id": "61"
     }
   ],
   "reviews": [
