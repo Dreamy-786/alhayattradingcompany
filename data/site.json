@@ -2117,6 +2117,43 @@
         }
       ],
       "id": "53"
+    },
+    {
+      "name": "Labrada Muscle Mass Gainer, Gain Weight, Post-Workout",
+      "brand": "Labrada Nutrition",
+      "category": "Weight Gainers",
+      "subcategory": "Muscle Mass Gainer",
+      "rating": 3.8,
+      "featured": "yes",
+      "description": "Muscle Mass Gainer was created by Labrada as an all-in-one protein shake for “hard gainers,” those who find it hard, or next to impossible, to gain weight.It’s a high-calorie bodybuilding food with muscle-building protein, carbohydrate, creatine, and glutamine.Muscle Mass Gainer makes it easy for you to get lots of calories and the highest quality muscle-building protein for gaining weight fast, in one delicious shake. Muscle Mass Gainer contains no dextrose, sucrose, or corn syrup solids.",
+      "images": [
+        "images/p1794902812005veag.jpg",
+        "images/p17949028165439iww.jpg",
+        "images/p1794902821100767s.jpg",
+        "images/p17949028233130wbd.jpg",
+        "images/p179490282796938wg.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "3 KG",
+          "flavour": "Chocolate",
+          "price": 3199,
+          "mrp": 4899,
+          "stock": "yes",
+          "image": "images/p1794902768721cgdn.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "5 KG",
+          "flavour": "Chocolate",
+          "price": 4899,
+          "mrp": 7899,
+          "stock": "yes",
+          "image": "images/p1794902801574os0k.jpg"
+        }
+      ],
+      "id": "54"
     }
   ],
   "reviews": [
