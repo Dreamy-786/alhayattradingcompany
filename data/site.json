@@ -2307,6 +2307,61 @@
         }
       ],
       "id": "57"
+    },
+    {
+      "name": "PR Supplements Larry Wheels Tri Creatine 250g, Monohydrate, HCl & Nitrate Blend, Supports Strength, Power, 62 Servings",
+      "brand": "PR Supplements",
+      "category": "Creatine",
+      "subcategory": "Triple Creatine Blend",
+      "rating": 4,
+      "featured": "yes",
+      "description": "TRIPLE CREATINE FORMULA: PR Supplements Tri Creatine combines Creatine Monohydrate, Creatine HCl and Creatine Nitrate in one advanced formula designed to support strength, muscular power, training intensity and athletic performance.\nIMPROVES STRENGTH & POWER OUTPUT: Regular supplementation helps improve explosive power, heavy lifting performance, gym endurance and high-intensity exercise capacity, making it ideal for bodybuilders, athletes and fitness enthusiasts.\nSUPPORTS MUSCLE PERFORMANCE: Designed to help replenish ATP stores, improve workout performance and support lean muscle development when combined with proper resistance training.\nBETTER MIXABILITY: Contains Creatine HCl for enhanced solubility while Creatine Monohydrate remains one of the world's most researched creatine ingredients.\nJUICY WATERMELON FLAVOUR: Refreshing watermelon flavour with a light, crisp finish that makes daily creatine supplementation enjoyable. Mixes quickly with water and provides approximately 62 servings to support your fitness goals.",
+      "images": [
+        "images/p1794911370274adrd.jpg",
+        "images/p1794911383980fs8q.jpg",
+        "images/p1794911397477dwpz.jpg",
+        "images/p1794911405866kz55.jpg",
+        "images/p1794911418863v93s.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "250 Grams",
+          "flavour": "Fruit Punch",
+          "price": 1199,
+          "mrp": 2899,
+          "stock": "yes",
+          "image": "images/p1794911334057h5ab.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "250 Grams",
+          "flavour": "Mango",
+          "price": 1199,
+          "mrp": 2899,
+          "stock": "yes",
+          "image": "images/p1794911297866q5sq.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "250 Grams",
+          "flavour": "Orange",
+          "price": 1199,
+          "mrp": 2899,
+          "stock": "yes",
+          "image": "images/p1794911349529nq0i.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "250 Grams",
+          "flavour": "Watermelon",
+          "price": 1199,
+          "mrp": 2899,
+          "stock": "yes",
+          "image": "images/p179491136433486gm.jpg"
+        }
+      ],
+      "id": "58"
     }
   ],
   "reviews": [
