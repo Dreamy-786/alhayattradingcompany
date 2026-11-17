@@ -2667,6 +2667,32 @@
         }
       ],
       "id": "63"
+    },
+    {
+      "name": "Rule 1 R1 Casein Protein for Overnight Muscle Recovery",
+      "brand": "Rule One Proteins",
+      "category": "Proteins",
+      "subcategory": "Casein",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "We utilize 25g per serving of Micellar Casein in this protein formula, so it keeps working long after you've left the gym. It's slow-release formulation is designed for occasions when you want a protein that takes its time and delivers its amino acids benefits over several hours.\n\nWHAT'S Casein Protein?\n\nGradual Release\nCasein Protein is a complete dairy protein with a thick creamy texture and all nine essential amino acids (EAAs). Compared with other high-quality protein sources, casein is broken down into its amino acid components at a more prolonged rate, which makes it ideal for nighttime use.",
+      "images": [
+        "images/p17949322200137l4l.jpg",
+        "images/p17949322240398r86.jpg",
+        "images/p1794932226207vg0u.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "4 Pounds / 52 Servings",
+          "flavour": "Chocolate Fudge",
+          "price": 8499,
+          "mrp": 11999,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "64"
     }
   ],
   "reviews": [
