@@ -2561,6 +2561,59 @@
         }
       ],
       "id": "61"
+    },
+    {
+      "name": "PR Supplements \"L-CARNITINE\" 4500mg, Fat Metabolism Support, 30 Servings",
+      "brand": "PR Supplements",
+      "category": "Fat Burner",
+      "subcategory": "L-Carntine",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "Make your supplement routine simple with PR Supplements Larry Wheels Liquid L-Carnitine 4500mg. Each 15 ml serving delivers 4500 mg L-carnitine, alongside chromium picolinate and 50 mg caffeine anhydrous. L-carnitine plays a role in normal fat metabolism by helping transport fatty acids into the mitochondria, where they can be used for energy production. The liquid format makes it easy to measure your serving without mixing a powder. Choose Pink Lemonade Rush, Lychee Blast, Pina Colada or Orange Burst. Each 450 ml bottle provides 30 servings. The vegetarian formula contains 1.2 kcal and 0 g added sugar per 15 ml serving, with naturally occurring sugar and artificial sweetener present. Shake well before use. Take 15 ml on an empty stomach or as directed by a dietitian. Do not mix with anything. Contains caffeine. For healthy adults over 18; follow all label warnings. Not for medicinal use.",
+      "images": [
+        "images/p1794931671540sl1m.jpg",
+        "images/p17949316733614bge.jpg",
+        "images/p1794931678253jref.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "Lychee Blast",
+          "price": 1299,
+          "mrp": 3299,
+          "stock": "no",
+          "image": "images/p1794931644804mrrk.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "",
+          "flavour": "Orange Burst",
+          "price": 1299,
+          "mrp": 3299,
+          "stock": "no",
+          "image": "images/p1794931651281tofi.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "",
+          "flavour": "Pina Colada",
+          "price": 1299,
+          "mrp": 3299,
+          "stock": "no",
+          "image": "images/p1794931662374vcvg.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "",
+          "flavour": "Pink Lemonade Rush",
+          "price": 1299,
+          "mrp": 3299,
+          "stock": "no",
+          "image": "images/p1794931669347cx7i.jpg"
+        }
+      ],
+      "id": "62"
     }
   ],
   "reviews": [
