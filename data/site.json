@@ -3093,6 +3093,52 @@
         }
       ],
       "id": "70"
+    },
+    {
+      "name": "Ultimate Nutrition Iso Sensation 93 Whey Isolate for Lean Muscle & Recovery",
+      "brand": "Ultimate Nutrition",
+      "category": "Proteins",
+      "subcategory": "Whey Protein Isolate",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "The Ultimate Muscle-Building Supplement: ISO SENSATION® 93 by Ultimate Nutrition® \n\nMeet Ultimate Nutrition® ISO SENSATION® 93, a top-tier whey protein isolate powder engineered for those who demand the best. With 30 grams of protein per 33-gram scoop (93% protein concentration), it sets a new standard in protein purity and efficiency.  \n\nISO SENSATION® 93 is not your average protein powder—it’s a cutting-edge formula infused with a Glutamine Complex for enhanced recovery and Colostrum for added immunity and gut health.  \n\nWhether you're aiming for lean muscle gains or accelerated post-workout recovery, this premium protein powder delivers. \n\nThe Science Behind ISO SENSATION® 93 \n\nWhey Protein Isolate Power: ISO SENSATION® 93 uses ultra-pure whey protein isolate (WPI), processed to remove fat and lactose while preserving its high protein concentration. With over 93% protein per serving, it surpasses other leading protein powders. \nGlutamine Complex: This formula features a proprietary blend of Glutamine Peptides, L-glutamine, and N-acetyl L-glutamine. It supports muscle repair, boosts immune function, and promotes gut health. Glutamine also provides essential fuel for cells during stress and recovery periods. \nColostrum Enrichment: Known as \"nature's first food,\" Colostrum is packed with nutrients, vitamins, and minerals that enhance immunity and improve gut health. \nWhat Makes ISO SENSATION® 93 Stand Out?  \n\nPremium Ingredients: Clean, research-driven formulas built for performance, without fillers or unnecessary sugar.\nMade in the USA: Manufactured entirely in-house, from formulation through bottling, in our FDA-inspected facility.\nCertified Quality: Guided by HACCP standards and verified through ISO 17025–compliant testing for consistency and safety.\nGlobally Trusted: Chosen by athletes in over 180 countries and carried by Amazon, Walmart, and leading sports retailers worldwide.",
+      "images": [
+        "images/p1795016259378pw0p.jpg",
+        "images/p1795016267243h2wk.jpg",
+        "images/p1795016285066a3tb.jpg",
+        "images/p1795016299866vw81.jpg",
+        "images/p17950163094384bu4.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "5 Pounds",
+          "flavour": "Chocolate Fudge",
+          "price": 13999,
+          "mrp": 22449,
+          "stock": "yes",
+          "image": "images/p1795016222140ycwx.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "5 Pounds",
+          "flavour": "Cafe Brazil",
+          "price": 13999,
+          "mrp": 22449,
+          "stock": "no",
+          "image": "images/p1795016236635nqdy.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "5 Pounds",
+          "flavour": "Cookies & Cream",
+          "price": 13999,
+          "mrp": 22449,
+          "stock": "no",
+          "image": "images/p17950162521383i2k.jpg"
+        }
+      ],
+      "id": "71"
     }
   ],
   "reviews": [
