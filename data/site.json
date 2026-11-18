@@ -3019,6 +3019,34 @@
         }
       ],
       "id": "68"
+    },
+    {
+      "name": "Sunline Alaska Omega 3 Fish Oil Heart & Wellness Support, 100 Softgels",
+      "brand": "Sunline",
+      "category": "Omega-3",
+      "subcategory": "Single Strength Fish Oil",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "Sunline Alaska Deep Sea Fish Oil contains Omega-3 fatty acids and other essential nutrients. Omega-3 fatty acids include DHA and EPA, which are beneficial for heart health, memory, concentration, growth and development.",
+      "images": [
+        "images/p17950139139787o0r.jpg",
+        "images/p1795013922262g86g.jpg",
+        "images/p17950139299460azv.jpg",
+        "images/p1795013937680uw3g.jpg",
+        "images/p1795013945192akv6.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "price": 599,
+          "mrp": 2399,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "69"
     }
   ],
   "reviews": [
