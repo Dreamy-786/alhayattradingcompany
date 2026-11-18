@@ -3230,6 +3230,32 @@
         }
       ],
       "id": "73"
+    },
+    {
+      "name": "Animal M-Stak, 21 Pill Packs",
+      "brand": "ANIMAL",
+      "category": "Muscle Builder",
+      "subcategory": "Anabolic Support",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "NEW ADVANCED FORMULA. Animal M-Stak is a non-hormonal, anabolic supplement that utilizes various complexes and nutrients to help your body absorb nutrients at a more efficient rate, increase muscle gains, and support your metabolism. It has also been shown to support healthy insulin levels. Scientifically formulated for “hardgainers”, anyone trying to build lean muscle mass, or GLP-1 users, Animal M-Stak includes these key complexes:\n\nNatural Sterone / ATP Complex that drives lean muscle growth and strength via PEAT ATP ®, beta-scxdysterone, and turkesterone.\nAnti-catabolic Amino Complex - 3g of key Aminos to stop muscle breakdown and fuel protein synthesis\nAnabolic adaptogen & absorpbtion complex - PeakO2® + Ashwagandha for endurance & recovery. AstraGin® to maximize absorption.\nInsulin potentiating complex: Fenugreek, Banaba, Cinnamon — shuttles carbs & aminos into muscle for growth\nEnergy Complex - Caffeine + Kola Nut + Guarana for focus and intensity.\n\nAnimal M-Stak includes a 500mg energy complex pill which can be discarded for those who don’t want stimulants. For the best results, M-Stak should be cycled and combined with the right foods and proper training to be a powerful addition to your lean muscle supplement game.",
+      "images": [
+        "images/p1795019191068i6gy.jpg",
+        "images/p17950192101630rit.jpg",
+        "images/p17950192212725kpo.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "price": 5299,
+          "mrp": 11999,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "74"
     }
   ],
   "reviews": [
