@@ -3047,6 +3047,52 @@
         }
       ],
       "id": "69"
+    },
+    {
+      "name": "Ultimate Nutrition Prostar Whey Protein for Lean Muscle & Recovery",
+      "brand": "Ultimate Nutrition",
+      "category": "Proteins",
+      "subcategory": "Whey Protein Blend",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "Prostar® 100% Whey Protein Powder \n\nFuel your fitness goals with Prostar® 100% Whey, a premium protein powder crafted using a unique micro and ultra-filtration process to ensure unmatched quality. With each 30g serving, you'll enjoy: \n\n25g of Protein from a superior blend of whey protein isolate, concentrate, and peptides. \nOver 6g of Naturally Occurring Branched Chain Amino Acids (BCAAs) to support muscle recovery and growth. \nOnly 2g of Carbohydrates and 30mg of Sodium per serving. \nDesigned for instant mixing, Prostar® 100% Whey delivers a smooth and delicious experience in every shake or smoothie. Choose from 14 flavors \n\nWhy Choose Prostar® 100% Whey? \n\nPremium Ingredients: Clean, research-driven formulas built for performance, without fillers or unnecessary sugar.\nMade in the USA: Manufactured entirely in-house, from formulation through bottling, in our FDA-inspected facility.\nCertified Quality: Guided by HACCP standards and verified through ISO 17025–compliant testing for consistency and safety.\nGlobally Trusted: Chosen by athletes in over 180 countries and carried by Amazon, Walmart, and leading sports retailers worldwide.\nKey Features: \n\nGluten-Free \n80 servings per 5.28lb container \nAvailable worldwide, shipping to over 180 countries. \nProstar® 100% Whey is a trusted favorite among athletes, fitness enthusiasts, and anyone looking to elevate their protein intake with a product that stands for quality and results",
+      "images": [
+        "images/p1795015962848n52j.jpg",
+        "images/p1795015972021ipr1.jpg",
+        "images/p1795015979903trxt.jpg",
+        "images/p1795015991716r57f.jpg",
+        "images/p1795015999927czcc.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "5 Pounds",
+          "flavour": "Chocolate Creme",
+          "price": 8999,
+          "mrp": 14999,
+          "stock": "yes",
+          "image": "images/p17950159143302141.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "5 Pounds",
+          "flavour": "Cookies 'N' Cream",
+          "price": 8999,
+          "mrp": 14999,
+          "stock": "yes",
+          "image": "images/p1795015934613l2k6.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "5 Pounds",
+          "flavour": "Cocoa Mocha",
+          "price": 8999,
+          "mrp": 14999,
+          "stock": "yes",
+          "image": "images/p17950159542819vgb.jpg"
+        }
+      ],
+      "id": "70"
     }
   ],
   "reviews": [
