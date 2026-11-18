@@ -3202,6 +3202,34 @@
         }
       ],
       "id": "72"
+    },
+    {
+      "name": "Animal Cuts 42 Pill Packs",
+      "brand": "ANIMAL",
+      "category": "Fat Burner",
+      "subcategory": "Thermogenic Fat Burners",
+      "rating": 4.8,
+      "featured": "yes",
+      "description": "Animal Cuts isn’t just a fat burner, lipolytic, diuretic, or metabolic; it’s all four in one convenient package containing research-backed ingredients that assist sin burning fat for both men and women. An award-winning supplement, Animal Cuts includes potent thermogenic fat burners that can help boost the body’s natural ability to burn stored body fat while promoting lean mass.\nOur comprehensive formula gives your metabolism a boost with two key forms of L-Carnitine and Tyrosine, Choline, Caffeine, Green Tea Extract. Unlike other fat-burning supplements, Animal Cuts contains potassium-sparing herbs which help preserve muscular fullness, so your muscles won’t lose their pump and size.\nThe Animal Cuts muscle shredding supplement is formulated with research-backed ingredients in eight complexes designed to help men and women lose weight without sacrificing their muscle definition: (1) thermogenic complex; (2) metabolic complex; (3) nootropic complex; (4) cortisol-inhibiting complex; (5) thyroid complex; (6) diuretic complex; (7) appetite suppression complex; and (8) our special bioavailability complex.\n\nEach scientifically dosed pack of Animal Cuts delivers nearly 8,500 milligrams of pure, active shredding power making Animal Cuts the most comprehensive supplement stack for fat loss and cutting. Available with or without stimulants in pill packs and great-tasting powders, Animal Cuts will help you achieve the shredded look you’ve been working towards.",
+      "images": [
+        "images/p1795018945071o00m.jpg",
+        "images/p17950189549933hos.jpg",
+        "images/p1795018963814lc1e.jpg",
+        "images/p1795018974577gx16.jpg",
+        "images/p1795018984464v18e.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "price": 4799,
+          "mrp": 9999,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "73"
     }
   ],
   "reviews": [
