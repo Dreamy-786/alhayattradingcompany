@@ -2993,6 +2993,32 @@
         }
       ],
       "id": "67"
+    },
+    {
+      "name": "Saber Nutrition Creatine Monohydrate, Supports Strength, Power & Performance, 100 Servings",
+      "brand": "Saber Nutrition",
+      "category": "Creatine",
+      "subcategory": "Creatine Monohydrate",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "Saber Nutrition Creatine Monohydrate is a micronized creatine supplement designed to support strength, power and workout performance. Each serving delivers 3g of pure creatine monohydrate in an easy-mixing unflavoured formula.\n\nCreatine is one of the most researched sports nutrition ingredients and is commonly used by athletes, bodybuilders and fitness enthusiasts to support high-intensity training performance. The micronized formula mixes smoothly into water, juice or protein shakes and contains no added sugars, artificial colours, flavours or preservatives.\n\nWith 100 servings per container, Saber Nutrition Creatine Monohydrate offers a convenient option for individuals looking to incorporate creatine into their daily fitness routine.",
+      "images": [
+        "images/p1795013345371f0xo.jpg",
+        "images/p1795013352545o26n.jpg",
+        "images/p1795013361282pwia.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "300 Grams",
+          "flavour": "Unflavoured",
+          "price": 799,
+          "mrp": 2999,
+          "stock": "yes",
+          "image": "images/p1795013331674jz1j.jpg"
+        }
+      ],
+      "id": "68"
     }
   ],
   "reviews": [
