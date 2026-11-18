@@ -3344,6 +3344,52 @@
         }
       ],
       "id": "77"
+    },
+    {
+      "name": "Dymatize Elite 100% Whey Protein for Lean Muscle & Recovery",
+      "brand": "Dymatize Nutrition",
+      "category": "Proteins",
+      "subcategory": "Whey Protein Blend",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "Elite is not a term to be taken lightly. Think of Elite 100% Whey* as your training partner. Your spotter. It’s there to support you—so you can be better than your best. Loaded with the flavor you crave, its fast-absorbing protein powder delivers the results you need—when you need them. Blend it in your favorite smoothie before a big workout. Bake it into your go-to snack for a protein-boost between meals during the day. Have Elite 100% Whey—your way.",
+      "images": [
+        "images/p17950199334308ika.jpg",
+        "images/p1795019940217sgyp.jpg",
+        "images/p17950199509336jyj.jpg",
+        "images/p1795019958432b4t3.jpg",
+        "images/p1795019965409173o.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "2 Pounds",
+          "flavour": "Rich Chocolate",
+          "price": 5699,
+          "mrp": 9999,
+          "stock": "yes",
+          "image": "images/p1795019905100btrt.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "2 Pounds",
+          "flavour": "Gourmet Vanilla",
+          "price": 5699,
+          "mrp": 9999,
+          "stock": "no",
+          "image": "images/p1795019914549q9qp.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "2 Pounds",
+          "flavour": "Cookies & Cream",
+          "price": 5699,
+          "mrp": 9999,
+          "stock": "yes",
+          "image": "images/p1795019927040ibu9.jpg"
+        }
+      ],
+      "id": "78"
     }
   ],
   "reviews": [
