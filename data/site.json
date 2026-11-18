@@ -3139,6 +3139,69 @@
         }
       ],
       "id": "71"
+    },
+    {
+      "name": "Wellcore - Pure Micronised Creatine Monohydrate",
+      "brand": "Wellcore",
+      "category": "Creatine",
+      "subcategory": "Creatine Monohydrate",
+      "rating": 3.5,
+      "featured": "yes",
+      "description": "HELPS BUILD MUSCLE & STRENGTH: Every scoop of Wellcore Creatine Monohydrate delivers the fuel for your physical performance. It helps you train harder, lift heavier, and recover faster.\nRECOVER FROM WORKOUTS FASTER: Get back into the gym faster and stronger. Wellcore creatine powder helps replenish energy, reduce fatigue, and promote muscle repair, making it essential for gym enthusiasts.\nPREMIUM QUALITY: With no artificial colours, no artificial flavors, no sugar & no fillers you can rest assured that you’re choosing a high-quality creatine supplement to support your health & physical performance.\nCERTIFIED BY TRUSTIFIED: Wellcore creatine powder is a Trustified certified product, indicating that the product has the ingredients & effectiveness it claims.",
+      "images": [
+        "images/p1795018648517ndr6.jpg",
+        "images/p1795018657581txts.jpg",
+        "images/p1795018675140n0i2.jpg",
+        "images/p1795018690463yt8b.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "83 Servings",
+          "flavour": "Fruit Fusion",
+          "price": 699,
+          "mrp": 1399,
+          "stock": "yes",
+          "image": "images/p17950185662133avn.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "83 Servings",
+          "flavour": "Lemon Lime",
+          "price": 699,
+          "mrp": 1399,
+          "stock": "yes",
+          "image": "images/p1795018573373zrmu.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "83 Servings",
+          "flavour": "Tropical Tango",
+          "price": 699,
+          "mrp": 1399,
+          "stock": "yes",
+          "image": "images/p1795018606054n2q1.jpg"
+        },
+        {
+          "vid": "3",
+          "size": "83 Servings",
+          "flavour": "Unflavoured",
+          "price": 699,
+          "mrp": 1399,
+          "stock": "yes",
+          "image": "images/p1795018582149d2uu.jpg"
+        },
+        {
+          "vid": "4",
+          "size": "83 Servings",
+          "flavour": "Watermelon Wave",
+          "price": 699,
+          "mrp": 1399,
+          "stock": "yes",
+          "image": "images/p1795018595831skh6.jpg"
+        }
+      ],
+      "id": "72"
     }
   ],
   "reviews": [
