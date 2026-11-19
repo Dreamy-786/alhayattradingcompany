@@ -3650,6 +3650,69 @@
         }
       ],
       "id": "79"
+    },
+    {
+      "name": "Nitraflex Advanced Pre-Workout for Energy, Focus & Performance, 30 Servings",
+      "brand": "GAT Sport",
+      "category": "Pre-Workout",
+      "subcategory": "Stim-Based Pre-Workout",
+      "rating": 3.5,
+      "featured": "yes",
+      "description": "Just when you think you’ve hit the wall and you are on your last rep of the session, NITRAFLEX ADVANCED kicks in and says, NOPE, you’re going right through that wall. For well over a decade and through grind after grind, trainers and bodybuilders who know, recommend NITRAFLEX as the preeminent pre-workout. NITRAFLEX ADVANCED is a formulaic powerhouse that crushes any session with extreme pumps, pushing beyond all expectation.\n\nExplosive Energy\nIntense Focus\nExtreme Pumps",
+      "images": [
+        "images/p17951053323095cle.jpg",
+        "images/p1795105337992ezel.jpg",
+        "images/p1795105348231l6ee.jpg",
+        "images/p1795105359265uwro.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "Blue Raspberry",
+          "price": 2299,
+          "mrp": 5499,
+          "stock": "yes",
+          "image": "images/p17951052794055kn1.jpg"
+        },
+        {
+          "vid": "1",
+          "size": "",
+          "flavour": "Fruit Punch",
+          "price": 2299,
+          "mrp": 5499,
+          "stock": "yes",
+          "image": "images/p1795105298654lk65.jpg"
+        },
+        {
+          "vid": "2",
+          "size": "",
+          "flavour": "Grape",
+          "price": 2299,
+          "mrp": 5499,
+          "stock": "yes",
+          "image": ""
+        },
+        {
+          "vid": "3",
+          "size": "",
+          "flavour": "Green Apple",
+          "price": 2299,
+          "mrp": 5499,
+          "stock": "yes",
+          "image": "images/p1795105314392be5s.jpg"
+        },
+        {
+          "vid": "4",
+          "size": "",
+          "flavour": "Watermelon",
+          "price": 22999,
+          "mrp": 22999,
+          "stock": "yes",
+          "image": "images/p1795105323252ipif.jpg"
+        }
+      ],
+      "id": "80"
     }
   ],
   "reviews": [
