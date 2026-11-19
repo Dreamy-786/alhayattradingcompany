@@ -2033,7 +2033,7 @@
           "flavour": "Strawberry Milkshake",
           "price": 6599,
           "mrp": 13999,
-          "stock": "yes",
+          "stock": "no",
           "image": "images/p1794848115773rhro.jpg"
         }
       ],
