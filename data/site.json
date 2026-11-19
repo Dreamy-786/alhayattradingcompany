@@ -3713,6 +3713,30 @@
         }
       ],
       "id": "80"
+    },
+    {
+      "name": "Black Spider Advanced Energy & Thermogenic Support Formula",
+      "brand": "Cloma Pharma",
+      "category": "Fat Burner",
+      "subcategory": "Thermogenic Fat Burners",
+      "rating": 4,
+      "featured": "yes",
+      "description": "Powerful performance formula designed to support energy and workout intensity. Helps promote focus, endurance, and active training performance. Ideal for athletes and fitness enthusiasts with demanding workout routines. Advanced supplement crafted for high-performance fitness goals",
+      "images": [
+        "images/p1795105528708eniw.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "price": 1999,
+          "mrp": 1999,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "81"
     }
   ],
   "reviews": [
