@@ -3927,6 +3927,34 @@
         }
       ],
       "id": "85"
+    },
+    {
+      "name": "MuscleTech HMB Supplements 1000mg, Clear Muscle (42 Liquid Softgels)",
+      "brand": "Muscletech",
+      "category": "Fat Burner",
+      "subcategory": "Water Loss & Diuretics",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "Find your competitive edge and redefine performance. For more than two decades, we’ve fueled those with the strength to not just play the game, but to change it. And with a staggering 15 clinical studies behind its core ingredient, Clear Muscle continues the tradition with a revolutionary compound engineered to increase protein synthesis and decrease muscle breakdown.",
+      "images": [
+        "images/p17954472277136pui.jpg",
+        "images/p1795447239741mosr.jpg",
+        "images/p1795447252390n2rq.jpg",
+        "images/p1795447264062pxk4.jpg",
+        "images/p1795447272966xuh5.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "price": 3599,
+          "mrp": 4999,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "86"
     }
   ],
   "reviews": [
