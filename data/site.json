@@ -3955,6 +3955,34 @@
         }
       ],
       "id": "86"
+    },
+    {
+      "name": "Muscletech Hydroxycut Elite Advanced Energy & Performance Support, 110 Capsules",
+      "brand": "Muscletech",
+      "category": "Fat Burner",
+      "subcategory": "Thermogenic Fat Burners",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "Hydroxycut Hardcore Elite is an extreme super thermogenic designed to help you reach your goals. Unlike other products, Hydroxycut Hardcore Elite is backed by 2 scientific studies. *Subjects taking the key ingredient in Hydroxycut Hardcore Elite (green coffee extract [C. canephora robusta]) works with a calorie reduced diet and moderate exercise. Most thermogenic formulas don’t have any scientific studies backing their key ingredients, let alone two. Hydroxycut Hardcore Elite also features a supercharged energizing and thermogenic driver (270mg caffeine anhydrous) in combination with other sensory enhancing ingredients, including 110mg Coleus forskohlii and 100mg L theanine and 56.3mg Yohimbe to deliver a one of a kind sensory experience with every dose.",
+      "images": [
+        "images/p17956031035762hgz.jpg",
+        "images/p1795603109147ccgt.jpg",
+        "images/p17956031166888dps.jpg",
+        "images/p1795603123861efk6.jpg",
+        "images/p179560313025195et.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "price": 1799,
+          "mrp": 1799,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "87"
     }
   ],
   "reviews": [
