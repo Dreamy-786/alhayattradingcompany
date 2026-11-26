@@ -3854,7 +3854,7 @@
         },
         {
           "vid": "3",
-          "size": "3 Pounds / 40 Servings",
+          "size": "3 Pounds /  40 Servings",
           "flavour": "Chocolate Peanut Butter",
           "price": 12899,
           "mrp": 12899,
@@ -3863,7 +3863,7 @@
         },
         {
           "vid": "4",
-          "size": "3 Pounds /  Servings",
+          "size": "3 Pounds /  40 Servings",
           "flavour": "Cookies & Cream",
           "price": 12899,
           "mrp": 12899,
@@ -3872,7 +3872,7 @@
         },
         {
           "vid": "5",
-          "size": "3 Pounds /  Servings",
+          "size": "3 Pounds /  40 Servings",
           "flavour": "Creamy Vanilla",
           "price": 12899,
           "mrp": 12899,
@@ -3881,7 +3881,7 @@
         },
         {
           "vid": "6",
-          "size": "3 Pounds /  Servings",
+          "size": "3 Pounds /  40 Servings",
           "flavour": "Dutch Chocolate",
           "price": 12899,
           "mrp": 12899,
@@ -3890,7 +3890,7 @@
         },
         {
           "vid": "7",
-          "size": "3 Pounds /  Servings",
+          "size": "3 Pounds /  40 Servings",
           "flavour": "Strawberries & Creme",
           "price": 12899,
           "mrp": 12899,
