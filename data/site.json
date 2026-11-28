@@ -4264,6 +4264,36 @@
         }
       ],
       "id": "97"
+    },
+    {
+      "name": "Steelfit BUNS OF STEEL® Maximum Toning Cream 8.0 oz.",
+      "brand": "Steelfit",
+      "category": "Accessories",
+      "subcategory": "Body Sculpting & Toning Cream",
+      "sku": "",
+      "rating": 5,
+      "featured": "yes",
+      "description": "STEELFIT BUNS OF STEEL Maximum Toning Cream is designed for targeted application to the gluteal area as part of a body-toning and fitness routine. Its 8.0 oz format is suitable for regular application during physique preparation and personal fitness routines.",
+      "images": [
+        "images/p1795878219928ei7f.jpg",
+        "images/p1795878225862n57c.jpg",
+        "images/p1795878231963exw0.jpg",
+        "images/p1795878239435uwtl.jpg",
+        "images/p17958782455077hqf.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "servings": "",
+          "price": 3199,
+          "mrp": 3199,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "98"
     }
   ],
   "reviews": [
