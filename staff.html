@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Stock Entry</title>
+<style>
+:root{--bg:#f2f3f6;--card:#fff;--ink:#14161f;--muted:#5d6479;--line:#dcdfe8;--in:#1c8a5a;--out:#e4572e;--acc:#14161f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding-bottom:40px}
+.wrap{max-width:520px;margin:0 auto;padding:14px max(14px,env(safe-area-inset-left)) 14px max(14px,env(safe-area-inset-right))}
+h1{font-size:20px;margin:0}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+label{display:block;font-weight:600;font-size:13px;margin:10px 0 4px}
+input,select{width:100%;padding:13px 12px;border:1.5px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
+input:focus{outline:2px solid #5b8def;outline-offset:1px}
+button{font:inherit;cursor:pointer}
+.btn{width:100%;padding:15px;border:0;border-radius:12px;background:var(--acc);color:#fff;font-weight:700;font-size:17px}
+.btn.alt{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.btn:disabled{opacity:.5}
+.mode{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.mode button{padding:18px 8px;border-radius:14px;border:3px solid var(--line);background:#fff;font-weight:800;font-size:20px;letter-spacing:.04em;color:var(--muted)}
+.mode button.in.on{background:var(--in);border-color:var(--in);color:#fff}
+.mode button.out.on{background:var(--out);border-color:var(--out);color:#fff}
+.row{display:grid;grid-template-columns:1fr auto;gap:8px}
+.prod{display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:center}
+.prod img{width:72px;height:72px;object-fit:contain;background:#eef0f5;border-radius:10px}
+.prod b{font-size:18px;line-height:1.25;display:block}
+.hint{color:var(--muted);font-size:13px}
+.err{background:#fbe9e7;color:#b3261e;border-radius:10px;padding:10px 12px;margin:10px 0}
+.ok{background:#e6f4ec;color:#14633f;border-radius:10px;padding:10px 12px;margin:10px 0}
+.qty{display:grid;grid-template-columns:56px 1fr 56px;gap:8px}
+.qty button{border:1.5px solid var(--line);background:#fff;border-radius:10px;font-size:26px;font-weight:700}
+.qty input{text-align:center;font-size:22px;font-weight:700}
+.log{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid var(--line);padding:8px 0;font-size:14px}
+.log:last-child{border:0}
+.tag{font-weight:800;font-size:12px;padding:2px 8px;border-radius:99px;color:#fff;align-self:start}
+.tag.in{background:var(--in)}.tag.out{background:var(--out)}
+#cam{position:fixed;inset:0;background:#000;z-index:50;display:none;flex-direction:column}
+#cam.on{display:flex}
+#cam video,#camlib{flex:1;width:100%;object-fit:cover;min-height:0}
+#cam .bar{padding:14px;display:flex;gap:10px;justify-content:space-between;align-items:center;color:#fff}
+#cam .bar button{background:#fff;color:#000;border:0;border-radius:10px;padding:12px 18px;font-weight:700}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div id="setup" class="card" hidden>
+  <h1>Stock entry</h1>
+  <p class="hint">One time setup on this phone. Ask the owner for the details.</p>
+  <label for="c_owner">GitHub username</label><input id="c_owner" autocomplete="off" autocapitalize="off">
+  <label for="c_repo">Stock repository name</label><input id="c_repo" autocomplete="off" autocapitalize="off" placeholder="alhayat-stock">
+  <label for="c_site">Website address (so product pictures show)</label><input id="c_site" autocomplete="off" autocapitalize="off" placeholder="https://username.github.io/shop/">
+  <label for="c_token">Staff access token</label><input id="c_token" type="password" autocomplete="off" placeholder="github_pat_...">
+  <label for="c_name">Your name</label><input id="c_name" autocomplete="off">
+  <div id="setupMsg"></div>
+  <p><button class="btn" id="setupBtn">Save and start</button></p>
+</div>
+
+<div id="app" hidden>
+  <div class="top"><h1>Stock entry</h1><button class="btn alt" id="menuBtn" style="width:auto;padding:8px 14px;font-size:14px">Settings</button></div>
+  <div class="mode"><button class="in on" id="mIn">STOCK IN</button><button class="out" id="mOut">STOCK OUT</button></div>
+  <div class="card">
+    <label for="upc" style="margin-top:0">Scan or type the barcode</label>
+    <div class="row"><input id="upc" inputmode="numeric" autocomplete="off" autocapitalize="off" placeholder="Scan here"><button class="btn" id="camBtn" style="width:auto;padding:0 16px;font-size:15px">Camera</button></div>
+    <div id="found"></div>
+  </div>
+  <div class="card" id="entry" hidden>
+    <label style="margin-top:0">Quantity</label>
+    <div class="qty"><button id="qMinus" aria-label="Less">−</button><input id="qty" type="number" inputmode="numeric" min="1" value="1"><button id="qPlus" aria-label="More">+</button></div>
+    <label for="exp">Expiry date <span class="hint" id="expHint"></span></label><input id="exp" type="date">
+    <label for="party">Party name (optional)</label><input id="party" list="partyList" autocomplete="off"><datalist id="partyList"></datalist>
+    <div id="msg"></div>
+    <p style="margin-bottom:0"><button class="btn" id="saveBtn">Save entry</button></p>
+  </div>
+  <div class="card"><b>Your recent entries</b><div id="recent" class="hint" style="margin-top:6px"></div><div id="queueInfo"></div></div>
+</div>
+
+<div id="settings" class="card" hidden>
+  <h1>Settings</h1>
+  <p class="hint" id="whoami"></p>
+  <p><button class="btn alt" id="reloadCat">Refresh product list</button></p>
+  <p><button class="btn alt" id="backBtn">Back</button></p>
+  <p><button class="btn alt" id="logoutBtn" style="color:#b3261e">Sign out of this phone</button></p>
+</div>
+</div>
+
+<div id="cam"><video id="camv" playsinline muted></video><div id="camlib"></div><div class="bar"><span id="camTxt">Point the camera at the barcode</span><button id="camClose">Close</button></div></div>
+
+<script>
+var CFG = null, CAT = [], MODE = 'in', ITEM = null, QUEUE = [];
+function $(s){ return document.querySelector(s); }
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function ls(k, v){ try{ if(v === undefined) return JSON.parse(localStorage.getItem(k) || 'null'); localStorage.setItem(k, JSON.stringify(v)); }catch(e){ return null; } }
+function normUpc(x){ x = String(x || '').replace(/[^0-9A-Za-z]/g, '').toUpperCase(); if(/^0\d{12}$/.test(x)) x = x.slice(1); return x; }
+function dec(b64){ var bin = atob(b64.replace(/\s/g, '')), a = new Uint8Array(bin.length); for(var i = 0; i < bin.length; i++) a[i] = bin.charCodeAt(i); return new TextDecoder().decode(a); }
+function enc(str){ var b = new TextEncoder().encode(str), bin = ''; b.forEach(function(x){ bin += String.fromCharCode(x); }); return btoa(bin); }
+function gh(path, opts){
+  opts = opts || {};
+  return fetch('https://api.github.com' + path, {method:opts.method || 'GET', body:opts.body ? JSON.stringify(opts.body) : undefined, cache:'no-store',
+    headers:{'Accept':'application/vnd.github+json','Authorization':'Bearer ' + CFG.token,'X-GitHub-Api-Version':'2022-11-28'}}).then(function(r){
+    if(r.ok) return r.json();
+    return r.json().catch(function(){ return {}; }).then(function(j){ var e = new Error(j.message || 'Error ' + r.status); e.status = r.status; throw e; });
+  });
+}
+function rp(p){ return '/repos/' + encodeURIComponent(CFG.owner) + '/' + encodeURIComponent(CFG.repo) + '/contents/' + p.split('/').map(encodeURIComponent).join('/'); }
+function show(id){ ['setup', 'app', 'settings'].forEach(function(x){ $('#' + x).hidden = x !== id; }); }
+
+/* ---------- setup ---------- */
+function start(){
+  CFG = ls('staffCfg');
+  if(!CFG || !CFG.token){ show('setup'); return; }
+  QUEUE = ls('staffQueue') || [];
+  show('app'); loadCatalog(); renderRecent(); drawParties(); flushQueue(); $('#upc').focus();
+}
+$('#setupBtn').onclick = function(){
+  var c = {owner:$('#c_owner').value.trim(), repo:$('#c_repo').value.trim(), site:$('#c_site').value.trim(), token:$('#c_token').value.trim(), name:$('#c_name').value.trim()};
+  if(!c.owner || !c.repo || !c.token || !c.name){ $('#setupMsg').innerHTML = '<div class="err">Fill in username, repository, token and your name.</div>'; return; }
+  if(c.site && !c.site.endsWith('/')) c.site += '/';
+  CFG = c; $('#setupBtn').disabled = true;
+  gh(rp('data/catalog.json')).then(function(){ ls('staffCfg', c); start(); }, function(e){
+    $('#setupMsg').innerHTML = '<div class="err">' + esc(e.status === 404 ? 'Could not find the product list. Check the repository name and token, and ask the owner to add barcodes to products first.' : e.status === 401 ? 'The token was not accepted.' : e.message) + '</div>';
+  }).then(function(){ $('#setupBtn').disabled = false; });
+};
+$('#menuBtn').onclick = function(){ $('#whoami').textContent = 'Signed in as ' + CFG.name + ' · ' + CAT.length + ' products with barcodes'; show('settings'); };
+$('#backBtn').onclick = function(){ show('app'); };
+$('#logoutBtn').onclick = function(){ if(confirm('Sign out? Entries waiting to be sent will be lost.')){ try{ localStorage.removeItem('staffCfg'); localStorage.removeItem('staffQueue'); }catch(e){} location.reload(); } };
+$('#reloadCat').onclick = function(){ loadCatalog(true); show('app'); };
+
+/* ---------- product list ---------- */
+function loadCatalog(manual){
+  gh(rp('data/catalog.json')).then(function(f){
+    var j = JSON.parse(dec(f.content)); CAT = j.items || []; if(!CFG.site && j.site){ CFG.site = j.site; ls('staffCfg', CFG); }
+    ls('staffCat', CAT);
+    if(manual) toast('Product list refreshed');
+  }).catch(function(){ CAT = ls('staffCat') || CAT; if(manual) toast('Could not refresh. Using the saved list.'); });
+}
+function toast(t){ $('#msg').innerHTML = '<div class="ok">' + esc(t) + '</div>'; setTimeout(function(){ if($('#msg').firstChild && $('#msg').firstChild.className === 'ok') $('#msg').innerHTML = ''; }, 3000); }
+
+/* ---------- mode ---------- */
+function setMode(m){
+  MODE = m; $('#mIn').className = 'in' + (m === 'in' ? ' on' : ''); $('#mOut').className = 'out' + (m === 'out' ? ' on' : '');
+  $('#expHint').textContent = m === 'in' ? '(required)' : '(optional)';
+}
+$('#mIn').onclick = function(){ setMode('in'); }; $('#mOut').onclick = function(){ setMode('out'); };
+setMode('in');
+
+/* ---------- find product ---------- */
+function find(){
+  var raw = $('#upc').value.trim(); ITEM = null; $('#entry').hidden = true;
+  if(!raw){ $('#found').innerHTML = ''; return; }
+  var n = normUpc(raw); ITEM = CAT.find(function(i){ return normUpc(i.upc) === n; }) || null;
+  if(!ITEM){ $('#found').innerHTML = '<div class="err">This barcode is not in the product list. Tell the owner.</div>'; return; }
+  var img = ITEM.image ? (/^https?:/.test(ITEM.image) ? ITEM.image : (CFG.site || '') + ITEM.image) : '';
+  var det = [ITEM.size, ITEM.flavour].filter(Boolean).join(' · ');
+  $('#found').innerHTML = '<div class="prod" style="margin-top:12px">' + (img ? '<img src="' + esc(img) + '" alt="" onerror="this.style.visibility=\'hidden\'">' : '<div></div>') + '<div><b>' + esc(ITEM.name) + '</b>' + (det ? '<span class="hint">' + esc(det) + '</span>' : '') + (ITEM.brand ? '<div class="hint">' + esc(ITEM.brand) + '</div>' : '') + '</div></div>';
+  $('#entry').hidden = false; $('#qty').value = 1; $('#msg').innerHTML = '';
+  setTimeout(function(){ $('#qty').select(); }, 50);
+}
+$('#upc').addEventListener('input', function(){ clearTimeout(this._t); this._t = setTimeout(find, 250); });
+$('#upc').addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); clearTimeout(this._t); find(); } });
+$('#qMinus').onclick = function(){ $('#qty').value = Math.max(1, (parseInt($('#qty').value, 10) || 1) - 1); };
+$('#qPlus').onclick = function(){ $('#qty').value = (parseInt($('#qty').value, 10) || 0) + 1; };
+
+/* ---------- save ---------- */
+function newId(){ return Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+$('#saveBtn').onclick = function(){
+  if(!ITEM) return;
+  var q = parseInt($('#qty').value, 10), exp = $('#exp').value, party = $('#party').value.trim();
+  if(!(q >= 1 && q <= 99999)){ $('#msg').innerHTML = '<div class="err">Enter the quantity.</div>'; return; }
+  if(MODE === 'in' && !exp){ $('#msg').innerHTML = '<div class="err">Enter the expiry date.</div>'; return; }
+  var tx = {id:newId(), ts:new Date().toISOString(), type:MODE, key:ITEM.key, upc:ITEM.upc, qty:q, expiry:exp || '', party:party, staff:CFG.name, name:ITEM.name, brand:ITEM.brand || '', size:ITEM.size || '', flavour:ITEM.flavour || ''};
+  if(party) rememberParty(party);
+  $('#saveBtn').disabled = true;
+  send(tx).then(function(){ done(tx, true); }, function(e){
+    if(e.status === 401 || e.status === 403 || e.status === 404){ $('#msg').innerHTML = '<div class="err">Could not save: ' + esc(e.status === 404 ? 'repository not found' : 'the token was not accepted') + '. Tell the owner.</div>'; return; }
+    QUEUE.push(tx); ls('staffQueue', QUEUE); done(tx, false);
+  }).then(function(){ $('#saveBtn').disabled = false; });
+};
+function send(tx){ return gh(rp('tx/' + tx.id + '.json'), {method:'PUT', body:{message:'Stock ' + tx.type + ': ' + tx.name, content:enc(JSON.stringify(tx))}}); }
+function done(tx, sent){
+  var log = ls('staffLog') || []; log.unshift({id:tx.id, ts:tx.ts, type:tx.type, name:tx.name, size:tx.size, flavour:tx.flavour, qty:tx.qty, sent:sent}); log = log.slice(0, 15); ls('staffLog', log);
+  $('#upc').value = ''; $('#found').innerHTML = ''; $('#entry').hidden = true; ITEM = null; $('#exp').value = ''; $('#party').value = '';
+  renderRecent(); $('#upc').focus();
+  var d = document.createElement('div'); d.className = sent ? 'ok' : 'err'; d.textContent = sent ? 'Saved' : 'No internet. Saved on this phone and will send automatically.'; $('#found').appendChild(d); setTimeout(function(){ if(d.parentNode) d.remove(); }, 2500);
+}
+function flushQueue(){
+  if(!QUEUE.length){ $('#queueInfo').innerHTML = ''; return; }
+  $('#queueInfo').innerHTML = '<div class="err">' + QUEUE.length + ' entries waiting to be sent.</div>';
+  var tx = QUEUE[0];
+  send(tx).then(function(){ QUEUE.shift(); ls('staffQueue', QUEUE); var log = ls('staffLog') || []; log.forEach(function(l){ if(l.id === tx.id) l.sent = true; }); ls('staffLog', log); renderRecent(); flushQueue(); }, function(){});
+}
+window.addEventListener('online', flushQueue); setInterval(function(){ if(CFG && QUEUE.length) flushQueue(); }, 30000);
+function renderRecent(){
+  var log = ls('staffLog') || [];
+  $('#recent').innerHTML = log.length ? log.map(function(l){
+    var t = new Date(l.ts).toLocaleTimeString('en-IN', {hour:'2-digit', minute:'2-digit'});
+    return '<div class="log"><div><span class="tag ' + l.type + '">' + l.type.toUpperCase() + '</span> ' + esc(l.name) + ' <span class="hint">' + esc([l.size, l.flavour].filter(Boolean).join(' · ')) + '</span></div><div style="text-align:right"><b>×' + l.qty + '</b><div class="hint">' + t + (l.sent ? '' : ' · waiting') + '</div></div></div>';
+  }).join('') : 'Nothing yet.';
+}
+function rememberParty(p){ var l = ls('staffParties') || []; l = [p].concat(l.filter(function(x){ return x.toLowerCase() !== p.toLowerCase(); })).slice(0, 30); ls('staffParties', l); drawParties(); }
+function drawParties(){ $('#partyList').innerHTML = (ls('staffParties') || []).map(function(p){ return '<option value="' + esc(p) + '">'; }).join(''); }
+
+/* ---------- camera scanning ---------- */
+var camStream = null, camTimer = null, h5 = null;
+function camStop(){
+  clearInterval(camTimer); camTimer = null;
+  if(camStream){ camStream.getTracks().forEach(function(t){ t.stop(); }); camStream = null; }
+  if(h5){ try{ h5.stop().catch(function(){}); }catch(e){} h5 = null; }
+  $('#cam').className = '';
+}
+function gotCode(code){ camStop(); $('#upc').value = code; find(); }
+$('#camClose').onclick = camStop;
+$('#camBtn').onclick = function(){
+  $('#cam').className = 'on';
+  if('BarcodeDetector' in window){
+    $('#camv').style.display = 'block'; $('#camlib').style.display = 'none';
+    var det = new BarcodeDetector({formats:['ean_13', 'ean_8', 'upc_a', 'upc_e', 'code_128', 'code_39', 'itf']});
+    navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'}}, audio:false}).then(function(st){
+      camStream = st; var v = $('#camv'); v.srcObject = st; return v.play();
+    }).then(function(){
+      camTimer = setInterval(function(){ det.detect($('#camv')).then(function(r){ if(r && r.length) gotCode(r[0].rawValue); }).catch(function(){}); }, 300);
+    }).catch(function(){ camStop(); alert('The camera could not be opened. Allow camera access, or type the barcode.'); });
+  } else {
+    $('#camv').style.display = 'none'; $('#camlib').style.display = 'block';
+    function run(){
+      h5 = new Html5Qrcode('camlib');
+      h5.start({facingMode:'environment'}, {fps:10, qrbox:{width:280, height:140}}, function(txt){ gotCode(txt); }, function(){}).catch(function(){ camStop(); alert('The camera could not be opened. Allow camera access, or type the barcode.'); });
+    }
+    if(window.Html5Qrcode) run();
+    else { var sc = document.createElement('script'); sc.src = 'https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js'; sc.onload = run; sc.onerror = function(){ camStop(); alert('The camera scanner could not load. Type the barcode instead, or use a barcode scanner device.'); }; document.head.appendChild(sc); }
+  }
+};
+start();
+</script>
+</body>
+</html>
