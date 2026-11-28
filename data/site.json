@@ -4042,6 +4042,34 @@
         }
       ],
       "id": "89"
+    },
+    {
+      "name": "ProTan HOT STUFF® High Definition Optimizer Oil",
+      "brand": "ProTan",
+      "category": "Accessories",
+      "subcategory": "Competition Posing Oil",
+      "sku": "",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "HOT STUFF High Definition Optimizer Oil is a bodybuilding competition oil designed to enhance the appearance of muscle definition and physique presentation. Ideal for bodybuilding shows, photoshoots and stage appearances, it helps create a polished, competition-ready look.",
+      "images": [
+        "images/p1795874701420kths.jpg",
+        "images/p1795874706757jxhc.jpg",
+        "images/p1795874713246eaus.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "servings": "",
+          "price": 1699,
+          "mrp": 1699,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "90"
     }
   ],
   "reviews": [
