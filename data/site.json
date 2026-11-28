@@ -4098,6 +4098,33 @@
         }
       ],
       "id": "91"
+    },
+    {
+      "name": "ProTan MUSCLE SHEEN® Maximum Definition Posing Gel",
+      "brand": "ProTan",
+      "category": "Accessories",
+      "subcategory": "Competition Posing Gel",
+      "sku": "",
+      "rating": 4.4,
+      "featured": "yes",
+      "description": "MUSCLE SHEEN Maximum Definition Posing Gel is designed to enhance the visual appearance of muscle definition during bodybuilding competitions and physique photoshoots. Its posing gel format helps bodybuilders achieve a polished look for stage presentation.",
+      "images": [
+        "images/p1795876344091fxv2.jpg",
+        "images/p17958763499336aho.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "servings": "",
+          "price": 1499,
+          "mrp": 1499,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "92"
     }
   ],
   "reviews": [
