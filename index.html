@@ -1294,7 +1294,7 @@ function renderBanner(){
     if(reduce){ cur.classList.remove("on"); nx.classList.add("on"); return; }
     cur.classList.remove("on"); cur.classList.add("out"); nx.classList.add("on");
     setTimeout(() => { cur.style.transition = "none"; cur.classList.remove("out"); void cur.offsetWidth; cur.style.transition = ""; }, 750);
-  }, 3500);
+  }, 10000);
 }
 function igUrl(v){ v = (v || "").trim(); if(!v) return ""; if(/^https?:/i.test(v)) return v; return "https://www.instagram.com/" + v.replace(/^@/, "").replace(/\/$/, "") + "/"; }
 function igName(v){ const m = (v || "").match(/instagram\.com\/([^/?#]+)/i); return "@" + (m ? m[1] : String(v).trim().replace(/^@/, "")); }
