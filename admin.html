@@ -90,7 +90,7 @@ details ol{padding-left:18px;margin:8px 0}
 .sub button{border:1px solid var(--line);background:#fff;padding:7px 14px;border-radius:99px;font-weight:600;cursor:pointer}
 .sub button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
 @media (max-width:720px){.iv{grid-template-columns:1fr 1fr 1fr;padding-left:0}.iv>:first-child{grid-column:1/-1}.ivh{display:none}}
-.vhead,.vrow{grid-template-columns:1.1fr 1.1fr .7fr .8fr .8fr .9fr 1.1fr 44px 34px!important}
+.vhead,.vrow{grid-template-columns:1.1fr 1.1fr .7fr .8fr .8fr .9fr 1.1fr .8fr 44px 34px!important}
 @media (max-width:720px){.vrow{grid-template-columns:1fr 1fr 1fr!important}}
 .prog{font-size:13px;color:var(--muted);margin-top:8px}
 .rv{padding:12px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:10px}
@@ -193,7 +193,7 @@ details ol{padding-left:18px;margin:8px 0}
         <p style="margin:10px 0 0"><button class="btn alt sm" id="genBtn" type="button">Create every size and flavour combination</button></p>
         <p class="hint">Example: 3 sizes and 4 flavours makes 12 rows. Then change the price of each size below.</p>
       </div>
-      <div class="vhead"><span>Size</span><span>Flavour or colour</span><span>Servings</span><span>Price *</span><span>MRP</span><span>Stock</span><span>Barcode (UPC)</span><span>Photo</span><span></span></div>
+      <div class="vhead"><span>Size</span><span>Flavour or colour</span><span>Servings</span><span>Price *</span><span>MRP</span><span>Stock</span><span>Barcode (UPC)</span><span>Opening stock</span><span>Photo</span><span></span></div>
       <div id="vlist"></div>
       <button class="btn alt sm" id="addVar" type="button">Add one row</button>
 
@@ -242,11 +242,12 @@ details ol{padding-left:18px;margin:8px 0}
       <h2>Stock keeping setup</h2>
       <p class="hint" style="margin-top:-6px">Your stock records are kept in a second, private repository so nobody can see them on the internet. One time setup:</p>
       <ol>
-        <li>On GitHub click <b>+</b> then <b>New repository</b>. Name it <b>alhayat-stock</b>. Choose <b>Private</b>. Tick <b>Add a README file</b>. Create it.</li>
-        <li>Go to Settings, Developer settings, Fine-grained tokens. Open your existing token and under Repository access add <b>alhayat-stock</b> (Contents: Read and write). Update the token.</li>
-        <li>Press Disconnect on this page, connect again, and type <b>alhayat-stock</b> in the Stock repository box.</li>
-        <li>For your staff create a <b>second token</b> that can access <b>only</b> alhayat-stock (Contents: Read and write). They use it on the staff page at <b id="staffUrl">your-site/staff/</b>.</li>
+        <li>Open <b>github.com/new</b>. Repository name: <b>alhayat-stock</b>. Select <b>Private</b>. Tick <b>Add a README file</b>. Press <b>Create repository</b>.</li>
+        <li>Open <b>github.com/settings/personal-access-tokens</b>, click your existing token, then <b>Repository access</b>, then <b>Only select repositories</b> and tick <b>alhayat-stock</b> as well. Press <b>Update</b>.</li>
+        <li>Come back here, press <b>Disconnect</b>, connect again and type <b>alhayat-stock</b> in the last box (Stock repository).</li>
+        <li>Staff: make another token the same way but tick <b>only alhayat-stock</b> and give it <b>Contents: Read and write</b>. Staff open <b id="staffUrl">your-site/staff/</b> and paste that token.</li>
       </ol>
+      <p class="hint">You can already add products with barcodes and opening stock before this. They are kept safely on this computer and added automatically when this setup is done.</p>
     </div>
     <div id="stockMain" hidden>
       <div class="card">
@@ -358,7 +359,7 @@ details ol{padding-left:18px;margin:8px 0}
         <div><label for="s_whatsappNumber">WhatsApp number for orders</label><input id="s_whatsappNumber" placeholder="919999999999"><div class="hint">Country code first, digits only.</div></div>
         <div><label for="s_email">Email</label><input id="s_email" type="email"></div>
         <div><label for="s_instagram">Instagram username or link</label><input id="s_instagram" placeholder="alhayat_fitness"></div>
-        <div class="full"><label for="s_announcements">Moving top banner (one message per line)</label><textarea id="s_announcements" style="min-height:90px" placeholder="Free delivery above Rs. 999&#10;100% authentic products&#10;Call us on 99999 99999"></textarea><div class="hint">These scroll across the top of your website. Leave empty to hide the banner.</div></div>
+        <div class="full"><label for="s_announcements">Top banner messages (one message per line)</label><textarea id="s_announcements" style="min-height:90px" placeholder="Free delivery above Rs. 999&#10;100% authentic products&#10;Call us on 99999 99999"></textarea><div class="hint">With 2 or more lines the messages change every 10 seconds, sliding in from the top. With only one line it stays still. Leave empty to hide the banner.</div></div>
         <div class="full"><label for="s_categoryOrder">Order of categories on the website (optional)</label><input id="s_categoryOrder" placeholder="Protein, Creatine, Pre-workout, Vitamins"><div class="hint">Type category names separated by commas. Categories not listed come after, A to Z.</div></div>
         <div class="full"><label for="s_address">Address</label><textarea id="s_address" style="min-height:70px"></textarea></div>
         <div class="full"><label for="s_hours">Opening hours</label><input id="s_hours" placeholder="Mon to Sat, 9 am to 9 pm"></div>
@@ -728,7 +729,8 @@ function renderVariants(){
       '<input data-i="' + i + '" data-f="mrp" type="number" min="0" step="any" value="' + esc(v.mrp) + '" placeholder="MRP" aria-label="MRP">' +
       (editing && v.vid != null && SM[editing + '~' + v.vid] ? '<span class="chip ' + (SM[editing + '~' + v.vid].qty > 0 ? 'g' : 'r') + '" title="Controlled by the Stock tab">' + (SM[editing + '~' + v.vid].qty > 0 ? 'In stock' : 'Out') + ' · auto</span>' :
       '<select data-i="' + i + '" data-f="stock" aria-label="Stock"><option value="yes"' + (String(v.stock).toLowerCase() === 'no' ? '' : ' selected') + '>In stock</option><option value="no"' + (String(v.stock).toLowerCase() === 'no' ? ' selected' : '') + '>Sold out</option></select>') +
-      '<input data-i="' + i + '" data-f="upc" value="' + esc(v.upc || '') + '" placeholder="' + (STOCK_ON ? 'Scan or type' : 'Set up Stock tab first') + '"' + (STOCK_ON ? '' : ' disabled') + ' aria-label="Barcode">' +
+      '<input data-i="' + i + '" data-f="upc" value="' + esc(v.upc || '') + '" placeholder="Scan or type" aria-label="Barcode">' +
+      '<input data-i="' + i + '" data-f="oq" type="number" min="0" step="1" value="' + esc(v.oq || '') + '" placeholder="Qty in hand" title="How many you have right now. Leave empty if none or if already counted." aria-label="Opening stock">' +
       '<label class="vph" title="Photo for this row">' + (v.image ? '<img src="' + esc(imgSrc(v.image)) + '" alt="">' : '+') + '<input type="file" accept="image/*" data-vphoto="' + i + '" hidden></label>' +
       '<button class="vx" data-vrm="' + i + '" aria-label="Remove row" type="button">✕</button></div>';
   }).join('');
@@ -782,7 +784,7 @@ $('#saveBtn').onclick = function(){
     if(seen[key]){ flash('Two rows have the same size and flavour: ' + (vs[k].size || 'no size') + ', ' + (vs[k].flavour || 'no flavour') + '.', true); return; }
     seen[key] = 1;
   }
-  if(STOCK_ON){
+  {
     var seenU = {};
     for(var u = 0; u < ups.length; u++){
       if(!ups[u]) continue;
@@ -807,17 +809,19 @@ $('#saveBtn').onclick = function(){
     var max = 0; data.products.forEach(function(x){ max = Math.max(max, Number(x.id) || 0); });
     p.id = String(max + 1); data.products.push(p);
   }
-  if(STOCK_ON){
-    Object.keys(UPC).forEach(function(k){ if(k.indexOf(p.id + '~') === 0) delete UPC[k]; });
-    vs.forEach(function(v, i){ if(ups[i]) UPC[p.id + '~' + v.vid] = ups[i]; });
-  }
+  var opens = [];
+  Object.keys(UPC).forEach(function(k){ if(k.indexOf(p.id + '~') === 0) delete UPC[k]; });
+  vs.forEach(function(v, i){ if(ups[i]) UPC[p.id + '~' + v.vid] = ups[i]; var oq = parseFloat(vrows[i].oq); if(oq > 0) opens.push({key:p.id + '~' + v.vid, qty:oq, name:p.name, brand:p.brand || '', size:v.size || '', flavour:v.flavour || ''}); });
+  if(STOCK_ON){ opens.forEach(function(o){ LEDGER.tx.push(openTx(o)); }); }
+  else { var pd = pendGet(); pd.upc = pd.upc || {}; Object.keys(pd.upc).forEach(function(k){ if(k.indexOf(p.id + '~') === 0) delete pd.upc[k]; }); Object.keys(UPC).forEach(function(k){ if(k.indexOf(p.id + '~') === 0) pd.upc[k] = UPC[k]; }); pd.open = (pd.open || []).concat(opens); pendSet(pd); }
   var keep = allImages(p);
   $('#saveBtn').disabled = true;
   saveData((idx >= 0 ? 'Update product: ' : 'Add product: ') + p.name).then(function(){
     renderList(); closeForm(); flash('Saved. Your website updates in 1 to 2 minutes.');
     old.forEach(function(o){ if(keep.indexOf(o) < 0) deleteImage(o); });
     writeShare(p).catch(function(){});
-    if(STOCK_ON) pushCatalog().catch(function(e){ flash('Product saved, but the staff barcode list could not be updated: ' + e.message, true); });
+    if(STOCK_ON){ (opens.length ? saveLedger('Opening stock').then(function(){ computeStock(); flagsFromStock(); renderList(); }) : Promise.resolve()).then(function(){ return pushCatalog(); }).catch(function(e){ flash('Product saved, but the stock part could not be saved: ' + e.message, true); }); }
+    else if(Object.keys(UPC).some(function(k){ return k.indexOf(p.id + '~') === 0; }) || opens.length) flash('Saved. Barcode and opening stock are kept on this computer and will be added automatically once the Stock tab is set up.');
   }).catch(function(er){ flash(er.message, true); }).then(function(){ $('#saveBtn').disabled = false; });
 };
 
@@ -1029,6 +1033,17 @@ function putS(path, text, sha, msg){
   var body = {message:msg, content:enc(text)}; if(sha) body.sha = sha;
   return gh(srepoPath(path), {method:'PUT', body:body}).then(function(r){ return r.content.sha; });
 }
+function pendGet(){ try{ return JSON.parse(localStorage.getItem('pendingStock') || '{}'); }catch(e){ return {}; } }
+function pendSet(o){ try{ localStorage.setItem('pendingStock', JSON.stringify(o)); }catch(e){} }
+function openTx(o){ return {id:'o' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), ts:new Date().toISOString(), type:'adj', key:o.key, upc:UPC[o.key] || '', qty:o.qty, before:0, after:o.qty, reason:'Opening stock', note:'', staff:'Admin', party:'', expiry:'', name:o.name, brand:o.brand || '', size:o.size || '', flavour:o.flavour || '', billed:null}; }
+function applyPending(){
+  var pd = pendGet(); if(!pd.upc && !pd.open) return Promise.resolve();
+  Object.keys(pd.upc || {}).forEach(function(k){ if(!UPC[k] && prod(k.split('~')[0])) UPC[k] = pd.upc[k]; });
+  var o = (pd.open || []).filter(function(x){ return prod(x.key.split('~')[0]); });
+  o.forEach(function(x){ LEDGER.tx.push(openTx(x)); });
+  var done = function(){ pendSet({}); computeStock(); flagsFromStock(); renderList(); renderStockTab(); };
+  return (o.length ? saveLedger('Opening stock') : Promise.resolve()).then(done).catch(function(){});
+}
 function stockUi(){ $('#stockSetup').hidden = STOCK_ON; $('#stockMain').hidden = !STOCK_ON; }
 function initStock(){
   STOCK_ON = false; SM = {}; UPC = {}; LEDGER = {tx:[]};
@@ -1040,7 +1055,7 @@ function initStock(){
     if(r[0]){ catalogSha = r[0].sha; catalogText = r[0].text; try{ JSON.parse(r[0].text).items.forEach(function(it){ if(it.upc) UPC[it.key] = it.upc; }); }catch(e){} }
     if(r[1]){ ledgerSha = r[1].sha; try{ LEDGER = JSON.parse(r[1].text); if(!Array.isArray(LEDGER.tx)) LEDGER.tx = []; }catch(e){ LEDGER = {tx:[]}; } }
     computeStock(); stockUi(); renderList(); renderStockTab();
-    return syncTx().then(function(){ return pushCatalog(); });
+    return applyPending().then(function(){ return syncTx(); }).then(function(){ return pushCatalog(); });
   }).catch(function(e){
     STOCK_ON = false; stockUi(); renderList();
     flash('Stock section: ' + (e.status === 404 ? 'the stock repository was not found, or the token has no access to it. Check the name and the token.' : e.message), true);
