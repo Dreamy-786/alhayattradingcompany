@@ -4364,7 +4364,52 @@
     }
   ],
   "posters": [],
-  "categories": [],
+  "categories": [
+    {
+      "name": "Proteins",
+      "image": "images/cat17958747755068uik.jpg"
+    },
+    {
+      "name": "Accessories",
+      "image": "images/cat1795874731357zteg.jpg"
+    },
+    {
+      "name": "Amino Acids & Hydrations",
+      "image": ""
+    },
+    {
+      "name": "Collagen",
+      "image": ""
+    },
+    {
+      "name": "Creatine",
+      "image": ""
+    },
+    {
+      "name": "Fat Burner",
+      "image": ""
+    },
+    {
+      "name": "Muscle Builder",
+      "image": ""
+    },
+    {
+      "name": "Omega-3",
+      "image": ""
+    },
+    {
+      "name": "Pre-Workout",
+      "image": ""
+    },
+    {
+      "name": "Vitamins & Health",
+      "image": ""
+    },
+    {
+      "name": "Weight Gainers",
+      "image": ""
+    }
+  ],
   "brands": [],
   "ingredients": [],
   "sections": {}
