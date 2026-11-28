@@ -4127,6 +4127,32 @@
         }
       ],
       "id": "92"
+    },
+    {
+      "name": "PRO TAN® Instant Competition Color Mousse",
+      "brand": "ProTan",
+      "category": "Accessories",
+      "subcategory": "Competition Tanning",
+      "sku": "",
+      "rating": 4.5,
+      "featured": "yes",
+      "description": "PRO TAN Instant Competition Color Mousse is designed to help bodybuilders achieve a competition-ready skin tone for stage appearances. Its mousse application makes it suitable for physique preparation, bodybuilding competitions and fitness photoshoots.",
+      "images": [
+        "images/p17958769021975a05.jpg"
+      ],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "servings": "",
+          "price": 2599,
+          "mrp": 2599,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "93"
     }
   ],
   "reviews": [
