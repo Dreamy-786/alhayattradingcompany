@@ -323,6 +323,78 @@ footer.site a:hover{color:var(--accent)}
   .certs{grid-template-columns:repeat(2,1fr);gap:10px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.strip{scroll-behavior:auto}.mq{animation:none}}
+
+/* vertical banner */
+.topbar.v{position:relative;height:38px;overflow:hidden;padding:0;white-space:normal}
+.tb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 16px;font-size:13px;font-weight:600;line-height:1.2;transform:translateY(-100%);opacity:0;transition:transform .6s ease,opacity .6s ease}
+.tb.on{transform:none;opacity:1}
+.tb.out{transform:translateY(100%);opacity:0}
+/* menu */
+.burger{width:44px;height:44px;border-radius:8px;border:1px solid #2a2c35;background:transparent;color:#fff;display:grid;place-items:center;flex:none}
+.burger:hover{border-color:var(--accent);color:var(--accent)}
+.head-actions{margin-left:auto}
+.menu{position:fixed;left:0;right:0;top:0;z-index:70;background:#0b0b0e;color:#fff;transform:translateY(-102%);visibility:hidden;transition:transform .35s ease,visibility 0s .35s;max-height:88vh;overflow:auto;border-bottom:3px solid var(--accent)}
+.menu.open{transform:none;visibility:visible;transition:transform .35s ease,visibility 0s}
+.menu-bg{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:65;opacity:0;pointer-events:none;transition:opacity .3s}
+.menu-bg.open{opacity:1;pointer-events:auto}
+.menu-head{display:flex;justify-content:space-between;align-items:center;padding:14px 0 4px}
+.menu-head span{font-family:var(--font-display);font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.menu-head button{width:40px;height:40px;border-radius:99px;border:1px solid #2a2c35;background:transparent;color:#fff}
+.menu ul{list-style:none;margin:0;padding:0 0 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 28px}
+.menu a{display:block;padding:13px 4px;font-family:var(--font-display);font-size:28px;line-height:1.1;text-transform:uppercase;font-weight:800;border-bottom:1px solid #1f2027;text-decoration:none;color:#fff}
+.menu a:hover{color:var(--accent)}
+/* posters */
+.posters{padding-top:14px}
+.pwrap{position:relative}
+.pslides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:14px;background:#000}
+.pslides::-webkit-scrollbar{display:none}
+.pslide{flex:0 0 100%;scroll-snap-align:start;display:block;position:relative}
+.pslide img{width:100%;aspect-ratio:16/5;object-fit:cover;display:block}
+.pwrap .pa{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:99px;border:0;background:rgba(0,0,0,.55);color:#fff;font-size:26px;line-height:1;padding:0 0 3px;z-index:2}
+.pwrap .pa:hover{background:var(--accent);color:#1a0b05}
+.pwrap .pa.l{left:12px}.pwrap .pa.r{right:12px}
+.pdots{position:absolute;left:0;right:0;bottom:10px;display:flex;gap:7px;justify-content:center;z-index:2}
+.pdots button{width:9px;height:9px;border-radius:99px;border:0;padding:0;background:rgba(255,255,255,.55)}
+.pdots button[aria-current="true"]{background:var(--accent);width:24px}
+@media (max-width:700px){.pslide img{aspect-ratio:16/8}.posters.allm .pslide img{aspect-ratio:1/1}.pwrap .pa{display:none}}
+/* round categories + brands + ingredients */
+.rcats{display:flex;gap:26px;flex-wrap:wrap;justify-content:center}
+.rcat{display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;width:140px}
+.rc-img{position:relative;width:132px;height:132px;border-radius:50%;overflow:hidden;background:#fff;border:3px solid var(--line);display:grid;place-items:center;transition:border-color .15s,transform .15s}
+.rc-img i{font-style:normal;font-family:var(--font-display);font-size:54px;font-weight:800;color:var(--accent-deep)}
+.rc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rc-img.fb img{object-fit:contain;padding:12px}
+.rcat:hover .rc-img{border-color:var(--accent);transform:translateY(-3px)}
+.rcat b{font-family:var(--font-display);font-size:19px;text-transform:uppercase;text-align:center;line-height:1.1;letter-spacing:.02em}
+.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.bcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;text-decoration:none;transition:box-shadow .15s,border-color .15s}
+.bcard:hover{box-shadow:0 8px 22px rgba(10,12,20,.12);border-color:var(--accent)}
+.bcard .bl{height:90px;width:100%;display:grid;place-items:center}
+.bcard .bl img{max-width:100%;max-height:90px;object-fit:contain}
+.bcard .bl b{font-family:var(--font-display);font-size:28px;text-transform:uppercase}
+.bcard>b{font-size:15px}
+.bline{font-size:13px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.igrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.icard{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;text-align:left;padding:0;display:flex;flex-direction:column}
+.icard:hover{box-shadow:0 8px 22px rgba(10,12,20,.12)}
+.icard .ii{aspect-ratio:4/3;background:var(--bg);display:grid;place-items:center;overflow:hidden}
+.icard .ii img{width:100%;height:100%;object-fit:cover}
+.icard .ii i{font-style:normal;font-family:var(--font-display);font-size:48px;font-weight:800;color:var(--accent-deep)}
+.icard .it{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px}
+.icard .it b{font-family:var(--font-display);font-size:22px;text-transform:uppercase;line-height:1.1}
+.icard .it span{font-size:13px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ing-d{padding:24px;position:relative;display:grid;gap:14px}
+.ing-d img{width:100%;max-height:300px;object-fit:cover;border-radius:10px}
+.ing-d h2{font-size:38px;padding-right:44px}
+.main-img img{transition:transform .12s ease-out}
+.bhead{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:16px}
+.bhead .bb{width:100%;max-height:220px;object-fit:cover;display:block}
+.bhi{display:flex;gap:16px;align-items:center;padding:14px 18px}
+.bhi .bl2{width:84px;height:84px;object-fit:contain;flex:none}
+.bhi b{font-family:var(--font-display);font-size:30px;text-transform:uppercase;line-height:1}
+.bhi p{margin:6px 0 0;color:var(--muted)}
+@media (max-width:560px){.rcats{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;padding-bottom:8px;gap:16px}.rcat{width:96px;flex:none}.rc-img{width:90px;height:90px}.rc-img i{font-size:36px}.rcat b{font-size:15px}}
+.lb-stage img{position:absolute;left:50%;top:50%;max-width:none!important;max-height:none!important;width:auto;height:auto;transform:translate(-50%,-50%);transform-origin:center}
 </style>
 </head>
 <body id="top">
@@ -331,16 +403,8 @@ footer.site a:hover{color:var(--accent)}
 
 <header class="site">
   <div class="wrap head-row">
+    <button class="burger" id="burger" aria-label="Open sections menu" aria-expanded="false" aria-controls="menu"><svg class="ic" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
     <a class="logo" href="#top" aria-label="Home"><img alt="Al Hayat logo" id="logoImg"></a>
-    <nav class="main" aria-label="Main">
-      <a href="#offers" id="navOffers" hidden>Offers</a>
-      <a href="#shop">Shop</a>
-      <a href="#bmi">BMI &amp; calories</a>
-      <a href="#protein">Protein counter</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#authorised" id="navAuth" hidden>Authorised</a>
-      <a href="#contact">Find us</a>
-    </nav>
     <div class="head-actions">
       <a class="icon-link" id="igLink" href="#" target="_blank" rel="noopener" aria-label="Instagram" hidden>
         <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg>
@@ -352,8 +416,12 @@ footer.site a:hover{color:var(--accent)}
     </div>
   </div>
 </header>
+<div class="menu-bg" id="menuBg"></div>
+<nav class="menu" id="menu" aria-label="Sections"><div class="wrap"><div class="menu-head"><span>Sections</span><button id="menuClose" aria-label="Close menu">✕</button></div><ul id="menuList"></ul></div></nav>
 
-<section class="hero">
+<section class="posters" id="posters" hidden></section>
+
+<section class="hero" id="heroSec">
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow" id="heroEyebrow">Supplements, gear and apparel</span>
@@ -369,14 +437,28 @@ footer.site a:hover{color:var(--accent)}
   </div>
 </section>
 
+<section class="sec" id="categories" hidden style="padding-bottom:20px">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">Browse</span><h2 id="h-categories">Shop by category</h2></div></div>
+    <div class="rcats" id="rcats"></div>
+  </div>
+</section>
+
 <section class="sec shelves" id="offers" hidden>
   <div class="wrap" id="shelves"></div>
+</section>
+
+<section class="sec" id="brands" hidden style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">Top names</span><h2 id="h-brands">Shop by brand</h2></div></div>
+    <div class="bgrid" id="bgrid"></div>
+  </div>
 </section>
 
 <section class="sec" id="shop" style="padding-top:28px">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="eyebrow">The store</span><h2>Shop the range</h2></div>
+      <div><span class="eyebrow">The store</span><h2 id="h-shop">All products</h2></div>
     </div>
     <div class="pills" id="cats" aria-label="Categories"></div>
     <div class="subpills" id="subcats" hidden aria-label="Sub-categories"></div>
@@ -400,7 +482,7 @@ footer.site a:hover{color:var(--accent)}
 <section class="sec dark" id="tools">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="eyebrow">Free tools</span><h2>Know your numbers</h2></div>
+      <div><span class="eyebrow">Free tools</span><h2 id="h-tools">Know your numbers</h2></div>
       <p>Work out your BMI, daily calories and protein target, then count the protein in your meals.</p>
     </div>
     <div class="tools">
@@ -467,7 +549,7 @@ footer.site a:hover{color:var(--accent)}
 <section class="sec white" id="reviews">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="eyebrow">Reviews</span><h2>What customers say</h2></div>
+      <div><span class="eyebrow">Customer love</span><h2 id="h-reviews">Hear from our champions</h2></div>
       <div class="cta-links" id="revLinks"></div>
     </div>
     <div class="rev-head" id="revHead" hidden></div>
@@ -477,10 +559,17 @@ footer.site a:hover{color:var(--accent)}
   </div>
 </section>
 
+<section class="sec" id="ingredients" hidden>
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">Learn</span><h2 id="h-ingredients">Get to know your ingredients</h2></div><p>Tap an ingredient to see what it does.</p></div>
+    <div class="igrid" id="igrid"></div>
+  </div>
+</section>
+
 <section class="sec" id="authorised" hidden>
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="eyebrow">Authorised dealer</span><h2>Brand certificates</h2></div>
+      <div><span class="eyebrow">Genuine products</span><h2 id="h-authorised">Authorised dealer</h2></div>
       <p>Official authorisation certificates from the brands we sell. Tap a certificate to open it.</p>
     </div>
     <div class="certs" id="certs"></div>
@@ -489,7 +578,7 @@ footer.site a:hover{color:var(--accent)}
 
 <section class="sec white" id="contact">
   <div class="wrap">
-    <div class="sec-head"><div><span class="eyebrow">Visit us</span><h2>Find the store</h2></div></div>
+    <div class="sec-head"><div><span class="eyebrow">Visit us</span><h2 id="h-contact">Find us</h2></div></div>
     <div class="contact">
       <div class="cinfo" id="cinfo"></div>
       <div class="mapbox" id="mapbox"></div>
@@ -501,7 +590,7 @@ footer.site a:hover{color:var(--accent)}
   <div class="wrap">
     <div class="fcols">
       <div><img alt="" id="fLogo"><p id="fAbout"></p></div>
-      <div><h4>Explore</h4><p><a href="#shop">Shop</a></p><p><a href="#bmi">BMI &amp; calories</a></p><p><a href="#protein">Protein counter</a></p><p><a href="#reviews">Reviews</a></p></div>
+      <div><h4>Explore</h4><p><a href="#shop">All products</a></p><p><a href="#bmi">BMI &amp; calories</a></p><p><a href="#protein">Protein counter</a></p><p><a href="#reviews">Reviews</a></p></div>
       <div><h4>Contact</h4><div id="fContact"></div></div>
     </div>
     <div class="copy" id="copy"></div>
@@ -513,6 +602,7 @@ footer.site a:hover{color:var(--accent)}
 </a>
 
 <dialog id="detail"></dialog>
+<dialog id="ingDlg"></dialog>
 <dialog id="cart" class="drawer">
   <header><h2>Your cart</h2><button class="close" id="cartClose" aria-label="Close cart">✕</button></header>
   <div class="items" id="cartItems"></div>
@@ -577,7 +667,7 @@ function normProduct(r, i){
   const variants = raw.map((v, j) => {
     const price = num(v.price);
     return {vid: String(v.vid ?? j), size: String(v.size || "").trim(), flavour: String(v.flavour || "").trim(),
-      price, mrp: Math.max(num(v.mrp) || price, price), inStock: !isOut(v.stock), img: v.image || ""};
+      price, mrp: Math.max(num(v.mrp) || price, price), inStock: !isOut(v.stock), img: v.image || "", servings: String(v.servings || "").trim()};
   }).filter(v => v.price > 0);
   if(!r.name || !variants.length) return null;
   const pool = variants.filter(v => v.inStock);
@@ -597,20 +687,22 @@ function normProduct(r, i){
 }
 /* "protein" and "Protein" become one category; same for sub-categories */
 function canonicalize(list){
-  const cm = {}, sm = {};
+  const cm = {}, sm = {}, bm = {};
   list.forEach(p => {
     const ck = p.category.toLowerCase(); cm[ck] = cm[ck] || p.category; p.category = cm[ck];
+    if(p.brand){ const bk = p.brand.toLowerCase(); bm[bk] = bm[bk] || p.brand; p.brand = bm[bk]; }
     if(p.subcategory){ const sk = ck + "|" + p.subcategory.toLowerCase(); sm[sk] = sm[sk] || p.subcategory; p.subcategory = sm[sk]; }
   });
 }
 function catList(){
   const cats = [...new Set(products.map(p => p.category))];
-  const ord = CONFIG.categoryOrder.split(",").map(s => s.trim().toLowerCase()).filter(Boolean);
+  const ord = [...(DATA.categories || []).map(c => String((c && c.name) || "").toLowerCase()), ...CONFIG.categoryOrder.split(",").map(s => s.trim().toLowerCase())].filter(Boolean);
   return cats.sort((a, b) => {
     const ia = ord.indexOf(a.toLowerCase()), ib = ord.indexOf(b.toLowerCase());
     if(ia >= 0 && ib >= 0) return ia - ib; if(ia >= 0) return -1; if(ib >= 0) return 1; return a.localeCompare(b);
   });
 }
+const servTxt = x => /^\d+(\.\d+)?$/.test(x) ? x + (Number(x) === 1 ? " serving" : " servings") : x;
 const discOf = v => v.mrp > v.price ? Math.round((1 - v.price / v.mrp) * 100) : 0;
 function placeholder(p){
   const t = esc((p.brand || p.name).slice(0, 14).toUpperCase());
@@ -642,7 +734,7 @@ function visible(){
 function cardHTML(p){
   const multi = p.variants.length > 1, c = p.cheapest, d = discOf(c);
   const bits = []; if(p.sizes.length > 1) bits.push(p.sizes.length + " sizes"); if(p.flavours.length > 1) bits.push(p.flavours.length + " flavours");
-  const single = [p.sizes[0], p.flavours[0]].filter(Boolean).join(" · ");
+  const single = [p.sizes[0], p.flavours[0], !multi && c.servings ? servTxt(c.servings) : ""].filter(Boolean).join(" · ");
   const btn = p.allOut ? `<button class="add" disabled>Sold out</button>`
     : multi ? `<button class="add" data-open="${esc(p.id)}">Choose options</button>`
     : `<button class="add" data-add="${esc(p.id + "~" + c.vid)}">Add to cart</button>`;
@@ -662,18 +754,17 @@ function cardHTML(p){
 /* ---------- categories, sub-categories, brand ---------- */
 function renderCats(){
   const cats = catList();
-  const count = c => products.filter(p => p.category === c).length;
-  $("#cats").innerHTML = `<button data-cat="All" aria-pressed="${state.cat === "All" && !state.shelf}">All<span class="n">${products.length}</span></button>` +
-    cats.map(c => `<button data-cat="${esc(c)}" aria-pressed="${c === state.cat && !state.shelf}">${esc(c)}<span class="n">${count(c)}</span></button>`).join("");
+    $("#cats").innerHTML = `<button data-cat="All" aria-pressed="${state.cat === "All" && !state.shelf}">All</button>` +
+    cats.map(c => `<button data-cat="${esc(c)}" aria-pressed="${c === state.cat && !state.shelf}">${esc(c)}</button>`).join("");
   const sp = $("#subcats");
   if(state.cat !== "All" && !state.shelf){
     const inCat = products.filter(p => p.category === state.cat);
     const subs = [...new Set(inCat.map(p => p.subcategory).filter(Boolean))].sort((a, b) => a.localeCompare(b));
     const other = inCat.filter(p => !p.subcategory).length;
     if(subs.length){
-      sp.innerHTML = `<span class="lab">Sub-category</span><button data-sub="All" aria-pressed="${state.sub === "All"}">All ${esc(state.cat)}<span class="n">${inCat.length}</span></button>` +
-        subs.map(s => `<button data-sub="${esc(s)}" aria-pressed="${state.sub === s}">${esc(s)}<span class="n">${inCat.filter(p => p.subcategory === s).length}</span></button>`).join("") +
-        (other ? `<button data-sub="__other" aria-pressed="${state.sub === "__other"}">Other<span class="n">${other}</span></button>` : "");
+      sp.innerHTML = `<span class="lab">Sub-category</span><button data-sub="All" aria-pressed="${state.sub === "All"}">All ${esc(state.cat)}</button>` +
+        subs.map(s => `<button data-sub="${esc(s)}" aria-pressed="${state.sub === s}">${esc(s)}</button>`).join("") +
+        (other ? `<button data-sub="__other" aria-pressed="${state.sub === "__other"}">Other</button>` : "");
       sp.hidden = false;
     } else sp.hidden = true;
   } else sp.hidden = true;
@@ -683,30 +774,34 @@ function renderCats(){
 }
 function viewTitle(){
   if(state.shelf){ const s = shelfById(state.shelf); return s ? s.title : "Products"; }
-  if(state.cat === "All") return "";
+  if(state.cat === "All") return state.brand !== "All" ? state.brand : "";
   return state.cat + (state.sub !== "All" ? " › " + (state.sub === "__other" ? "Other" : state.sub) : "");
 }
 function renderGrid(){
   const lb = $("#listbar");
-  if(loadFailed){ $("#grid").innerHTML = `<div class="empty">Products could not be loaded. Please refresh the page.</div>`; $("#count").textContent = ""; lb.hidden = true; return; }
+  if(loadFailed){ $("#grid").innerHTML = `<div class="empty">Products could not be loaded. Please refresh the page.</div>`; lb.hidden = true; return; }
   const list = visible();
-  $("#count").textContent = list.length + (list.length === 1 ? " product" : " products");
   const title = viewTitle();
   if(title){
     lb.hidden = false;
-    lb.innerHTML = `<div class="t">${esc(title)}<small>${list.length} ${list.length === 1 ? "product" : "products"}</small></div>
+    lb.innerHTML = `<div class="t">${esc(title)}</div>
       <div class="acts">${state.shelf ? `<button class="btn ghost sm" data-back="1">All products</button>` : ""}
       <button class="btn sm" data-sharelist="wa">Share this list on WhatsApp</button><button class="btn dark sm" data-sharelist="copy">Copy link</button></div>`;
   } else lb.hidden = true;
   if(!list.length){ $("#grid").innerHTML = `<div class="grid"><div class="empty">No products match. Try a different search or category.</div></div>`; return; }
+  let bh = "";
+  if(!state.shelf && state.cat === "All" && state.brand !== "All"){
+    const bc = brandCfg(state.brand);
+    if(bc.banner || bc.logo || bc.line) bh = `<div class="bhead">${bc.banner ? `<img class="bb" src="${esc(bc.banner)}" alt="">` : ""}<div class="bhi">${bc.logo ? `<img class="bl2" src="${esc(bc.logo)}" alt="${esc(state.brand)} logo">` : ""}<div><b>${esc(state.brand)}</b>${bc.line ? `<p>${esc(bc.line)}</p>` : ""}</div></div></div>`;
+  }
   const subsInCat = state.cat !== "All" ? [...new Set(products.filter(p => p.category === state.cat).map(p => p.subcategory).filter(Boolean))].length : 0;
   if(!state.shelf && state.cat !== "All" && state.sub === "All" && subsInCat >= 1 && !state.q.trim()){
     const groups = {}, order = [];
     list.forEach(p => { const k = p.subcategory || "__other"; if(!groups[k]){ groups[k] = []; order.push(k); } groups[k].push(p); });
     order.sort((a, b) => a === "__other" ? 1 : b === "__other" ? -1 : a.localeCompare(b));
-    $("#grid").innerHTML = order.map(k => `<h3 class="grp">${k === "__other" ? "Other" : esc(k)}<span>${groups[k].length} ${groups[k].length === 1 ? "product" : "products"}</span><button data-sub="${esc(k)}">See only these</button></h3><div class="grid">${groups[k].map(cardHTML).join("")}</div>`).join("");
+    $("#grid").innerHTML = order.map(k => `<h3 class="grp">${k === "__other" ? "Other" : esc(k)}<button data-sub="${esc(k)}">See only these</button></h3><div class="grid">${groups[k].map(cardHTML).join("")}</div>`).join("");
   } else {
-    $("#grid").innerHTML = `<div class="grid">${list.map(cardHTML).join("")}</div>`;
+    $("#grid").innerHTML = bh + `<div class="grid">${list.map(cardHTML).join("")}</div>`;
   }
 }
 
@@ -723,11 +818,11 @@ function shelfList(){
 const shelfById = id => shelfList().find(s => s.id === id);
 function renderShelves(){
   const rows = shelfList().map(s => ({s, items: (s.products || []).map(id => products.find(p => p.id === String(id))).filter(Boolean)})).filter(r => r.items.length);
-  $("#offers").hidden = !rows.length; $("#navOffers").hidden = !rows.length;
+  $("#offers").hidden = !rows.length;
   $("#shelves").innerHTML = rows.map(({s, items}) => `<div class="shelf" id="shelf-${esc(s.id)}">
-    <div class="shelf-head"><h3>${esc(s.title)}</h3><a href="#shelf/${esc(s.id)}" data-shelf="${esc(s.id)}">See all ${items.length} →</a></div>
+    <div class="shelf-head"><h3>${esc(s.title)}</h3><a href="#shelf/${esc(s.id)}" data-shelf="${esc(s.id)}">See all →</a></div>
     <div class="shelf-wrap"><button class="sh-arrow l" data-sh="-1" aria-label="Scroll left" disabled>‹</button>
-      <div class="strip">${items.slice(0, 14).map(cardHTML).join("")}<a class="seeall" href="#shelf/${esc(s.id)}" data-shelf="${esc(s.id)}"><b>See all</b><span>${items.length} products →</span></a></div>
+      <div class="strip">${items.slice(0, 14).map(cardHTML).join("")}<a class="seeall" href="#shelf/${esc(s.id)}" data-shelf="${esc(s.id)}"><b>See all</b><span>View more →</span></a></div>
       <button class="sh-arrow r" data-sh="1" aria-label="Scroll right">›</button></div></div>`).join("");
   document.querySelectorAll(".strip").forEach(st => { st.addEventListener("scroll", () => stripArrows(st), {passive:true}); stripArrows(st); });
 }
@@ -741,6 +836,7 @@ function stripArrows(st){
 const enc = encodeURIComponent;
 function hashFor(){
   if(state.shelf) return "#shelf/" + enc(state.shelf);
+  if(state.cat === "All" && state.brand !== "All") return "#brand/" + enc(state.brand);
   if(state.cat !== "All") return "#category/" + enc(state.cat) + (state.sub !== "All" ? "/" + enc(state.sub) : "");
   return "";
 }
@@ -749,7 +845,8 @@ function shareBase(){ let u = location.origin + location.pathname.replace(/index
 const prodUrl = p => shareBase() + "p/" + enc(p.id) + "/";
 function setView(v, scroll){
   state.shelf = v.shelf || ""; state.cat = v.cat || "All"; state.sub = v.sub || "All";
-  if(v.reset){ state.q = ""; state.brand = "All"; $("#q").value = ""; }
+  state.brand = v.brand !== undefined ? v.brand : (v.reset ? "All" : state.brand);
+  if(v.reset){ state.q = ""; $("#q").value = ""; }
   renderCats(); renderGrid(); syncHash();
   if(scroll) $("#shop").scrollIntoView({behavior:"smooth", block:"start"});
 }
@@ -757,6 +854,7 @@ function route(){
   const h = location.hash; let m;
   try{
     if((m = h.match(/^#product-(.+)$/))){ const id = decodeURIComponent(m[1]); if(products.some(p => p.id === id)) openDetail(id, true); return; }
+    if((m = h.match(/^#brand\/(.+)$/))){ const nm = decodeURIComponent(m[1]); const br = products.map(p => p.brand).find(b => b && b.toLowerCase() === nm.toLowerCase()); if(br) setView({brand:br, reset:true}, true); return; }
     if((m = h.match(/^#shelf\/([^/]+)$/))){ const id = decodeURIComponent(m[1]); if(shelfById(id)) setView({shelf:id, reset:true}, true); return; }
     if((m = h.match(/^#category\/([^/]+)(?:\/(.+))?$/))){
       const cat = catList().find(c => c.toLowerCase() === decodeURIComponent(m[1]).toLowerCase());
@@ -850,7 +948,7 @@ function renderDetail(){
     <button class="close" data-close="detail" aria-label="Close">✕</button>
     <div class="gallery"><div class="main-img">${canZoom ? `<button class="zoomable" data-lb="${D.img}" aria-label="Enlarge photo">${img}</button>` : img}
         ${shown.length > 1 ? `<button class="gnav l" data-gnav="-1" aria-label="Previous photo">‹</button><button class="gnav r" data-gnav="1" aria-label="Next photo">›</button>` : ""}
-        ${canZoom ? '<span class="zhint">Tap photo to enlarge and zoom</span>' : ""}</div>
+        ${canZoom ? '<span class="zhint">Click photo to enlarge and zoom</span>' : ""}</div>
       ${shown.length > 1 ? `<div class="thumbs">${shown.map((s, i) => `<button data-thumb="${i}" aria-current="${i === D.img}" aria-label="Photo ${i + 1}">${imgTag(p, s, "")}</button>`).join("")}</div>` : ""}</div>
     <div class="info">
       <span class="brand-tag">${esc(p.brand)} · ${esc(p.category)}${p.subcategory ? " · " + esc(p.subcategory) : ""}</span>
@@ -860,6 +958,7 @@ function renderDetail(){
       ${group("Size", "size", p.sizes, D.size)}
       ${group("Flavour", "flav", p.flavours, D.flav)}
       ${spec ? `<div class="meta" style="white-space:normal">${esc(spec)}</div>` : ""}
+      ${v.servings ? `<div class="meta" style="white-space:normal">Servings: <b>${esc(servTxt(v.servings))}</b>${/^\d+(\.\d+)?$/.test(v.servings) && +v.servings > 0 ? " · about " + money(Math.round(v.price / v.servings * 100) / 100) + " per serving" : ""}</div>` : ""}
       <div class="meta">${v.inStock ? '<b style="color:var(--good)">In stock</b>' : "<b>Sold out</b>"}</div>
       <div class="desc">${esc(p.description)}</div>
       <button class="btn" data-add="${esc(p.id + "~" + v.vid)}" ${v.inStock ? "" : "disabled"} style="width:100%;margin-top:auto">${v.inStock ? "Add to cart" : "Sold out"}</button>
@@ -869,47 +968,84 @@ function renderDetail(){
 }
 
 /* ================= image viewer with arrows and zoom ================= */
-const LB = {items: [], i: 0, s: 1, x: 0, y: 0, ptr: new Map(), startDist: 0, startS: 1, sx: 0, sy: 0};
-function lbApply(){ $("#lbImg").style.transform = `translate(${LB.x}px,${LB.y}px) scale(${LB.s})`; $("#lbZoomTxt").textContent = Math.round(LB.s * 100) + "%"; $("#lbStage").style.cursor = LB.s > 1 ? "grab" : "zoom-in"; }
-function lbReset(){ LB.s = 1; LB.x = 0; LB.y = 0; lbApply(); }
+const LB = {items: [], i: 0, s: 1, x: 0, y: 0, w: 0, h: 0, ptr: new Map(), d0: 0, s0: 1, c0: null, x0: 0, y0: 0, down: null, lastTap: 0};
+const clampN = (v, a, b) => Math.min(b, Math.max(a, v));
+function lbClamp(){
+  const st = $("#lbStage"), mx = Math.max(0, (LB.w * LB.s - st.clientWidth) / 2), my = Math.max(0, (LB.h * LB.s - st.clientHeight) / 2);
+  LB.x = clampN(LB.x, -mx, mx); LB.y = clampN(LB.y, -my, my);
+}
+function lbApply(){
+  $("#lbImg").style.transform = `translate(-50%,-50%) translate(${LB.x}px,${LB.y}px) scale(${LB.s})`;
+  $("#lbZoomTxt").textContent = Math.round(LB.s * 100) + "%"; $("#lbStage").style.cursor = LB.s > 1 ? "grab" : "zoom-in";
+}
+function lbFit(){
+  const st = $("#lbStage"), im = $("#lbImg"), nw = im.naturalWidth || 1, nh = im.naturalHeight || 1;
+  const k = Math.min(st.clientWidth / nw, st.clientHeight / nh);
+  LB.w = nw * k; LB.h = nh * k; im.style.width = LB.w + "px"; im.style.height = LB.h + "px"; lbClamp(); lbApply();
+}
+function lbReset(){ LB.s = 1; LB.x = 0; LB.y = 0; lbClamp(); lbApply(); }
 function lbShow(){
-  const it = LB.items[LB.i], many = LB.items.length > 1;
-  $("#lbImg").src = it.src; $("#lbImg").alt = it.cap || "";
+  const it = LB.items[LB.i], many = LB.items.length > 1, im = $("#lbImg");
+  LB.s = 1; LB.x = 0; LB.y = 0; im.onload = lbFit; im.src = it.src; im.alt = it.cap || ""; if(im.complete && im.naturalWidth) lbFit();
   $("#lbCap").textContent = (it.cap || "") + (many ? `   ${LB.i + 1} of ${LB.items.length}` : "");
-  $("#lbPrev").hidden = $("#lbNext").hidden = !many; lbReset();
+  $("#lbPrev").hidden = $("#lbNext").hidden = !many;
 }
 function lbGo(d){ LB.i = (LB.i + d + LB.items.length) % LB.items.length; lbShow(); }
-function lbZoom(f){ LB.s = Math.min(6, Math.max(1, LB.s * f)); if(LB.s === 1){ LB.x = 0; LB.y = 0; } lbApply(); }
-function openLB(items, i){ LB.items = items; LB.i = i; lbShow(); $("#lb").showModal(); }
+/* zoom keeping the point (cx, cy), measured from the centre of the stage, under the finger or cursor */
+function lbZoomAt(s2, cx, cy){
+  s2 = clampN(s2, 1, 5); const f = s2 / LB.s;
+  LB.x = cx - (cx - LB.x) * f; LB.y = cy - (cy - LB.y) * f; LB.s = s2;
+  if(s2 === 1){ LB.x = 0; LB.y = 0; } lbClamp(); lbApply();
+}
+function openLB(items, i){ LB.items = items; LB.i = i; $("#lb").showModal(); lbShow(); }
 (function(){
   const st = $("#lbStage");
+  const rel = e => { const r = st.getBoundingClientRect(); return {x: e.clientX - r.left - r.width / 2, y: e.clientY - r.top - r.height / 2}; };
   st.addEventListener("pointerdown", e => {
     try{ st.setPointerCapture(e.pointerId); }catch(_){}
-    LB.ptr.set(e.pointerId, {x: e.clientX, y: e.clientY}); LB.sx = e.clientX; LB.sy = e.clientY;
-    if(LB.ptr.size === 2){ const [a, b] = [...LB.ptr.values()]; LB.startDist = Math.hypot(a.x - b.x, a.y - b.y) || 1; LB.startS = LB.s; }
+    const p = rel(e); LB.ptr.set(e.pointerId, p);
+    if(LB.ptr.size === 1) LB.down = {x: e.clientX, y: e.clientY, t: Date.now(), moved: false};
+    if(LB.ptr.size === 2){
+      const [a, b] = [...LB.ptr.values()]; LB.d0 = Math.hypot(a.x - b.x, a.y - b.y) || 1; LB.s0 = LB.s;
+      LB.c0 = {x: (a.x + b.x) / 2, y: (a.y + b.y) / 2}; LB.x0 = LB.x; LB.y0 = LB.y; if(LB.down) LB.down.moved = true;
+    }
   });
   st.addEventListener("pointermove", e => {
     if(!LB.ptr.has(e.pointerId)) return;
-    const prev = LB.ptr.get(e.pointerId); LB.ptr.set(e.pointerId, {x: e.clientX, y: e.clientY});
-    if(LB.ptr.size === 2){ const [a, b] = [...LB.ptr.values()]; LB.s = Math.min(6, Math.max(1, LB.startS * Math.hypot(a.x - b.x, a.y - b.y) / LB.startDist)); lbApply(); }
-    else if(LB.s > 1){ LB.x += e.clientX - prev.x; LB.y += e.clientY - prev.y; lbApply(); }
+    const prev = LB.ptr.get(e.pointerId), p = rel(e); LB.ptr.set(e.pointerId, p);
+    if(LB.down && Math.hypot(e.clientX - LB.down.x, e.clientY - LB.down.y) > 8) LB.down.moved = true;
+    if(LB.ptr.size === 2){
+      const [a, b] = [...LB.ptr.values()], d = Math.hypot(a.x - b.x, a.y - b.y) || 1, c = {x: (a.x + b.x) / 2, y: (a.y + b.y) / 2};
+      const s2 = clampN(LB.s0 * d / LB.d0, 1, 5), u = {x: (LB.c0.x - LB.x0) / LB.s0, y: (LB.c0.y - LB.y0) / LB.s0};
+      LB.s = s2; LB.x = c.x - s2 * u.x; LB.y = c.y - s2 * u.y; lbClamp(); lbApply();
+    } else if(LB.s > 1){ LB.x += p.x - prev.x; LB.y += p.y - prev.y; lbClamp(); lbApply(); }
   });
   const end = e => {
-    if(!LB.ptr.has(e.pointerId)) return; LB.ptr.delete(e.pointerId);
-    if(LB.ptr.size === 0 && LB.s === 1 && LB.items.length > 1){
-      const dx = e.clientX - LB.sx, dy = e.clientY - LB.sy;
-      if(Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) lbGo(dx < 0 ? 1 : -1);
-    }
+    if(!LB.ptr.has(e.pointerId)) return; const wasOne = LB.ptr.size === 1; LB.ptr.delete(e.pointerId);
+    if(!wasOne || !LB.down) return; const dn = LB.down; LB.down = null;
+    const dx = e.clientX - dn.x, dy = e.clientY - dn.y;
+    if(!dn.moved && Date.now() - dn.t < 400){
+      const now = Date.now();
+      if(now - LB.lastTap < 350){ LB.lastTap = 0; const p = rel(e); lbZoomAt(LB.s > 1 ? 1 : 2.5, p.x, p.y); } else LB.lastTap = now;
+    } else if(LB.s === 1 && LB.items.length > 1 && Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) lbGo(dx < 0 ? 1 : -1);
   };
-  st.addEventListener("pointerup", end); st.addEventListener("pointercancel", end);
-  st.addEventListener("wheel", e => { e.preventDefault(); lbZoom(e.deltaY < 0 ? 1.18 : 1 / 1.18); }, {passive: false});
-  st.addEventListener("dblclick", () => { if(LB.s > 1) lbReset(); else { LB.s = 2.5; lbApply(); } });
-  $("#lbIn").onclick = () => lbZoom(1.4); $("#lbOut").onclick = () => lbZoom(1 / 1.4); $("#lbReset").onclick = lbReset;
+  st.addEventListener("pointerup", end); st.addEventListener("pointercancel", e => { LB.ptr.delete(e.pointerId); LB.down = null; });
+  st.addEventListener("wheel", e => { e.preventDefault(); const p = rel(e); lbZoomAt(LB.s * (e.deltaY < 0 ? 1.2 : 1 / 1.2), p.x, p.y); }, {passive: false});
+  $("#lbIn").onclick = () => lbZoomAt(LB.s * 1.5, 0, 0); $("#lbOut").onclick = () => lbZoomAt(LB.s / 1.5, 0, 0); $("#lbReset").onclick = lbReset;
   $("#lbPrev").onclick = () => lbGo(-1); $("#lbNext").onclick = () => lbGo(1); $("#lbClose").onclick = () => $("#lb").close();
   $("#lb").addEventListener("keydown", e => {
     if(e.key === "ArrowLeft") lbGo(-1); else if(e.key === "ArrowRight") lbGo(1);
-    else if(e.key === "+" || e.key === "=") lbZoom(1.4); else if(e.key === "-") lbZoom(1 / 1.4); else if(e.key === "0") lbReset();
+    else if(e.key === "+" || e.key === "=") lbZoomAt(LB.s * 1.5, 0, 0); else if(e.key === "-") lbZoomAt(LB.s / 1.5, 0, 0); else if(e.key === "0") lbReset();
   });
+  window.addEventListener("resize", () => { if($("#lb").open) lbFit(); });
+  /* desktop: hover over the product photo to magnify it, click for the full viewer */
+  const det = $("#detail");
+  det.addEventListener("mousemove", e => {
+    const m = e.target.closest(".main-img"); if(!m || !matchMedia("(hover:hover)").matches || e.target.closest(".gnav")) return;
+    const img = m.querySelector(".zoomable img") || m.querySelector("img"), r = m.getBoundingClientRect(); if(!img) return;
+    img.style.transformOrigin = ((e.clientX - r.left) / r.width * 100) + "% " + ((e.clientY - r.top) / r.height * 100) + "%"; img.style.transform = "scale(2.3)";
+  });
+  det.addEventListener("mouseout", e => { const m = e.target.closest(".main-img"); if(m && !m.contains(e.relatedTarget)){ const img = m.querySelector("img"); if(img){ img.style.transform = ""; } } });
 })();
 
 /* ================= cart ================= */
@@ -1106,7 +1242,7 @@ function renderReviewGrid(){
   $("#revGrid").innerHTML = shown.map(reviewCard).join("");
   const more = $("#revMore");
   more.hidden = REV.length <= 6;
-  more.innerHTML = REV.length > 6 ? `<button class="btn dark sm" data-revmore="1">${revAll ? "Show fewer reviews" : "Show all " + REV.length + " reviews"}</button>` : "";
+  more.innerHTML = REV.length > 6 ? `<button class="btn dark sm" data-revmore="1">${revAll ? "Show fewer reviews" : "Show all reviews"}</button>` : "";
 }
 async function loadReviews(){
   reviewLinks();
@@ -1132,7 +1268,7 @@ async function loadReviews(){
 let CERT_IMGS = [];
 function renderCerts(){
   const list = (DATA.certificates || []).filter(c => c && c.file);
-  $("#authorised").hidden = !list.length; $("#navAuth").hidden = !list.length;
+  setSec("authorised", !list.length);
   CERT_IMGS = [];
   $("#certs").innerHTML = list.map(c => {
     const label = `<div class="ctx"><b>${esc(c.brand || "Brand")}</b>${c.title ? `<span>${esc(c.title)}</span>` : ""}<em>${c.type === "pdf" ? "Open PDF" : "View certificate"}</em></div>`;
@@ -1143,18 +1279,22 @@ function renderCerts(){
 }
 
 /* ================= banner, contact, footer, social ================= */
+let bannerTimer;
 function renderBanner(){
-  const bar = $("#topbar");
-  let msgs = (CONFIG.announcements || "").split("\n").map(s => s.trim()).filter(Boolean);
+  const bar = $("#topbar"); clearInterval(bannerTimer);
+  let msgs = (CONFIG.announcements || "").split("\n").map(x => x.trim()).filter(Boolean);
   if(!msgs.length && CONFIG.topbar) msgs = [CONFIG.topbar];
   if(!msgs.length){ bar.hidden = true; return; }
-  bar.hidden = false;
-  if(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches){ bar.classList.add("still"); bar.textContent = msgs.join("   •   "); return; }
-  const groupPx = msgs.reduce((s, m) => s + m.length * 7.5 + 90, 0);
-  const reps = Math.max(1, Math.ceil(1900 / groupPx));
-  const half = Array.from({length: reps}, () => msgs.map(m => `<span>${esc(m)}</span>`).join("")).join("");
-  const halfPx = groupPx * reps;
-  bar.innerHTML = `<div class="mq" style="--mq-dur:${Math.max(12, Math.round(halfPx / 55))}s">${half}${half}</div>`;
+  bar.hidden = false; bar.className = "topbar v";
+  bar.innerHTML = msgs.map((m, i) => `<div class="tb${i === 0 ? " on" : ""}">${esc(m)}</div>`).join("");
+  if(msgs.length < 2) return;
+  const els = [...bar.children], reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches; let i = 0;
+  bannerTimer = setInterval(() => {
+    const cur = els[i]; i = (i + 1) % els.length; const nx = els[i];
+    if(reduce){ cur.classList.remove("on"); nx.classList.add("on"); return; }
+    cur.classList.remove("on"); cur.classList.add("out"); nx.classList.add("on");
+    setTimeout(() => { cur.style.transition = "none"; cur.classList.remove("out"); void cur.offsetWidth; cur.style.transition = ""; }, 750);
+  }, 3500);
 }
 function igUrl(v){ v = (v || "").trim(); if(!v) return ""; if(/^https?:/i.test(v)) return v; return "https://www.instagram.com/" + v.replace(/^@/, "").replace(/\/$/, "") + "/"; }
 function igName(v){ const m = (v || "").match(/instagram\.com\/([^/?#]+)/i); return "@" + (m ? m[1] : String(v).trim().replace(/^@/, "")); }
@@ -1198,10 +1338,88 @@ function applyConfig(){
   $("#copy").textContent = "© " + new Date().getFullYear() + " " + C.firmName + ". All rights reserved.";
 }
 
+/* ================= sections, menu, posters, categories, brands, ingredients ================= */
+const SEC = [["home","Home","#top"],["categories","Shop by category","#categories"],["brands","Shop by brand","#brands"],["shop","All products","#shop"],["reviews","Hear from our champions","#reviews"],["tools","Know your numbers","#tools"],["ingredients","Get to know your ingredients","#ingredients"],["authorised","Authorised dealer","#authorised"],["contact","Find us","#contact"]];
+const secCfg = k => ((DATA.sections || {})[k]) || {};
+const secLabel = k => (secCfg(k).label || "").trim() || SEC.find(x => x[0] === k)[1];
+function setSec(id, hide){ const el = $("#" + id); if(el) el.hidden = hide || secCfg(id).show === false; }
+function applySections(){
+  ["categories","brands","shop","reviews","tools","ingredients","authorised","contact"].forEach(k => { const h = $("#h-" + k); if(h) h.textContent = secLabel(k); });
+  ["shop","reviews","tools","contact"].forEach(k => setSec(k, false));
+}
+function buildMenu(){
+  $("#menuList").innerHTML = SEC.filter(([k]) => k === "home" || ($("#" + k) && !$("#" + k).hidden))
+    .map(([k, , h]) => `<li><a href="${h}" data-menulink>${esc(k === "home" ? secLabel("home") : secLabel(k))}</a></li>`).join("");
+}
+function menuOpen(o){ $("#menu").classList.toggle("open", o); $("#menuBg").classList.toggle("open", o); $("#burger").setAttribute("aria-expanded", String(o)); }
+
+function linkHref(l){
+  if(!l || !l.type || l.type === "none") return ""; const v = String(l.value || "");
+  return l.type === "category" ? "#category/" + enc(v) : l.type === "brand" ? "#brand/" + enc(v) : l.type === "product" ? "#product-" + enc(v) :
+    l.type === "shelf" ? "#shelf/" + enc(v) : l.type === "url" && /^https?:\/\//i.test(v) ? v : "";
+}
+let posterTimer;
+function renderPosters(){
+  clearInterval(posterTimer);
+  const list = (DATA.posters || []).filter(x => x && x.image && x.enabled !== false);
+  const box = $("#posters"), hero = $("#heroSec");
+  if(!list.length){ box.hidden = true; hero.hidden = false; return; }
+  hero.hidden = true; box.hidden = false; box.classList.toggle("allm", list.every(x => x.mobile));
+  box.innerHTML = `<div class="wrap pwrap"><div class="pslides" id="pslides">` + list.map((x, i) => {
+    const href = linkHref(x.link), ext = /^https?:/i.test(href);
+    const pic = `<picture>${x.mobile ? `<source media="(max-width:700px)" srcset="${esc(x.mobile)}">` : ""}<img src="${esc(x.image)}" alt="${esc(x.alt || "Offer " + (i + 1))}" ${i ? 'loading="lazy"' : ""}></picture>`;
+    return href ? `<a class="pslide" href="${esc(href)}" ${ext ? 'target="_blank" rel="noopener"' : "data-go"}>${pic}</a>` : `<div class="pslide">${pic}</div>`;
+  }).join("") + `</div>` + (list.length > 1 ? `<button class="pa l" data-pa="-1" aria-label="Previous poster">‹</button><button class="pa r" data-pa="1" aria-label="Next poster">›</button><div class="pdots">${list.map((_, i) => `<button data-pdot="${i}" aria-label="Poster ${i + 1}" aria-current="${i === 0}"></button>`).join("")}</div>` : "") + `</div>`;
+  if(list.length < 2) return;
+  const sl = $("#pslides"); let hold = false;
+  const dots = () => { const i = Math.round(sl.scrollLeft / sl.clientWidth); box.querySelectorAll("[data-pdot]").forEach((d, k) => d.setAttribute("aria-current", String(k === i))); };
+  sl.addEventListener("scroll", () => requestAnimationFrame(dots), {passive: true});
+  box.addEventListener("mouseenter", () => hold = true); box.addEventListener("mouseleave", () => hold = false);
+  box.addEventListener("touchstart", () => hold = true, {passive: true}); box.addEventListener("touchend", () => setTimeout(() => hold = false, 4000), {passive: true});
+  if(!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches))
+    posterTimer = setInterval(() => { if(hold || document.hidden) return; posterGo(1); }, 5500);
+}
+function posterGo(d){
+  const sl = $("#pslides"); if(!sl) return; const n = sl.children.length;
+  const i = (Math.round(sl.scrollLeft / sl.clientWidth) + d + n) % n; sl.scrollTo({left: i * sl.clientWidth, behavior: "smooth"});
+}
+const catCfg = n => (DATA.categories || []).find(c => c && String(c.name).toLowerCase() === n.toLowerCase()) || {};
+function renderRoundCats(){
+  const cats = catList(); setSec("categories", !cats.length);
+  $("#rcats").innerHTML = cats.map(c => {
+    const cfg = catCfg(c), first = products.find(p => p.category === c), src = cfg.image || (first ? mainImg(first) : "");
+    return `<a class="rcat" href="#category/${enc(c)}" data-go><span class="rc-img${cfg.image ? "" : " fb"}"><i>${esc(c.charAt(0).toUpperCase())}</i>${src ? `<img src="${esc(src)}" alt="" loading="lazy" onerror="this.remove()">` : ""}</span><b>${esc(c)}</b></a>`;
+  }).join("");
+}
+const brandCfg = n => (DATA.brands || []).find(b => b && String(b.name).toLowerCase() === n.toLowerCase()) || {};
+function renderBrandCards(){
+  const have = [...new Set(products.map(p => p.brand).filter(Boolean))];
+  have.sort((a, b) => a.localeCompare(b, undefined, {sensitivity: "base"}));
+  setSec("brands", !have.length);
+  $("#bgrid").innerHTML = have.map(n => { const c = brandCfg(n);
+    return `<a class="bcard" href="#brand/${enc(n)}" data-go><span class="bl">${c.logo ? `<img src="${esc(c.logo)}" alt="${esc(n)} logo" loading="lazy">` : `<b>${esc(n)}</b>`}</span>${c.logo ? `<b>${esc(n)}</b>` : ""}${c.line ? `<span class="bline">${esc(c.line)}</span>` : ""}</a>`;
+  }).join("");
+}
+function renderIngredients(){
+  const list = (DATA.ingredients || []).filter(i => i && i.name); setSec("ingredients", !list.length);
+  $("#igrid").innerHTML = list.map(i => `<button class="icard" data-ing="${esc(i.id)}"><span class="ii">${i.image ? `<img src="${esc(i.image)}" alt="" loading="lazy">` : `<i>${esc(i.name.charAt(0).toUpperCase())}</i>`}</span><span class="it"><b>${esc(i.name)}</b>${i.summary ? `<span>${esc(i.summary)}</span>` : ""}</span></button>`).join("");
+}
+function openIng(id){
+  const i = (DATA.ingredients || []).find(x => String(x.id) === String(id)); if(!i) return;
+  $("#ingDlg").innerHTML = `<div class="ing-d"><button class="close" data-close="ingDlg" aria-label="Close">✕</button>${i.image ? `<img src="${esc(i.image)}" alt="">` : ""}<h2>${esc(i.name)}</h2>${i.summary ? `<div style="font-weight:600">${esc(i.summary)}</div>` : ""}<div class="desc">${esc(i.details || "")}</div>${i.keyword ? `<button class="btn" data-ingshop="${esc(i.keyword)}">Shop products with ${esc(i.name)}</button>` : ""}</div>`;
+  $("#ingDlg").showModal();
+}
+
 /* ================= events ================= */
 document.addEventListener("click", e => {
-  const t = e.target.closest("[data-cat],[data-sub],[data-open],[data-add],[data-inc],[data-dec],[data-thumb],[data-close],[data-size],[data-flav],[data-g],[data-rmfood],[data-shopcat],[data-shelf],[data-sh],[data-lb],[data-gnav],[data-share],[data-sharelist],[data-back],[data-cert],[data-revmore]"); if(!t) return;
+  const t = e.target.closest("[data-cat],[data-sub],[data-open],[data-add],[data-inc],[data-dec],[data-thumb],[data-close],[data-size],[data-flav],[data-g],[data-rmfood],[data-shopcat],[data-shelf],[data-sh],[data-lb],[data-gnav],[data-share],[data-sharelist],[data-back],[data-cert],[data-revmore],[data-go],[data-menulink],[data-pa],[data-pdot],[data-ing],[data-ingshop]"); if(!t) return;
   const d = t.dataset;
+  if(d.menulink !== undefined){ menuOpen(false); return; }
+  if(d.go !== undefined){ const h = t.getAttribute("href"); if(h && h.startsWith("#")){ e.preventDefault(); if(location.hash === h) route(); else location.hash = h; } return; }
+  if(d.pa !== undefined){ posterGo(+d.pa); return; }
+  if(d.pdot !== undefined){ const sl = $("#pslides"); sl.scrollTo({left: +d.pdot * sl.clientWidth, behavior: "smooth"}); return; }
+  if(d.ing !== undefined){ openIng(d.ing); return; }
+  if(d.ingshop !== undefined){ $("#ingDlg").close(); setView({reset:true}); state.q = d.ingshop; $("#q").value = d.ingshop; renderGrid(); $("#shop").scrollIntoView({behavior:"smooth"}); return; }
   if(d.cat !== undefined) setView({cat: d.cat});
   else if(d.sub !== undefined){ setView({cat: state.cat, sub: d.sub}); }
   else if(d.shelf !== undefined){ e.preventDefault(); setView({shelf: d.shelf, reset: true}, true); }
@@ -1225,11 +1443,14 @@ document.addEventListener("click", e => {
   else if(d.cert !== undefined) openLB(CERT_IMGS, +d.cert);
   else if(d.revmore !== undefined){ revAll = !revAll; renderReviewGrid(); }
 });
-["detail", "cart"].forEach(id => $("#" + id).addEventListener("click", e => { if(e.target.id === id) e.target.close(); }));
+["detail", "cart", "ingDlg"].forEach(id => $("#" + id).addEventListener("click", e => { if(e.target.id === id) e.target.close(); }));
 $("#detail").addEventListener("close", () => { if(location.hash.startsWith("#product-")) syncHash(); });
 $("#q").addEventListener("input", e => { state.q = e.target.value; renderGrid(); });
 $("#sort").addEventListener("change", e => { state.sort = e.target.value; renderGrid(); });
 $("#brand-filter").addEventListener("change", e => { state.brand = e.target.value; renderGrid(); });
+$("#burger").addEventListener("click", () => menuOpen(!$("#menu").classList.contains("open")));
+$("#menuClose").addEventListener("click", () => menuOpen(false)); $("#menuBg").addEventListener("click", () => menuOpen(false));
+document.addEventListener("keydown", e => { if(e.key === "Escape") menuOpen(false); });
 $("#cartBtn").addEventListener("click", () => { renderCart(); $("#cart").showModal(); });
 $("#cartClose").addEventListener("click", () => $("#cart").close());
 $("#sendOrder").addEventListener("click", sendOrder);
@@ -1253,7 +1474,7 @@ $("#p_goal").addEventListener("input", () => { autoGoal = false; renderProtein()
     products = (DATA.products || []).map(normProduct).filter(Boolean);
     canonicalize(products);
   }catch(e){ console.warn("Could not load data/site.json", e); loadFailed = true; }
-  applyConfig(); renderShelves(); renderCats(); renderGrid(); renderCart(); renderCerts(); loadReviews();
+  applyConfig(); applySections(); renderPosters(); renderRoundCats(); renderShelves(); renderBrandCards(); renderIngredients(); renderCats(); renderGrid(); renderCart(); renderCerts(); buildMenu(); loadReviews();
   route();
 })();
 </script>
