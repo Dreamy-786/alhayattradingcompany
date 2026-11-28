@@ -4009,6 +4009,30 @@
         }
       ],
       "id": "88"
+    },
+    {
+      "name": "ProTan HAIR AWAY® Total Body Hair Remover",
+      "brand": "ProTan",
+      "category": "Accessories",
+      "subcategory": "Body Hair Removal",
+      "sku": "",
+      "rating": 3.1,
+      "featured": "yes",
+      "description": "HAIR AWAY Total Body Hair Remover is designed to help remove unwanted body hair for a smooth, clean appearance. Ideal for bodybuilding, fitness competitions and personal grooming, it helps prepare the skin for tanning and stage presentation.",
+      "images": [],
+      "variants": [
+        {
+          "vid": "0",
+          "size": "",
+          "flavour": "",
+          "servings": "",
+          "price": 1599,
+          "mrp": 1599,
+          "stock": "yes",
+          "image": ""
+        }
+      ],
+      "id": "89"
     }
   ],
   "reviews": [
@@ -4273,5 +4297,10 @@
       "enabled": true,
       "products": []
     }
-  ]
+  ],
+  "posters": [],
+  "categories": [],
+  "brands": [],
+  "ingredients": [],
+  "sections": {}
 }
